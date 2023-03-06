@@ -1,0 +1,107 @@
+.upside-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: #5579fe;
+}
+
+.upside-contents {
+  display: flex;
+  width: 96%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: right;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 2rem;
+  width: 100%;
+  height: 7rem;
+  background-color: #5579fe;
+}
+
+.contents {
+  display: flex;
+  width: 96%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Coby {
+  width: 12%;
+  height: 4.5rem;
+  margin-bottom: 2rem;
+  /* margin-left: 2rem; */
+  position: relative;
+  display: inline-block;
+  background-image: url(/src/images/Coby.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* .Coby {
+    width: 6%;
+    height: 1.2rem;
+    position: relative;
+    display: inline-block;
+    background-image: url(/src/images/Coby.png);
+    background-size: cover;
+  
+    max-width: 6%;
+  } */
+
+.upside-navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.upside-navigation li {
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.upside-navigation li + li {
+  margin-left: 3rem;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation li {
+  cursor: pointer;
+  color: white;
+  margin-top: 5.2rem;
+  font-size: 1.2rem;
+}
+
+.navigation li:hover{
+  text-decoration-line: underline;
+  text-decoration-color: white;
+  text-decoration-thickness: 3px;
+}
+
+.navigation li + li {
+  margin-left: 3rem;
+}
+
+@media (min-width: 1440px) {
+  .contents {
+    justify-content: space-between;
+  }
+
+  .navigation li {
+    font-size: 1.4rem;
+  }
+}
