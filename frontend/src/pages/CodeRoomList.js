@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import Layout from "../components/Layout";
-import MakeRoomModal from "../components/MakeRoomModal";
-import Backdrop from "../components/Backdrop";
+import Layout from "../components/reuse/Layout";
+import MakeRoomModal from "../components/makeCodeRoom/MakeRoomModal";
+import Backdrop from "../components/reuse/Backdrop";
 import "./CodeRoomList.css";
 
 function CodeRoomList() {

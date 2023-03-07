@@ -1,0 +1,33 @@
+.container {
+    background-color: black;
+    display: flex;
+  }
+  .sidebar {
+    background-color: #5579fe;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s ease;
+    color: white;
+    height: 100%;
+    z-index: 99;
+  }
+  .button{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 5px;
+    display: flex;
+  }
+  .icon {
+    margin: 0;
+    color: #202020;
+  }
+  .logo {
+    position: absolute;
+    left: 90px;
+    top: 60px;
+    width: 100px;
+    height: 80px;
+  }
