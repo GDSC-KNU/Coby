@@ -1,22 +1,33 @@
 import React from "react";
+import { useState } from "react";
+import Login from "../modal/log/LoginModal";
+import Backdrop from "./Backdrop";
 
 import "./Header.css";
 
 function Header() {
+    const [modalOpen, setModalOpen] = useState(false);
+    const showModal = () => {
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+      setModalOpen(false)
+  }
+
   return (
     <div>
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
-              <li>
-                <div className="Signup" />
+              <button className="Signin">
                 회원가입
-              </li>
-              <li>
-                <div className="Login" />
+              </button>
+              <button onClick={showModal} className="Login">
                 로그인
-              </li>
+              </button>
+              {modalOpen && <Login setModalOpen={setModalOpen} />}
+              {modalOpen && <Backdrop onCancel={closeModal} />}
             </ul>
           </nav>
         </div>

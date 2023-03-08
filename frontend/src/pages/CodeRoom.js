@@ -7,7 +7,7 @@ const CodeRoom = () => {
     <div>
       <Sidebar />
       <main>
-        <h1>코드룸 입니다.</h1>
+        <h1>테스트중입니다</h1>
       </main>
     </div>
   );
