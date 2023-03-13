@@ -1,14 +1,16 @@
 import React from "react";
 
-import Card from "../reuseUI/Card";
+import "./RoomItem.css";
 
-function RoomItem() {
+function RoomItem(props) {
   return (
-    <Card className="Room-item">
-      <div>
-        <h2>제목</h2>
+    <div className="Room-item">
+      <div className="Room-item__tool">{props.tool}</div>
+      <div className="Room-item__description">
+        <h4>{props.title}</h4>
+        <p>{props.language}</p>
       </div>
-    </Card>
+    </div>
   );
 }
 

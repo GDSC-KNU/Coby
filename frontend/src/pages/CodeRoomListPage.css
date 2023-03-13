@@ -5,7 +5,7 @@
   justify-content: center;
   width: 58rem;
   max-width: 95%;
-  height: calc(100vh - 9rem); /* 높이 바꿔야됨 임시*/
+  height: calc(100vh - 5.98rem); /* 높이 바꿔야됨 임시*/
   margin: 0 auto;
   background: #ffffff;
 }
@@ -22,8 +22,10 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows : 1fr 1fr 1fr;
-  grid-gap: 8px;
+  grid-template-rows : 1fr 1fr 1fr 1fr;
+  grid-row-gap: 0.1px;
+  grid-column-gap: 8px;
+  
   /* 
   width: 50%;
   max-width: 100%;
@@ -36,8 +38,8 @@
 
   margin: 2rem auto;
   width: 50rem;
-  top: 54%;
-  height: 53%;
+  
+  height: 54%;
   max-width: 80%;
   background-color: rgba(223,229,236,0.3);
 }
@@ -48,7 +50,7 @@
 
   position: relative;
   left: 40%;
-  top: 43%; 
+  top: 44.5%; 
 
   display: flex;
   align-items: center;
@@ -73,24 +75,26 @@
 
 @media (min-width: 540px){
   .CodeRoomListBox{
-    top: 54%;
-    height: 55%;
+    top: 50%;
+    height: 63%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows : 1fr 1fr 1fr 1fr;
-    grid-gap: 8px;
+    grid-template-rows : 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 8px;
   }
 }
 
-@media(min-width: 820px){
+@media(min-width: 750px){
   .CodeRoomListBox{
-    top: 54%;
-    height: 55%;
+    top: 50%;
+    height: 60%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows : 1fr 1fr 1fr 1fr;
-    grid-gap: 8px;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 8px;
   }
 }
 
@@ -102,11 +106,12 @@
   }
 
   .CodeRoomListBox {
-    height: 58%;
+    height: 60%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows : 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 8px;
+    grid-template-rows : 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 8px;
   }
 }

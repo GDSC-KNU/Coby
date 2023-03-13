@@ -1,14 +1,55 @@
-.Room-item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 0.5rem;
-    height: 74%;
-    width: 95%;
-    margin:1rem 0;
-    
-    border: 1px solid #dfe5ec;
-    background-color: white;
-    
+.Room-item {
+  display: flex;
+  align-items: center;
+
+  padding: 0.5rem;
+  height: 74%;
+  width: 95%;
+  margin: 0;
+
+  border: 2px solid #DFE5EC;
+  border-radius: 20px;
+  background-color: white;
 }
+
+.Room-item__tool {
+  display: flex;
+  flex-direction: column;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  border: 1px solid #ececec;
+  background-color: #5579fe;
+  color: white;
+  border-radius: 12px;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.Room-item__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  
+}
+
+.Room-item__description h4 {
+  margin-left: 2;
+  font-size: 1rem;
+  margin: 0.2rem;
+ 
+}
+
+.Room-item__description p {
+    margin: 0.2rem;   
+}
+  

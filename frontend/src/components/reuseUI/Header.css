@@ -21,9 +21,9 @@
 .header {
   position: fixed;
   left: 0;
-  top: 2rem;
+  top: 1rem;
   width: 100%;
-  height: 7rem;
+  height: 5rem;
   background-color: #5579fe;
 }
 
@@ -38,9 +38,9 @@
 }
 
 .Coby {
-  width: 12%;
-  height: 4.5rem;
-  margin-bottom: 2rem;
+  width: 9%;
+  height: 3rem;
+  
   /* margin-left: 2rem; */
   position: relative;
   display: inline-block;
@@ -83,7 +83,7 @@
 .navigation li {
   cursor: pointer;
   color: white;
-  margin-top: 5.2rem;
+  margin-top: 3.7rem;
   font-size: 1.2rem;
 }
 
