@@ -17,7 +17,6 @@ public class Post {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="id")
     private Group group;
 
     @Column(nullable = false)
