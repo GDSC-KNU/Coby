@@ -3,7 +3,11 @@ import { useState } from "react";
 import Layout from "../components/reuseUI/Layout";
 import MakeRoomModal from "../components/makeCodeRoom/MakeRoomModal";
 import Backdrop from "../components/reuseUI/Backdrop";
+import Card from "../components/reuseUI/Card";
 import "./CodeRoomList.css";
+import RoomItem from "../components/makeCodeRoom/RoomItem";
+
+
 
 function CodeRoomList() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -19,12 +23,23 @@ function CodeRoomList() {
   return (
     <div>
       <Layout />
-      <div className="PageBox">
-        {/* <main>
-          <h2>코드룸 리스트입니다.</h2>
-        </main> */}
-        <button className="MakeRoomBtn" onClick={deleteHandler}>+ 방생성</button>
-      </div>
+      <Card className="PageBox">
+        <Card className="CodeRoomListBox">
+          <RoomItem/>
+          <RoomItem/>
+          <RoomItem/>
+          {/* <RoomItem/>
+          <RoomItem/>
+          <RoomItem/>
+          <RoomItem/>
+          <RoomItem/>
+          <RoomItem/>
+          <RoomItem/> */}
+        </Card>
+        <button className="MakeRoomBtn" onClick={deleteHandler}>
+          + 방생성
+        </button>
+      </Card>
 
       {modalIsOpen && <MakeRoomModal />}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}

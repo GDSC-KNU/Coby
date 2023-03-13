@@ -1,0 +1,14 @@
+.Room-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0.5rem;
+    height: 74%;
+    width: 95%;
+    margin:1rem 0;
+    
+    border: 1px solid #dfe5ec;
+    background-color: white;
+    
+}

@@ -1,13 +1,45 @@
 .PageBox {
-  padding-top: 5rem;
+  /* padding-top: 5rem; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 66%;
-  height: 800px; /* 높이 바꿔야됨 임시*/
+  width: 58rem;
+  max-width: 95%;
+  height: calc(100vh - 9rem); /* 높이 바꿔야됨 임시*/
   margin: 0 auto;
   background: #ffffff;
-  z-index: -1;
+}
+
+.CodeRoomListBox {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows : 1fr 1fr 1fr;
+  grid-gap: 8px;
+  /* 
+  width: 50%;
+  max-width: 100%;
+  
+  padding: 0.5rem;
+  margin: 1rem 0 auto;
+  background-color: white; */
+
+  padding: 1rem;
+
+  margin: 2rem auto;
+  width: 50rem;
+  top: 54%;
+  height: 53%;
+  max-width: 80%;
+  background-color: rgba(223,229,236,0.3);
 }
 
 .MakeRoomBtn {
@@ -16,13 +48,13 @@
 
   position: relative;
   left: 40%;
-  top: 10%; /*높이 바꿔야됨 임시*/
+  top: 43%; 
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  /* 모달창 디자인 */
   cursor: pointer;
   background-color: #5579fe;
   color: white;
@@ -33,15 +65,48 @@
   font-size: 0.74rem;
 }
 
-.MakeRoomBtn:hover{
-  background-color: #7B89FF;
-  border-color: #7B89FF;
+.MakeRoomBtn:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 540px){
+  .CodeRoomListBox{
+    top: 54%;
+    height: 55%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows : 1fr 1fr 1fr 1fr;
+    grid-gap: 8px;
+  }
+}
+
+@media(min-width: 820px){
+  .CodeRoomListBox{
+    top: 54%;
+    height: 55%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows : 1fr 1fr 1fr 1fr;
+    grid-gap: 8px;
+  }
+}
+
+@media (min-width: 1440px) {
   .MakeRoomBtn {
     width: 12%;
     height: 2.5rem;
     font-size: 1rem;
+  }
+
+  .CodeRoomListBox {
+    height: 58%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows : 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 8px;
   }
 }
