@@ -13,10 +13,8 @@ public class GroupTagMap {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id")
     private Group group;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id")
     private Tag tag;
 }

@@ -16,11 +16,11 @@ public class User {
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id")
     private Group group;
 
     @Column(nullable = false)
     private String name;
+    
     @Column(nullable = false)
     private String password;
 

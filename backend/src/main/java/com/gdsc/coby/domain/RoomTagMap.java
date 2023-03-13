@@ -13,10 +13,8 @@ public class RoomTagMap {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id")
     private Room room;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id")
     private Tag tag;
 }
