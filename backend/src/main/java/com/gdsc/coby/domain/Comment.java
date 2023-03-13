@@ -5,10 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +17,19 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id")
-    private Post post_id;
+    private Post post;
 
     @Column(nullable = false)
     private String content;
 
+    protected Comment() {}
+
+    private Comment(Post post, String content) {
+        this.post = post;
+        this.content = content;
+    }
+
+    public static Comment of(Post post, String content) {
+        return new Comment(post, content);
+    }
 }

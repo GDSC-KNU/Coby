@@ -2,29 +2,41 @@ package com.gdsc.coby.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
+import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Table(name = "user_account")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(length = 50)
+    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id")
-    private Group group_id;
+    private Group group;
 
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String password;
 
-    private BigInteger exp_point;
+    private Long exp_point;
 
+    protected User() {}
+
+    private User(String email, Group group, String name, String password, Long exp_point) {
+        this.email = email;
+        this.group = group;
+        this.name = name;
+        this.password = password;
+        this.exp_point = exp_point;
+    }
+
+    public static User of(String email, Group group, String name, String password, Long exp_point) {
+        return new User(email, group, name, password, exp_point);
+    }
 }

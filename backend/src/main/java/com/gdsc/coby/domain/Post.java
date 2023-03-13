@@ -4,14 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,15 +18,27 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id")
-    private Group group_id;
+    private Group group;
 
     @Column(nullable = false)
     private String title;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10000)
     private String content;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Comment> commentList = new ArrayList<>();
+    @ToString.Exclude
+    //@OrderBy("createdAt DESC")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private final Set<Comment> postComments = new LinkedHashSet<>();
 
+    protected Post() {}
 
+    private Post(Group group, String title, String content) {
+        this.group = group;
+        this.title = title;
+        this.content = content;
+    }
+
+    public static Post of(Group group, String title, String content) {
+        return new Post(group, title, content);
+    }
 }

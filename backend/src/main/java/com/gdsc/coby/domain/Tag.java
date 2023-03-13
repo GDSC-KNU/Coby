@@ -1,15 +1,15 @@
 package com.gdsc.coby.domain;
 
-import com.gdsc.coby.domain.constant.Type;
+import com.gdsc.coby.domain.constant.TagType;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +20,17 @@ public class Tag {
     private String color;
 
     @Enumerated(EnumType.STRING)
-    private Type status;
+    private TagType tagType;
+
+    protected Tag() {}
+
+    private Tag(String name, String color, TagType tagType) {
+        this.name = name;
+        this.color = color;
+        this.tagType = tagType;
+    }
+
+    public static Tag of(String name, String color, TagType tagType) {
+        return new Tag(name, color, tagType);
+    }
 }

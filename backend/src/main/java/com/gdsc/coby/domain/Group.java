@@ -4,14 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +21,19 @@ public class Group {
 
     private String description;
 
-    @OneToMany
-    private List<User> userList = new ArrayList<>();
+    @ToString.Exclude
+    @OrderBy("exp_point ASC")
+    @OneToMany(mappedBy = "group")
+    private Set<User> members = new LinkedHashSet<>();
 
+    protected Group() {}
 
+    private Group(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public static Group of(String name, String description) {
+        return new Group(name, description);
+    }
 }
