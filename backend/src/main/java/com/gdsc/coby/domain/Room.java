@@ -35,4 +35,16 @@ public class Room {
     public static Room of(String name, String url, String password, Integer limit) {
         return new Room(name, url, password, limit);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Room that)) return false;
+        return id != null && id.equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

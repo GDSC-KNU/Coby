@@ -39,4 +39,16 @@ public class User {
     public static User of(String email, Group group, String name, String password, Long exp_point) {
         return new User(email, group, name, password, exp_point);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User that)) return false;
+        return email != null && email.equals(that.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
+    }
 }
