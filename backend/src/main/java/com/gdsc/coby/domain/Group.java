@@ -11,7 +11,7 @@ import java.util.*;
 @Entity
 @Getter
 @Setter
-public class Group {
+public class Group extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

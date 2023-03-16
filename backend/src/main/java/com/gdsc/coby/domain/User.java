@@ -10,7 +10,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @Table(name = "user_account")
-public class User {
+public class User extends AuditingFields{
     @Id
     @Column(length = 50)
     private String email;
