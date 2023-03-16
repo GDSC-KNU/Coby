@@ -19,4 +19,15 @@ public class GroupTagMap {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id")
     private Tag tag;
+
+    protected GroupTagMap(){};
+
+    private GroupTagMap(Group group, Tag tag) {
+        this.group = group;
+        this.tag = tag;
+    }
+
+    public static GroupTagMap of(Group group,Tag tag){
+        return new GroupTagMap(group,tag);
+    }
 }
