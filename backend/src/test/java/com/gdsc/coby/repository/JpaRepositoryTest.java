@@ -4,11 +4,19 @@ import com.gdsc.coby.domain.*;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("JPA 연결 테스트")
 @DataJpaTest
+@Import(JpaRepositoryTest.TestJpaConfig.class)
 class JpaRepositoryTest {
     private final UserRepository userRepository;
 
@@ -76,5 +84,26 @@ class JpaRepositoryTest {
         //then
         assertThat(userRepository.count()).isEqualTo(previousUserCount - 1);
         assertThat(userRepository.findByEmail(savedUser.getEmail())).isEmpty();
+    }
+
+    @DisplayName("생성자, 생성일자가 제대로 저장되는지 확인한다.")
+    @Test
+    void givenUserData_whenInsertingAuditingFields_thenWorksFine() {
+        //given
+        User user = User.of("test@email.com", null, "test", "1234~!#", 0L);
+        //when
+        User savedUser = userRepository.save(user);
+        //then
+        assertThat(savedUser.getCreatedAt()).isNotNull();
+        assertThat(savedUser.getCreatedBy()).isEqualTo("coby");
+    }
+
+    @EnableJpaAuditing
+    @TestConfiguration
+    public static class TestJpaConfig {
+        @Bean
+        public AuditorAware<String> auditorAware() {
+            return () -> Optional.of("coby");
+        }
     }
 }
