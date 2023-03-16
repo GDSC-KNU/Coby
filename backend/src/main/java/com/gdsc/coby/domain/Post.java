@@ -11,7 +11,7 @@ import java.util.*;
 @Entity
 @Getter
 @Setter
-public class Post {
+public class Post extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +25,7 @@ public class Post {
     private String content;
 
     @ToString.Exclude
-    //@OrderBy("createdAt DESC")
+    @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private final Set<Comment> postComments = new LinkedHashSet<>();
 

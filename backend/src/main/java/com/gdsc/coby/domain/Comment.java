@@ -10,7 +10,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-public class Comment {
+public class Comment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

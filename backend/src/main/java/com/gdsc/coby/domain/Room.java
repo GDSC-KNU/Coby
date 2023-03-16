@@ -9,8 +9,12 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@Table(indexes = {
+        @Index(columnList = "name"),
+        @Index(columnList = "createdAt")
+})
 @Entity
-public class Room {
+public class Room extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
