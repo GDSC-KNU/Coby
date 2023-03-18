@@ -38,9 +38,10 @@
 }
 
 .Coby {
+  cursor: pointer;
   width: 12%;
   height: 2.2rem;
-  
+
   margin-top: 0rem;
   position: relative;
   display: inline-block;
@@ -49,16 +50,38 @@
   background-repeat: no-repeat;
 }
 
-/* .Coby {
-    width: 6%;
-    height: 1.2rem;
-    position: relative;
-    display: inline-block;
-    background-image: url(/src/images/Coby.png);
-    background-size: cover;
-  
-    max-width: 6%;
-  } */
+/* .Group{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 30%;
+  height: 1rem;
+  background-image: url(/src/images/Group.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.MyGroup {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/MyGroup.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Question{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/Question.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
 
 .upside-navigation ul {
   display: flex;
@@ -68,27 +91,29 @@
 .navigation ul {
   display: flex;
   list-style: none;
+  /* display: inline-block; */
 }
 
 .navigation li {
- 
+  display: inline-block;
   cursor: pointer;
   color: white;
-  margin-top: 2rem;
+ 
+  margin-top: 0.3rem;
   font-size: 0.6rem;
 }
 
-.navigation li:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 3px;
+.navigation li:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
 }
 
 .navigation li + li {
   margin-left: 3rem;
 }
 
-.Login{
+.Login {
   cursor: pointer;
   font-size: 0.4rem;
   border: 0px;
@@ -96,13 +121,13 @@
   background-color: #5579fe;
   color: white;
 }
-.Login:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 1px;
+.Login:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
 }
 
-.Signin{
+.Signin {
   cursor: pointer;
   font-size: 0.4rem;
   border: 0px;
@@ -110,10 +135,10 @@
   background-color: #5579fe;
   color: white;
 }
-.Signin:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 1px;
+.Signin:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
 }
 
 @media (min-width: 600px) {
@@ -121,7 +146,6 @@
     font-size: 0.8rem;
   }
 }
-
 
 @media (min-width: 1024px) {
   .contents {
