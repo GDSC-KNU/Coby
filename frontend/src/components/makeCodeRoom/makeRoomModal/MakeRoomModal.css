@@ -1,7 +1,7 @@
-.RoomModal {
+.RoomModals {
   /* 모달창 크기 */
-  width: 480px;
-  height: 630px;
+  width: 25rem;
+  height: 28rem;
 
   /* 최상단 위치 */
   z-index: 999;
@@ -21,31 +21,29 @@
 }
 
 .RoomModal-logo {
-  width: 100px;
-  height: 74px;
+  width: 20%;
+  height: 4rem;
   position: absolute;
   top: 17px;
-  left: 200px;
+  left: 40%;
 }
 
 .RoomModal-control {
   flex-wrap: wrap;
-  margin-bottom: 0.1rem;
+  /* margin-bottom: 0.1rem; */
   text-align: left;
 }
 
 .RoomModal form{
-  position:relative;
-  left: 61px;
-  top: 90px;
+  display: inline;
 } 
 
 
 .RoomModal-control p {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  
   display: block;
-
+  font-size: 0.4rem;
   position: relative;
   left: 10px;
 }
@@ -54,8 +52,8 @@
   font: inherit;
   border: 1px solid black;
   border-radius: 20px;
-  width: 358px;
-  height: 30px;
+  width: 20rem;
+  height: 1.5rem;
 }
 
 .RoomModal-control select{
@@ -63,8 +61,8 @@
   font-weight: bold;
   border: 1px solid black;
   border-radius: 20px;
-  width: 358px;
-  height: 30px;
+  width: 20.3rem;
+  height: 1.5rem;
 }
 
 .RoomModal-actions {
@@ -72,17 +70,17 @@
 }
 
 .RoomModal-actions button {
-  width: 200px;
-  height: 38px;
+  width: 8rem;
+  height: 1.8rem;
   border-radius: 20px;
   position: relative;
-  top: 117px;
+  top: 6.5rem;
   background-color: #5579fe;
   border: 0px;
   color: white;
 }
 
-.RoomModal-actions button:hover{
+.RoomModal-actions button:hover {
   font-weight: bold;
   transition: all 0.3s;
   scale: 1.05;

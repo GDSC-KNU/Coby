@@ -1,70 +1,49 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Layout from "../components/reuseUI/Layout";
-import MakeRoomModal from "../components/makeCodeRoom/MakeRoomModal";
-import Backdrop from "../components/reuseUI/Backdrop";
-import Card from "../components/reuseUI/Card";
+import MakeRoom from "../components/makeCodeRoom/MakeRoom";
+
+
 import "./CodeRoomListPage.css";
-import RoomItem from "../components/makeCodeRoom/RoomItem";
 
 
-const DUMMY_DATA = [
-  {
-    id: "e1",
-    title: "동적 할당 관련 질문있습니다.",
-    language: "C++",
-    tool: "Visual Studio Code"
-  }
-]
+function CodeRoomListPage(props) {
+ 
 
+  const DUMMY_DATA = [
+    {
+      id: "e1",
+      title: "동적 할당 관련 질문있습니다.",
+      language: "C++",
+      tool: "Visual Studio Code",
+    },
+    {
+      id: "e2",
+      title: "왜 안 돌아감?",
+      language: "JAVA",
+      tool: "Visual Studio Code"
+    },
+    {
+      id: "e3",
+      title: "코드에 관해서",
+      language: "Python",
+      tool: "Visual Studio Code"
+    }
+  ];
 
+  const [makeRooms, setMakeRooms] = useState(DUMMY_DATA);
 
-function CodeRoomListPage() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  // const [makeRooms, setMakeRooms] = useState(DUMMY_DATA);
-
-  // const addMakeRoomHandler = (makeRoom) => {
-  //   setMakeRooms((prevMakeRooms) => {
-  //     return [makeRoom, ...prevMakeRooms];
-  //   });
-  // };
-
-  function deleteHandler() {
-    setModalIsOpen(true);
-  }
-
-  function closeModalHandler() {
-    setModalIsOpen(false);
-  }
+  const addRoomHandler = (makeRoom) => {
+    setMakeRooms((prevMakeRooms) => {
+      return [makeRoom, ...prevMakeRooms];
+    });
+  };
 
   return (
     <div>
       <Layout />
-      <Card className="PageBox">
-        <Card className="CodeRoomListBox">
-          <RoomItem
-          title = {DUMMY_DATA[0].title}
-          language = {DUMMY_DATA[0].language}
-          tool = {DUMMY_DATA[0].tool}
-          />
-          <RoomItem/>
-          <RoomItem/>
-          <RoomItem/>
-          {/* <RoomItem/> */}
-          {/* <RoomItem/> */}
-          {/* <RoomItem/>
-          <RoomItem/> */}
-          {/* <RoomItem/>
-          <RoomItem/> */}
-        </Card>
-        <button className="MakeRoomBtn" onClick={deleteHandler}>
-          + 방생성
-        </button>
-      </Card>
-
-      {modalIsOpen && <MakeRoomModal />}
-      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
+      <MakeRoom items={makeRooms} />
+        
     </div>
   );
 }
