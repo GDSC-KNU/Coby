@@ -1,29 +1,35 @@
 import './SigninModal.css';
-import logo from '../../../images/logo_black.png'
+import { useState } from 'react';
+import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 
 function SignIn({ setModalOpen}) {
-    const closeModal = () => {
-        setModalOpen(false)
+    const [showPswd, setShowPswd] = useState(false);
+    const toggleShowPswd = () => {
+        setShowPswd(!showPswd);
     }
 
     return (
-        <div className="container">
-            <div>
-                <img src={logo} alt="로고" className="logo" />
-                <button className="close" onClick={closeModal}>
-                X
-                </button>
-            </div>
-            <div className="form">
+        <div className="container1">
+            <div className="form1">
                 <p>이메일</p>
-                <input className="input"></input>
+                <input className="input1"></input>
+                <p>이름</p>
+                <input className="input1"></input>
                 <p>비밀번호</p>
-                <input className="input"></input>
-            </div>
-            <div className="bottom">
-                <button className="find_botton">아이디 찾기</button>
-                <button className="find_botton">비밀번호 찾기</button>
-                <button className="button">회원가입</button>
+                <input className="input1" type={showPswd ? "text" : "password"}></input>
+                    {showPswd ? (
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
+                    ) : (
+                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
+                    )}
+                <p>비밀번호 확인</p>
+                <input className="input1" type={showPswd ? "text" : "password"}></input>
+                    {showPswd ? (
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
+                    ) : (
+                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
+                    )}
+                <button className="button1">회원가입</button>
             </div>
         </div>
     );

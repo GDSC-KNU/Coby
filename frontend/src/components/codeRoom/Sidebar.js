@@ -22,9 +22,17 @@ const Sidebar = ({ children }) => {
             style={{ display: isOpen ? "block" : "none" }}
           />
           {isOpen ? (
-            <div style={{ marginLeft: "240px" }}>
-              <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
-            </div>
+            <>
+              <div style={{ marginLeft: "240px" }}>
+                <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
+            </>
           ) : (
             <div style={{ marginLeft: "0px" }}>
               <MdKeyboardArrowRight

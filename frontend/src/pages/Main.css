@@ -1,0 +1,26 @@
+.App{
+    background-Color: #DFE5EC;
+    height: 100vh;
+    width: 1440px;
+}
+.introduce{
+    position: relative;
+    top: 10%;
+    width: 80vw;
+    height: 50vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+.title{
+    font-size: 5vw;
+    font-weight: 1000;
+    text-align: center;
+}
+.word{
+    font-size: 2vw;
+    text-align: center;
+}
+.Ad{
+    width: 100vw;
+    height: 45vh;
+}
