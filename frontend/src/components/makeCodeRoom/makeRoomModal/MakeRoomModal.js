@@ -68,10 +68,10 @@ function MakeRoomModal(props) {
           <p>사용 도구</p>
           <MakeRoomToolFilter />
         </div>
-        <div className="RoomModal-control">
+        {/* <div className="RoomModal-control">
           <p>사용 목적</p>
           <MakeRoomPurposeFilter />
-        </div>
+        </div> */}
         <div className="RoomModal-control">
           <p>비밀번호</p>
           <input

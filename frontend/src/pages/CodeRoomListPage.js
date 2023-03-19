@@ -27,7 +27,7 @@ function CodeRoomListPage(props) {
       id: "e3",
       title: "코드에 관해서",
       language: "Python",
-      tool: "Visual Studio Code"
+      tool: "IntelliJ"
     }
   ];
 

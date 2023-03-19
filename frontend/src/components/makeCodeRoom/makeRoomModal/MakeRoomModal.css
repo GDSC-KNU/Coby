@@ -1,7 +1,7 @@
 .RoomModals {
   /* 모달창 크기 */
   width: 25rem;
-  height: 28rem;
+  height: 26rem;
 
   /* 최상단 위치 */
   z-index: 999;
@@ -15,6 +15,7 @@
   transform: translate(-50%, -50%);
 
   /* 모달창 디자인 */
+  padding-top: 1rem;
   background-color: white;
   border: 1px solid black;
   border-radius: 30px;
@@ -23,29 +24,35 @@
 .RoomModal-logo {
   width: 20%;
   height: 4rem;
-  position: absolute;
-  top: 17px;
+  position: relative;
   left: 40%;
+  
+  justify-content: center;
+  align-items: center;
 }
 
 .RoomModal-control {
   flex-wrap: wrap;
-  /* margin-bottom: 0.1rem; */
-  text-align: left;
+  margin-top: 0rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .RoomModal form{
-  display: inline;
+  display: grid;
+  align-items: center;
+ 
 } 
 
 
 .RoomModal-control p {
   font-weight: bold;
-  
   display: block;
   font-size: 0.4rem;
+  text-align: left;
   position: relative;
-  left: 10px;
+  left: 55px; 
 }
 
 .RoomModal-control input {
@@ -74,7 +81,7 @@
   height: 1.8rem;
   border-radius: 20px;
   position: relative;
-  top: 6.5rem;
+  top: 3rem;
   background-color: #5579fe;
   border: 0px;
   color: white;

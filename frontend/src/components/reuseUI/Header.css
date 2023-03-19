@@ -40,9 +40,9 @@
 .Coby {
   cursor: pointer;
   width: 12%;
-  height: 2.2rem;
+  height: 2.6rem;
 
-  margin-top: 0rem;
+  margin-bottom: 0.3rem;
   position: relative;
   display: inline-block;
   background-image: url(/src/images/Coby.png);

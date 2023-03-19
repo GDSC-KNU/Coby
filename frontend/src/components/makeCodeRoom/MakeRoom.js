@@ -44,8 +44,8 @@ function MakeRoom(props) {
         ))}
       </Card>
       <button className="MakeRoomBtn" onClick={deleteHandler}>
-          + 방생성
-        </button>
+        + 방생성
+      </button>
       {modalIsOpen && <NewMakeRoom />}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
     </Card>
