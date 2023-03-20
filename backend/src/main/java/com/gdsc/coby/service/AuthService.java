@@ -29,6 +29,7 @@ public class AuthService {
             throw new RuntimeException("이미 가입되어있는 유저입니다.");
         }
         User user = requestDto.toEntity(passwordEncoder);
+        user.getRoles().add("ROLE_USER");
         return UserResponseDto.from(UserDto.from(userRepository.save(user)));
     }
 

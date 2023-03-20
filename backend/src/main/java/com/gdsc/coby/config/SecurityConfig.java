@@ -25,7 +25,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import java.io.IOException;
 import java.util.List;
 
-
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
@@ -62,12 +61,9 @@ public class SecurityConfig {
                 // 조건별로 요청 허용/제한 설정
                 .authorizeRequests()
                 // 회원가입과 로그인은 모두 승인
-                .requestMatchers("/api/sign-up", "/api/login").permitAll()
-                // /admin으로 시작하는 요청은 ADMIN 권한이 있는 유저에게만 허용
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-                // /user 로 시작하는 요청은 USER 권한이 있는 유저에게만 허용
+                .requestMatchers("/api/signup", "/api/login").permitAll()
                 .requestMatchers("/api/users/**").hasRole("USER")
-                .anyRequest().denyAll()
+                .anyRequest().authenticated()
                 .and()
                 // JWT 인증 필터 적용
                 .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)
@@ -85,7 +81,7 @@ public class SecurityConfig {
                 })
                 .authenticationEntryPoint(new AuthenticationEntryPoint() {
                     @Override
-                    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+                    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
                         // 인증문제가 발생했을 때 이 부분을 호출한다.
                         response.setStatus(401);
                         response.setCharacterEncoding("utf-8");

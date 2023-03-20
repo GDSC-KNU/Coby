@@ -4,9 +4,9 @@ import com.gdsc.coby.dto.TokenDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,7 +23,6 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 
-@RequiredArgsConstructor
 @Component
 public class JwtProvider {
     private static final String AUTHORITIES_KEY = "auth";
@@ -33,15 +32,12 @@ public class JwtProvider {
 
     private final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-
-
-    // 주의점: 여기서 @Value는 `springframework.beans.factory.annotation.Value`소속이다! lombok의 @Value와 착각하지 말것!
-    //     * @param secretKey
+    
+    @Autowired
     public JwtProvider(@Value("${jwt.secret}") String secretKey) {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
-
 
     // 토큰 생성
     public TokenDto generateTokenDto(Authentication authentication) {
