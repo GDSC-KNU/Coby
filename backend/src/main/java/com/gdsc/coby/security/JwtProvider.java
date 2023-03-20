@@ -1,6 +1,7 @@
 package com.gdsc.coby.security;
 
 import com.gdsc.coby.domain.User;
+import com.gdsc.coby.service.CustomUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -33,7 +34,7 @@ public class JwtProvider {
     // 만료시간 : 1Hour
     private final long exp = 1000L * 60 * 60;
 
-    private final JpaUserDetailsService userDetailsService;
+    private final CustomUserDetailsService userDetailsService;
 
     @PostConstruct
     protected void init() {
