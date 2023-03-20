@@ -8,11 +8,11 @@ public record GroupDto(
         Long id,
         String name,
         String description,
-        LocalDateTime created_at,
-        String created_by
+        LocalDateTime createdAt,
+        String createdBy
 ) {
-    public GroupDto of (Long id,String name,String description,LocalDateTime created_at,String created_by){
-        return new GroupDto(id,name,description,created_at,created_by);
+    public GroupDto of (Long id, String name, String description, LocalDateTime createdAt, String createdBy){
+        return new GroupDto(id, name, description, createdAt, createdBy);
     }
 
     public static GroupDto from (Group entity){
@@ -21,7 +21,7 @@ public record GroupDto(
                 entity.getName(),
                 entity.getDescription(),
                 entity.getCreatedAt(),
-                entity.getCretedBy()
+                entity.getCreatedBy()
         );
     }
 
