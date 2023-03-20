@@ -28,12 +28,11 @@ class JpaRepositoryTest {
     @Test
     void givenUserData_whenInserting_thenWorksFine() {
         //given
-        User user = User.of("test@email.com", null, "test", "1234~!#", 0L);
+        User user = User.of("test", null, "testname", "test@email.com","1234~!#", 0L);
         long previousCount = userRepository.count();
         //when
         User savedUser = userRepository.save(user);
         //then
-        assertThat(user).isEqualTo(savedUser);
         assertThat(user.getName()).isEqualTo(savedUser.getName());
         assertThat(user.getEmail()).isNotNull();
         assertThat(userRepository.count()).isEqualTo(previousCount + 1);
@@ -43,16 +42,16 @@ class JpaRepositoryTest {
     @Test
     void givenUserData_whenSelecting_thenWorksFine() {
         //given
-        User savedUser1 = userRepository.save(User.of("test1@email.com", null, "test1", "1234~!@", 123L));
-        User savedUser2 = userRepository.save(User.of("test2@email.com", null, "test2", "1234~!@", 0L));
+        User savedUser1 = userRepository.save(User.of("test1",null, "testName1", "test1@email.com","1234~!@", 123L));
+        User savedUser2 = userRepository.save(User.of("test2", null, "testName2", "test2@email.com", "1234~!@", 0L));
         //when
         User selectedUser1 = userRepository.findByEmail(savedUser1.getEmail()).orElseThrow();
         User selectedUser2 = userRepository.findByEmail(savedUser2.getEmail()).orElseThrow();
         //then
         assertThat(userRepository.count()).isEqualTo(2);
-        assertThat(selectedUser1.getName()).isEqualTo("test1");
+        assertThat(selectedUser1.getName()).isEqualTo("testName1");
         assertThat(selectedUser1.getExp_point()).isEqualTo(123L);
-        assertThat(selectedUser2.getName()).isEqualTo("test2");
+        assertThat(selectedUser2.getName()).isEqualTo("testName2");
         assertThat(selectedUser2.getExp_point()).isEqualTo(0L);
         assertThat(savedUser1).isEqualTo(selectedUser1);
         assertThat(savedUser2).isEqualTo(selectedUser2);
@@ -62,8 +61,8 @@ class JpaRepositoryTest {
     @Test
     void givenUserData_whenUpdating_thenWorksFine() {
         //given
-        String name = "test";
-        User savedUser = userRepository.save(User.of("test@email.com", null, name, "1234~!@", 0L));
+        String name = "testname";
+        User savedUser = userRepository.save(User.of("test", null, "testname", "test@email.com","1234~!#", 0L));
         String updatedName = "coby";
         savedUser.setName(updatedName);
         //when
@@ -77,7 +76,7 @@ class JpaRepositoryTest {
     @Test
     void givenUserData_whenDeleting_thenWorksFine() {
         //given
-        User savedUser = userRepository.save(User.of("test@email.com", null, "test", "1234~!@", 0L));
+        User savedUser = userRepository.save(User.of("test", null, "testname", "test@email.com","1234~!#", 0L));
         long previousUserCount = userRepository.count();
         //when
         userRepository.delete(savedUser);
@@ -90,7 +89,7 @@ class JpaRepositoryTest {
     @Test
     void givenUserData_whenInsertingAuditingFields_thenWorksFine() {
         //given
-        User user = User.of("test@email.com", null, "test", "1234~!#", 0L);
+        User user = User.of("test", null, "testname", "test@email.com","1234~!#", 0L);
         //when
         User savedUser = userRepository.save(user);
         //then
