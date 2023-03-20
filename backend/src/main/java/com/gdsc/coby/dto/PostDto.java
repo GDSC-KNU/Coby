@@ -2,23 +2,19 @@ package com.gdsc.coby.dto;
 
 import com.gdsc.coby.domain.Group;
 import com.gdsc.coby.domain.Post;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Getter
-@NoArgsConstructor
 public record PostDto(
         Long id,
         GroupDto group,
         String title,
         String content,
-        LocalDateTime created_at,
-        String created_by
+        LocalDateTime createdAt,
+        String createdBy
 ) {
-    public PostDto of(Long id,GroupDto group,String title,String content,LocalDateTime created_at,String created_by){
-        return new PostDto(id,group,title,content,created_at,created_by);
+    public PostDto of(Long id, GroupDto group, String title, String content, LocalDateTime createdAt,String createdBy){
+        return new PostDto(id, group, title, content, createdAt, createdBy);
     }
 
     public static PostDto from(Post entity) {
@@ -28,7 +24,7 @@ public record PostDto(
                 entity.getTitle(),
                 entity.getContent(),
                 entity.getCreatedAt(),
-                entity.getCretedBy()
+                entity.getCreatedBy()
         );
     }
 

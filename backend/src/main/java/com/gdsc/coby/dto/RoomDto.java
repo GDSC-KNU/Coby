@@ -2,21 +2,23 @@ package com.gdsc.coby.dto;
 
 import com.gdsc.coby.domain.Room;
 
+import java.time.LocalDateTime;
+
 public record RoomDto(
         Long id,
         String name,
         String url,
         String password,
         Integer limit,
-        String created_at,
-        String created_by)
+        LocalDateTime createdAt,
+        String createdBy)
 {
-    public RoomDto of(Long id, String name, String url, String password, Integer limit, String created_at, String created_by){
-        return new RoomDto(id,name,url,password,limit,created_at,created_by);
+    public RoomDto of(Long id, String name, String url, String password, Integer limit, LocalDateTime createdAt, String createdBy){
+        return new RoomDto(id, name, url, password, limit, createdAt, createdBy);
     }
 
     public RoomDto of (Long id, String name, String url, String password, Integer limit){
-        return new RoomDto(Long id, String name, String url, String password, Integer limit,null,null);
+        return new RoomDto(id, name, url, password, limit,null, null);
     }
 
     public static RoomDto from(Room entity){
@@ -27,7 +29,7 @@ public record RoomDto(
                 entity.getPassword(),
                 entity.getLimit(),
                 entity.getCreatedAt(),
-                entity.getCretedBy()
+                entity.getCreatedBy()
         );
     }
 

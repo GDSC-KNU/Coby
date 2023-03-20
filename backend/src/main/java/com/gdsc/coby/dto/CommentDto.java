@@ -9,20 +9,21 @@ public record CommentDto(
         Long id,
         PostDto post,
         String content,
-        LocalDateTime create_at,
-        String create_by
+        LocalDateTime createdAt,
+        String createdBy
 ) {
 
-    public CommentDto of(Long id, PostDto post,String content,LocalDateTime create_at,String create_by){
-        return new CommentDto(id,post,content,create_at,create_by);
+    public CommentDto of(Long id, PostDto post, String content, LocalDateTime createdAt, String createdBy){
+        return new CommentDto(id ,post, content, createdAt, createdBy);
     }
 
     public static CommentDto from(Comment entity){
         return new CommentDto(
                 entity.getId(),
                 PostDto.from(entity.getPost()),
+                entity.getContent(),
                 entity.getCreatedAt(),
-                entity.getCretedBy()
+                entity.getCreatedBy()
         );
     }
 
