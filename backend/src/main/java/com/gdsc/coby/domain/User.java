@@ -68,7 +68,7 @@ public class User extends AuditingFields implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return userId;
     }
 
     @Override
