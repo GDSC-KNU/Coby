@@ -21,6 +21,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @ExceptionHandler(value = {UsernameNotFoundException.class, IllegalArgumentException.class})
+    public ResponseEntity<String> exceptionHandler(Exception e) {
+        return ResponseEntity.ok(e.getMessage());
+    }
+
     @GetMapping
     @Operation(summary = "유저 목록", description = "유저 목록을 가져옵니다.")
     public ResponseEntity<List<UserResponseDto>> users() {

@@ -7,6 +7,7 @@ import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.JwtProvider;
+import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,7 +27,7 @@ public class AuthService {
 
     public UserResponseDto signup(UserRequestDto requestDto) {
         if(userRepository.existsByUserId(requestDto.userId())) {
-            throw new RuntimeException("이미 가입되어있는 유저입니다.");
+            throw new EntityExistsException("이미 가입되어있는 유저입니다.");
         }
         User user = requestDto.toEntity(passwordEncoder);
         user.getRoles().add("ROLE_USER");
