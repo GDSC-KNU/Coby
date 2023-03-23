@@ -1,6 +1,7 @@
 package com.gdsc.coby.controller;
 
 import com.gdsc.coby.dto.TokenDto;
+import com.gdsc.coby.dto.request.LogoutRequestDto;
 import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.service.AuthService;
@@ -9,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final AuthService authService;
 
-    @ExceptionHandler(value = EntityExistsException.class)
+    @ExceptionHandler(value = {EntityExistsException.class, UsernameNotFoundException.class, RuntimeException.class})
     public ResponseEntity<String> exceptionHandler(Exception e) {
         return ResponseEntity.ok(e.getMessage());
     }
@@ -36,5 +38,11 @@ public class AuthController {
     @Operation(description = "로그인 기능입니다.")
     public ResponseEntity<TokenDto> login(UserRequestDto requestDto) {
         return ResponseEntity.ok(authService.login(requestDto));
+    }
+
+    @PostMapping("/logout")
+    @Operation(description = "로그아웃 기능입니다.")
+    public ResponseEntity<Boolean> logout(LogoutRequestDto requestDto) {
+        return ResponseEntity.ok(authService.logout(requestDto));
     }
 }

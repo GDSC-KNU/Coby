@@ -1,7 +1,6 @@
 package com.gdsc.coby.dto.request;
 
 import com.gdsc.coby.domain.User;
-import com.gdsc.coby.dto.UserDto;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
