@@ -16,9 +16,11 @@ public record UserDto(
     }
 
     public static UserDto from(User entity){
+        Group group = entity.getGroup();
+
         return new UserDto(
                 entity.getUserId(),
-                GroupDto.from(entity.getGroup()),
+                group != null ? GroupDto.from(entity.getGroup()) : null,
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPassword(),
