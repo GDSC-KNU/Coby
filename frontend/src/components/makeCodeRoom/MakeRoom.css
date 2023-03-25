@@ -42,7 +42,7 @@
 
 
 
-.MakeRoomBtn {
+/* .MakeRoomBtn {
   width: 17%;
   height: 1.5rem;
 
@@ -70,14 +70,14 @@
   font-weight: bold;
   transition: all 0.3s;
   scale: 1.05;
-}
+} */
 
 @media (min-width: 540px) {
-  .MakeRoomBtn{
+  /* .MakeRoomBtn{
     width: 12%;
     height: 1.7rem;
     font-size: 0.3rem;
-  }
+  } */
 
   .CodeRoomListBox {
     top: 54%;
@@ -95,13 +95,13 @@
   }
 }
 
-@media (min-width: 600px){
+/* @media (min-width: 600px){
   .MakeRoomBtn{
     width: 10%;
     height: 1.8rem;
     font-size: 0.6rem;
   }
-}
+} */
 
 
 @media (min-width: 750px) {
@@ -125,11 +125,11 @@
 }
 
 @media (min-width: 1024px) {
-  .MakeRoomBtn {
+  /* .MakeRoomBtn {
     width: 10%;
     height: 2rem;
     font-size: 0.8rem;
-  }
+  } */
   .CodeRoomListBox {
     height: 80%;
     width: 60rem;

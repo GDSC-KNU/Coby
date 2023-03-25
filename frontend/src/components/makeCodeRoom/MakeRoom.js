@@ -4,8 +4,8 @@ import RoomItem from "./RoomItem";
 import Card from "../reuseUI/Card";
 import "./MakeRoom.css";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
-import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
-import Backdrop from "../reuseUI/Backdrop";
+// import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
+// import Backdrop from "../reuseUI/Backdrop";
 
 function MakeRoom(props) {
   const [filteredTool, setFilteredTool] = useState("");
@@ -18,15 +18,15 @@ function MakeRoom(props) {
     return makeRoom.tool === filteredTool;
   });
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function deleteHandler() {
-    setModalIsOpen(true);
-  }
+  // function deleteHandler() {
+  //   setModalIsOpen(true);
+  // }
 
-  function closeModalHandler() {
-    setModalIsOpen(false);
-  }
+  // function closeModalHandler() {
+  //   setModalIsOpen(false);
+  // }
 
   return (
     <Card className="PageBox">
@@ -43,11 +43,11 @@ function MakeRoom(props) {
           />
         ))}
       </Card>
-      <button className="MakeRoomBtn" onClick={deleteHandler}>
+      {/* <button className="MakeRoomBtn" onClick={deleteHandler}>
         + 방생성
       </button>
       {modalIsOpen && <NewMakeRoom />}
-      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
+      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />} */}
     </Card>
   );
 }

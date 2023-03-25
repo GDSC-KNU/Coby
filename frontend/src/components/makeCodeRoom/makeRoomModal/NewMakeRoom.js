@@ -12,7 +12,7 @@ function NewMakeRoom(props){
     props.onAddData(makeRoomData);
 };
     return(
-        <div>
+        <div className="RoomModal">
             <MakeRoomModal onSaveRoomData={saveRoomDataHandler} />
         </div>
     )

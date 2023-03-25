@@ -1,0 +1,16 @@
+.RoomModal button {
+  width: 8rem;
+  height: 1.8rem;
+  border-radius: 20px;
+  position: relative;
+  top: 3rem;
+  background-color: #5579fe;
+  border: 0px;
+  color: white;
+}
+
+.RoomModal button:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
