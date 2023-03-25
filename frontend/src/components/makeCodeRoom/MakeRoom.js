@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 
 import RoomItem from "./RoomItem";
 import Card from "../reuseUI/Card";
@@ -31,21 +32,24 @@ function MakeRoom(props) {
     ));
   }
 
-  // const TableContainer = styled.div`
-  //   overflow: scroll;
-  //   height: 100px;
-  //   border: 1px solid back;
-  // `;
+  const TableContainer = styled.div`
+    overflow: scroll;
+    height: 500px;
+    border: 1px solid back;
+  `;
+
   return (
     <div className="PageBox">
       <MakeRoomToolFilter
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      <Card className="CodeRoomListBox">
-        {/* <TableContainer /> */}
-        {makeRoomsContent}
-      </Card>
+      {/* <div className="CodeRoomBox">
+        <TableContainer>
+          <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
+        </TableContainer>
+      </div> */}
+      <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
     </div>
   );
 }

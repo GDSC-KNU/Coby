@@ -12,13 +12,23 @@
   
 }
 
+/* .CodeRoomBox{
+  padding: 0.4rem;
+  margin : 1rem auto;
+  width: 53rem;
+
+  height: 80%;
+  max-width: 80%;
+  background-color: rgba(223, 229, 236, 0.3);
+} */
+
 .CodeRoomListBox {
   /* position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -40%); */
 
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-row-gap: 0.1px;
@@ -31,7 +41,7 @@
     padding: 0.5rem;
     margin: 1rem 0 auto;
     background-color: white; */
-
+  overflow: auto;
   padding: 0.4rem;
   margin : 1rem auto;
   width: 52rem;
