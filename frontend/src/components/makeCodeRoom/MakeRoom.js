@@ -32,11 +32,7 @@ function MakeRoom(props) {
     ));
   }
 
-  const TableContainer = styled.div`
-    overflow: scroll;
-    height: 500px;
-    border: 1px solid back;
-  `;
+
 
   return (
     <div className="PageBox">
@@ -44,11 +40,7 @@ function MakeRoom(props) {
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      {/* <div className="CodeRoomBox">
-        <TableContainer>
-          <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
-        </TableContainer>
-      </div> */}
+      
       <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
     </div>
   );
