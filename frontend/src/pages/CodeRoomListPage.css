@@ -1,3 +1,15 @@
+.ListPage__actions{
+  z-index: 50;
+  position: relative;
+  top:50%;
+  left: 2%;
+  transform: translate(-12%,-160%);
+}
+
+.modal-event{
+  transition: 1s;
+}
+
 .MakeRoomBtn {
   width: 17%;
   height: 1.5rem;
@@ -57,7 +69,7 @@
 
 @media (min-width: 1024px) {
   .MakeRoomBtn {
-    width: 10%;
+    width: 8%;
     height: 2rem;
     font-size: 0.8rem;
   }

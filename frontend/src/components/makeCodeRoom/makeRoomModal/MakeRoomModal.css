@@ -76,7 +76,7 @@
   text-align: center;
 }
 
-/* .RoomModal-actions button {
+.RoomModal-actions button {
   width: 8rem;
   height: 1.8rem;
   border-radius: 20px;
@@ -91,4 +91,4 @@
   font-weight: bold;
   transition: all 0.3s;
   scale: 1.05;
-} */
+}

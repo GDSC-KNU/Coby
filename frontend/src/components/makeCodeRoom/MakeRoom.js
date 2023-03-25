@@ -28,27 +28,26 @@ function MakeRoom(props) {
   //   setModalIsOpen(false);
   // }
 
+  let makeRoomsContent = <p>💻︎ 위의 카테고리를 선택해주세요 💻︎</p>;
+
+  if (filteredMakeRooms.length > 0) {
+    makeRoomsContent = filteredMakeRooms.map((makeRoom) => (
+      <RoomItem
+        title={makeRoom.title}
+        language={makeRoom.language}
+        tool={makeRoom.tool}
+      />
+    ));
+  }
+
   return (
-    <Card className="PageBox">
+    <div className="PageBox">
       <MakeRoomToolFilter
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      <Card className="CodeRoomListBox">
-        {filteredMakeRooms.map((makeRoom) => (
-          <RoomItem
-            title={makeRoom.title}
-            language={makeRoom.language}
-            tool={makeRoom.tool}
-          />
-        ))}
-      </Card>
-      {/* <button className="MakeRoomBtn" onClick={deleteHandler}>
-        + 방생성
-      </button>
-      {modalIsOpen && <NewMakeRoom />}
-      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />} */}
-    </Card>
+      <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
+    </div>
   );
 }
 

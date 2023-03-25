@@ -7,7 +7,7 @@ import "./CodeRoomListPage.css";
 import NewMakeRoom from "../components/makeCodeRoom/makeRoomModal/NewMakeRoom";
 import Backdrop from "../components/reuseUI/Backdrop";
 
-function CodeRoomListPage(props) {
+function CodeRoomListPage() {
   const DUMMY_DATA = [
     {
       id: "e1",
@@ -53,9 +53,11 @@ function CodeRoomListPage(props) {
     <div>
       <Layout />
       <MakeRoom items={makeRooms} />
-      <button className="MakeRoomBtn" onClick={deleteHandler}>
-        + 방생성
-      </button>
+      <div className="ListPage__actions">
+        <button className="MakeRoomBtn" onClick={deleteHandler}>
+          + 방생성
+        </button>
+      </div>
       {modalIsOpen && <NewMakeRoom onAddData={addRoomHandler} />}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
     </div>
