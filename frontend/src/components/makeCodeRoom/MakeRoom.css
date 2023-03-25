@@ -32,7 +32,7 @@
     margin: 1rem 0 auto;
     background-color: white; */
 
-  padding: 0.2rem;
+  padding: 0.4rem;
   margin : 1rem auto;
   width: 52rem;
 
@@ -46,7 +46,7 @@
   font-weight: bold;
   justify-content: center;
   text-align: center;
-  align-items: center;
+  /* align-items: center; */
 }
 /* .MakeRoomBtn {
   width: 17%;

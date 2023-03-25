@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useNavigate } from "react";
 
 import RoomItem from "./RoomItem";
 import Card from "../reuseUI/Card";
 import "./MakeRoom.css";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
+
 // import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
 // import Backdrop from "../reuseUI/Backdrop";
 
@@ -18,17 +19,7 @@ function MakeRoom(props) {
     return makeRoom.tool === filteredTool;
   });
 
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  // function deleteHandler() {
-  //   setModalIsOpen(true);
-  // }
-
-  // function closeModalHandler() {
-  //   setModalIsOpen(false);
-  // }
-
-  let makeRoomsContent = <p>💻︎ 위의 카테고리를 선택해주세요 💻︎</p>;
+  let makeRoomsContent = <p>💻︎ 방을 생성해주세요. 💻︎</p>;
 
   if (filteredMakeRooms.length > 0) {
     makeRoomsContent = filteredMakeRooms.map((makeRoom) => (
@@ -40,13 +31,21 @@ function MakeRoom(props) {
     ));
   }
 
+  // const TableContainer = styled.div`
+  //   overflow: scroll;
+  //   height: 100px;
+  //   border: 1px solid back;
+  // `;
   return (
     <div className="PageBox">
       <MakeRoomToolFilter
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
+      <Card className="CodeRoomListBox">
+        {/* <TableContainer /> */}
+        {makeRoomsContent}
+      </Card>
     </div>
   );
 }

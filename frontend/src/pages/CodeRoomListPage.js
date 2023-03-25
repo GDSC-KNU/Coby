@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Link } from "react";
 
 import Layout from "../components/reuseUI/Layout";
 import MakeRoom from "../components/makeCodeRoom/MakeRoom";
@@ -9,24 +9,24 @@ import Backdrop from "../components/reuseUI/Backdrop";
 
 function CodeRoomListPage() {
   const DUMMY_DATA = [
-    {
-      id: "e1",
-      title: "동적 할당 관련 질문있습니다.",
-      language: "C++",
-      tool: "Visual Studio Code",
-    },
-    {
-      id: "e2",
-      title: "왜 안 돌아감?",
-      language: "JAVA",
-      tool: "Visual Studio Code",
-    },
-    {
-      id: "e3",
-      title: "코드에 관해서",
-      language: "Python",
-      tool: "IntelliJ",
-    },
+    // {
+    //   id: "e1",
+    //   title: "동적 할당 관련 질문있습니다.",
+    //   language: "C++",
+    //   tool: "Visual Studio Code",
+    // },
+    // {
+    //   id: "e2",
+    //   title: "왜 안 돌아감?",
+    //   language: "JAVA",
+    //   tool: "Visual Studio Code",
+    // },
+    // {
+    //   id: "e3",
+    //   title: "코드에 관해서",
+    //   language: "Python",
+    //   tool: "IntelliJ",
+    // },
   ];
 
   const [makeRooms, setMakeRooms] = useState(DUMMY_DATA);
@@ -35,7 +35,7 @@ function CodeRoomListPage() {
     setMakeRooms((prevMakeRooms) => {
       return [makeRoom, ...prevMakeRooms];
     });
-    console.log("In CodeRoom.js");
+    console.log("In CodeRoomListPage.js");
     console.log(makeRoom);
   };
 
@@ -52,6 +52,7 @@ function CodeRoomListPage() {
   return (
     <div>
       <Layout />
+      {/* <Link to="/CodeRoom"><MakeRoom items={makeRooms} /></Link> */}
       <MakeRoom items={makeRooms} />
       <div className="ListPage__actions">
         <button className="MakeRoomBtn" onClick={deleteHandler}>

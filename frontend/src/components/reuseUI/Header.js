@@ -37,8 +37,11 @@ function Header() {
           <nav className="navigation">
             <ul>
               <li>
+                코드 리뷰
+              </li>
+              <li>
                 {/* <div className="Group" /> */}
-                그룹 참여
+                페어 프로그래밍
               </li>
               {/* <div className="MyGroup" /> */}
               <li>마이그룹</li>
