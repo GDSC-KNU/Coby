@@ -13,6 +13,6 @@ import java.util.Optional;
 @Repository
 public interface RoomRepository extends JpaRepository<Room,Long> {
     List<RoomDto> findByNameContaining(String searchKeyword);
-    Optional<Room> findByRoomId(Long roomId);
+    Optional<Room> findById(Long roomId);
 
 }
