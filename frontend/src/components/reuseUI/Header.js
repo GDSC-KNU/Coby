@@ -16,7 +16,6 @@ function Header(props) {
     window.location.href="/";
   }
 
-
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
     const [signInmodalOpen, setSigninModalOpen] = useState(false);
     const showLoginModal = () => {
@@ -34,47 +33,24 @@ function Header(props) {
 
   return (
     <div>
-      {props.cookies = [] ? (
-            <>
-              <header className="upside-header">
-                <div className="upside-contents">
-                  <nav className="upside-navigation">
-                    <ul>
-                      <button onClick={showSigninModal}  className="Signin">
-                        회원가입
-                      </button>
-                      {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
-                      {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
-                      <button onClick={showLoginModal} className="Login">
-                        로그인
-                      </button>
-                      {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
-                      {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
-                    </ul>
-                  </nav>
-                </div>
-              </header>
-            </>
-          ) : (
-            <header className="upside-header">
-                <div className="upside-contents">
-                  <nav className="upside-navigation">
-                    <ul>
-                      <button onClick={showSigninModal}  className="Signin">
-                        마이페이지
-                      </button>
-                      {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
-                      {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
-                      <button onClick={showLoginModal} className="Login">
-                        로그아웃
-                      </button>
-                      {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
-                      {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
-                    </ul>
-                  </nav>
-                </div>
-            </header>
-          )}
+      <header className="upside-header">
+        <div className="upside-contents">
+          <nav className="upside-navigation">
+            <ul>
+              <button onClick={showSigninModal}  className="Signin">
+                회원가입
+              </button>
+              {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+              {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+              <button onClick={showLoginModal} className="Login">
+                로그인
+              </button>
+              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+              {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+            </ul>
+          </nav>
+        </div>
+      </header>
        <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
