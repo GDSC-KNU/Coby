@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Entity
@@ -27,9 +26,6 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
-    private String email;
     
     @Column(nullable = false)
     private String password;
@@ -41,17 +37,16 @@ public class User implements UserDetails {
 
     protected User() {}
 
-    private User(String userId, Group group, String name, String email, String password, Long exp_point) {
+    private User(String userId, Group group, String name, String password, Long exp_point) {
         this.userId = userId;
         this.group = group;
         this.name = name;
-        this.email = email;
         this.password = password;
         this.exp_point = exp_point;
     }
 
-    public static User of(String userId, Group group, String name, String email, String password, Long exp_point) {
-        return new User(userId, group, name, email, password, exp_point);
+    public static User of(String userId, Group group, String name, String password, Long exp_point) {
+        return new User(userId, group, name, password, exp_point);
     }
 
     @Override

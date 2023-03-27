@@ -7,12 +7,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public record UserRequestDto(
         String userId,
         String name,
-        String email,
         String password
 ) {
 
-    public static UserRequestDto of(String userId, String name, String email, String password) {
-        return new UserRequestDto(userId, name, email, password);
+    public static UserRequestDto of(String userId, String name, String password) {
+        return new UserRequestDto(userId, name, password);
     }
 
     public User toEntity(PasswordEncoder passwordEncoder) {
@@ -20,7 +19,6 @@ public record UserRequestDto(
                userId,
                 null,
                 name,
-                email,
                 passwordEncoder.encode(password),
                 0L
         );
