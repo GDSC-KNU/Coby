@@ -5,11 +5,12 @@ import './Main.css'
 
 import img from '../images/menu.png'
 
-function Main() {
+function Main(props) {
+  console.log(props.cookies)
   return (
     <div className="App">
       <div className="Bar">
-        <Layout />
+        <Layout cookies = {props.cookies} setCookie = {props.setCookie} />
       </div>
       <div className="Ad">
         <SimpleSlider />

@@ -23,8 +23,9 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-    alert('로그인 완료');
-    Axios.post('http://localhost:8080/api/login', {
+        alert('로그인 완료');
+        props.setCookie(true);
+    /*Axios.post('http://localhost:8080/api/login', {
         userId: inputId,
         password: inputPw,
         })
@@ -33,7 +34,7 @@ function Login(props) {
         props.setCookie('ref', res.payload.refreshToken)
         // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
         Axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.accessToken}`
-        })
+        })*/
     }
 
     return (
