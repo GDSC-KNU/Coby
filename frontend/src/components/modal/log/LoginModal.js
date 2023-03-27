@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import Findid from '../findID/FindIdModal';
+
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';

@@ -14,6 +14,14 @@ function Header() {
     setModalOpen(false);
   };
 
+  function CodeReviewHandleClick(event){
+    window.location.href="/CodeRoomList";
+  }
+
+  function MainHandleClick(event){
+    window.location.href="/";
+  }
+
   return (
     <div>
       <header className="upside-header">
@@ -33,10 +41,10 @@ function Header() {
 
       <header className="header">
         <div className="contents">
-          <div className="Coby" />
+          <div className="Coby" onClick={MainHandleClick}/>
           <nav className="navigation">
             <ul>
-              <li>
+              <li onClick={CodeReviewHandleClick}>
                 코드 리뷰
               </li>
               <li>
