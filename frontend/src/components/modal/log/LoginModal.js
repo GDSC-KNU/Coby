@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-
+import Axios from "axios";
+import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
 
-function Login({ setModalOpen}) {
+function Login(props) {
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
     }
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
+    //const [cookies, setCookie] = useCookies(['token', 'ref']);
 
     const handleInputId = (e) => {
         setInputId(e.target.value)
@@ -19,18 +21,19 @@ function Login({ setModalOpen}) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-    const onClickLogin = () => {
-        console.log({inputId},{inputPw})
-    }
 
-    const onclickSignin = () => {
-        alert('회원가입 완료');
-        /*Axios.post('http://localhost:8080/api/login', {
-            userId: newId,
-            password: newPw,
-          }).then(()=>{
-            alert('등록 완료!');
-          })*/
+    const onClickLogin = () => {
+    alert('로그인 완료');
+    Axios.post('http://localhost:8080/api/login', {
+        userId: inputId,
+        password: inputPw,
+        })
+    .then(res => {
+        props.setCookie('token', res.payload.accessToken)
+        props.setCookie('ref', res.payload.refreshToken)
+        // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
+        Axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.accessToken}`
+        })
     }
 
     return (
@@ -50,8 +53,8 @@ function Login({ setModalOpen}) {
                     )}
             </div>
             <div className="bottom">
-                {/* <button className="find_botton">아이디 찾기</button>
-                <button className="find_botton">비밀번호 찾기</button> */}
+                <button className="find_botton">아이디 찾기</button>
+                <button className="find_botton">비밀번호 찾기</button>
                 <button className="button" onClick={onClickLogin}>로그인</button>
             </div>
         </div>

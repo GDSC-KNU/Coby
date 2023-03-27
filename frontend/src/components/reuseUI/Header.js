@@ -6,8 +6,7 @@ import SignIn from "../modal/signin/SigninModal";
 
 import "./Header.css";
 
-function Header() {
-
+function Header(props) {
 
   function CodeReviewHandleClick(event){
     window.location.href="/CodeRoomList";
@@ -16,7 +15,6 @@ function Header() {
   function MainHandleClick(event){
     window.location.href="/";
   }
-
 
 
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
@@ -36,8 +34,48 @@ function Header() {
 
   return (
     <div>
+      {props.cookies = [] ? (
+            <>
+              <header className="upside-header">
+                <div className="upside-contents">
+                  <nav className="upside-navigation">
+                    <ul>
+                      <button onClick={showSigninModal}  className="Signin">
+                        회원가입
+                      </button>
+                      {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+                      {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+                      <button onClick={showLoginModal} className="Login">
+                        로그인
+                      </button>
+                      {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+                      {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+                    </ul>
+                  </nav>
+                </div>
+              </header>
+            </>
+          ) : (
+            <header className="upside-header">
+                <div className="upside-contents">
+                  <nav className="upside-navigation">
+                    <ul>
+                      <button onClick={showSigninModal}  className="Signin">
+                        마이페이지
+                      </button>
+                      {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+                      {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+                      <button onClick={showLoginModal} className="Login">
+                        로그아웃
+                      </button>
+                      {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+                      {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+                    </ul>
+                  </nav>
+                </div>
+            </header>
+          )}
        <header className="upside-header">
-
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
@@ -78,6 +116,6 @@ function Header() {
       </header>
     </div>
   );
-};
+}
 
 export default Header;
