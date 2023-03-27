@@ -1,14 +1,18 @@
 import React from "react";
 
 import Sidebar from "../components/codeRoom/Sidebar";
+import img from "../images/vscode.png"
+import './CodeRoom.css'
 
-const CodeRoom = () => {
+const CodeRoom = (props) => {
   return (
     <div>
-      <Sidebar />
-      <main>
-        <h1>테스트중입니다</h1>
-      </main>
+      <Sidebar isOpen={props.isOpen} setIsOpen={props.setIsOpen}/>
+      <div className='code'
+        style={{ width: props.isOpen ? "81vw" : "96vw" }}
+      >
+        <img src={img} alt="sample" className="img"/>
+      </div>
     </div>
   );
 };

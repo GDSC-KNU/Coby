@@ -19,8 +19,8 @@
 }
 .form{
   position:relative;
-  top: 120px;
-  left: 50px;
+  top: 25%;
+  left: 10%;
 }
 .input{
   border-radius: 20px;
@@ -55,4 +55,7 @@
   color: #5579fe;
   font-weight: bold;
   transition: all 0.3s;
+}
+.icon{
+  position: absolute;
 }

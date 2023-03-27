@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import logo from "../../images/Coby.png";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./Sidebar.module.css";
 
-const Sidebar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+const Sidebar = (props) => {
+  const toggle = () => props.setIsOpen(!props.isOpen);
 
   return (
     <div>
       <div
-        style={{ width: isOpen ? "280px" : "50px" }}
+        style={{ width: props.isOpen ? "280px" : "60px" }}
         className={styles.sidebar}
       >
         <div>
@@ -19,18 +18,34 @@ const Sidebar = ({ children }) => {
             src={logo}
             alt="로고"
             className={styles.logo}
-            style={{ display: isOpen ? "block" : "none" }}
+            style={{ display: props.isOpen ? "block" : "none" }}
           />
-          {isOpen ? (
-            <div style={{ marginLeft: "240px" }}>
-              <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
-            </div>
+          {props.isOpen ? (
+            <>
+              <div style={{ marginLeft: "240px" }}>
+                <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.chatting}>
+              </div>
+            </>
           ) : (
             <div style={{ marginLeft: "0px" }}>
               <MdKeyboardArrowRight
                 onClick={toggle}
                 className={styles.button}
               />
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
+              <div className={styles.profile}>
+              </div>
             </div>
           )}
         </div>

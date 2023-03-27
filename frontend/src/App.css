@@ -12,3 +12,16 @@ body{
 * {
   font-family: 'Pretendard-Regular';
 }
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: url('./font/IBMPlexSansKR-Regular.ttf');
+}
+@font-face {
+  font-family: "DoHyeon";
+  src: url('./font/DoHyeon-Regular.ttf');
+}
+@font-face {
+  font-family: "Kimjungchul";
+  src: url('./font/KimjungchulGothic-Bold.otf');
+}

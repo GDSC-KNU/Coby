@@ -1,0 +1,12 @@
+.code{
+    display:flex;
+    width:100vw;
+    height:100vh;
+    float: right;
+}
+.img{
+    position: relative;
+    bottom: 0.5rem;
+    width: 103%;
+    height: 100vh;
+}

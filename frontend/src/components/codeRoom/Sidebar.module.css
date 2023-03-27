@@ -1,33 +1,63 @@
-.container {
-    background-color: black;
-    display: flex;
+@keyframes smoothAppear {
+  from {
+    opacity: 0;
   }
-  .sidebar {
-    background-color: #5579fe;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    transition: 0.4s ease;
-    color: white;
-    height: 100%;
-    z-index: 99;
+  to {
+    opacity: 1; 
   }
-  .button{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 5px;
-    display: flex;
-  }
-  .icon {
-    margin: 0;
-    color: #202020;
-  }
-  .logo {
-    position: absolute;
-    left: 90px;
-    top: 60px;
-    width: 100px;
-    height: 80px;
-  }
+}
+
+
+.sidebar {
+  display: flex;
+  background-color: #5579fe;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.4s ease;
+  color: white;
+  height: 100%;
+  z-index: 99;
+}
+.button{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0%;
+  display: flex;
+  animation: smoothAppear 0.5s;
+}
+.icon {
+  margin: 0;
+  color: #202020;
+}
+.logo {
+  position: absolute;
+  left: 90px;
+  top: 60px;
+  width: 100px;
+  height: 80px;
+  animation: smoothAppear 1s;
+}
+.profile{
+  position: relative;
+  top: 11rem;
+  margin-top: 1rem;
+  left: 8%;
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border-radius: 50%;
+}
+.chatting{
+  position: relative;
+  top: 16rem;
+  left: 7%;
+  width: 15rem;
+  height: 20rem;
+  background: white;
+  border-radius: 5%;
+  transition: 2s;
+  animation: smoothAppear 1s;
+}
