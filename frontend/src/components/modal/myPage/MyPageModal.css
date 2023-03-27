@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    font-family : 'Pretendard-Regular';
+    box-sizing : border-box;
+}
+
+body {
+    font-weight: bold;
+    color:black;
+    font-size:23px;
+    line-height: 0.6em;
+}
+
+.modal {
+    /*Center*/
+    position : fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    z-index : 999;
+}
+
+.modal-content {
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    border-radius:35px;
+    width: 568px;
+    height: 323px;
+
+    display:grid;
+    grid-template-columns:568px;
+    grid-template-rows: 73px 250px;
+    gap: 10px;
+}
+
+.modal-content > div {
+    padding:18px;
+}
+
+.upper{
+    position: fixed;
+    width: 568px;
+    height: 73px;
+
+    background: #5579FE;
+    border-top-left-radius : 35px;
+    border-top-right-radius : 35px;
+    font-size:35px;
+    text-align:center;
+    color: #FFFFFF;
+}
+
+.userinfo {
+    position: absolute;
+    left:249px;
+    top:50px;
+    font-size: 23px;
+    font-weight: 700;
+    font-style: normal;
+    color: #000000;
+}
+
+.userphoto{
+    position:absolute;
+    width:233px;
+    height: 230px;
+    left: 16px;
+    top:81px;
+    background: url('user.png');
+}
+
+.tier{
+    position:absolute;
+    right:34px;
+    top:181px;
+    background: url('silver.png');
+}
