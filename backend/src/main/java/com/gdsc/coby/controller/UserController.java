@@ -49,7 +49,7 @@ public class UserController {
     @PostMapping("/myinfo")
     @Operation(description = "로그인된 유저의 정보를 수정합니다.")
     public ResponseEntity<UserResponseDto> updateMyInfo(UserRequestDto requestDto) {
-        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name(), requestDto.email())));
+        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name())));
     }
 
     @PostMapping("/password")

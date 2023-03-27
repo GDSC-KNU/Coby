@@ -41,16 +41,14 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("로그인 유저 정보가 없습니다."));
     }
 
-    public UserDto updateUserInfo(String name, String email) {
+    public UserDto updateUserInfo(String name) {
         User user = userRepository.findByUserId(SecurityUtil.getCurrentUserId())
                 .orElseThrow(() -> new UsernameNotFoundException("로그인 유저 정보가 없습니다."));
 
-        if(name == null && email == null)
+        if(name == null)
             throw new IllegalArgumentException("수정할 정보가 없습니다.");
         if(name != null && !name.equals(user.getName()))
             user.setName(name);
-        if(email != null && !email.equals(user.getEmail()))
-            user.setEmail(email);
 
         return UserDto.from(user);
     }
