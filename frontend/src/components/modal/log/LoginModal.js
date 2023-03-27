@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-<<<<<<< HEAD
-=======
 
->>>>>>> main
-import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
@@ -54,8 +50,8 @@ function Login({ setModalOpen}) {
                     )}
             </div>
             <div className="bottom">
-                <button className="find_botton">아이디 찾기</button>
-                <button className="find_botton">비밀번호 찾기</button>
+                {/* <button className="find_botton">아이디 찾기</button>
+                <button className="find_botton">비밀번호 찾기</button> */}
                 <button className="button" onClick={onClickLogin}>로그인</button>
             </div>
         </div>

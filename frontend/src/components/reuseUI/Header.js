@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import Login from "../modal/log/LoginModal";
-import SignIn from "../modal/signin/SigninModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 
 import "./Header.css";
 
 function Header() {
-<<<<<<< HEAD
-=======
+
 
   function CodeReviewHandleClick(event){
     window.location.href="/CodeRoomList";
@@ -20,7 +18,7 @@ function Header() {
   }
 
 
->>>>>>> main
+
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
     const [signInmodalOpen, setSigninModalOpen] = useState(false);
     const showLoginModal = () => {
@@ -36,14 +34,10 @@ function Header() {
       setSigninModalOpen(false)
     }
 
-<<<<<<< HEAD
-  <div>
-      <header className="upside-header">
-=======
   return (
     <div>
        <header className="upside-header">
->>>>>>> main
+
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
@@ -83,6 +77,7 @@ function Header() {
         </div>
       </header>
     </div>
-}
+  );
+};
 
 export default Header;

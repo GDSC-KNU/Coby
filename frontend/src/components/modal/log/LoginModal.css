@@ -1,61 +1,64 @@
 .container {
-  width: 480px;
-  height: 500px;
+  width: 25rem;
+  height: 26rem;
   z-index: 999;
   position: absolute;
-  top: 140px;
   left: 50%;
-  transform: translate(-50%);
-  background-color:white;
+  top: 50%;
+  transform: translate(-50%, 4%); /*위치 임시 조정*/
+  background-color: white;
   border: 1px solid black;
   border-radius: 30px;
 }
 .logo {
-width: 100px;
-height: 74px;
-position: absolute;
-top: 40px;
-left: 200px;
+  width: 100px;
+  height: 74px;
+  position: absolute;
+  top: 30px;
+  left: 155px;
 }
-.form{
-position:relative;
-top: 25%;
-left: 10%;
+.form {
+  position: relative;
+  top: 25%;
+  left: 10%;
 }
-.input{
-border-radius: 20px;
-width: 380px;
-height: 49px;
+.input {
+  border-radius: 20px;
+  width: 320px;
+  height: 34px;
 }
-.button{
-width: 380px;
-height: 49px;
-border-radius: 20px;
-position: relative;
-top: 30px;
-background-color: #5579fe;
-border: 0px;
-color: white;
+.button {
+  width: 320px;
+  height: 36px;
+  border-radius: 20px;
+  position: relative;
+  top: 30px;
+  background-color: #5579fe;
+  border: 0px;
+  color: white;
 }
-.button:hover{
-font-weight: bold;
-transition: all 0.3s;
-scale: 1.1;
+.button:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.1;
 }
-.bottom{
-position: relative;
-top: 150px;
-left: 50px;
+.bottom {
+  position: relative;
+  top: 130px;
+  left: 40px;
 }
-.find_botton{
-border: 0px;
-background-color: white;
+.find_botton {
+  border: 0px;
+  background-color: white;
 }
-.find_botton:hover{
-color: #5579fe;
-font-weight: bold;
-transition: all 0.3s;
+.find_botton:hover {
+  color: #5579fe;
+  font-weight: bold;
+  transition: all 0.3s;
 }
-.icon{
-position: absolute;
+.icon {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(-140%, 50%);
 }

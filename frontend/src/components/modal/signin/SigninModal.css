@@ -1,33 +1,34 @@
 .container1 {
-  width: 492px;
-  height: 538px;
+  width: 25rem;
+  height: 23rem;
   z-index: 999;
   position: absolute;
-  top: 7rem;
+  
   left: 50%;
-  transform: translate(-50%);
+  top: 50%;
+  transform: translate(-50%,8%); /*위치 임시 조정*/
   background-color:white;
   border: 1px solid black;
   border-radius: 30px;
 }
 .form1{
 position:relative;
-top: 20px;
-left: 65px;
+top: 35px;
+left: 43px;
 }
 .input1{
 border-radius: 20px;
-width: 354px;
-height: 45px;
+width: 310px;
+height: 25px;
 position: relative;
 top: -10px;
 }
 .button1{
-width: 354px;
-height: 45px;
+width: 320px;
+height: 36px;
 border-radius: 20px;
 position: relative;
-top: 30px;
+top: 20px;
 background-color: #5579fe;
 border: 1px solid black;
 color: white;
