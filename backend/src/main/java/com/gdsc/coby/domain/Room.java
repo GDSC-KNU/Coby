@@ -25,19 +25,19 @@ public class Room extends AuditingFields{
     private String url;
 
     private String password;
-    private Integer limit;
+    private Integer personnel;
 
     protected Room() {}
 
-    private Room(String name, String url, String password, Integer limit) {
+    private Room(String name, String url, String password, Integer personnel) {
         this.name = name;
         this.url = url;
         this.password = password;
-        this.limit = limit;
+        this.personnel = personnel;
     }
 
-    public static Room of(String name, String url, String password, Integer limit) {
-        return new Room(name, url, password, limit);
+    public static Room of(String name, String url, String password, Integer personnel) {
+        return new Room(name, url, password, personnel);
     }
 
     @Override
