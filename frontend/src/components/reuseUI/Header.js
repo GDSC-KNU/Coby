@@ -6,13 +6,13 @@ import Backdrop from "./Backdrop";
 import "./Header.css";
 
 function Header() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const showModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-      setModalOpen(false)
-  }
+  const [modalOpen, setModalOpen] = useState(false);
+  const showModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <div>
@@ -20,9 +20,7 @@ function Header() {
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
-              <button className="Signin">
-                회원가입
-              </button>
+              <button className="Signin">회원가입</button>
               <button onClick={showModal} className="Login">
                 로그인
               </button>
@@ -39,16 +37,16 @@ function Header() {
           <nav className="navigation">
             <ul>
               <li>
-                <div className="Group" />
-                그룹 참여
+                코드 리뷰
               </li>
               <li>
-                <div className="MyGroup" />내 그룹
+                {/* <div className="Group" /> */}
+                페어 프로그래밍
               </li>
-              <li>
-                <div className="Question" />
-                도움말
-              </li>
+              {/* <div className="MyGroup" /> */}
+              <li>마이그룹</li>
+              {/* <div className="Question" /> */}
+              <li>도움말</li>
             </ul>
           </nav>
         </div>
