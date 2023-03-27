@@ -20,7 +20,7 @@ function MakeRoom(props) {
     return makeRoom.tool === filteredTool;
   });
 
-  let makeRoomsContent = <p>💻︎ 방을 생성해주세요. 💻︎</p>;
+  let makeRoomsContent = <p>💻︎ 여기는 코드리뷰 방입니다. 💻︎</p>;
 
   if (filteredMakeRooms.length > 0) {
     makeRoomsContent = filteredMakeRooms.map((makeRoom) => (
