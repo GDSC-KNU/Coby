@@ -1,52 +1,45 @@
-.container {
-    width: 480px;
-    height: 500px;
-    z-index: 999;
-    position: absolute;
-    top: 200px;
-    left: 50%;
-    transform: translate(-50%);
-    background-color:white;
-    border: 1px solid black;
-    border-radius: 30px;
-  }
-.logo {
-  width: 100px;
-  height: 74px;
+.container1 {
+  width: 492px;
+  height: 538px;
+  z-index: 999;
   position: absolute;
-  top: 40px;
-  left: 200px;
-}
-.form{
-  position:relative;
-  top: 120px;
-  left: 50px;
-}
-.input{
-  border-radius: 20px;
-  width: 380px;
-  height: 49px;
-}
-.button{
-  width: 380px;
-  height: 49px;
-  border-radius: 20px;
-  position: relative;
-  top: 30px;
-  background-color: #5579fe;
+  top: 7rem;
+  left: 50%;
+  transform: translate(-50%);
+  background-color:white;
   border: 1px solid black;
-  color: white;
+  border-radius: 30px;
 }
-.bottom{
-  position: relative;
-  top: 150px;
-  left: 50px;
+.form1{
+position:relative;
+top: 20px;
+left: 65px;
 }
-.find_botton{
-  border: 0px;
-  background-color: white;
+.input1{
+border-radius: 20px;
+width: 354px;
+height: 45px;
+position: relative;
+top: -10px;
 }
-.find_botton:hover{
-  font-weight: bold;
-  transition: all 0.5s;
+.button1{
+width: 354px;
+height: 45px;
+border-radius: 20px;
+position: relative;
+top: 30px;
+background-color: #5579fe;
+border: 1px solid black;
+color: white;
+}
+.button1:hover{
+font-weight: bold;
+transition: all 0.3s;
+scale: 1.1;
+}
+.icon{
+position: relative;
+right: 5%;
+top: -7px;
+z-index: 200;
 }
