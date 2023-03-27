@@ -83,11 +83,30 @@
     } */
 }
 
+@media(min-width: 1220px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 78%;
+  }
+}
+
+
 @media(min-width: 1440px) {
   .MakeRoomBtn{
     width: 8%;
     height: 2rem;
     font-size: 0.8rem;
     left: 73%;
+  }
+}
+
+@media(min-width: 1920px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 68%;
   }
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import Axios from "axios";
-import Backdrop from '../../reuseUI/Backdrop';
+// import Axios from "axios";
+// import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
