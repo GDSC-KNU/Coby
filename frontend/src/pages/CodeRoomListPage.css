@@ -6,9 +6,6 @@
   transform: translate(-12%,-160%);
 }
 
-.modal-event{
-  transition: 1s;
-}
 
 .MakeRoomBtn {
   width: 17%;
@@ -84,4 +81,13 @@
       grid-row-gap: 0.1px;
       grid-column-gap: 8px;
     } */
+}
+
+@media(min-width: 1440px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 73%;
+  }
 }
