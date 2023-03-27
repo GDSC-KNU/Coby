@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Table(name = "user_account")
-public class User extends AuditingFields implements UserDetails {
+public class User implements UserDetails {
     @Id
     @Column(length = 50)
     private String userId;
