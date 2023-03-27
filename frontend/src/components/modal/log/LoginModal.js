@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
