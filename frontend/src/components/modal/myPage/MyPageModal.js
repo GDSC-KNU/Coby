@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Backdrop from "../../reuseUI/Backdrop";
+import Layout from "../../reuseUI/Layout";
 import './MyPageModal.css';
 
 
@@ -7,6 +8,7 @@ function MyPageModal(setMyPageOpen){
     
     return (
         <div>
+            <Layout/>
             <div className="modal">
                 <div className="modal-content">
                     <div className="upper">
@@ -25,7 +27,6 @@ function MyPageModal(setMyPageOpen){
         </div>
     );
 }
-
 
 export default MyPageModal;
 
