@@ -6,12 +6,12 @@ public record RoomResponseDto(
         Long id,
         String name,
         Boolean password,
-        Integer limit,
+        Integer personnel,
         String createdBy
 ) {
 
-    public static RoomResponseDto of(Long id, String name, Boolean password, Integer limit, String createdBy) {
-        return new RoomResponseDto(id, name, password, limit, createdBy);
+    public static RoomResponseDto of(Long id, String name, Boolean password, Integer personnel, String createdBy) {
+        return new RoomResponseDto(id, name, password, personnel, createdBy);
     }
 
     public static RoomResponseDto from(RoomDto dto) {
@@ -19,7 +19,7 @@ public record RoomResponseDto(
                 dto.id(),
                 dto.name(),
                 !dto.password().isEmpty(),
-                dto.limit(),
+                dto.personnel(),
                 dto.createdBy()
         );
     }

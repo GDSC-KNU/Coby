@@ -9,12 +9,12 @@ public record RoomDto(
         String name,
         String url,
         String password,
-        Integer limit,
+        Integer personnel,
         LocalDateTime createdAt,
         String createdBy)
 {
-    public RoomDto of(Long id, String name, String url, String password, Integer limit, LocalDateTime createdAt, String createdBy){
-        return new RoomDto(id, name, url, password, limit, createdAt, createdBy);
+    public RoomDto of(Long id, String name, String url, String password, Integer personnel, LocalDateTime createdAt, String createdBy){
+        return new RoomDto(id, name, url, password, personnel, createdAt, createdBy);
     }
 
     public RoomDto of (Long id, String name, String url, String password, Integer limit){
@@ -27,7 +27,7 @@ public record RoomDto(
                 entity.getName(),
                 entity.getUrl(),
                 entity.getPassword(),
-                entity.getLimit(),
+                entity.getPersonnel(),
                 entity.getCreatedAt(),
                 entity.getCreatedBy()
         );
@@ -38,7 +38,7 @@ public record RoomDto(
                 name,
                 url,
                 password,
-                limit
+                personnel
         );
     }
 }

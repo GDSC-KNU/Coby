@@ -41,11 +41,11 @@ public class RoomService {
     }
 
     // 검색 기능
-    //TODO: 검색 기능 구현 시 상세화
-    @Transactional(readOnly = true)
-    public List<RoomDto> searchRoom(String searchKeyword){
-        return roomRepository.findByNameContaining(searchKeyword);
-    }
+   //TODO: 검색 기능 구현 시 상세화
+//    @Transactional(readOnly = true)
+//    public List<RoomDto> searchRoom(String searchKeyword){
+//        return roomRepository.findByNameContaining(searchKeyword);
+//    }
 
     @Transactional
     public RoomDto createRoom(RoomRequestDto requestDto){
@@ -68,7 +68,7 @@ public class RoomService {
 
         String name = requestDto.name();
         String url = requestDto.url();
-        Integer limit = requestDto.limit();
+        Integer limit = requestDto.personnel();
         String password = requestDto.password();
 
         if(name != null && !room.getName().equals(name))
@@ -77,8 +77,8 @@ public class RoomService {
             room.setUrl(url);
         if(password != null && !room.getPassword().equals(password))
             room.setPassword(password);
-        if(limit != null && !room.getLimit().equals(limit))
-            room.setLimit(requestDto.limit());
+        if(limit != null && !room.getPersonnel().equals(limit))
+            room.setPersonnel(requestDto.personnel());
 
         return RoomDto.from(room);
     }

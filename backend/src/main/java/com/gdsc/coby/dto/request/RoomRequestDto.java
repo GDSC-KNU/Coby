@@ -9,10 +9,10 @@ public record RoomRequestDto(
         String url,
         List<String> tags,
         String password,
-        Integer limit
+        Integer personnel
 ) {
-    public static RoomRequestDto of(String name, String url, List<String> tags, String password, Integer limit) {
-        return new RoomRequestDto(name, url, tags, password, limit);
+    public static RoomRequestDto of(String name, String url, List<String> tags, String password, Integer personnel) {
+        return new RoomRequestDto(name, url, tags, password, personnel);
     }
 
     public Room toEntity() {
@@ -20,7 +20,7 @@ public record RoomRequestDto(
                 name,
                 url,
                 password,
-                limit
+                personnel
         );
     }
 }

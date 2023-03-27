@@ -2,7 +2,6 @@ package com.gdsc.coby.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -11,6 +10,7 @@ import java.util.*;
 @Entity
 @Getter
 @Setter
+@Table(name = "group_list")
 public class Group extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
