@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import Findid from '../findID/FindIdModal';
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
@@ -20,16 +19,18 @@ function Login({ setModalOpen}) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-
-    const [findIdmodalOpen, setFindIdModalOpen] = useState(false);
-    const showFindIdModal = () => {
-        setFindIdModalOpen(true);
-    };
-    const closeFindIdModal = () => {
-      setFindIdModalOpen(false)
-    }
     const onClickLogin = () => {
         console.log({inputId},{inputPw})
+    }
+
+    const onclickSignin = () => {
+        alert('회원가입 완료');
+        /*Axios.post('http://localhost:8080/api/login', {
+            userId: newId,
+            password: newPw,
+          }).then(()=>{
+            alert('등록 완료!');
+          })*/
     }
 
     return (

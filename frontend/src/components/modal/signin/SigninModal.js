@@ -31,10 +31,11 @@ function SignIn({ setModalOpen}) {
     }
     const onclickSignin = () => {
         alert('회원가입 완료');
-        /*Axios.post('http://localhost:8000/insert', {
-            id: newId,
-            pw: newPw,
+        /*Axios.post('http://localhost:8080/api/signup', {
+            userId: newId,
+            password: newPw,
             name: newName,
+            emil: newEmail
           }).then(()=>{
             alert('등록 완료!');
           })*/

@@ -1,31 +1,42 @@
 import React from "react";
 import { useState } from "react";
 import Login from "../modal/log/LoginModal";
+import SignIn from "../modal/signin/SigninModal";
 import Backdrop from "./Backdrop";
 
 import "./Header.css";
 
 function Header() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const showModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const [logInmodalOpen, setLoginModalOpen] = useState(false);
+    const [signInmodalOpen, setSigninModalOpen] = useState(false);
+    const showLoginModal = () => {
+        setLoginModalOpen(true);
+    };
+    const closeLoginModal = () => {
+      setLoginModalOpen(false)
+    }
+    const showSigninModal = () => {
+      setSigninModalOpen(true);
+    };
+    const closeSigninModal = () => {
+      setSigninModalOpen(false)
+    }
 
-  return (
-    <div>
+  <div>
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
-              <button className="Signin">회원가입</button>
-              <button onClick={showModal} className="Login">
+              <button onClick={showSigninModal}  className="Signin">
+                회원가입
+              </button>
+              {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+              {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+              <button onClick={showLoginModal} className="Login">
                 로그인
               </button>
-              {modalOpen && <Login setModalOpen={setModalOpen} />}
-              {modalOpen && <Backdrop onCancel={closeModal} />}
+              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+              {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
             </ul>
           </nav>
         </div>
@@ -52,7 +63,6 @@ function Header() {
         </div>
       </header>
     </div>
-  );
 }
 
 export default Header;
