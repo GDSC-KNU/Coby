@@ -49,16 +49,16 @@ function Header() {
           <nav className="navigation">
             <ul>
               <li>
-                <div className="Group" />
-                그룹 참여
+                코드 리뷰
               </li>
               <li>
-                <div className="MyGroup" />내 그룹
+                {/* <div className="Group" /> */}
+                페어 프로그래밍
               </li>
-              <li>
-                <div className="Question" />
-                도움말
-              </li>
+              {/* <div className="MyGroup" /> */}
+              <li>마이그룹</li>
+              {/* <div className="Question" /> */}
+              <li>도움말</li>
             </ul>
           </nav>
         </div>
@@ -68,3 +68,10 @@ function Header() {
 }
 
 export default Header;
+
+
+
+
+
+
+

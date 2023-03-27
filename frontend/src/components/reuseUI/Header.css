@@ -3,9 +3,9 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 2rem;
+  height: 1rem;
   background-color: #5579fe;
-  z-index: 999;
+  z-index: 10;
 }
 
 .upside-contents {
@@ -21,11 +21,10 @@
 .header {
   position: fixed;
   left: 0;
-  top: 2rem;
+  top: 1rem;
   width: 100%;
-  height: 7rem;
+  height: 3rem;
   background-color: #5579fe;
-  z-index: 900;
 }
 
 .contents {
@@ -39,10 +38,11 @@
 }
 
 .Coby {
+  cursor: pointer;
   width: 12%;
-  height: 4.5rem;
-  margin-bottom: 2rem;
-  /* margin-left: 2rem; */
+  height: 2.6rem;
+
+  margin-bottom: 0.3rem;
   position: relative;
   display: inline-block;
   background-image: url(/src/images/Coby.png);
@@ -50,84 +50,272 @@
   background-repeat: no-repeat;
 }
 
-/* .Coby {
-    width: 6%;
-    height: 1.2rem;
-    position: relative;
-    display: inline-block;
-    background-image: url(/src/images/Coby.png);
-    background-size: cover;
-  
-    max-width: 6%;
-  } */
+/* .Group{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 30%;
+  height: 1rem;
+  background-image: url(/src/images/Group.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.MyGroup {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/MyGroup.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Question{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/Question.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
 
 .upside-navigation ul {
   display: flex;
   list-style: none;
 }
 
-.upside-navigation li {
-  color: white;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.upside-navigation li + li {
-  margin-left: 3rem;
-}
-
 .navigation ul {
   display: flex;
   list-style: none;
+  /* display: inline-block; */
 }
 
 .navigation li {
+  display: inline-block;
   cursor: pointer;
   color: white;
-  margin-top: 5.2rem;
-  font-size: 1.2rem;
+ 
+  margin-top: 0.3rem;
+  font-size: 0.6rem;
 }
 
-.navigation li:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 3px;
+.navigation li:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
 }
 
 .navigation li + li {
   margin-left: 3rem;
 }
 
-@media (min-width: 1440px) {
+.Login {
+  cursor: pointer;
+  font-size: 0.4rem;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #5579fe;
+  color: white;
+}
+.Login:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+.Signin {
+  cursor: pointer;
+  font-size: 0.4rem;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #5579fe;
+  color: white;
+}
+.Signin:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+@media (min-width: 600px) {
+  .navigation li {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .contents {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .navigation li {
-    font-size: 1.4rem;
+    font-size: 0.8rem;
+  }
+}.upside-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: #5579fe;
+  z-index: 10;
+}
+
+.upside-contents {
+  display: flex;
+  width: 96%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: right;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 1rem;
+  width: 100%;
+  height: 3rem;
+  background-color: #5579fe;
+}
+
+.contents {
+  display: flex;
+  width: 96%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Coby {
+  cursor: pointer;
+  width: 12%;
+  height: 2.6rem;
+
+  margin-bottom: 0.3rem;
+  position: relative;
+  display: inline-block;
+  background-image: url(/src/images/Coby.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* .Group{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 30%;
+  height: 1rem;
+  background-image: url(/src/images/Group.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.MyGroup {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/MyGroup.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Question{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0rem;
+  width: 40%;
+  height: 1rem;
+  background-image: url(/src/images/Question.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
+
+.upside-navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  /* display: inline-block; */
+}
+
+.navigation li {
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+ 
+  margin-top: 0.3rem;
+  font-size: 0.6rem;
+}
+
+.navigation li:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+.navigation li + li {
+  margin-left: 3rem;
+}
+
+.Login {
+  cursor: pointer;
+  font-size: 0.4rem;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #5579fe;
+  color: white;
+}
+.Login:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+.Signin {
+  cursor: pointer;
+  font-size: 0.4rem;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #5579fe;
+  color: white;
+}
+.Signin:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+@media (min-width: 600px) {
+  .navigation li {
+    font-size: 0.8rem;
   }
 }
 
-.Login{
-  border: 0px;
-  border-radius: 3px;
-  background-color: #5579fe;
-  color: white;
-}
-.Login:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 1px;
+@media (min-width: 1024px) {
+  .contents {
+    justify-content: space-around;
+  }
+
+  .navigation li {
+    font-size: 0.8rem;
+  }
 }
 
-.Signin{
-  border: 0px;
-  border-radius: 3px;
-  background-color: #5579fe;
-  color: white;
-}
-.Signin:hover{
-  text-decoration-line: underline;
-  text-decoration-color: white;
-  text-decoration-thickness: 1px;
-}
+
+
+
+
+

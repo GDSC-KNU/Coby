@@ -13,8 +13,6 @@ function App() {
 
   return (
     <div>
-      {/* <CodeRoomList /> */}
-      {/* <CodeRoom /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/CodeRoomList" element={<CodeRoomList />} />
