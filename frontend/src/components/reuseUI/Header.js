@@ -2,17 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
+import SignIn from "../modal/signin/SigninModal";
 
 import "./Header.css";
 
 function Header() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const showModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
 
   function CodeReviewHandleClick(event){
     window.location.href="/CodeRoomList";
@@ -22,18 +16,38 @@ function Header() {
     window.location.href="/";
   }
 
+
+  const [logInmodalOpen, setLoginModalOpen] = useState(false);
+    const [signInmodalOpen, setSigninModalOpen] = useState(false);
+    const showLoginModal = () => {
+        setLoginModalOpen(true);
+    };
+    const closeLoginModal = () => {
+      setLoginModalOpen(false)
+    }
+    const showSigninModal = () => {
+      setSigninModalOpen(true);
+    };
+    const closeSigninModal = () => {
+      setSigninModalOpen(false)
+    }
+
   return (
     <div>
-      <header className="upside-header">
+       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
-              <button className="Signin">회원가입</button>
-              <button onClick={showModal} className="Login">
+              <button onClick={showSigninModal}  className="Signin">
+                회원가입
+              </button>
+              {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+              {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+              <button onClick={showLoginModal} className="Login">
                 로그인
               </button>
-              {modalOpen && <Login setModalOpen={setModalOpen} />}
-              {modalOpen && <Backdrop onCancel={closeModal} />}
+              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} />}
+              {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
             </ul>
           </nav>
         </div>
