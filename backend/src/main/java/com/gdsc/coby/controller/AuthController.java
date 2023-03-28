@@ -11,6 +11,7 @@ import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class AuthController {
     private final AuthService authService;
+    private final PasswordEncoder passwordEncoder;
 
     @ExceptionHandler(value = {EntityExistsException.class, UsernameNotFoundException.class, RuntimeException.class})
     public ResponseEntity<String> exceptionHandler(Exception e) {
@@ -31,18 +33,18 @@ public class AuthController {
     @PostMapping("/signup")
     @Operation(description = "유저 정보를 DB에 저장합니다. (회원가입)")
     public ResponseEntity<UserResponseDto> signup(UserRequestDto requestDto) {
-        return ResponseEntity.ok(authService.signup(requestDto));
+        return ResponseEntity.ok(UserResponseDto.from(authService.signup(requestDto.toDto(passwordEncoder))));
     }
 
     @PostMapping("/login")
     @Operation(description = "로그인 기능입니다.")
     public ResponseEntity<TokenDto> login(UserRequestDto requestDto) {
-        return ResponseEntity.ok(authService.login(requestDto));
+        return ResponseEntity.ok(authService.login(requestDto.toDto(passwordEncoder)));
     }
 
     @PostMapping("/logout")
     @Operation(description = "로그아웃 기능입니다.")
     public ResponseEntity<Boolean> logout(LogoutRequestDto requestDto) {
-        return ResponseEntity.ok(authService.logout(requestDto));
+        return ResponseEntity.ok(authService.logout(requestDto.toDto()));
     }
 }
