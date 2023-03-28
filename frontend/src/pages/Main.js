@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../components/reuseUI/Layout";
 import SimpleSlider from "../components/main/Carousel";
 import "./Main.css";
-import MainImg from "../images/logo_black.png";
+import MainImg from "../images/Coby_darkBlue.png";
 import img from "../images/menu.png";
 
 function Main(props) {
@@ -26,26 +26,30 @@ function Main(props) {
       <div className="Ad">
         <SimpleSlider />
       </div>
-      
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="Main-title">
+        <h1>anyone can develop</h1>
+        <p>＜COBY.＞란 Coding의 CO와 BY.의 뜻을 따와 합친 이름입니다.</p>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       <br />
       
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
       <br />
       <br />
@@ -56,14 +60,7 @@ function Main(props) {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <br />
+      
       <br />
       <br />
       <br />
@@ -79,7 +76,6 @@ function Main(props) {
       <br />
       <br />
       <br />
-
       <br />
       <br />
       <br />
