@@ -9,12 +9,12 @@ public record GroupTagMapDto(
         GroupDto group,
         TagDto tag
 ) {
-    public GroupTagMapDto of(Long id, GroupDto group,TagDto tag){
-        return new GroupTagMapDto(
-                id,
-                group,
-                tag
-        );
+    public static GroupTagMapDto of(Long id, GroupDto group,TagDto tag){
+        return new GroupTagMapDto(id, group, tag);
+    }
+
+    public static GroupTagMapDto of(GroupDto group, TagDto tag) {
+        return new GroupTagMapDto(null, group, tag);
     }
 
     public static GroupTagMapDto from(GroupTagMap entity){
