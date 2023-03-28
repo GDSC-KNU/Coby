@@ -59,6 +59,6 @@
 .icon {
   position: absolute;
   left: 0%;
-  top: 50%;
-  transform: translate(-140%, 80%);
+  top: 60%;
+  transform: translate(-140%, 120%);
 }
