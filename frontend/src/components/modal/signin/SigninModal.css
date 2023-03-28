@@ -1,6 +1,6 @@
 .container1 {
   width: 25rem;
-  height: 23rem;
+  height: 32rem;
   z-index: 999;
   position: absolute;
   
@@ -41,6 +41,6 @@ scale: 1.1;
 .icon{
 position: relative;
 right: 5%;
-top: -7px;
+top: -13px;
 z-index: 200;
 }

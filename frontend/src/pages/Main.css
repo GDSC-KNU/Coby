@@ -1,34 +1,167 @@
-.App{
-    background-Color: #DFE5EC;
-    height: 100vh;
-    width: 100vw;
+body {
+  background-color: white;
+  animation: body 1s linear;
 }
-.introduce{
+
+@keyframes body {
+  to {
+    background-color: rgba(135, 193, 233, 0.6);
+  }
+}
+
+
+
+.fade-in {
+  font: inherit;
+  font-size: 3rem;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  animation: fade-in 1s linear;
+  transition: 0.6s;
+
+  /* font-size: 50px;
+  min-width: 60px;
+  white-space: nowrap;
+  margin: 0;
+  position: fixed;
+  color: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%); */
+}
+
+/* .fade-in::before {
+  content: "혼자 코딩하느라 힘드셨죠?";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 200%;
+  color: black;
+  overflow: hidden;
+  animation: typing 5s steps(31) infinite;
+} */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+/* @keyframes typing {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+} */
+
+.fade-in2 {
+  font: inherit;
+  font-size: 3rem;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  animation: fade-in2 1s linear;
+  transition: 0.6s;
+}
+
+@keyframes fade-in2 {
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 0;
+  }
+}
+
+.fade-in3 {
+  opacity: 0;
+  /* transition: 0.3s; */
+  animation: fade-in3 1s linear;
+}
+@keyframes fade-in3 {
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+
+:root * {
+  /* Pause the animation */
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.introduce {
+  position: relative;
+  top: 10%;
+  width: 80vw;
+  height: 90vh;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.Main-logo {
+    width: 14%;
+    height: 8.8rem;
     position: relative;
-    top: 10%;
-    width: 80vw;
-    height: 90vh;
-    left: 50%;
-    transform: translate(-50%);
+    left: 41%;
+    
+    justify-content: center;
+    align-items: center;
 }
-.title{
-    font-family: "Kimjungchul";
-    font-size: 5vw;
-    font-weight: 1000;
-    text-align: center;
+
+.title {
+  font-family: "Kimjungchul";
+  font-size: 5vw;
+  font-weight: 1000;
+  text-align: center;
 }
-.word{
-    font-size: 2vw;
-    text-align: center;
+.word {
+  font-size: 2vw;
+  text-align: center;
 }
-.Ad{
-    width: 100vw;
-    height: 45vh;
+.Ad {
+  width: 100vw;
+  height: 45vh;
 }
-.menu{
-    position: relative;
-    right: 0.5rem;
+.menu {
+  position: relative;
+  right: 0.5rem;
 }
-.menuimg{
-    width: 100vw;
+.menuimg {
+  width: 100vw;
 }
