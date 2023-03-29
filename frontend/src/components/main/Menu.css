@@ -10,6 +10,7 @@
     background-color: rgba(47,71,120);
     display: flex;
     flex-wrap: nowrap;
+    overflow: hidden;
 }
 .sev{
     position: relative;
@@ -17,7 +18,7 @@
     top: 1.5rem;
     width: 15%;
     color: white;
-    font-size: 0.8rem;
+    font-size: 1.5vh;
 }
 .down_menu{
     position: absolute;
@@ -27,6 +28,7 @@
     height: 40%;
     background-color: rgba(47,71,120);
     border-top: 1px solid white;
+    overflow: hidden;
 }
 .explain{
     font-size: 0.8rem;
