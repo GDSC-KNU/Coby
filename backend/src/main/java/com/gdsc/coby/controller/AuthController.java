@@ -12,10 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "인증 컨트롤러", description = "인증 관련 기능 제공")
 @RestController
@@ -32,19 +29,19 @@ public class AuthController {
 
     @PostMapping("/signup")
     @Operation(description = "유저 정보를 DB에 저장합니다. (회원가입)")
-    public ResponseEntity<UserResponseDto> signup(UserRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> signup(@RequestBody UserRequestDto requestDto) {
         return ResponseEntity.ok(UserResponseDto.from(authService.signup(requestDto.toDto(passwordEncoder))));
     }
 
     @PostMapping("/login")
     @Operation(description = "로그인 기능입니다.")
-    public ResponseEntity<TokenDto> login(UserRequestDto requestDto) {
+    public ResponseEntity<TokenDto> login(@RequestBody UserRequestDto requestDto) {
         return ResponseEntity.ok(authService.login(requestDto.toDto(passwordEncoder)));
     }
 
     @PostMapping("/logout")
     @Operation(description = "로그아웃 기능입니다.")
-    public ResponseEntity<Boolean> logout(LogoutRequestDto requestDto) {
+    public ResponseEntity<Boolean> logout(@RequestBody LogoutRequestDto requestDto) {
         return ResponseEntity.ok(authService.logout(requestDto.toDto()));
     }
 }
