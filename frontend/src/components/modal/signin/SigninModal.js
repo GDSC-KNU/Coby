@@ -42,7 +42,7 @@ function SignIn({ setModalOpen}) {
     return (
         <div className="container1">
             <div className="form1">
-                <p>이메일</p>
+                <p>아이디</p>
                 <input className="input1" type='text' name='input_id' value={newId} onChange={handleNewId} />
                 <p>이름</p>
                 <input className="input1" type='text' name='input_name' value={newName} onChange={handleNewName} />
