@@ -1,4 +1,11 @@
+.Main{
+  width: 100%;
+}
+
 body {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
   background-color: #DFE5EC;
   animation: body 1s linear;
 }
