@@ -13,8 +13,12 @@ public record PostDto(
         LocalDateTime createdAt,
         String createdBy
 ) {
-    public PostDto of(Long id, GroupDto group, String title, String content, LocalDateTime createdAt,String createdBy){
+    public static PostDto of(Long id, GroupDto group, String title, String content, LocalDateTime createdAt,String createdBy){
         return new PostDto(id, group, title, content, createdAt, createdBy);
+    }
+
+    public static PostDto of(GroupDto group, String title, String content){
+        return new PostDto(null, group, title, content, null, null);
     }
 
     public static PostDto from(Post entity) {

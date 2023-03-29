@@ -13,8 +13,12 @@ public record CommentDto(
         String createdBy
 ) {
 
-    public CommentDto of(Long id, PostDto post, String content, LocalDateTime createdAt, String createdBy){
+    public static CommentDto of(Long id, PostDto post, String content, LocalDateTime createdAt, String createdBy){
         return new CommentDto(id ,post, content, createdAt, createdBy);
+    }
+
+    public static CommentDto of(PostDto post, String content) {
+        return new CommentDto(null, post, content, null, null);
     }
 
     public static CommentDto from(Comment entity){

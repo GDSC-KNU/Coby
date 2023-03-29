@@ -1,6 +1,6 @@
 .container1 {
   width: 25rem;
-  height: 23rem;
+  height: 32rem;
   z-index: 999;
   position: absolute;
   
@@ -19,9 +19,9 @@ left: 43px;
 .input1{
 border-radius: 20px;
 width: 310px;
-height: 25px;
+height: 35px;
 position: relative;
-top: -10px;
+top: -1px;
 }
 .button1{
 width: 320px;
@@ -41,6 +41,6 @@ scale: 1.1;
 .icon{
 position: relative;
 right: 5%;
-top: -7px;
+top: -20px;
 z-index: 200;
 }

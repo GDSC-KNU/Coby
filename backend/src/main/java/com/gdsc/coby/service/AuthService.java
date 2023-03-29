@@ -3,8 +3,6 @@ package com.gdsc.coby.service;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.TokenDto;
 import com.gdsc.coby.dto.UserDto;
-import com.gdsc.coby.dto.request.LogoutRequestDto;
-import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.JwtProvider;
@@ -31,20 +29,20 @@ public class AuthService {
     private final JwtProvider jwtProvider;
     private final RedisTemplate<String, Object> redisTemplate;
 
-    public UserResponseDto signup(UserRequestDto requestDto) {
-        if(userRepository.existsByUserId(requestDto.userId())) {
+    public UserDto signup(UserDto dto) {
+        if(userRepository.existsByUserId(dto.userId())) {
             throw new EntityExistsException("이미 가입되어있는 유저입니다.");
         }
-        User user = requestDto.toEntity(passwordEncoder);
+        User user = dto.toEntity(passwordEncoder);
         user.getRoles().add("ROLE_USER");
-        return UserResponseDto.from(UserDto.from(userRepository.save(user)));
+        return UserDto.from(userRepository.save(user));
     }
 
-    public TokenDto login(UserRequestDto requestDto) {
-        if(!userRepository.existsByUserId(requestDto.userId())) {
+    public TokenDto login(UserDto dto) {
+        if(!userRepository.existsByUserId(dto.userId())) {
             throw new UsernameNotFoundException("존재하지 않는 아이디입니다.");
         }
-        UsernamePasswordAuthenticationToken authenticationToken = requestDto.toAuthentication();
+        UsernamePasswordAuthenticationToken authenticationToken = dto.toAuthentication();
 
         Authentication authentication = managerBuilder.getObject().authenticate(authenticationToken);
 
@@ -55,19 +53,19 @@ public class AuthService {
         return tokenDto;
     }
 
-    public boolean logout(LogoutRequestDto requestDto) {
-        if(!jwtProvider.validateToken(requestDto.accessToken())) {
+    public boolean logout(TokenDto dto) {
+        if(!jwtProvider.validateToken(dto.getAccessToken())) {
             throw new RuntimeException("잘못된 요청입니다.");
         }
-        Authentication authentication = jwtProvider.getAuthentication(requestDto.accessToken());
+        Authentication authentication = jwtProvider.getAuthentication(dto.getAccessToken());
 
         if(redisTemplate.opsForValue().get("RT:" + authentication.getName()) != null) {
             redisTemplate.delete("RT:" + authentication.getName());
         }
 
-        Long expiration = jwtProvider.getExpiration(requestDto.accessToken());
+        Long expiration = jwtProvider.getExpiration(dto.getAccessToken());
         redisTemplate.opsForValue()
-                .set(requestDto.accessToken(), "logout", expiration, TimeUnit.MILLISECONDS);
+                .set(dto.getAccessToken(), "logout", expiration, TimeUnit.MILLISECONDS);
         return true;
     }
 }

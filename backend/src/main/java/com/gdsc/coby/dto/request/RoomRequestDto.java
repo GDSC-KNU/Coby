@@ -1,6 +1,7 @@
 package com.gdsc.coby.dto.request;
 
 import com.gdsc.coby.domain.Room;
+import com.gdsc.coby.dto.RoomDto;
 
 import java.util.List;
 
@@ -15,12 +16,13 @@ public record RoomRequestDto(
         return new RoomRequestDto(name, url, tags, password, personnel);
     }
 
-    public Room toEntity() {
-        return Room.of(
+    public RoomDto toDto() {
+        return RoomDto.of(
                 name,
                 url,
                 password,
-                personnel
+                personnel,
+                tags
         );
     }
 }

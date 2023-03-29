@@ -43,13 +43,13 @@ public class RoomController {
     @PostMapping
     @Operation(description = "코드 룸을 생성합니다.")
     public ResponseEntity<RoomResponseDto> createRoom(RoomRequestDto requestDto){
-        return ResponseEntity.ok(RoomResponseDto.from(roomService.createRoom(requestDto)));
+        return ResponseEntity.ok(RoomResponseDto.from(roomService.createRoom(requestDto.toDto())));
     }
 
     @PostMapping("/{roomId}")
     @Operation(description = "코드 룸의 상세정보를 수정합니다.")
     public ResponseEntity<RoomResponseDto> updateRoom(@PathVariable Long roomId, RoomRequestDto requestDto){
-        return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto)));
+        return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto.toDto())));
 
     }
 
