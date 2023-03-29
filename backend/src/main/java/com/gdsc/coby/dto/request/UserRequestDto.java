@@ -14,12 +14,12 @@ public record UserRequestDto(
         return new UserRequestDto(userId, name, password);
     }
 
-    public UserDto toDto(PasswordEncoder passwordEncoder) {
+    public UserDto toDto() {
         return UserDto.of(
                userId,
                 null,
                 name,
-                passwordEncoder.encode(password),
+                password,
                 0L
         );
     }

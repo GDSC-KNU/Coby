@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class AuthController {
     private final AuthService authService;
-    private final PasswordEncoder passwordEncoder;
 
     @ExceptionHandler(value = {EntityExistsException.class, UsernameNotFoundException.class, RuntimeException.class})
     public ResponseEntity<String> exceptionHandler(Exception e) {
@@ -30,13 +29,13 @@ public class AuthController {
     @PostMapping("/signup")
     @Operation(description = "유저 정보를 DB에 저장합니다. (회원가입)")
     public ResponseEntity<UserResponseDto> signup(@RequestBody UserRequestDto requestDto) {
-        return ResponseEntity.ok(UserResponseDto.from(authService.signup(requestDto.toDto(passwordEncoder))));
+        return ResponseEntity.ok(UserResponseDto.from(authService.signup(requestDto.toDto())));
     }
 
     @PostMapping("/login")
     @Operation(description = "로그인 기능입니다.")
     public ResponseEntity<TokenDto> login(@RequestBody UserRequestDto requestDto) {
-        return ResponseEntity.ok(authService.login(requestDto.toDto(passwordEncoder)));
+        return ResponseEntity.ok(authService.login(requestDto.toDto()));
     }
 
     @PostMapping("/logout")
