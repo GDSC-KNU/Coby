@@ -13,7 +13,7 @@ import img4 from '../../images/banner4.png';
 export default class CenterMode extends Component {
   render() {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 2000,
         slidesToShow: 1,
@@ -50,16 +50,16 @@ export default class CenterMode extends Component {
       <div>
         <Slider {...settings}>
           <div>
-            <img src={img1} alt="banner1" />
+            <img src={img1} alt="banner1" onClick={()=>{window.open("https://www.codestates.com/about/review")}}/>
           </div>
           <div>
-            <img src={img2} alt="banner2" />
+            <img src={img2} alt="banner2" onClick={()=>{window.open("https://www.codestates.com/about/review")}}/>
           </div>
           <div>
-            <img src={img3} alt="banner3" />
+            <img src={img3} alt="banner3" onClick={()=>{window.open("https://www.codestates.com/about/review")}}/>
           </div>
           <div>
-            <img src={img4} alt="banner4" />
+            <img src={img4} alt="banner4" onClick={()=>{window.open("https://www.codestates.com/about/review")}} />
           </div>
         </Slider>
       </div>

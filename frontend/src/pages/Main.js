@@ -2,8 +2,7 @@ import { useState } from "react";
 import Layout from "../components/reuseUI/Layout";
 import SimpleSlider from "../components/main/Carousel";
 import './Main.css'
-
-import img from '../images/menu.png'
+import Menu from "../components/main/Menu";
 
 function Main(props) {
   console.log(props.cookies)
@@ -22,7 +21,7 @@ function Main(props) {
         </p>
       </div>
       <div className="menu">
-        <img src={img} alt='menu' className="menuimg"/>
+        <Menu/>
       </div>
     </div>
   );

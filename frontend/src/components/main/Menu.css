@@ -1,0 +1,47 @@
+.menu{
+    width: 100%;
+    height: 40vh;
+    background-color: #5579fe
+}
+
+.up_menu{
+    width: 100%;
+    height: 60%;
+    background-color: #5579fe;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.sev{
+    position: relative;
+    left: 23vw;
+    top: 1.5rem;
+    width: 15%;
+    color: white;
+    font-size: 0.8rem;
+}
+.down_menu{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 40%;
+    background-color: #5579fe;
+    border-top: 1px solid white;
+}
+.explain{
+    font-size: 0.8rem;
+    color: white;
+    position: relative;
+    text-align: left;
+    left: 3%;
+    top: 5%;
+}
+
+.logo{
+    width: 12vw;
+    height: 16vh;
+    position: relative;
+    left: 15%;
+    display: flex;
+}
+
