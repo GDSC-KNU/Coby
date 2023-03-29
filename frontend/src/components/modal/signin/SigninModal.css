@@ -13,7 +13,7 @@
 }
 .form1{
 position:relative;
-top: 35px;
+top: 27px;
 left: 43px;
 }
 .input1{
@@ -25,10 +25,10 @@ top: -1px;
 }
 .button1{
 width: 320px;
-height: 36px;
+height: 43px;
 border-radius: 20px;
 position: relative;
-top: 20px;
+top: 28px;
 background-color: #5579fe;
 border: 1px solid black;
 color: white;

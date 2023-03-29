@@ -1,6 +1,6 @@
 .container {
   width: 25rem;
-  height: 34rem;
+  height: 30rem;
   z-index: 999;
   position: absolute;
   left: 50%;
@@ -10,18 +10,18 @@
   border: 1px solid black;
   border-radius: 30px;
 }
-.logo {
-  width: 60px;
+.logo-login {
+  width: 7vw;
   height: 80px;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(26%, 30%);
+  transform: translate(-50%, -270%);
   
 }
 .form {
   position: relative;
-  top: 10%;
+  top: 25%;
   left: 10%;
 }
 .input {
@@ -34,7 +34,7 @@
   height: 36px;
   border-radius: 20px;
   position: relative;
-  top: 30px;
+  top: 40px;
   background-color: #5579fe;
   border: 0px;
   color: white;
@@ -46,10 +46,11 @@
 }
 .bottom {
   position: relative;
-  top: 110px;
+  top: 140px;
   left: 40px;
 }
 .find_botton {
+  
   border: 0px;
   background-color: white;
 }
