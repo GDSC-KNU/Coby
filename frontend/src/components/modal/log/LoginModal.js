@@ -47,7 +47,7 @@ function Login(props) {
                 <img src={logo} alt="로고" className="logo-login" />
             </div>
             <div className="form">
-                <p>이메일</p>
+                <p>아이디</p>
                 <input className="input" type='text' name='input_id' value={inputId} onChange={handleInputId}></input>
                 <p>비밀번호</p>
                 <input className="input" type={showPswd ? "text" : "password"} name='input_pw' value={inputPw} onChange={handleInputPw}></input>

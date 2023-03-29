@@ -54,7 +54,7 @@ function Header(props) {
 
   return (
     <div>
-      {props.cookies.accessToken ? (
+      {props.cookies ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
