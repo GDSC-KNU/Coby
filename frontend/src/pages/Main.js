@@ -113,24 +113,6 @@ function Main(props) {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <div className="fade-in3">
         <div>
           <img src={MainImg} alt="로고" className="Main-logo" />
@@ -148,7 +130,14 @@ function Main(props) {
       <br />
       <br />
       <br />
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="menu">
         <Menu/>
       </div>

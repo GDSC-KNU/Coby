@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
+import Axios from "axios";
 import './MyPageModal.css';
 
 
 function MyPageModal(setMyPageOpen){
+    const [name,setName] = useState('');
+    const [group,setGroup] = useState('');
+    const [grade, setGrade] = useState('');
+
+    useEffect(() => {
+        Axios.get(`http://localhost:8080/api/myPage`)
+            .then((res) => {
+                setName(res.name);
+                setGroup(res.group);
+                setGrade(res.grade);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+      }, []);
     
     return (
         <div>
@@ -15,9 +31,9 @@ function MyPageModal(setMyPageOpen){
                         <br />＜COBY.＞
                     </div>
                     <div className="userinfo">
-                        <p><br/><br/><br/>이름 : name</p>
-                        <p>그룹 : none</p>
-                        <p>등급 : grade</p>
+                        <p><br/><br/><br/>이름 : {name}</p>
+                        <p>그룹 : {group}</p>
+                        <p>등급 : {grade}</p>
                         <p>기여도 : 0000</p>
                     </div>
                     <div className="userphoto"></div>

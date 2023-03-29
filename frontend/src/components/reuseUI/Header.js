@@ -4,6 +4,7 @@ import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
+import Axios from "axios";
 
 import "./Header.css";
 
@@ -43,13 +44,17 @@ function Header(props) {
       setSigninModalOpen(false)
     }
     const logOut = () => {
-      props.setCookie(false);
-      setLoginModalOpen(false);
+      Axios.post('http://localhost:8080/api/login', {
+        refreshToken: props.cookies.ref
+        })
+    .then(res => {
+        props.setCookie('token', res.payload.accessToken)
+        })
     }
 
   return (
     <div>
-      {props.cookies ? (
+      {props.cookies.accessToken ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">

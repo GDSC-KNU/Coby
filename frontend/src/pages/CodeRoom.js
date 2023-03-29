@@ -1,7 +1,7 @@
 import React from "react";
 
 import Sidebar from "../components/codeRoom/Sidebar";
-import img from "../images/vscode.png"
+import img from "../images/test.png"
 import './CodeRoom.css'
 
 const CodeRoom = (props) => {

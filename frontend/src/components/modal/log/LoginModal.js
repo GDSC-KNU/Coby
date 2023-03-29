@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-// import Axios from "axios";
-// import Backdrop from '../../reuseUI/Backdrop';
+import Axios from "axios";
+import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
@@ -23,18 +23,22 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-        alert('로그인 완료');
-        props.setCookie(true);
-    /*Axios.post('http://localhost:8080/api/login', {
+        //alert('로그인 완료');
+        //props.setCookie(true);
+    Axios.post('http://localhost:8080/api/login', {
         userId: inputId,
         password: inputPw,
         })
     .then(res => {
-        props.setCookie('token', res.payload.accessToken)
+        props.setCookie('access', res.payload.accessToken)
         props.setCookie('ref', res.payload.refreshToken)
         // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
         Axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.accessToken}`
-        })*/
+        })
+    .catch((e) => {
+        console.log(e.response.data);
+        return "아이디 혹은 비밀번호를 확인하세요.";
+    });
     }
 
     return (

@@ -2,7 +2,7 @@ import './SigninModal.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-// import Axios from "axios";
+import Axios from "axios";
 
 function SignIn({ setModalOpen}) {
     const navigate = useNavigate();
@@ -30,14 +30,13 @@ function SignIn({ setModalOpen}) {
         setNewName(e.target.value)
     }
     const onclickSignin = () => {
-        alert('회원가입 완료');
-        // Axios.post('http://localhost:8080/api/signup', {
-        //     userId: newId,
-        //     password: newPw,
-        //     name: newName
-        //   }).then(()=>{
-        //     alert('등록 완료!');
-        //   })
+        Axios.post('http://localhost:8080/api/signup', {
+            userId: newId,
+            password: newPw,
+            name: newName
+        }).then(()=>{
+             alert('등록 완료!');
+        })
     }
 
     return (

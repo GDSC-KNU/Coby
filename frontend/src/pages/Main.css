@@ -188,3 +188,17 @@ body {
 .menuimg {
   width: 100vw;
 }
+
+.sample{
+  width: 60%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
