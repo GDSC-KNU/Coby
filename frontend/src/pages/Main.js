@@ -11,8 +11,8 @@ function Main(props) {
     "scroll",
     () => {
       document.body.style.setProperty(
-        window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
         "--scroll",
+        window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
       );
     },
     false

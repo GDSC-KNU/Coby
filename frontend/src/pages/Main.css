@@ -23,7 +23,7 @@ body {
   text-align: center;
   opacity: 0;
   animation: fade-in 1s linear;
-  transition: 0.6s;
+  transition: 0.3s;
 
   /* font-size: 50px;
   min-width: 60px;
@@ -50,7 +50,7 @@ body {
 
 @keyframes fade-in {
   0% {
-    opacity: 0;
+    opacity: 0.2;
   }
   10% {
     opacity: 0.3;
@@ -115,7 +115,7 @@ body {
   60% {
     opacity: 0.6;
   }
-  70% {
+  to {
     opacity: 2;
   }
 }
