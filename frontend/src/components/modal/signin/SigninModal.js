@@ -2,7 +2,7 @@ import './SigninModal.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import Axios from "axios";
+import axios from "axios";
 
 function SignIn({ setModalOpen}) {
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ function SignIn({ setModalOpen}) {
         setNewName(e.target.value)
     }
     const onclickSignin = () => {
-        Axios.post('http://localhost:8080/api/signup', {
+        axios.post('http://localhost:8080/api/signup', {
             userId: newId,
             password: newPw,
             name: newName

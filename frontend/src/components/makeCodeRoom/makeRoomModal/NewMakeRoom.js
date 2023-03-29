@@ -24,6 +24,18 @@ function NewMakeRoom(props) {
     })
   };
 
+  /*
+    Axios.post('http://localhost:8080/api/coderooms', {
+      name: enteredTitle,
+      url: enteredLink,
+      tags: enteredLanguage,
+      //tags에 enteredLanguage, enteredTool 넣어야함
+      password: enteredPassWord,
+      personel: 6,
+      id: id,
+    }).then(()=>{
+      alert('등록 완료!');
+    })*/
 
   return (
     <div>
