@@ -3,7 +3,6 @@ import React from "react";
 import logo from "../../images/Coby.png";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./Sidebar.module.css";
-import profile from '../../images/banner1.png'
 
 const Sidebar = (props) => {
   const toggle = () => props.setIsOpen(!props.isOpen);
@@ -12,7 +11,7 @@ const Sidebar = (props) => {
     <div className={styles.out}>
       <div
         style={{ width: props.isOpen ? "280px" : "60px" }}
-        className={styles.sidebar}
+        className={styles.sidebar1}
       >
         <div>
           <img
@@ -26,10 +25,10 @@ const Sidebar = (props) => {
               <div style={{ marginLeft: "240px" }}>
                 <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
               </div>
-              <div className={styles.profile}>
+              <div className={styles.profile} style = {{ background : "blue"}}>
                 <p className={styles.name}>철수</p>
               </div>
-              <div className={styles.profile}>
+              <div className={styles.profile} style = {{ background : "red"}}>
               <p className={styles.name}>영희</p>
               </div>
               <div className={styles.chatting}>
@@ -53,11 +52,9 @@ const Sidebar = (props) => {
                 onClick={toggle}
                 className={styles.button}
               />
-              <div className={styles.profile}>
+              <div className={styles.profile} style = {{ background : "blue"}}>
               </div>
-              <div className={styles.profile}>
-              </div>
-              <div className={styles.profile}>
+              <div className={styles.profile} style = {{ background : "red"}}>
               </div>
             </div>
           )}

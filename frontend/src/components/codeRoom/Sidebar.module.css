@@ -10,7 +10,7 @@
   display: flex;
 }
 
-.sidebar {
+.sidebar1 {
   background-color: #5579fe;
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@
 }
 .icon {
   margin: 0;
-  color: #202020;
+  color: white;
 }
 .logo {
   position: absolute;
