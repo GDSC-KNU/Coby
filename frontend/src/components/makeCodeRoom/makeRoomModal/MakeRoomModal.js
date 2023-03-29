@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 import "./MakeRoomModal.css";
 
@@ -56,7 +57,19 @@ function MakeRoomModal(props) {
     // setEnteredPurpose("");
     setEnteredPassWord("");
     setEnteredLink("");
-  }; // 임시 전송할 데이터
+    // 임시 전송할 데이터
+    /*
+    Axios.post('http://localhost:8080/api/coderooms', {
+      name: enteredTitle,
+      url: enteredLink,
+      tags: enteredLanguage,
+      //tags에 enteredLanduage, enteredTool 넣어야함
+      password: enteredPassWord,
+      //personel: 최대인원
+    }).then(()=>{
+      alert('등록 완료!');
+    })*/
+  };
 
   // document.querySelector('button').addEventlistener('click', (e) => {
   //   e.stopPropagation(); // 이벤트 전파 방지

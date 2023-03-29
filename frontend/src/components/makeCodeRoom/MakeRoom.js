@@ -47,14 +47,3 @@ function MakeRoom(props) {
 }
 
 export default MakeRoom;
-
-
-  /*Axios.post('http://localhost:8080/api/coderooms', {
-      name: 방이름
-      url: 주소
-      tags: 언어 도구
-      password: 비밀번호
-      personnel: 최대인원
-    }).then(()=>{
-      alert('등록 완료!');
-    })*/

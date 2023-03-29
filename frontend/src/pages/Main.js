@@ -12,7 +12,7 @@ function Main(props) {
     () => {
       document.body.style.setProperty(
         window.pageYOffset / (document.body.offsetHeight - window.innerHeight)
-        "--scroll",
+        ,"--scroll",
       );
     },
     false

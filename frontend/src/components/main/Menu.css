@@ -1,7 +1,7 @@
 .menu{
-    width: 100%;
+    width: 100vw;
     height: 40vh;
-    background-color: #5579fe
+    background-color: #5579fe;
 }
 
 .up_menu{
