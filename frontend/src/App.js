@@ -8,6 +8,7 @@ import MakeRoom from "./components/makeCodeRoom/MakeRoom";
 import CodeRoomListPage from "./pages/CodeRoomListPage";
 import CodeRoom from "./pages/CodeRoom";
 import Main from "./pages/Main";
+import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/MakeRoom" element={<MakeRoom cookies={cookies} setCookie={setCookie} />} />
           <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} cookies={cookies} setCookie={setCookie} />} />
           <Route path="/CodeRoomList" element={<CodeRoomListPage cookies={cookies} setCookie={setCookie}  />} />
+          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage cookies={cookies} setCookie={setCookie} />} />
         </Routes>
       </CookiesProvider>
     </div>

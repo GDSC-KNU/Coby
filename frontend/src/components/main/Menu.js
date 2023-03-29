@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <div className="menu">
         <div className="up_menu">
-            <img src={logo} alt="로고" className="logo"/>
+            <img src={logo} alt="로고" className="logo-menu"/>
             <div className="sev">
                 <h1>멘토링</h1>
                 <br/>

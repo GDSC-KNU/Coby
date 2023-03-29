@@ -120,10 +120,19 @@ body {
     opacity: 0;
   }
   60% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  80%{
     opacity: 0.6;
   }
-  to {
-    opacity: 2;
+  90%{
+    opacity: 3;
+  }
+  100%{
+    opacity: 3;
   }
 }
 

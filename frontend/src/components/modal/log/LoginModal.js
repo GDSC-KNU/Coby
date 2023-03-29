@@ -40,7 +40,7 @@ function Login(props) {
     return (
         <div className="container">
             <div>
-                <img src={logo} alt="로고" className="logo" />
+                <img src={logo} alt="로고" className="logo-login" />
             </div>
             <div className="form">
                 <p>이메일</p>

@@ -37,10 +37,11 @@
     top: 5%;
 }
 
-.logo{
-    width: 12vw;
+.logo-menu{
+    width: 11vw;
     height: 16vh;
     position: relative;
+    top: 15%;
     left: 15%;
     display: flex;
 }

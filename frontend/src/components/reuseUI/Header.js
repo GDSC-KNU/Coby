@@ -13,6 +13,10 @@ function Header(props) {
     window.location.href="/CodeRoomList";
   }
 
+  function PairProgrammingHandleClick(event){
+    window.location.href="/PairCodeRoomList";
+  }
+
   function MainHandleClick(event){
     window.location.href="/";
   }
@@ -90,7 +94,7 @@ function Header(props) {
               <li onClick={CodeReviewHandleClick}>
                 코드 리뷰
               </li>
-              <li>
+              <li onClick={PairProgrammingHandleClick}>
                 {/* <div className="Group" /> */}
                 페어 프로그래밍
               </li>
