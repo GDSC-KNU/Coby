@@ -1,6 +1,6 @@
 .container {
   width: 25rem;
-  height: 26rem;
+  height: 34rem;
   z-index: 999;
   position: absolute;
   left: 50%;
@@ -11,15 +11,17 @@
   border-radius: 30px;
 }
 .logo {
-  width: 100px;
-  height: 74px;
+  width: 60px;
+  height: 80px;
   position: absolute;
-  top: 30px;
-  left: 155px;
+  left: 50%;
+  top: 50%;
+  transform: translate(26%, 30%);
+  
 }
 .form {
   position: relative;
-  top: 25%;
+  top: 10%;
   left: 10%;
 }
 .input {
@@ -44,7 +46,7 @@
 }
 .bottom {
   position: relative;
-  top: 130px;
+  top: 110px;
   left: 40px;
 }
 .find_botton {
