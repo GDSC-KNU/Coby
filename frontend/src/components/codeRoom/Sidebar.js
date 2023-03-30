@@ -10,7 +10,7 @@ const Sidebar = (props) => {
   return (
     <div className={styles.out}>
       <div
-        style={{ width: props.isOpen ? "280px" : "60px" }}
+        style={{ width: props.isOpen ? "15vw" : "3.1vw" }}
         className={styles.sidebar1}
       >
         <div>
@@ -22,7 +22,7 @@ const Sidebar = (props) => {
           />
           {props.isOpen ? (
             <>
-              <div style={{ marginLeft: "240px" }}>
+              <div style={{ marginLeft: "13vw" }}>
                 <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
               </div>
               <div className={styles.profile} style = {{ background : "blue"}}>

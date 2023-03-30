@@ -35,15 +35,15 @@
 }
 .logo {
   position: absolute;
-  left: 90px;
-  top: 60px;
-  width: 100px;
-  height: 80px;
+  left: 4.25vw;
+  top: 5vh;
+  width: 7vw;
+  height: 11vh;
   /* animation: smoothAppear 1s; */
 }
 .profile{
   position: relative;
-  top: 11rem;
+  top: 20vh;
   margin-top: 1rem;
   left: 12%;
   width: 3rem;
@@ -60,10 +60,10 @@
 }
 .chatting{
   position: relative;
-  top: 18rem;
+  top: 26rem;
   left: 5%;
-  width: 16rem;
-  height: 20rem;
+  width: 13.4vw;
+  height: 40vh;
   background: white;
   border-radius: 5%;
   transition: 2s;

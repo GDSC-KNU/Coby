@@ -9,7 +9,7 @@ const CodeRoom = (props) => {
     <div>
       <Sidebar isOpen={props.isOpen} setIsOpen={props.setIsOpen}/>
       <div className='code'
-        style={{ width: props.isOpen ? "81vw" : "96vw" }}
+        style={{ width: props.isOpen ? "84.1vw" : "96vw" }}
       >
         <img src={img} alt="sample" className="img"/>
       </div>
