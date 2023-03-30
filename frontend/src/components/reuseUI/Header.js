@@ -47,7 +47,7 @@ function Header(props) {
     setSigninModalOpen(false)
   }
   const logOut = () => {
-    axios.post('http://localhost:8080/api/login', {
+    axios.post('http://localhost:8080/api/logout', {
         accessToken : localStorage.getItem('token'),
         refreshToken : props.cookies['ref']
         })
