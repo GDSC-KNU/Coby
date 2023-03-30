@@ -7,6 +7,7 @@ import com.gdsc.coby.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,8 @@ public class UserController {
     private final UserService userService;
 
     @ExceptionHandler(value = {UsernameNotFoundException.class, IllegalArgumentException.class})
-    public ResponseEntity<String> exceptionHandler(Exception e) {
-        return ResponseEntity.ok(e.getMessage());
+    public ResponseEntity<?> exceptionHandler(Exception e) {
+        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping
