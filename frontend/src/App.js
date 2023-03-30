@@ -14,7 +14,7 @@ import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cookies, setCookie] = useCookies(['token', 'ref']);
+  const [cookies, setCookie] = useCookies(['access', 'ref']);
   //const [cookies, setCookie] = useState(false);
   return (
     <div>

@@ -29,14 +29,15 @@ function Login(props) {
         userId: inputId,
         password: inputPw,
         })
-    .then(res => {
-        props.setCookie('access', res.payload.accessToken)
-        props.setCookie('ref', res.payload.refreshToken)
+    .then = (res) => {
+        const {accessToken} = res.data.accessToken
+        props.setCookie('ref', res.data.refreshToken)
         // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.accessToken}`
-        })
-    .catch((e) => {
-        console.log(e.response.data);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+        }
+        alert('로그인 완료')
+    .catch((error) => {
+        console.log(error.response);
         return "아이디 혹은 비밀번호를 확인하세요.";
     });
     }
