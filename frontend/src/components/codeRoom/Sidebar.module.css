@@ -27,7 +27,7 @@
   height: 40px;
   top: 0%;
   display: flex;
-  animation: smoothAppear 0.5s;
+  /* animation: smoothAppear 0.5s; */
 }
 .icon {
   margin: 0;
@@ -39,7 +39,7 @@
   top: 60px;
   width: 100px;
   height: 80px;
-  animation: smoothAppear 1s;
+  /* animation: smoothAppear 1s; */
 }
 .profile{
   position: relative;
@@ -67,7 +67,7 @@
   background: white;
   border-radius: 5%;
   transition: 2s;
-  animation: smoothAppear 1s;
+  /* animation: smoothAppear 1s; */
 }
 .font{
   position: relative;
