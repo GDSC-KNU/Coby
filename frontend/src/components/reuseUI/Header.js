@@ -5,11 +5,11 @@ import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
+import axios from "axios";
 
 import "./Header.css";
 
 function Header(props) {
-
   function CodeReviewHandleClick(event){
     window.location.href="/CodeRoomList";
   }
@@ -47,9 +47,18 @@ function Header(props) {
     setSigninModalOpen(false)
   }
   const logOut = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-    setLoginModalOpen(false);
+    axios.post('http://localhost:8080/api/login', {
+        accessToken : localStorage.getItem('token'),
+        refreshToken : props.cookies['ref']
+        })
+        .then((res) => {
+          localStorage.removeItem('token');
+          navigate('/');
+          setLoginModalOpen(false);
+        })
+        .catch((error) => {
+            console.log(error.response);
+        });
   }
 
   return (
