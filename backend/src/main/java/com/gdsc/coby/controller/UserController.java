@@ -48,13 +48,13 @@ public class UserController {
 
     @PostMapping("/myinfo")
     @Operation(description = "로그인된 유저의 정보를 수정합니다.")
-    public ResponseEntity<UserResponseDto> updateMyInfo(UserRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> updateMyInfo(@RequestBody UserRequestDto requestDto) {
         return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name())));
     }
 
     @PostMapping("/password")
     @Operation(description = "로그인된 유저의 비밀번호를 변경합니다.")
-    public ResponseEntity<UserResponseDto> updatePassword(PasswordRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> updatePassword(@RequestBody PasswordRequestDto requestDto) {
         return ResponseEntity.ok(UserResponseDto.from(userService.updateUserPassword(
                 requestDto.exPassword(), requestDto.newPassword()
         )));
