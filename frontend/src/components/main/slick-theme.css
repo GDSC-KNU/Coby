@@ -9,8 +9,10 @@
     z-index: 100;
 
     cursor: pointer;
+    border: none;
 
-    color: white;
+    color: black;
+    background-color: transparent;
 }
 
 .slick-prev

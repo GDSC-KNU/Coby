@@ -12,6 +12,36 @@ import img4 from '../../images/banner4.png';
 
 export default class CenterMode extends Component {
   render() {
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-prev slick-arrow" +
+          (currentSlide === 0 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === 0 ? true : false}
+        type="button"
+      >
+        {'<'}
+      </button>
+    );
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-next slick-arrow" +
+          (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === slideCount - 1 ? true : false}
+        type="button"
+      >
+        {'>'}
+      </button>
+    );
+
+
     const settings = {
         dots: false,
         infinite: true,
@@ -20,31 +50,9 @@ export default class CenterMode extends Component {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 4000,
-        nextArrow: <AiFillCaretRight/>,
-        prevArrow: <AiFillCaretLeft/>
+        nextArrow: <SlickArrowRight/>,
+        prevArrow: <SlickArrowLeft/>
     };
-    const images = [
-      {
-        name: img1,
-        src:"../../images/banner1.png",
-        url:"https://www.codestates.com/about/review"
-      },
-      {
-        name: img2,
-        src:"../../images/banner2.png",
-        url:"https://www.codestates.com/course/pm"
-      },
-      {
-        name: img3,
-        src:"../../images/banner3.png",
-        url:"https://gmb.oopy.io/careertalk1?_gl=1*ka9k4z*_ga*NTY1MzAzMDk3LjE2Nzg3MDA3NTU.*_ga_SMZR7SG3VX*MTY3OTA1ODc2MS44LjEuMTY3OTA1OTU4Ni4yMS4wLjA."
-      },
-      {
-        name: img4,
-        src:"../../images/banner4.png",
-        url:"https://codestates-post.oopy.io/?_gl=1*zp5drg*_ga*NTY1MzAzMDk3LjE2Nzg3MDA3NTU.*_ga_SMZR7SG3VX*MTY3OTA1ODc2MS44LjEuMTY3OTA1OTYwNC4zLjAuMA.."
-      },
-    ]
 
     return (
       <div>
