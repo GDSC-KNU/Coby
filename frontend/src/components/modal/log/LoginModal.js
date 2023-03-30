@@ -23,19 +23,16 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-        //alert('로그인 완료');
-        //props.setCookie(true);
     axios.post('http://localhost:8080/api/login', {
         userId: inputId,
         password: inputPw,
         })
-    .then = (res) => {
+    .then((res) => {
         const {accessToken} = res.data.accessToken
         props.setCookie('ref', res.data.refreshToken)
-        // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-        }
-        alert('로그인 완료')
+        alert('로그인 완료');    
+    })
     .catch((error) => {
         console.log(error.response);
         return "아이디 혹은 비밀번호를 확인하세요.";
