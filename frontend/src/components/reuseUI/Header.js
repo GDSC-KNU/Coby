@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
-import Axios from "axios";
 
 import "./Header.css";
 
@@ -22,39 +22,39 @@ function Header(props) {
     window.location.href="/";
   }
 
-    const [logInmodalOpen, setLoginModalOpen] = useState(false);
-    const [signInmodalOpen, setSigninModalOpen] = useState(false);
-    const [mypagemodalOpen, setMypageModalOpen] = useState(false);
-    const showLoginModal = () => {
-        setLoginModalOpen(true);
-    };
-    const closeLoginModal = () => {
-      setLoginModalOpen(false)
-    }
-    const showMypageModal = () => {
-      setMypageModalOpen(true);
-    };
-    const closeMypageModal = () => {
-      setMypageModalOpen(false)
-    }
-    const showSigninModal = () => {
-      setSigninModalOpen(true);
-    };
-    const closeSigninModal = () => {
-      setSigninModalOpen(false)
-    }
-    const logOut = () => {
-      Axios.post('http://localhost:8080/api/login', {
-        refreshToken: props.cookies.ref
-        })
-    .then(res => {
-        props.setCookie('token', res.payload.accessToken)
-        })
-    }
+  const [logInmodalOpen, setLoginModalOpen] = useState(false);
+  const [signInmodalOpen, setSigninModalOpen] = useState(false);
+  const [mypagemodalOpen, setMypageModalOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const showLoginModal = () => {
+      setLoginModalOpen(true);
+  };
+  const closeLoginModal = () => {
+    setLoginModalOpen(false)
+  }
+  const showMypageModal = () => {
+    setMypageModalOpen(true);
+  };
+  const closeMypageModal = () => {
+    setMypageModalOpen(false)
+  }
+  const showSigninModal = () => {
+    setSigninModalOpen(true);
+  };
+  const closeSigninModal = () => {
+    setSigninModalOpen(false)
+  }
+  const logOut = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+    setLoginModalOpen(false);
+  }
 
   return (
     <div>
-      {props.cookies ? (
+      {localStorage.getItem('token') ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">

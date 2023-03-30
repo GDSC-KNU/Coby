@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Backdrop from '../../reuseUI/Backdrop';
 
@@ -7,6 +8,7 @@ import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
 
 function Login(props) {
+    const navigate = useNavigate();
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
@@ -21,17 +23,17 @@ function Login(props) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-
+    
     const onClickLogin = () => {
     axios.post('http://localhost:8080/api/login', {
-        userId: inputId,
-        password: inputPw,
-        })
+    userId: inputId,
+    password: inputPw,
+    })
     .then((res) => {
-        const {accessToken} = res.data.accessToken
+        localStorage.setItem('token', res.data.accessToken)
         props.setCookie('ref', res.data.refreshToken)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-        alert('로그인 완료');    
+        alert('로그인 성공!')
+        navigate('/')
     })
     .catch((error) => {
         console.log(error.response);
