@@ -11,13 +11,11 @@ function MyPageModal(setMyPageOpen){
     const [grade, setGrade] = useState('');
 
     useEffect(() => {
-        Axios.get(`http://localhost:8080/api/myPage`,{
-            headers: {Authorization: localStorage.getItem('token'),}
-        })
+        Axios.get(`http://localhost:8080/api/users/myinfo`)
             .then((res) => {
-                setName(res.name);
-                setGroup(res.group);
-                setGrade(res.grade);
+                setName(res.data.name);
+                setGroup(res.data.group);
+                setGrade(res.data.exp_point);
             })
             .catch((err) => {
                 console.log(err.message);

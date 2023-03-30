@@ -31,6 +31,7 @@ function Login(props) {
     })
     .then((res) => {
         localStorage.setItem('token', res.data.accessToken)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
         props.setCookie('ref', res.data.refreshToken)
         alert('로그인 성공!')
         navigate('/')

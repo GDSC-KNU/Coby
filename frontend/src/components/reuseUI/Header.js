@@ -84,7 +84,7 @@ function Header(props) {
               <button onClick={showLoginModal} className="Login">
                 로그인
               </button>
-              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} setCookie = {props.setCookie}/>}
+              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} cookies={props.cookies} setCookie = {props.setCookie}/>}
               {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
             </ul>
           </nav>

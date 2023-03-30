@@ -17,7 +17,6 @@ function Main(props) {
     },
     false
   );
-  console.log(props.cookies);
 
   return (
     <div>
