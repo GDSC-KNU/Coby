@@ -11,17 +11,15 @@ function MyPageModal(setMyPageOpen){
     const [exp, setExp] = useState('');
     const [grade, setGrade] = useState('');
 
-    function checkGrade(exp){
-        if(exp < 1000){
+    function checkGrade(exp) {
+        if (exp < 1000) {
             setGrade('Bronze');
-        }else if(exp < 2000){
+        } else if (exp < 2000) {
             setGrade('Silver');
-        }else if(exp < 3000){
+        } else if (exp < 3000) {
             setGrade('Gold');
         }
     }
-
-    setGrade(checkGrade(exp));
 
     useEffect(() => {
         Axios.get(`http://localhost:8080/api/users/myinfo`)
@@ -29,6 +27,7 @@ function MyPageModal(setMyPageOpen){
                 setName(res.data.name);
                 setGroup(res.data.group);
                 setExp(res.data.exp_point);
+                checkGrade(exp);
             })
             .catch((err) => {
                 console.log(err.message);
@@ -47,7 +46,7 @@ function MyPageModal(setMyPageOpen){
                         <p><br/><br/><br/>이름 : {name}</p>
                         <p>그룹 : {group}</p>
                         <p>등급 : {grade}</p>
-                        <p>기여도 :{exp}</p>
+                        <p>기여도 : {exp}</p>
                     </div>
                     <div className="userphoto"></div>
                     <div className="tier"></div>
