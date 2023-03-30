@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,8 +23,8 @@ public class AuthController {
     private final AuthService authService;
 
     @ExceptionHandler(value = {EntityExistsException.class, UsernameNotFoundException.class, RuntimeException.class})
-    public ResponseEntity<String> exceptionHandler(Exception e) {
-        return ResponseEntity.ok(e.getMessage());
+    public ResponseEntity<?> exceptionHandler(Exception e) {
+        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/signup")
