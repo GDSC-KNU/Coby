@@ -14,5 +14,4 @@ import java.util.Optional;
 public interface RoomRepository extends JpaRepository<Room,Long> {
     //List<RoomDto> findByNameContaining(String searchKeyword);
     Optional<Room> findById(Long roomId);
-
 }

@@ -7,11 +7,10 @@ public record UserResponseDto(
         String userId,
         GroupDto group,
         String name,
-        String email,
         Long exp_point
 ) {
-    public static UserResponseDto of(String userId, GroupDto group, String name, String email, Long exp_point) {
-        return new UserResponseDto(userId, group, name, email, exp_point);
+    public static UserResponseDto of(String userId, GroupDto group, String name, Long exp_point) {
+        return new UserResponseDto(userId, group, name, exp_point);
     }
 
     public static UserResponseDto from(UserDto dto){
@@ -19,7 +18,6 @@ public record UserResponseDto(
                 dto.userId(),
                 dto.group(),
                 dto.name(),
-                dto.email(),
                 dto.exp_point()
         );
     }

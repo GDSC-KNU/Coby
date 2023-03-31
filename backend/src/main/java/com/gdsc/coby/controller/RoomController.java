@@ -6,6 +6,7 @@ import com.gdsc.coby.service.RoomService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,8 @@ public class RoomController {
     private final RoomService roomService;
 
     @ExceptionHandler(value = {UsernameNotFoundException.class, NotFoundException.class, RuntimeException.class})
-    public ResponseEntity<String> exceptionHandler(Exception e) {
-        return ResponseEntity.ok(e.getMessage());
+    public ResponseEntity<?> exceptionHandler(Exception e) {
+        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/review")
@@ -62,8 +63,8 @@ public class RoomController {
 
     @PostMapping("/{roomId}")
     @Operation(description = "코드 룸의 상세정보를 수정합니다.")
-    public ResponseEntity<RoomResponseDto> updateRoom(@PathVariable Long roomId, RoomRequestDto requestDto){
-        return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto)));
+    public ResponseEntity<RoomResponseDto> updateRoom(@PathVariable Long roomId, @RequestBody RoomRequestDto requestDto){
+        return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto.toDto())));
 
     }
 

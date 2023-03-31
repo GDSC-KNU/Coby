@@ -1,54 +1,121 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
+import SignIn from "../modal/signin/SigninModal";
+import MypageModal from "../modal/myPage/MyPageModal";
+import axios from "axios";
 
 import "./Header.css";
 
-function Header() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const showModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-      setModalOpen(false)
+function Header(props) {
+  function CodeReviewHandleClick(event){
+    window.location.href="/CodeRoomList";
+  }
+
+  function PairProgrammingHandleClick(event){
+    window.location.href="/PairCodeRoomList";
+  }
+
+  function MainHandleClick(event){
+    window.location.href="/";
+  }
+
+  const [logInmodalOpen, setLoginModalOpen] = useState(false);
+  const [signInmodalOpen, setSigninModalOpen] = useState(false);
+  const [mypagemodalOpen, setMypageModalOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const showLoginModal = () => {
+      setLoginModalOpen(true);
+  };
+  const closeLoginModal = () => {
+    setLoginModalOpen(false)
+  }
+  const showMypageModal = () => {
+    setMypageModalOpen(true);
+  };
+  const closeMypageModal = () => {
+    setMypageModalOpen(false)
+  }
+  const showSigninModal = () => {
+    setSigninModalOpen(true);
+  };
+  const closeSigninModal = () => {
+    setSigninModalOpen(false)
+  }
+  const logOut = () => {
+    axios.post('http://localhost:8080/api/logout', {
+        accessToken : localStorage.getItem('token'),
+        refreshToken : props.cookies['ref']
+        })
+        .then((res) => {
+          localStorage.removeItem('token');
+          navigate('/');
+          setLoginModalOpen(false);
+        })
+        .catch((error) => {
+            console.log(error.response);
+        });
   }
 
   return (
     <div>
+      {localStorage.getItem('token') ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
             <ul>
-              <button className="Signin">
-                회원가입
+              <button onClick={showMypageModal}  className="Signin">
+                마이페이지
               </button>
-              <button onClick={showModal} className="Login">
-                로그인
+              {mypagemodalOpen && <MypageModal setModalOpen={setMypageModalOpen} />}
+              {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
+              <button onClick={logOut} className="Login">
+                로그아웃
               </button>
-              {modalOpen && <Login setModalOpen={setModalOpen} />}
-              {modalOpen && <Backdrop onCancel={closeModal} />}
             </ul>
           </nav>
         </div>
       </header>
-
+      ):(
+      <header className="upside-header">
+        <div className="upside-contents">
+          <nav className="upside-navigation">
+            <ul>
+              <button onClick={showSigninModal}  className="Signin">
+                회원가입
+              </button>
+              {signInmodalOpen && <SignIn setModalOpen={setSigninModalOpen} />}
+              {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+              <button onClick={showLoginModal} className="Login">
+                로그인
+              </button>
+              {logInmodalOpen && <Login setLoginModalOpen={setLoginModalOpen} cookies={props.cookies} setCookie = {props.setCookie}/>}
+              {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+            </ul>
+          </nav>
+        </div>
+      </header>
+      )}
       <header className="header">
         <div className="contents">
-          <div className="Coby" />
+          <div className="Coby" onClick={MainHandleClick}/>
           <nav className="navigation">
             <ul>
-              <li>
-                <div className="Group" />
-                그룹 참여
+              <li onClick={CodeReviewHandleClick}>
+                코드 리뷰
               </li>
-              <li>
-                <div className="MyGroup" />내 그룹
+              <li onClick={PairProgrammingHandleClick}>
+                {/* <div className="Group" /> */}
+                페어 프로그래밍
               </li>
-              <li>
-                <div className="Question" />
-                도움말
-              </li>
+              {/* <div className="MyGroup" /> */}
+              <li>마이그룹</li>
+              {/* <div className="Question" /> */}
+              <li>도움말</li>
             </ul>
           </nav>
         </div>

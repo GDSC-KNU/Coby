@@ -4,7 +4,6 @@ import com.gdsc.coby.domain.Room;
 import com.gdsc.coby.domain.RoomTagMap;
 import com.gdsc.coby.dto.RoomDto;
 import com.gdsc.coby.dto.RoomTagMapDto;
-import com.gdsc.coby.dto.request.RoomRequestDto;
 import com.gdsc.coby.repository.RoomRepository;
 import com.gdsc.coby.repository.RoomTagMapRepository;
 import com.gdsc.coby.repository.TagRepository;
@@ -77,8 +76,7 @@ public class RoomService {
         return RoomDto.from(room);
     }
 
-    @Transactional
-    public RoomDto updateRoomInfo(Long roomId, RoomRequestDto requestDto) {
+    public RoomDto updateRoomInfo(Long roomId, RoomDto dto) {
         Room room = roomRepository.findById(roomId)
                 .orElseThrow(() -> new NotFoundException("방찾기 실패 : 해당 코드룸을 찾을 수 없습니다."));
 
@@ -86,10 +84,10 @@ public class RoomService {
             throw new RuntimeException("코드룸 수정 권한이 없습니다.");
         }
 
-        String name = requestDto.name();
-        String url = requestDto.url();
-        Integer limit = requestDto.personnel();
-        String password = requestDto.password();
+        String name = dto.name();
+        String url = dto.url();
+        Integer personnel = dto.personnel();
+        String password = dto.password();
 
         if(name != null && !room.getName().equals(name))
             room.setName(name);
@@ -97,8 +95,8 @@ public class RoomService {
             room.setUrl(url);
         if(password != null && !room.getPassword().equals(password))
             room.setPassword(password);
-        if(limit != null && !room.getPersonnel().equals(limit))
-            room.setPersonnel(requestDto.personnel());
+        if(personnel != null && !room.getPersonnel().equals(personnel))
+            room.setPersonnel(personnel);
 
         return RoomDto.from(room);
     }
