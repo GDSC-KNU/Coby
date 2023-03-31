@@ -27,10 +27,18 @@ public class RoomController {
         return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping
-    @Operation(description = "코드 룸 목록을 조회합니다.")
-    public ResponseEntity<List<RoomResponseDto>> rooms(){
-        return ResponseEntity.ok(roomService.getRooms().stream()
+    @GetMapping("/review")
+    @Operation(description = "코드 리뷰 룸 목록을 조회합니다.")
+    public ResponseEntity<List<RoomResponseDto>> reviewRooms(){
+        return ResponseEntity.ok(roomService.getReviewRooms().stream()
+                .map(RoomResponseDto::from)
+                .toList());
+    }
+
+    @GetMapping("/pair")
+    @Operation(description = "페어 프로그래밍 룸 목록을 조회합니다.")
+    public ResponseEntity<List<RoomResponseDto>> pairRooms(){
+        return ResponseEntity.ok(roomService.getPairRooms().stream()
                 .map(RoomResponseDto::from)
                 .toList());
     }
@@ -41,10 +49,16 @@ public class RoomController {
         return ResponseEntity.ok(RoomResponseDto.from(roomService.getRoom(roomId)));
     }
 
-    @PostMapping
-    @Operation(description = "코드 룸을 생성합니다.")
-    public ResponseEntity<RoomResponseDto> createRoom(@RequestBody RoomRequestDto requestDto){
-        return ResponseEntity.ok(RoomResponseDto.from(roomService.createRoom(requestDto.toDto())));
+    @PostMapping("/review")
+    @Operation(description = "코드 리뷰 룸을 생성합니다.")
+    public ResponseEntity<RoomResponseDto> createReviewRoom(@RequestBody RoomRequestDto requestDto){
+        return ResponseEntity.ok(RoomResponseDto.from(roomService.createReviewRoom(requestDto.toDto())));
+    }
+
+    @PostMapping("/pair")
+    @Operation(description = "페어 프로그래밍 룸을 생성합니다.")
+    public ResponseEntity<RoomResponseDto> createPairRoom(@RequestBody RoomRequestDto requestDto){
+        return ResponseEntity.ok(RoomResponseDto.from(roomService.createPairRoom(requestDto.toDto())));
     }
 
     @PostMapping("/{roomId}")
