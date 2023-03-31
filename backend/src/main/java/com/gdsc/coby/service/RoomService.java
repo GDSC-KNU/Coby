@@ -3,6 +3,7 @@ package com.gdsc.coby.service;
 import com.gdsc.coby.domain.Room;
 import com.gdsc.coby.domain.RoomTagMap;
 import com.gdsc.coby.dto.RoomDto;
+import com.gdsc.coby.dto.RoomTagMapDto;
 import com.gdsc.coby.dto.request.RoomRequestDto;
 import com.gdsc.coby.repository.RoomRepository;
 import com.gdsc.coby.repository.RoomTagMapRepository;
@@ -26,9 +27,18 @@ public class RoomService {
 
     // 코드룸 목록 조회
     @Transactional(readOnly = true)
-    public List<RoomDto> getRooms(){
-        return roomRepository.findAll().stream()
-                .map(RoomDto::from)
+    public List<RoomDto> getReviewRooms(){
+        return roomTagMapRepository.findAllByTag_Id(16L).stream()
+                .map(RoomTagMapDto::from)
+                .map(RoomTagMapDto::room)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<RoomDto> getPairRooms(){
+        return roomTagMapRepository.findAllByTag_Id(17L).stream()
+                .map(RoomTagMapDto::from)
+                .map(RoomTagMapDto::room)
                 .toList();
     }
 
@@ -47,10 +57,20 @@ public class RoomService {
 //        return roomRepository.findByNameContaining(searchKeyword);
 //    }
 
-    @Transactional
-    public RoomDto createRoom(RoomRequestDto requestDto){
-        Room room = roomRepository.save(requestDto.toEntity());
-        requestDto.tags().stream()
+    public RoomDto createReviewRoom(RoomDto dto){
+        Room room = roomRepository.save(dto.toEntity());
+        dto.tags().add("코드리뷰");
+        dto.tags().stream()
+                .map(tagRepository::findByName)
+                .map(Optional::orElseThrow)
+                .forEach(tag -> roomTagMapRepository.save(RoomTagMap.of(room, tag)));
+        return RoomDto.from(room);
+    }
+
+    public RoomDto createPairRoom(RoomDto dto){
+        Room room = roomRepository.save(dto.toEntity());
+        dto.tags().add("페어프로그래밍");
+        dto.tags().stream()
                 .map(tagRepository::findByName)
                 .map(Optional::orElseThrow)
                 .forEach(tag -> roomTagMapRepository.save(RoomTagMap.of(room, tag)));
