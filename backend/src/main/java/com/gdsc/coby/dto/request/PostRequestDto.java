@@ -9,7 +9,6 @@ public record PostRequestDto(
 
     public PostDto toDto() {
         return PostDto.of(
-                null,
                 title,
                 content
         );
