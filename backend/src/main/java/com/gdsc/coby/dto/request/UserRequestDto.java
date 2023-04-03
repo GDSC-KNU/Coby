@@ -1,6 +1,6 @@
 package com.gdsc.coby.dto.request;
 
-import com.gdsc.coby.domain.User;
+import com.gdsc.coby.dto.UserDto;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -14,18 +14,14 @@ public record UserRequestDto(
         return new UserRequestDto(userId, name, password);
     }
 
-    public User toEntity(PasswordEncoder passwordEncoder) {
-        return User.of(
+    public UserDto toDto() {
+        return UserDto.of(
                userId,
                 null,
                 name,
-                passwordEncoder.encode(password),
+                password,
                 0L
         );
-    }
-
-    public UsernamePasswordAuthenticationToken toAuthentication() {
-        return new UsernamePasswordAuthenticationToken(userId, password);
     }
 }
 

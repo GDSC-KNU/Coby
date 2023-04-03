@@ -3,10 +3,10 @@ import React from "react";
 import Header from "./Header";
 import "./Layout.css";
 
-function Layout() {
+function Layout(props) {
   return (
     <div className="layout">
-      <Header/>
+      <Header cookies = {props.cookies} setCookie = {props.setCookie} />
     </div>
   );
 }

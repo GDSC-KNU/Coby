@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 import "./MakeRoomModal.css";
 
@@ -56,7 +57,8 @@ function MakeRoomModal(props) {
     // setEnteredPurpose("");
     setEnteredPassWord("");
     setEnteredLink("");
-  }; // 임시 전송할 데이터
+    // 임시 전송할 데이터
+  };
 
   // document.querySelector('button').addEventlistener('click', (e) => {
   //   e.stopPropagation(); // 이벤트 전파 방지

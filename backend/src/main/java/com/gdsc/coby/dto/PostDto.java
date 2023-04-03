@@ -12,6 +12,7 @@ public record PostDto(
         LocalDateTime createdAt,
         String createdBy
 ) {
+
     public static PostDto of(Long id, String title, String content, LocalDateTime createdAt,String createdBy){
         return new PostDto(id, title, content, createdAt, createdBy);
     }

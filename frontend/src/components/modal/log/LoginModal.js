@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
 
-function Login({ setModalOpen}) {
+function Login(props) {
+    const navigate = useNavigate();
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
     }
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
+    //const [cookies, setCookie] = useCookies(['token', 'ref']);
 
     const handleInputId = (e) => {
         setInputId(e.target.value)
@@ -19,27 +23,32 @@ function Login({ setModalOpen}) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
+    
     const onClickLogin = () => {
-        console.log({inputId},{inputPw})
-    }
-
-    const onclickSignin = () => {
-        alert('회원가입 완료');
-        /*Axios.post('http://localhost:8080/api/login', {
-            userId: newId,
-            password: newPw,
-          }).then(()=>{
-            alert('등록 완료!');
-          })*/
+    axios.post('http://localhost:8080/api/login', {
+    userId: inputId,
+    password: inputPw,
+    })
+    .then((res) => {
+        localStorage.setItem('token', res.data.accessToken)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+        props.setCookie('ref', res.data.refreshToken)
+        alert('로그인 성공!')
+        navigate('/')
+    })
+    .catch((error) => {
+        console.log(error.response);
+        return "아이디 혹은 비밀번호를 확인하세요.";
+    });
     }
 
     return (
         <div className="container">
             <div>
-                <img src={logo} alt="로고" className="logo" />
+                <img src={logo} alt="로고" className="logo-login" />
             </div>
             <div className="form">
-                <p>이메일</p>
+                <p>아이디</p>
                 <input className="input" type='text' name='input_id' value={inputId} onChange={handleInputId}></input>
                 <p>비밀번호</p>
                 <input className="input" type={showPswd ? "text" : "password"} name='input_pw' value={inputPw} onChange={handleInputPw}></input>
@@ -50,8 +59,8 @@ function Login({ setModalOpen}) {
                     )}
             </div>
             <div className="bottom">
-                {/* <button className="find_botton">아이디 찾기</button>
-                <button className="find_botton">비밀번호 찾기</button> */}
+                <button className="find_botton">아이디 찾기</button>
+                <button className="find_botton">비밀번호 찾기</button>
                 <button className="button" onClick={onClickLogin}>로그인</button>
             </div>
         </div>
