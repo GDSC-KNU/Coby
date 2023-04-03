@@ -31,7 +31,7 @@ public class PostController {
             UsernameNotFoundException.class
     })
     public ResponseEntity<?> exceptionHandler(Exception e) {
-        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping
