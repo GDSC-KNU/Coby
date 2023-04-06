@@ -2,22 +2,22 @@
   list-style: none;
 }
 
-.Room-item {
+.RoomItem {
   display: flex;
   align-items: center;
 
   padding: 0.5rem;
-  height: 80%;
-  width: 95%;
+  height: 11vh;
+  width: 16.9rem;
   margin: 0;
 
   border: 2px solid #dfe5ec;
-  border-radius: 20px;
+  border-radius: 8px;
   background-color: white;
   cursor: pointer;
 }
 
-.Room-item__tool {
+/* .RoomItem__tool {
   display: flex;
   flex-direction: column;
 
@@ -34,9 +34,9 @@
   text-align: center;
   font-size: 0.7rem;
   font-weight: bold;
-}
+} */
 
-.Room-item__description {
+.RoomItemDescription {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -46,15 +46,25 @@
   margin: 0;
 }
 
-.Room-item__description h4 {
+.RoomItemDescription h2 {
+  
   margin-left: 2;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0.2rem;
 }
 
-.language-p {
-  font-size: 0.6rem;
+.RoomItemDescription h4 {
+  margin-left: 2;
+  /* color:#29A0F1; */
+  /* background-color: #D6D6D6; */
+  font-size: 0.5rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+.RoomItemDescription span {
+  font-size: 0.8rem;
   margin: 0.2rem;
   font-weight: bold;
 }

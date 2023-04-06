@@ -29,7 +29,7 @@ function CodeRoomListPage() {
     // },
   ];
 
-  const [makeRooms, setMakeRooms] = useState(DUMMY_DATA);
+  const [makeRooms, setMakeRooms] = useState([]);
 
   const addRoomHandler = (makeRoom) => {
     setMakeRooms((prevMakeRooms) => {

@@ -29,7 +29,7 @@ function PairCodeRoomListPage() {
     // },
   ];
 
-  const [makeRooms, setMakeRooms] = useState(DUMMY_DATA);
+  const [makeRooms, setMakeRooms] = useState([]);
 
   const addRoomHandler = (makeRoomPair) => {
     setMakeRooms((prevMakeRoomsPair) => {

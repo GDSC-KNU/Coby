@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-
 import RoomItem from "./RoomItem";
-import Card from "../reuseUI/Card";
+// import Card from "../reuseUI/Card";
 import "./MakeRoom.css";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
 
@@ -20,17 +19,6 @@ function MakeRoom(props) {
     return makeRoom.tool === filteredTool;
   });
 
-  let makeRoomsContent = <p></p>;
-
-  if (filteredMakeRooms.length > 0) {
-    makeRoomsContent = filteredMakeRooms.map((makeRoom) => (
-      <RoomItem
-        title={makeRoom.title}
-        language={makeRoom.language}
-        tool={makeRoom.tool}
-      />
-    ));
-  }
 
 
 
@@ -40,8 +28,17 @@ function MakeRoom(props) {
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      
-      <Card className="CodeRoomListBox">{makeRoomsContent}</Card>
+
+      <div className="CodeRoomListBox">
+        {filteredMakeRooms.map((makeRoom) => (
+          <RoomItem
+            key={makeRoom.id}
+            title={makeRoom.title}
+            language={makeRoom.language}
+            tool={makeRoom.tool}
+          />
+        ))}
+      </div>
     </div>
   );
 }
