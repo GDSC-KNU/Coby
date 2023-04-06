@@ -7,7 +7,7 @@
   max-width: 90%;
   height: calc(100vh - 6.7rem);
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.7rem;
   background: #ffffff;
   
 }
@@ -35,11 +35,10 @@
     background-color: white; */
   overflow: auto;
   padding: 0.4rem;
-  margin : 1rem auto;
-  width: 52rem;
+  margin: 0.1rem auto;
 
   height: 78%;
-  max-width: 80%;
+  max-width: 90%;
   border-radius: 8px;
   background-color: rgba(223, 229, 236, 0.3);
 }
@@ -91,7 +90,7 @@
   .CodeRoomListBox {
   
     height: 88%;
-    margin : 0.5rem auto;
+    margin: 0.1rem auto;
     /* left: 50%;
     top: 50%;
     transform: translate(-50%, -39%); */
@@ -118,8 +117,8 @@
   .CodeRoomListBox {
     
     height: 88%;
-
-    margin : 0.5rem auto;
+    width: 90rem;
+    margin: 0.1rem auto;
    
    
 
@@ -140,7 +139,7 @@
   .CodeRoomListBox {
     height: 88%;
     width: 90%;
-    margin: 0.5rem auto;
+    margin: 0.1rem auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr;

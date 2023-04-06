@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MakeRoomModal.css";
+import styles from "./MakeRoomModal.module.css";
 
 const MakeRoomLanguageFilter = (props) => {
   const dropdownHandler = (event) => {
@@ -8,7 +8,7 @@ const MakeRoomLanguageFilter = (props) => {
   };
 
   return (
-    <div className="RoomModal-control">
+    <div className={styles.RoomModalControl}>
       <select value={props.selected} onChange={dropdownHandler}>
         <option value="" selected disabled hidden></option>
         <option value="C">C</option>

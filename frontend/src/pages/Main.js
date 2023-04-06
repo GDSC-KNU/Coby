@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React from "react";
 import Layout from "../components/reuseUI/Layout";
 import SimpleSlider from "../components/main/Carousel";
 import "./Main.css";
 import MainImg from "../images/Coby_darkBlue.png";
-import img from "../images/menu.png";
+// import img from "../images/menu.png";
 import Menu from "../components/main/Menu";
 
 function Main(props) {
