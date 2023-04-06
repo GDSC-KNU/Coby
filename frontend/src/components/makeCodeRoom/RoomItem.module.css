@@ -68,3 +68,21 @@
   margin: 0.2rem;
   font-weight: bold;
 }
+
+@media (min-width: 1920px){
+  .RoomItemDescription h2 {
+    font-size: 1.4rem;
+  }
+  
+  .RoomItemDescription h4 {
+    font-size: 0.8rem;
+  }
+  
+  .RoomItemDescription span {
+    font-size: 1rem;
+  }
+
+  .RoomItem {
+    height: 9.5vh;
+  }
+}

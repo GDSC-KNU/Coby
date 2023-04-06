@@ -3,7 +3,7 @@
   display: column;
   align-items: center;
   justify-content: center;
-  width: 46rem;
+  width: 47rem;
   max-width: 90%;
   height: calc(100vh - 6.7rem);
   margin: 0 auto;
@@ -22,7 +22,7 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-row-gap: 0.1px;
   grid-column-gap: 8px;
 
@@ -80,7 +80,7 @@
   scale: 1.05;
 } */
 
-@media (min-width: 540px) {
+@media (min-width: 460px) {
   /* .MakeRoomBtn{
     width: 12%;
     height: 1.7rem;
@@ -155,8 +155,8 @@
     width: 80rem;
     margin : 0.1rem auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 0.1px;
-    grid-column-gap: 8px;
+    grid-column-gap: 0.1px;
   }
 }

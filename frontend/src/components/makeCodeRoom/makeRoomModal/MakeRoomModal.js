@@ -33,7 +33,7 @@ function MakeRoomModal(props) {
 
   const validateTitleHandler = () => {
     setIsTitleValid(
-      enteredTitle.trim().length < 15 && enteredTitle.trim().length > 0
+      enteredTitle.trim().length < 16 && enteredTitle.trim().length > 0
     );
   };
 
@@ -57,7 +57,7 @@ function MakeRoomModal(props) {
       event.target.value.includes(
         "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
       ) &&
-        enteredTitle.trim().length < 15 &&
+        enteredTitle.trim().length < 16 &&
         enteredTitle.trim().length > 0
     );
   };
@@ -111,7 +111,7 @@ function MakeRoomModal(props) {
             isTitleValid === false ? styles.invalid : ""
           }`}
         >
-          <p>방 이름 (16자 이내로 작성해주세요.)</p>
+          <p>방 이름 (15자 이내로 작성해주세요.)</p>
           <input
             type="text"
             value={enteredTitle}
