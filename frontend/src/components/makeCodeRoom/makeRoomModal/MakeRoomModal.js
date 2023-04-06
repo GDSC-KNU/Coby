@@ -23,14 +23,19 @@ function MakeRoomModal(props) {
     console.log(event.target.value.trim().length);
     setEnteredTitle(event.target.value);
     setFormIsValid(
-      event.target.value.trim().length < 16 && event.target.value.trim().length > 0 && setEnteredLink.includes("https://prod.liveshare.vsengsaas.visualstudio.com/join?")
+      event.target.value.trim().length < 16 &&
+        event.target.value.trim().length > 0 &&
+        setEnteredLink.includes(
+          "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+        )
     );
   };
 
   const validateTitleHandler = () => {
-    setIsTitleValid(enteredTitle.trim().length < 15 && enteredTitle.trim().length>0);
+    setIsTitleValid(
+      enteredTitle.trim().length < 15 && enteredTitle.trim().length > 0
+    );
   };
-
 
   const languageChangeHandler = (selectLanguage) => {
     setEnteredLanguage(selectLanguage);
@@ -49,13 +54,21 @@ function MakeRoomModal(props) {
     console.log("Link Changed");
     setEnteredLink(event.target.value);
     setFormIsValid(
-      event.target.value.includes("https://prod.liveshare.vsengsaas.visualstudio.com/join?") && enteredTitle.trim().length < 15 && enteredTitle.trim().length>0
+      event.target.value.includes(
+        "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+      ) &&
+        enteredTitle.trim().length < 15 &&
+        enteredTitle.trim().length > 0
     );
   };
   /*https://prod.liveshare.vsengsaas.visualstudio.com/join? 예시 링크*/
 
   const validateLinkHandler = () => {
-    setIsLinkValid(enteredLink.includes("https://prod.liveshare.vsengsaas.visualstudio.com/join?"));
+    setIsLinkValid(
+      enteredLink.includes(
+        "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+      )
+    );
   };
 
   const submitHandler = (event) => {
@@ -86,7 +99,6 @@ function MakeRoomModal(props) {
   //   e.target.setAttribute('type', 'submit');
   // });
 
-
   return (
     <div className={styles.RoomModals}>
       <div>
@@ -94,7 +106,11 @@ function MakeRoomModal(props) {
       </div>
 
       <form onSubmit={submitHandler}>
-        <div className={`${styles.RoomModalControl} ${isTitleValid === false ? styles.invalid : ""}`}>
+        <div
+          className={`${styles.RoomModalControl} ${
+            isTitleValid === false ? styles.invalid : ""
+          }`}
+        >
           <p>방 이름 (16자 이내로 작성해주세요.)</p>
           <input
             type="text"
@@ -140,13 +156,24 @@ function MakeRoomModal(props) {
             onChange={passwordChangeHandler}
           />
         </div>
-        <div className={`${styles.RoomModalControl} ${isLinkValid === false ? styles.invalid : ""}`}>
+        <div
+          className={`${styles.RoomModalControl} ${
+            isLinkValid === false ? styles.invalid : ""
+          }`}
+        >
           <p>링크</p>
-          <input type="text" value={enteredLink} onChange={linkChangeHandler} onBlur={validateLinkHandler} />
+          <input
+            type="text"
+            value={enteredLink}
+            onChange={linkChangeHandler}
+            onBlur={validateLinkHandler}
+          />
         </div>
 
         <div className={styles.RoomModalActions}>
-          <button type="submit" disabled={!formIsValid} >생성하기</button>
+          <button type="submit" disabled={!formIsValid}>
+            생성하기
+          </button>
         </div>
       </form>
     </div>
