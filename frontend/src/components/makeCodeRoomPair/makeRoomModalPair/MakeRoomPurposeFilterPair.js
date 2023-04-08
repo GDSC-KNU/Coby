@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MakeRoomModalPair.css";
+import styles from "./MakeRoomModalPair.module.css";
 
 const MakeRoomPurposeFilterPair = (props) => {
   const dropdownHandler = (event) => {
@@ -8,7 +8,7 @@ const MakeRoomPurposeFilterPair = (props) => {
   };
 
   return (
-    <div className="RoomModal-controlPair">
+    <div className={styles.RoomModalsPair}>
       <select value={props.selected} onChange={dropdownHandler}>
         <option value="" selected disabled hidden></option>
         <option value="Code Review">Code Review</option>

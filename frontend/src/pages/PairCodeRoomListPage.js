@@ -52,7 +52,6 @@ function PairCodeRoomListPage() {
   return (
     <div>
       <Layout />
-      {/* <Link to="/CodeRoom"><MakeRoom items={makeRooms} /></Link> */}
       <MakeRoomPair items={makeRooms} />
       <div className="ListPage__actionsPair">
         <button className="MakeRoomBtnPair" onClick={deleteHandler}>

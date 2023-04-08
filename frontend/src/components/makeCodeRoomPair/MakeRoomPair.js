@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 import RoomItemPair from "./RoomItemPair";
 import Card from "../reuseUI/Card";
 import "./MakeRoomPair.css";
@@ -20,36 +19,30 @@ function MakeRoomPair(props) {
     return makeRoomPair.tool === filteredTool;
   });
 
-  let makeRoomsContent = <p></p>;
-
-  if (filteredMakeRooms.length > 0) {
-    makeRoomsContent = filteredMakeRooms.map((makeRoomPair) => (
-      <RoomItemPair
-        title={makeRoomPair.title}
-        language={makeRoomPair.language}
-        tool={makeRoomPair.tool}
-      />
-    ));
-  }
-
-
-
   return (
     <div className="PageBoxPair">
       <MakeRoomToolFilterPair
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />
-      
-      <Card className="CodeRoomListBoxPair">{makeRoomsContent}</Card>
+
+      <div className="CodeRoomListBoxPair">
+        {filteredMakeRooms.map((makeRoomPair) => (
+          <RoomItemPair
+            key={makeRoomPair.id}
+            title={makeRoomPair.title}
+            language={makeRoomPair.language}
+            tool={makeRoomPair.tool}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 export default MakeRoomPair;
 
-
-  /*Axios.post('http://localhost:8080/api/coderooms', {
+/*Axios.post('http://localhost:8080/api/coderooms', {
       name: 방이름
       url: 주소
       tags: 언어 도구

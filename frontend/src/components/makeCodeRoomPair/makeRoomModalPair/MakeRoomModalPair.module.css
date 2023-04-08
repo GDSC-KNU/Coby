@@ -21,7 +21,7 @@
   border-radius: 30px;
 }
 
-.RoomModal-logoPair {
+.RoomModalLogoPair {
   width: 20%;
   height: 4rem;
   position: relative;
@@ -31,7 +31,7 @@
   align-items: center;
 }
 
-.RoomModal-controlPair {
+.RoomModalControlPair {
   flex-wrap: wrap;
   margin-top: 0rem;
   align-items: center;
@@ -39,14 +39,14 @@
   justify-content: center;
 }
 
-.RoomModalPair form{
+.RoomModalsPair form{
   display: grid;
   align-items: center;
  
 } 
 
 
-.RoomModal-controlPair p {
+.RoomModalControlPair p {
   font-weight: bold;
   display: block;
   font-size: 0.4rem;
@@ -55,7 +55,7 @@
   left: 55px; 
 }
 
-.RoomModal-controlPair input {
+.RoomModalControlPair input {
   font: inherit;
   border: 1px solid black;
   border-radius: 20px;
@@ -64,7 +64,13 @@
   font-size: 0.8rem;
 }
 
-.RoomModal-controlPair select{
+.RoomModalControlPair input:focus {
+  border-color: #E5F6FF;
+  background: #E5F6FF;
+;
+}
+
+.RoomModalControlPair select{
   font: inherit;
   font-weight: bold;
   border: 1px solid black;
@@ -74,23 +80,32 @@
   height: 1.5rem;
 }
 
-.RoomModal-actionsPair {
+.RoomModalActionsPair {
   text-align: center;
 }
 
-.RoomModal-actionsPair button {
+.RoomModalActionsPair button {
   width: 8rem;
   height: 1.8rem;
   border-radius: 20px;
   position: relative;
-  top: 3rem;
+  top: 2rem;
   background-color: #5579fe;
   border: 0px;
   color: white;
 }
 
-.RoomModal-actionsPair button:hover {
+.RoomModalActionsPair button:hover {
   font-weight: bold;
   transition: all 0.3s;
   scale: 1.05;
+}
+
+.RoomModalControlPair.invalid input{
+  border-color: red;
+  background: #ffd7d7;
+}
+
+.RoomModalControlPair.invalid p{
+  color: red;
 }

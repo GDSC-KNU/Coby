@@ -52,7 +52,6 @@ function CodeRoomListPage() {
   return (
     <div>
       <Layout />
-      {/* <Link to="/CodeRoom"><MakeRoom items={makeRooms} /></Link> */}
       <MakeRoom items={makeRooms} />
       <div className="ListPage__actions">
         <button className="MakeRoomBtn" onClick={deleteHandler}>
