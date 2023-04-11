@@ -14,16 +14,16 @@ import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cookies, setCookie] = useCookies(['ref']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   return (
     <div>
       <CookiesProvider>
         <Routes>
-          <Route path="/" element={<Main cookies={cookies} setCookie={setCookie} />} />
-          <Route path="/MakeRoom" element={<MakeRoom cookies={cookies} setCookie={setCookie} />} />
-          <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} cookies={cookies} setCookie={setCookie} />} />
-          <Route path="/CodeRoomList" element={<CodeRoomListPage cookies={cookies} setCookie={setCookie}  />} />
-          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage cookies={cookies} setCookie={setCookie} />} />
+          <Route path="/" element={<Main cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
+          <Route path="/MakeRoom" element={<MakeRoom cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
+          <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
+          <Route path="/CodeRoomList" element={<CodeRoomListPage cookies={cookies} setCookie={setCookie}  removeCookie={removeCookie}/>} />
+          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
         </Routes>
       </CookiesProvider>
     </div>

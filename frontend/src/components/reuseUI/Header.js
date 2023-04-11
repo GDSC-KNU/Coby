@@ -5,6 +5,8 @@ import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
+import { useCookies } from 'react-cookie';
+
 import axios from "axios";
 
 import "./Header.css";
@@ -48,22 +50,22 @@ function Header(props) {
   }
   const logOut = () => {
     axios.post('http://localhost:8080/api/logout', {
-        accessToken : localStorage.getItem('token'),
-        refreshToken : props.cookies['ref']
+        accessToken : props.cookies.token,
+        //refreshToken :
         })
         .then((res) => {
-          localStorage.removeItem('token');
+          //props.removeCookie('token');
           navigate('/');
           setLoginModalOpen(false);
         })
         .catch((error) => {
-            console.log(error.response);
+            console.log(error.message);
         });
   }
 
   return (
     <div>
-      {localStorage.getItem('token') ? (
+      { props.cookies.token ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
