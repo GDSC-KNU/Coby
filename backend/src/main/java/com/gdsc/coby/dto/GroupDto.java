@@ -1,6 +1,7 @@
 package com.gdsc.coby.dto;
 
 import com.gdsc.coby.domain.Group;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +14,9 @@ public record GroupDto(
 ) {
     public GroupDto of (Long id, String name, String description, LocalDateTime createdAt, String createdBy){
         return new GroupDto(id, name, description, createdAt, createdBy);
+    }
+    public static GroupDto of (String name,String description){
+        return new GroupDto(null,name,description,null,null);
     }
 
     public static GroupDto from (Group entity){
