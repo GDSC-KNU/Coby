@@ -25,7 +25,7 @@ function MakeRoomModal(props) {
     setFormIsValid(
       event.target.value.trim().length < 16 &&
         event.target.value.trim().length > 0 &&
-        setEnteredLink.includes(
+        enteredLink.includes(
           "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
         )
     );
