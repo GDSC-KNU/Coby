@@ -17,7 +17,6 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   return (
     <div>
-      <CookiesProvider>
         <Routes>
           <Route path="/" element={<Main cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
           <Route path="/MakeRoom" element={<MakeRoom cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
@@ -25,7 +24,6 @@ function App() {
           <Route path="/CodeRoomList" element={<CodeRoomListPage cookies={cookies} setCookie={setCookie}  removeCookie={removeCookie}/>} />
           <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage cookies={cookies} setCookie={setCookie} removeCookie={removeCookie}/>} />
         </Routes>
-      </CookiesProvider>
     </div>
   );
 }

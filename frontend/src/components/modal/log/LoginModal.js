@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie'
 import axios from "axios";
 import Backdrop from '../../reuseUI/Backdrop';
 
@@ -16,7 +15,7 @@ function Login(props) {
     }
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
-    // const [cookies, setCookie] = useCookies(['token']);
+
 
     const handleInputId = (e) => {
         setInputId(e.target.value)
@@ -24,15 +23,16 @@ function Login(props) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-    
+
     const onClickLogin = () => {
     axios.post('http://localhost:8080/api/login', {
     userId: inputId,
     password: inputPw,
     })
     .then((res) => {
-        props.setCookie('token', res.data.accessToken)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.accessToken}`
+        const accessToken = res.data.accessToken;
+        props.setCookie('token', accessToken)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         alert('로그인 성공!')
         navigate('/')
     })
