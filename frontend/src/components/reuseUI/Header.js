@@ -51,12 +51,13 @@ function Header(props) {
     setSigninModalOpen(false)
   }
   const logOut = () => {
-    client.post('/logout', {
+    client.instance.post('/logout', {
         accessToken : cookies.token,
-        //refreshToken :
+        // refreshToken : cookies.refreshToken
         })
         .then(() => {
           removeCookie('token');
+          // removeCookie('refreshToken');
           navigate(-1);
           setLoginModalOpen(false);
         })

@@ -26,13 +26,15 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-    client.post('/login', {
+    client.instance.post('/login', {
     userId: inputId,
     password: inputPw,
     })
     .then((res) => {
         const accessToken = res.data.accessToken;
-        props.setCookie('token', accessToken)
+        // const refreshToken = res.data.refreshToken;
+        props.setCookie('token', accessToken);
+        // props.setCookie('refreshToken', refreshToken);
         // axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         alert('로그인 성공!')
         navigate('/')
