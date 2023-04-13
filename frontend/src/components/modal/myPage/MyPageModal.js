@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
 import Axios from "axios";
+import client from "../../../sevices/Client";
 import './MyPageModal.css';
 
 
@@ -22,7 +23,7 @@ function MyPageModal(setMyPageOpen){
     }
 
     useEffect(() => {
-        Axios.get(`http://localhost:8080/api/users/myinfo`)
+        client.get(`/users/myinfo`)
             .then((res) => {
                 setName(res.data.name);
                 setGroup(res.data.group);

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import client from '../../../sevices/Client';
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
@@ -25,20 +26,20 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-    axios.post('http://localhost:8080/api/login', {
+    client.post('/login', {
     userId: inputId,
     password: inputPw,
     })
     .then((res) => {
         const accessToken = res.data.accessToken;
         props.setCookie('token', accessToken)
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         alert('로그인 성공!')
         navigate('/')
     })
     .catch((error) => {
         console.log(error.response);
-        return "아이디 혹은 비밀번호를 확인하세요.";
+        alert("아이디 혹은 비밀번호를 확인하세요.");
     });
     }
 

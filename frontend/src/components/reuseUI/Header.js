@@ -6,6 +6,7 @@ import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
 import { useCookies } from 'react-cookie';
+import client from "../../sevices/Client";
 
 import axios from "axios";
 
@@ -27,6 +28,7 @@ function Header(props) {
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
   const [mypagemodalOpen, setMypageModalOpen] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
   const navigate = useNavigate();
 
@@ -49,13 +51,13 @@ function Header(props) {
     setSigninModalOpen(false)
   }
   const logOut = () => {
-    axios.post('http://localhost:8080/api/logout', {
-        accessToken : props.cookies.token,
+    client.post('/logout', {
+        accessToken : cookies.token,
         //refreshToken :
         })
-        .then((res) => {
-          //props.removeCookie('token');
-          navigate('/');
+        .then(() => {
+          removeCookie('token');
+          navigate(-1);
           setLoginModalOpen(false);
         })
         .catch((error) => {
@@ -65,7 +67,7 @@ function Header(props) {
 
   return (
     <div>
-      { props.cookies.token ? (
+      { cookies.token ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
