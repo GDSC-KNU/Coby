@@ -7,6 +7,7 @@ import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.JwtProvider;
 import jakarta.persistence.EntityExistsException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,6 +17,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.MissingRequestHeaderException;
 
 import java.util.concurrent.TimeUnit;
 
@@ -53,19 +56,22 @@ public class AuthService {
         return tokenDto;
     }
 
-    public boolean logout(TokenDto dto) {
-        if(!jwtProvider.validateToken(dto.getAccessToken())) {
-            throw new RuntimeException("잘못된 요청입니다.");
-        }
-        Authentication authentication = jwtProvider.getAuthentication(dto.getAccessToken());
+    public void logout(HttpServletRequest request) {
+        String jwt = request.getHeader("Authorization");
+        if (StringUtils.hasText(jwt) && jwt.startsWith("Bearer ")) {
+            String accessToken = jwt.substring(7);
 
-        if(redisTemplate.opsForValue().get("RT:" + authentication.getName()) != null) {
-            redisTemplate.delete("RT:" + authentication.getName());
-        }
+            Authentication authentication = jwtProvider.getAuthentication(accessToken);
 
-        Long expiration = jwtProvider.getExpiration(dto.getAccessToken());
-        redisTemplate.opsForValue()
-                .set(dto.getAccessToken(), "logout", expiration, TimeUnit.MILLISECONDS);
-        return true;
+            if(redisTemplate.opsForValue().get("RT:" + authentication.getName()) != null) {
+                redisTemplate.delete("RT:" + authentication.getName());
+            }
+
+            Long expiration = jwtProvider.getExpiration(accessToken);
+            redisTemplate.opsForValue()
+                    .set(accessToken, "logout", expiration, TimeUnit.MILLISECONDS);
+        }
+        else
+            throw new RuntimeException("인증 정보가 Header에 포함되어 있지 않습니다.");
     }
 }
