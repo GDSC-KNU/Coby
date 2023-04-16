@@ -26,7 +26,7 @@ function Login(props) {
     }
 
     const onClickLogin = () => {
-    client.instance.post('/login', {
+    client.post('/login', {
     userId: inputId,
     password: inputPw,
     })

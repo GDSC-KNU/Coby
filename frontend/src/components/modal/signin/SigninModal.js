@@ -30,7 +30,7 @@ function SignIn({ setModalOpen}) {
         setNewName(e.target.value)
     }
     const onclickSignin = () => {
-        client.instance.post('/signup', {
+        client.post('/signup', {
             userId: newId,
             password: newPw,
             name: newName

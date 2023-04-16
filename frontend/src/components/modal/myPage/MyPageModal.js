@@ -23,7 +23,7 @@ function MyPageModal(setMyPageOpen){
     }
 
     useEffect(() => {
-        client.instance.get(`/users/myinfo`)
+        client.get(`/users/myinfo`)
             .then((res) => {
                 setName(res.data.name);
                 setGroup(res.data.group);
