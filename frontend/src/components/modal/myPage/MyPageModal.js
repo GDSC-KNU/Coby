@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
 import Axios from "axios";
-import client from "../../../sevices/Client";
+import client from "../../../sevices/Login";
 import './MyPageModal.css';
 
 

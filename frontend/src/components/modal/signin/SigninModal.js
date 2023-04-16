@@ -2,7 +2,7 @@ import './SigninModal.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import client from '../../../sevices/Client';
+import client from '../../../sevices/Login';
 
 function SignIn({ setModalOpen}) {
     const navigate = useNavigate();
