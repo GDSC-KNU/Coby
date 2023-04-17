@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import client from '../../../sevices/Login';
+import signUp from "../../../sevices/signUp";
 
 function SignIn({ setModalOpen}) {
     const navigate = useNavigate();
@@ -29,14 +30,15 @@ function SignIn({ setModalOpen}) {
     const handleNewName = (e) => {
         setNewName(e.target.value)
     }
-    const onclickSignin = () => {
-        client.post('/signup', {
-            userId: newId,
-            password: newPw,
-            name: newName
-        }).then(()=>{
-             alert('등록 완료!');
-        })
+    const onclickSignin = async (event) => {
+        try {
+            const sign = await signUp(newId, newPw, newName);
+            alert("회원가입 완료");
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
     }
 
     return (
