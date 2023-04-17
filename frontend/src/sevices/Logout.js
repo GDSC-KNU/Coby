@@ -19,6 +19,7 @@ const Logout = async () => {
 
     } catch (error) {
         console.error(error);
+        alert(error.response.data);
         throw new Error(error.response.data.message);
     }
 };

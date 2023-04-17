@@ -1,9 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
-import { useNavigate } from "react-router-dom";
 
 const Login = async (userId, password)=> {
-
     try {
         const response = await axios.post(
             `${BASE_URL}/login`,
@@ -18,7 +16,7 @@ const Login = async (userId, password)=> {
 
     } catch(error){
         console.error(error);
-
+        alert(error.response.data);
         throw new Error(error.response.data.message);
     }
 };

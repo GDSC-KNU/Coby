@@ -34,7 +34,7 @@ public class AuthService {
 
     public UserDto signup(UserDto dto) {
         if(userRepository.existsByUserId(dto.userId())) {
-            throw new EntityExistsException("이미 가입되어있는 유저입니다.");
+            throw new EntityExistsException("이미 존재하는 아이디입니다.");
         }
         User user = dto.toEntity(passwordEncoder);
         user.getRoles().add("ROLE_USER");

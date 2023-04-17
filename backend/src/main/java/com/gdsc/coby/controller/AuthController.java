@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,15 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final AuthService authService;
 
-    @ExceptionHandler(value = {EntityExistsException.class, UsernameNotFoundException.class, RuntimeException.class})
+    @ExceptionHandler(value = {
+            EntityExistsException.class,
+            UsernameNotFoundException.class,
+            RuntimeException.class,
+            BadCredentialsException.class
+    })
     public ResponseEntity<?> exceptionHandler(Exception e) {
+        if(e instanceof BadCredentialsException)
+            return new ResponseEntity<>("비밀번호를 확인해주세요.", HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
