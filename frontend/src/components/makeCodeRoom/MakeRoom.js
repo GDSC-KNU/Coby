@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import RoomItem from "./RoomItem";
 // import Card from "../reuseUI/Card";
 import "./MakeRoom.css";
-import MakeRoomToolFilter from "./MakeRoomToolFilter";
+import ToolFilter from "./ToolFilter";
 
 // import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
 // import Backdrop from "../reuseUI/Backdrop";
@@ -24,7 +24,7 @@ function MakeRoom(props) {
 
   return (
     <div className="PageBox">
-      <MakeRoomToolFilter
+      <ToolFilter
         selected={filteredTool}
         onChangeFilter={filterToolChangeHandler}
       />

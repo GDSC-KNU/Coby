@@ -5,7 +5,7 @@ import styles from "./MakeRoomModal.module.css";
 
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
-import MakeRoomToolFilter from "../MakeRoomToolFilter";
+import MakeRoomToolFilter from "./MakeRoomToolFilter";
 // import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
 
 function MakeRoomModal(props) {
@@ -82,7 +82,6 @@ function MakeRoomModal(props) {
       password: enteredPassWord,
       link: enteredLink,
     };
-
     props.onSaveRoomData(makeRoomData);
     setEnteredTitle("");
     setEnteredLanguage("");
@@ -91,6 +90,22 @@ function MakeRoomModal(props) {
     setEnteredPassWord("");
     setEnteredLink("");
     // 임시 전송할 데이터
+
+    Axios.post("http://localhost:8080/api/coderooms", {
+      name: enteredTitle,
+      url: enteredLink,
+      language: enteredLanguage,
+      tool: enteredTool,
+      //tags에 enteredLanduage, enteredTool 넣어야함
+      password: enteredPassWord,
+      personnel: 6,
+    })
+      .then(() => {
+        alert("등록 완료!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   // document.querySelector('button').addEventlistener('click', (e) => {

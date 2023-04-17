@@ -5,7 +5,7 @@ import styles from "./MakeRoomModalPair.module.css";
 
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilterPair from "./MakeRoomLanguageFilterPair";
-import MakeRoomToolFilterPair from "../MakeRoomToolFilterPair";
+import MakeRoomToolFilterPair from "./MakeRoomToolFilterPair";
 // import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
 
 function MakeRoomModalPair(props) {

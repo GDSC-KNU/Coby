@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MakeRoomToolFilterPair.css";
+import styles from "./MakeRoomModalPair.module.css";
 
 const MakeRoomToolFilterPair = (props) => {
   const dropdownHandler = (event) => {
@@ -8,7 +8,7 @@ const MakeRoomToolFilterPair = (props) => {
   };
 
   return (
-    <div className="Tool-filterPair">
+    <div className={styles.RoomModalControlPair}>
       <div className="Tool-filter__controlPair">
         {/* <label>* 참가하고자 하는 방을 선택해주세요.</label> */}
         <select value={props.selected} onChange={dropdownHandler}>
