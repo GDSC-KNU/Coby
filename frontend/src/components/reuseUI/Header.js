@@ -5,11 +5,9 @@ import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
-import { useCookies } from 'react-cookie';
-
-import axios from "axios";
 
 import "./Header.css";
+import Logout from "../../sevices/Logout";
 
 function Header(props) {
   function CodeReviewHandleClick(event){
@@ -48,24 +46,23 @@ function Header(props) {
   const closeSigninModal = () => {
     setSigninModalOpen(false)
   }
-  const logOut = () => {
-    axios.post('http://localhost:8080/api/logout', {
-        accessToken : props.cookies.token,
-        //refreshToken :
-        })
-        .then((res) => {
-          //props.removeCookie('token');
-          navigate('/');
-          setLoginModalOpen(false);
-        })
-        .catch((error) => {
-            console.log(error.message);
-        });
+  const logOut = async(event) => {
+    event.preventDefault();
+    try {
+      const message = await Logout();
+      // 로그아웃에 성공한 경우, 메시지를 출력하고 페이지를 새로고침합니다.
+      alert("로그아웃 완료");
+      window.location.reload();
+    } catch (error) {
+      // 로그아웃에 실패한 경우, 에러 메시지를 출력합니다.
+      console.error(error);
+      throw new Error(error.response.data.message);
+    }
   }
 
   return (
     <div>
-      { props.cookies.token ? (
+      { localStorage.getItem('token') ? (
       <header className="upside-header">
         <div className="upside-contents">
           <nav className="upside-navigation">
