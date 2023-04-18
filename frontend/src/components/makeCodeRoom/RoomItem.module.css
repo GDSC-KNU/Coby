@@ -5,6 +5,7 @@
 .RoomItem {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 0.5rem;
   height: 11vh;
@@ -67,6 +68,17 @@
   font-size: 0.8rem;
   margin: 0.2rem;
   font-weight: bold;
+}
+
+.RoomItemLockedDescription{
+  display: flex;
+}
+.RoomItemLocked{
+  
+}
+
+.person{
+  font-size: 0.8rem;
 }
 
 @media (min-width: 1920px){

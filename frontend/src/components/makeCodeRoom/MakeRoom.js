@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 import RoomItem from "./RoomItem";
-// import Card from "../reuseUI/Card";
 import "./MakeRoom.css";
 import ToolFilter from "./ToolFilter";
 
-// import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
-// import Backdrop from "../reuseUI/Backdrop";
 
 function MakeRoom(props) {
   const [filteredTool, setFilteredTool] = useState("");
@@ -18,8 +15,6 @@ function MakeRoom(props) {
   const filteredMakeRooms = props.items.filter((makeRoom) => {
     return makeRoom.tool === filteredTool;
   });
-
-
 
 
   return (
@@ -36,6 +31,8 @@ function MakeRoom(props) {
             title={makeRoom.title}
             language={makeRoom.language}
             tool={makeRoom.tool}
+            password={makeRoom.password}
+            url = {makeRoom.url}
           />
         ))}
       </div>

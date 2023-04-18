@@ -1,0 +1,38 @@
+.Tool-filter {
+  color: black;
+  /* width: 48rem; */
+  padding: 0 1rem;
+}
+.Tool-filter__control {
+   
+  /* display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between; */
+  margin: 0.1rem 0;
+}
+
+.Tool-filter label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.Tool-filter__control select {
+
+  /* font-weight: bold;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  width: 8rem;
+  height: 1rem;
+  padding: 0.1rem 0.1rem; */
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.1rem;
+  width: 13rem;
+  height: 1.3rem;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+

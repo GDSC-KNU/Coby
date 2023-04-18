@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Axios from "axios";
 
 import styles from "./MakeRoomModal.module.css";
-
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
-// import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
+import SaveRoomList from "../../../sevices/SaveRoomList";
 
 function MakeRoomModal(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -71,7 +69,7 @@ function MakeRoomModal(props) {
     );
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const makeRoomData = {
@@ -86,33 +84,25 @@ function MakeRoomModal(props) {
     setEnteredTitle("");
     setEnteredLanguage("");
     setEnteredTool("");
-    // setEnteredPurpose("");
+
     setEnteredPassWord("");
     setEnteredLink("");
-    // 임시 전송할 데이터
 
-    Axios.post("http://localhost:8080/api/coderooms", {
-      name: enteredTitle,
-      url: enteredLink,
-      language: enteredLanguage,
-      tool: enteredTool,
-      //tags에 enteredLanduage, enteredTool 넣어야함
-      password: enteredPassWord,
-      personnel: 6,
-    })
-      .then(() => {
-        alert("등록 완료!");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    // try {
+    //   const Create = await SaveRoomList(
+    //     enteredTitle,
+    //     enteredLanguage,
+    //     enteredTool,
+    //     enteredPassWord,
+    //     enteredPassWord,
+    //     enteredLink
+    //   );
+    //   window.location.reload();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw new Error(error.response.data.message);
+    // }
   };
-
-  // document.querySelector('button').addEventlistener('click', (e) => {
-  //   e.stopPropagation(); // 이벤트 전파 방지
-  //   console.log('버튼 클릭');
-  //   e.target.setAttribute('type', 'submit');
-  // });
 
   return (
     <div className={styles.RoomModals}>
