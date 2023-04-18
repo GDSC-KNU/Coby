@@ -33,6 +33,8 @@ function MakeRoomPair(props) {
             title={makeRoomPair.title}
             language={makeRoomPair.language}
             tool={makeRoomPair.tool}
+            password = {makeRoomPair.password}
+            url = {makeRoomPair.url}
           />
         ))}
       </div>

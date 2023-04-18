@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
 
 import styles from "./RoomItemPair.module.css";
+import locked from "../../images/locked.png";
+import unlocked from "../../images/unlocked.png";
 
 function RoomItemPair(props) {
   const [languageColor, setLanguageColor] = useState("");
   const [languageBackgroundColor, setLanguageBackgroundColor] = useState("");
   const [toolColor, setToolColor] = useState("");
 
-  function handleClick(event){
-    window.location.href="/CodeRoom";
-  }
+  const handleClick = () => {
+    if (props.password.trim().length !== 0) {
+      const password = prompt("비밀번호를 입력하세요.");
+      if (props.password === password) {
+        window.location.href = "/CodeRoom";
+      } else if (password !== null) {
+        alert("비밀번호가 일치하지 않습니다.");
+      }
+    } else {
+      window.location.href = "/CodeRoom";
+    }
+  };
 
   useEffect(() => {
     if (props.language === "C") {
@@ -27,7 +38,7 @@ function RoomItemPair(props) {
     } else if (props.language === "etc") {
       setLanguageColor("#C17400");
       setLanguageBackgroundColor("#FCDBAB");
-    } 
+    }
   }, [props.language]);
 
   useEffect(() => {
@@ -39,22 +50,47 @@ function RoomItemPair(props) {
   }, [props.tool]);
 
   return (
-    <div className={styles.RoomItemPair} onClick={handleClick}>
-      <div className={styles.RoomItemDescriptionPair}>
-        <h4 style={{ color: toolColor}}>{props.tool}</h4>
-        <h2>{props.title}</h2>
-        <span style={{ color: languageColor, backgroundColor: languageBackgroundColor}}>{props.language}</span>
-      </div>
+    <div>
+      {props.password.trim().length > 0 ? (
+        <div className={styles.RoomItemPair} onClick={handleClick}>
+          <div className={styles.RoomItemDescriptionPair}>
+            <h4 style={{ color: toolColor }}>{props.tool}</h4>
+            <h2>{props.title}</h2>
+            <span
+              style={{
+                color: languageColor,
+                backgroundColor: languageBackgroundColor,
+              }}
+            >
+              {props.language}
+            </span>
+          </div>
+          <div className={styles.RoomItemLockedDescriptionPair}>
+            <img src={locked} alt="로고" className={styles.RoomItemLockedPair} />
+            <div className={styles.personPair}>0명 / 6명</div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.RoomItemPair} onClick={handleClick}>
+          <div className={styles.RoomItemDescriptionPair}>
+            <h4 style={{ color: toolColor }}>{props.tool}</h4>
+            <h2>{props.title}</h2>
+            <span
+              style={{
+                color: languageColor,
+                backgroundColor: languageBackgroundColor,
+              }}
+            >
+              {props.language}
+            </span>
+          </div>
+          <div className={styles.RoomItemLockedDescriptionPair}>
+            <img src={unlocked} alt="로고" className={styles.RoomItemLockedPair} />
+            <div className={styles.personPair}>0명 / 6명</div>
+          </div>
+        </div>
+      )}
     </div>
-    // <Link to="/CodeRoom">
-    //   <div className="Room-item">
-    //     <div className="Room-item__tool">{props.tool}</div>
-    //     <div className="Room-item__description">
-    //       <h4>{props.title}</h4>
-    //       <p>{props.language}</p>
-    //     </div>
-    //   </div>
-    // </Link>
   );
 }
 
