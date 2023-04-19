@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
+import Logout from "./Logout";
 
 const Login = async (userId, password)=> {
     try {
@@ -17,6 +18,9 @@ const Login = async (userId, password)=> {
     } catch(error){
         console.error(error);
         alert(error.response.data);
+        if (error.response && error.response.status === 401) {
+            Logout(); // 토큰 만료시 로그아웃 처리
+          }
         throw new Error(error.response.data.message);
     }
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import client from '../../../sevices/Login';
+import Login from '../../../sevices/Login';
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
@@ -27,7 +27,7 @@ function Login(props) {
     const onClickLogin = async (event) => {
         event.preventDefault();
         try {
-            const token = await client(inputId, inputPw);
+            const token = await Login(inputId, inputPw);
             localStorage.setItem("token", token.accessToken);
             window.location.reload();
             window.alert("로그인 성공")
