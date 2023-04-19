@@ -88,20 +88,18 @@ function MakeRoomModal(props) {
     setEnteredPassWord("");
     setEnteredLink("");
 
-    // try {
-    //   const Create = await SaveRoomList(
-    //     enteredTitle,
-    //     enteredLanguage,
-    //     enteredTool,
-    //     enteredPassWord,
-    //     enteredPassWord,
-    //     enteredLink
-    //   );
-    //   window.location.reload();
-    // } catch (error) {
-    //   console.error(error);
-    //   throw new Error(error.response.data.message);
-    // }
+    try {
+      const Create = await SaveRoomList(
+        enteredTitle,
+        enteredLink,
+        enteredLanguage,
+        enteredTool,
+        enteredPassWord
+      );
+    } catch (error) {
+      console.error(error);
+      throw new Error(error.response.data.message);
+    }
   };
 
   return (

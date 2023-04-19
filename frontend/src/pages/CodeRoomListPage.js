@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import Layout from "../components/reuseUI/Layout";
 import MakeRoom from "../components/makeCodeRoom/MakeRoom";
@@ -6,6 +6,7 @@ import MakeRoom from "../components/makeCodeRoom/MakeRoom";
 import "./CodeRoomListPage.css";
 import NewMakeRoom from "../components/makeCodeRoom/makeRoomModal/NewMakeRoom";
 import Backdrop from "../components/reuseUI/Backdrop";
+import ShowRoomList from "../sevices/ShowRoomList";
 
 function CodeRoomListPage() {
   // const DUMMY_DATA = [
@@ -30,6 +31,20 @@ function CodeRoomListPage() {
   // ];
 
   const [makeRooms, setMakeRooms] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchRooms = async () => {
+  //     try{
+  //       const newRooms = await ShowRoomList();
+  //       setMakeRooms(newRooms);
+  //     }catch(error){
+  //       console.error(error);
+  //     }
+  //   };
+  //   const intervalId = setInterval(fetchRooms, 5000);
+  //
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   const addRoomHandler = (makeRoom) => {
     setMakeRooms((prevMakeRooms) => {

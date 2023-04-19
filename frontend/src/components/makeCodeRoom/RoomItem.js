@@ -25,25 +25,43 @@ function RoomItem(props) {
     if (props.language === "C") {
       setLanguageColor("#7B88FF");
       setLanguageBackgroundColor("#E5F6FF");
-    } else if (props.language === "Python3") {
+    } else if (props.language === "C++") {
+      setLanguageColor("#7B88FF");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "C#") {
+      setLanguageColor("#7B88FF");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "Python") {
       setLanguageColor("#FFB800");
       setLanguageBackgroundColor("#FFF7B0");
     } else if (props.language === "Java") {
       setLanguageColor("#FF5C5C");
       setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Ruby") {
+      setLanguageColor("#FF5C5C");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Swift") {
+      setLanguageColor("#F05138");
+      setLanguageBackgroundColor("#FFE5E5");
     } else if (props.language === "JavaScript") {
       setLanguageColor("#FFB800");
       setLanguageBackgroundColor("#FFF7B0");
-    } else if (props.language === "etc") {
-      setLanguageColor("#C17400");
-      setLanguageBackgroundColor("#FCDBAB");
+    } else if (props.language === "Scala") {
+      setLanguageColor("#DE3835");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Go") {
+      setLanguageColor("#00ACD7");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "Kotlin") {
+      setLanguageColor("#A532F1");
+      setLanguageBackgroundColor("#ECDEF5");
     }
   }, [props.language]);
 
   useEffect(() => {
-    if (props.tool === "Visual Studio Code") {
+    if (props.tool === "Live Share") {
       setToolColor("#29A0F1");
-    } else if (props.tool === "IntelliJ") {
+    } else if (props.tool === "Code With Me") {
       setToolColor("#FD7864");
     }
   }, [props.tool]);
