@@ -4,6 +4,8 @@ import com.gdsc.coby.domain.Room;
 import com.gdsc.coby.domain.constant.TagType;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -20,7 +22,7 @@ public record RoomDto(
 
     public static RoomDto of (String name, String url, String password, String language, String tool){
         return new RoomDto(null, name, url, password, 6,
-                Stream.of(TagDto.of(language, TagType.LANGUAGE), TagDto.of(tool, TagType.TOOL)).toList(),
+                new ArrayList<>(List.of(TagDto.of(language, TagType.LANGUAGE), TagDto.of(tool, TagType.TOOL))),
                 null, null);
     }
 
