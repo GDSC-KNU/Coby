@@ -12,11 +12,12 @@ public record RoomResponseDto(
         String language,
         String tool,
         String password,
+        String url,
         String createdBy
 ) {
 
-    public static RoomResponseDto of(Long id, String name, String language, String tool, String password, String createdBy) {
-        return new RoomResponseDto(id, name, language, tool, password, createdBy);
+    public static RoomResponseDto of(Long id, String name, String language, String tool, String password, String createdBy, String url) {
+        return new RoomResponseDto(id, name, language, tool, password, url, createdBy);
     }
 
     public static RoomResponseDto from(RoomDto dto) {
@@ -28,6 +29,7 @@ public record RoomResponseDto(
                 dto.tags().stream().filter(tag -> tag.tagType().equals(TagType.TOOL))
                         .map(TagDto::name).collect(Collectors.joining(",")),
                 dto.password(),
+                dto.url(),
                 dto.createdBy()
         );
     }

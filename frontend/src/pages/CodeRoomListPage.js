@@ -32,19 +32,24 @@ function CodeRoomListPage() {
 
   const [makeRooms, setMakeRooms] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchRooms = async () => {
-  //     try{
-  //       const newRooms = await ShowRoomList();
-  //       setMakeRooms(newRooms);
-  //     }catch(error){
-  //       console.error(error);
-  //     }
-  //   };
-  //   const intervalId = setInterval(fetchRooms, 5000);
-  //
-  //   return () => clearInterval(intervalId);
-  // }, []);
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const newRooms = await ShowRoomList();
+        const mappedRooms = newRooms.map((makeRoom) => ({
+          title: makeRoom.name,
+          language: makeRoom.language,
+          tool: makeRoom.tool,
+          password: makeRoom.password,
+          url: makeRoom.url
+        }));
+        setMakeRooms(mappedRooms);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchRooms().then();
+  }, []);
 
   const addRoomHandler = (makeRoom) => {
     setMakeRooms((prevMakeRooms) => {

@@ -19,7 +19,8 @@ const Login = async (userId, password)=> {
         console.error(error);
         alert(error.response.data);
         if (error.response && error.response.status === 401) {
-            Logout(); // 토큰 만료시 로그아웃 처리
+            alert("로그인을 다시 해주시기 바랍니다.")
+            localStorage.removeItem("token"); // 토큰 만료시 로그아웃 처리
           }
         throw new Error(error.response.data.message);
     }

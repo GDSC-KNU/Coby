@@ -12,11 +12,9 @@ function MakeRoom(props) {
     setFilteredTool(selectTool);
   };
 
-  const filteredMakeRooms = props.items.filter((makeRoom) => {
-    return makeRoom.tool === filteredTool;
-  });
-
-
+    const filteredMakeRooms = filteredTool
+        ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
+        : props.items;
   return (
     <div className="PageBox">
       <ToolFilter
