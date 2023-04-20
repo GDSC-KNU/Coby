@@ -7,7 +7,7 @@ import Backdrop from '../../reuseUI/Backdrop';
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
 
-function Login(props) {
+function LoginModal(props) {
     const navigate = useNavigate();
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
@@ -61,4 +61,4 @@ function Login(props) {
         </div>
     );
 }
-export default Login;
+export default LoginModal;
