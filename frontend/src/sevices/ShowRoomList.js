@@ -1,24 +1,25 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
 
-const SaveRoomList = async (title, url, language, tool, password ) => {
+const ShowRoomList = async ( ) => {
     try {
-        const response = await axios.post(
+        const response = await axios.get(
             `${BASE_URL}/coderooms/review`,
-            { title, url, language, tool, password },
+            {},
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             }
         );
+        alert("방 생성 완료");
         return response.data;
     } catch (error) {
         console.error(error);
         alert(error.response.data);
-        // 회원가입에 실패한 경우, API에서 반환한 에러 메시지를 출력합니다.
+        
         throw new Error(error.response.data.message);
     }
 };
 
-export default SaveRoomList;
+export default ShowRoomList;
