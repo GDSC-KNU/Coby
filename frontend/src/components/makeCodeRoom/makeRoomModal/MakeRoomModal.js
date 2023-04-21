@@ -60,7 +60,8 @@ function MakeRoomModal(props) {
     );
   };
   /*https://prod.liveshare.vsengsaas.visualstudio.com/join? 예시 링크*/
-
+  /* Intellij 링크도 추가해주어야함. 이것 나중에 CodeWithMe 공통 링크 알아낼것 */
+  
   const validateLinkHandler = () => {
     setIsLinkValid(
       enteredLink.includes(
@@ -84,7 +85,6 @@ function MakeRoomModal(props) {
     setEnteredTitle("");
     setEnteredLanguage("");
     setEnteredTool("");
-
     setEnteredPassWord("");
     setEnteredLink("");
 
@@ -96,6 +96,7 @@ function MakeRoomModal(props) {
         enteredTool,
         enteredPassWord
       );
+      console.log(Create);
     } catch (error) {
       console.error(error);
       throw new Error(error.response.data.message);
@@ -128,29 +129,14 @@ function MakeRoomModal(props) {
             selected={enteredLanguage}
             onChangeFilter={languageChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredLanguage}
-            onChange={languageChangeHandler}
-          /> */}
         </div>
-        {/* 언어가 너무 다양한데 이거 그냥 글로 쓰는게 낫지 않을까? */}
         <div className={styles.RoomModalControl}>
           <p>사용 도구</p>
           <MakeRoomToolFilter
             selected={enteredTool}
             onChangeFilter={toolChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredTool}
-            onChange={toolChangeHandler}
-          /> */}
         </div>
-        {/* <div className="RoomModal-control">
-          <p>사용 목적</p>
-          <MakeRoomPurposeFilter />
-        </div> */}
         <div className={styles.RoomModalControl}>
           <p>비밀번호</p>
           <input

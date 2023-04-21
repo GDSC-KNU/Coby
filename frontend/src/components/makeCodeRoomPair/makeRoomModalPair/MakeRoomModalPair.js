@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Axios from "axios";
 
 import styles from "./MakeRoomModalPair.module.css";
-
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilterPair from "./MakeRoomLanguageFilterPair";
 import MakeRoomToolFilterPair from "./MakeRoomToolFilterPair";
-// import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
+import SaveRoomListPair from "../../../sevices/SaveRoomListPair";
 
 function MakeRoomModalPair(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -71,7 +69,7 @@ function MakeRoomModalPair(props) {
     );
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async(event) => {
     event.preventDefault();
 
     const makeRoomDataPair = {
@@ -87,17 +85,25 @@ function MakeRoomModalPair(props) {
     setEnteredTitle("");
     setEnteredLanguage("");
     setEnteredTool("");
-    // setEnteredPurpose("");
     setEnteredPassWord("");
     setEnteredLink("");
     // 임시 전송할 데이터
+
+    try{
+      const Create = await SaveRoomListPair(
+        enteredTitle,
+        enteredLink,
+        enteredLanguage,
+        enteredTool,
+        enteredPassWord
+      );
+      console.log(Create);
+    } catch(error){
+      console.error(error);
+      throw new Error(error.response.data.message);
+    }
   };
 
-  // document.querySelector('button').addEventlistener('click', (e) => {
-  //   e.stopPropagation(); // 이벤트 전파 방지
-  //   console.log('버튼 클릭');
-  //   e.target.setAttribute('type', 'submit');
-  // });
 
   return (
     <div className={styles.RoomModalsPair}>

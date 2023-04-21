@@ -12,6 +12,7 @@ const ToolFilterPair = (props) => {
       <div className="Tool-filter__controlPair">
         {/* <label>* 참가하고자 하는 방을 선택해주세요.</label> */}
         <select value={props.selected} onChange={dropdownHandler}>
+          <option value="">카테고리를 선택해주세요</option>
           <option value="Visual Studio Code">Visual Studio Code</option>
           <option value="IntelliJ">IntelliJ</option>
         </select>

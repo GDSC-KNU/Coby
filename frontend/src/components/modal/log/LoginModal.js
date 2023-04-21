@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import { useNavigate } from 'react-router-dom';
 import Login from '../../../sevices/Login';
-import Backdrop from '../../reuseUI/Backdrop';
+
 
 import './LoginModal.css';
 import logo from '../../../images/logo_black.png'
 
 function LoginModal(props) {
-    const navigate = useNavigate();
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
