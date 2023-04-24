@@ -13,7 +13,7 @@ function MakeRoomPair(props) {
   };
 
   const filteredMakeRooms = filteredTool
-    ? props.itmes.filter((makeRoom) => makeRoom.tool === filteredTool)
+    ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
     : props.items;
 
   return (
