@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import client from '../../../sevices/Login';
+import axios from "axios";
 import Backdrop from '../../reuseUI/Backdrop';
 
 import './LoginModal.css';
@@ -15,7 +15,7 @@ function Login(props) {
     }
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
-
+    //const [cookies, setCookie] = useCookies(['token', 'ref']);
 
     const handleInputId = (e) => {
         setInputId(e.target.value)
@@ -23,19 +23,23 @@ function Login(props) {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-
-    const onClickLogin = async (event) => {
-        event.preventDefault();
-        try {
-            const token = await client(inputId, inputPw);
-            localStorage.setItem("token", token.accessToken);
-            window.location.reload();
-            window.alert("로그인 성공")
-        } catch (error) {
-            console.error(error);
-            throw new Error(error.response.data.message);
-        }
-    };
+    
+    const onClickLogin = () => {
+    axios.post('http://localhost:8080/api/login', {
+    userId: inputId,
+    password: inputPw,
+    })
+    .then((res) => {
+        localStorage.setItem('token', res.data.accessToken)
+        props.setCookie('ref', res.data.refreshToken)
+        alert('로그인 성공!')
+        navigate('/')
+    })
+    .catch((error) => {
+        console.log(error.response);
+        return "아이디 혹은 비밀번호를 확인하세요.";
+    });
+    }
 
     return (
         <div className="container">

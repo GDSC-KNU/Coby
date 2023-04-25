@@ -2,8 +2,7 @@ import './SigninModal.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-import client from '../../../sevices/Login';
-import signUp from "../../../sevices/signUp";
+import axios from "axios";
 
 function SignIn({ setModalOpen}) {
     const navigate = useNavigate();
@@ -30,32 +29,34 @@ function SignIn({ setModalOpen}) {
     const handleNewName = (e) => {
         setNewName(e.target.value)
     }
-    const onclickSignin = async (event) => {
-        try {
-            const sign = await signUp(newId, newPw, newName);
-            alert("회원가입 완료");
-            window.location.reload();
-        } catch (error) {
-            console.error(error);
-            throw new Error(error.response.data.message);
+    const onclickSignin = () => {
+        axios.post('/api/signup', {
+            userId: newId,
+            password: newPw,
+            name: newName
+        }).then(()=>{
+             alert('등록 완료!');
+        }).catch((error) => {
+            console.log(error.response)
         }
+        )
     }
 
     return (
         <div className="container1">
             <div className="form1">
-                <p>아이디</p>
+                <p className='font'>아이디</p>
                 <input className="input1" type='text' name='input_id' value={newId} onChange={handleNewId} />
-                <p>이름</p>
+                <p className='font'>이름</p>
                 <input className="input1" type='text' name='input_name' value={newName} onChange={handleNewName} />
-                <p>비밀번호</p>
+                <p className='font'>비밀번호</p>
                 <input className="input1" type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
                     {showPswd ? (
                     <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
                     ) : (
                     <AiFillEye onClick={toggleShowPswd} className="icon"/>
                     )}
-                <p>비밀번호 확인</p>
+                <p className='font'>비밀번호 확인</p>
                 <input className="input1" type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
                     {showPswd ? (
                     <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
@@ -67,4 +68,5 @@ function SignIn({ setModalOpen}) {
         </div>
     );
 }
+
 export default SignIn;

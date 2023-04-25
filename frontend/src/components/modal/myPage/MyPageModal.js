@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
+import axios from "axios";
 import './MyPageModal.css';
-import MyPage from "../../../sevices/MyPage";
+
 
 function MyPageModal(setMyPageOpen){
     const [name,setName] = useState('');
@@ -20,14 +22,16 @@ function MyPageModal(setMyPageOpen){
     }
 
     useEffect(() => {
-        MyPage().then((data) => {
-            setName(data.name);
-            setGroup(data.group);
-            setExp(data.exp_point);
-            checkGrade(exp);
-        }).catch((err) => {
-            console.log(err.message);
-        });
+        axios.get(`http://localhost:8080/api/users/myinfo`)
+            .then((res) => {
+                setName(res.data.name);
+                setGroup(res.data.group);
+                setExp(res.data.exp_point);
+                checkGrade(exp);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
       }, []);
     
     return (

@@ -6,11 +6,11 @@
     opacity: 1; 
   }
 }
-.out {
+.Out {
   display: flex;
 }
 
-.sidebar1 {
+.Sidebar {
   background-color: #5579fe;
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@
   height: 100%;
   z-index: 99;
 }
-.button{
+.Button{
   position: absolute;
   width: 40px;
   height: 40px;
@@ -29,11 +29,11 @@
   display: flex;
   /* animation: smoothAppear 0.5s; */
 }
-.icon {
+.Icon {
   margin: 0;
   color: white;
 }
-.logo {
+.Logo {
   position: absolute;
   left: 4.25vw;
   top: 5vh;
@@ -41,7 +41,7 @@
   height: 11vh;
   /* animation: smoothAppear 1s; */
 }
-.profile{
+.Profile{
   position: relative;
   top: 20vh;
   margin-top: 1rem;
@@ -51,14 +51,14 @@
   background: white;
   border-radius: 50%;
 }
-.name{
+.Name{
   position: relative;
   top: 1.5vh;
   left: 5rem;
   color : white;
   font-size: 1rem;
 }
-.chatting{
+.Chatting{
   position: relative;
   top: 36vh;
   left: 5%;
@@ -69,7 +69,7 @@
   transition: 2s;
   /* animation: smoothAppear 1s; */
 }
-.font{
+.Font{
   position: relative;
   top: 2vh;
   left: 0.7vw;
@@ -77,7 +77,7 @@
   font-weight: bold;
   color: black;
 }
-.profileImg{
+.ProfileImg{
   display: block;
   width: 100%;
 }
