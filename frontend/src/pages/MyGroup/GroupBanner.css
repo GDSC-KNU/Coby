@@ -14,16 +14,19 @@
     top: 43%;
     width: 10rem;
 }
+
 .font{
     font-size: 3vw;
     position: relative;
     left: 10.5rem;
     top: 20vh;
 }
+
 .sub{
     position: relative;
     display: flex;
 }
+
 .search_btn{
     width: 8rem;
     height: 3rem;
@@ -52,4 +55,77 @@
     font-weight: bold;
     transition: all 0.3s;
     scale: 1.1;
-  }
+}
+
+/*배너(휘장 부분)*/
+.groupbanner_body {
+    position: absolute;
+    width: 13.4rem;
+    height: 37rem;
+    
+    left: -3%;
+    top: 25vh;
+
+    background: linear-gradient(180deg, #5579FE 0%, rgba(85,121,254,0.33) 100%);
+    backdrop-filter: blur(3.5px);
+    border-radius: 8px;
+}
+
+/*그룹 이미지 박스*/
+.group_imgbox {
+    position: relative;
+    width: 5rem;
+    height: 3rem;
+    left: 21%;
+    top: 9vh;
+}
+
+/*그룹 이름*/
+.group_name {
+    position: relative;
+    width: 5.7rem;
+    height: 0.5rem;
+
+    left: 40%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    top:28vh;
+    font-size: 1rem;
+    font-weight:lighter;
+}
+
+/*버튼 부분*/
+.groupbtn {
+    width: 8rem;
+    height: 3rem;
+
+    position: relative;
+    top: 40vh;
+    left: 47%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.groupbtn:hover {
+    font-weight: bold;
+    transition: all 0.3s;
+}

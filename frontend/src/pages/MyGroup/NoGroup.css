@@ -8,6 +8,7 @@
     padding: 0.7rem;
     background: #ffffff;
 }
+
 .group-image{
     position:absolute;
     left: 50%;
@@ -15,16 +16,19 @@
     top: 43%;
     width: 10rem;
 }
+
 .font{
     font-size: 3vw;
     position: relative;
     left: 10.5rem;
     top: 20vh;
 }
+
 .sub{
     position: relative;
     display: flex;
 }
+
 .search_btn{
     width: 8rem;
     height: 3rem;
@@ -49,6 +53,7 @@
     border-radius: 8px;
     font-size: 1rem;
 }
+
 .search_btn:hover {
     font-weight: bold;
     transition: all 0.3s;
