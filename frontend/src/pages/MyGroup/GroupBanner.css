@@ -70,7 +70,17 @@
     backdrop-filter: blur(3.5px);
     border-radius: 8px;
 }
-
+.groupbanner_body:after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2.9rem solid transparent;
+    border-left: 6.7rem solid white;
+    border-right: 6.7rem solid white;
+}
 /*그룹 이미지 박스*/
 .group_imgbox {
     position: relative;
