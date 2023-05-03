@@ -3,18 +3,18 @@ package com.gdsc.coby.service;
 import com.gdsc.coby.domain.Group;
 import com.gdsc.coby.domain.GroupTagMap;
 import com.gdsc.coby.dto.GroupDto;
-import com.gdsc.coby.dto.GroupTagMapDto;
+import com.gdsc.coby.dto.TagDto;
 import com.gdsc.coby.dto.request.GroupRequestDto;
 import com.gdsc.coby.repository.GroupRepository;
 import com.gdsc.coby.repository.GroupTagMapRepository;
 import com.gdsc.coby.repository.TagRepository;
 import com.gdsc.coby.security.SecurityUtil;
-import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.webjars.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,22 +29,29 @@ public class GroupService {
     // 그룹 목록 조회
     @Transactional(readOnly = true)
     public List<GroupDto> getGroups(){
-        return groupRepository.findAll().stream()
-                .map(GroupDto::from)
-                .toList();
+        List<GroupDto> result = new ArrayList<>();
+        groupTagMapRepository.findAllGroups().stream()
+                .forEach(group -> {
+                    result.add(GroupDto.from(group,
+                            groupTagMapRepository.findTagsByGroup_Id(group.getId()).stream()
+                                    .map(TagDto::from).toList()));
+                });
+        return result;
     }
 
     // 그룹 정보 조회
     @Transactional(readOnly = true)
     public GroupDto getGroupInfo(Long groupId){
-        return groupRepository.findById(groupId)
-                .map(GroupDto::from)
+        Group group = groupRepository.findById(groupId)
                 .orElseThrow(() -> new NotFoundException("그룹찾기 실패 : 해당 그룹을 찾을 수 없습니다."));
+        return GroupDto.from(group,groupTagMapRepository.findTagsByGroup_Id(group.getId()).stream()
+                .map(TagDto::from).toList());
     }
 
     @Transactional
     public GroupDto creatGroup(GroupRequestDto requestDto){
         Group group = groupRepository.save(requestDto.toDto().toEntity());
+
         requestDto.tags().stream()
                 .map(tagRepository::findByName)
                 .map(Optional::orElseThrow)
