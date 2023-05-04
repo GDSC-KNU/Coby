@@ -1,8 +1,8 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://
-    username:
+    url:
+    username: 
     password:
 
   jpa:
@@ -16,6 +16,16 @@ spring:
     redis:
       port: 6379
       host: localhost
+
+  profiles:
+    include:
+      - aws
+      - credentials
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
 
 jwt:
   header: Authorization
