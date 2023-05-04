@@ -24,6 +24,7 @@ function Header(props) {
 
   function MyGroupClick(event){
     window.location.href="/GroupInfo"
+    //window.location.href="/NoGroup"
   }
 
   const [logInmodalOpen, setLoginModalOpen] = useState(false);

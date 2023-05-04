@@ -3,13 +3,15 @@ import GroupBanner from "./GroupBanner";
 import "./GroupMember.css"
 
 const GroupMember = () => {
-  return (
-    <div className="outer">
-        <Layout/>
-        <GroupBanner/>
-        그룹원정보
-    </div>
+    return (
+        <div className="outer">
+            <Layout/>
+            <GroupBanner/>
+        </div>                
   );
 }
 
 export default GroupMember;
+
+
+

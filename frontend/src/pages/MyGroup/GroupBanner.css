@@ -7,12 +7,15 @@
     padding: 0.7rem;
     background: #ffffff;
 }
-.group-image{
-    position:absolute;
-    left: 50%;
-    transform: translate(-50%);
-    top: 43%;
-    width: 10rem;
+
+.groupbanner{
+    position: absolute;
+    background-color: #5579fe;
+    width: 15rem;
+    height: 40rem;
+    right: 46rem;
+    top: 6.5rem;
+    border-radius: 10px
 }
 
 .font{
@@ -30,26 +33,11 @@
 .search_btn{
     width: 8rem;
     height: 3rem;
+}
 
+.bannerbtn{
     position: relative;
-    top: 40vh;
-    left: 47%;
-    transform: translate(-100%);
-    margin-left: 15px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  
-    cursor: pointer;
-    background-color: #5579fe;
-    color: white;
-    border-color: #5579fe;
-    border-bottom: #5579fe;
-    border-right: #5579fe;
-    border-radius: 8px;
-    font-size: 1rem;
+    top: 5rem;
 }
 .search_btn:hover {
     font-weight: bold;
@@ -61,10 +49,10 @@
 .groupbanner_body {
     position: absolute;
     width: 13.4rem;
-    height: 37rem;
+    height: 40.3rem;
     
     left: -3%;
-    top: 25vh;
+    top: 15vh;
 
     background: linear-gradient(180deg, #5579FE 0%, rgba(85,121,254,0.33) 100%);
     backdrop-filter: blur(3.5px);
