@@ -8,7 +8,7 @@ const Sidebar = (props) => {
   const toggle = () => props.setIsOpen(!props.isOpen);
 
   return (
-    <div className={styles.out}>
+    <div className={styles.Out}>
       <div
         style={{ width: props.isOpen ? "15vw" : "3.1vw" }}
         className={styles.sidebar1}
@@ -17,7 +17,7 @@ const Sidebar = (props) => {
           <img
             src={logo}
             alt="로고"
-            className={styles.logo}
+            className={styles.Logo}
             style={{ display: props.isOpen ? "block" : "none" }}
           />
           {props.isOpen ? (
@@ -25,23 +25,23 @@ const Sidebar = (props) => {
               <div style={{ marginLeft: "13vw" }}>
                 <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
               </div>
-              <div className={styles.profile} style = {{ background : "blue"}}>
-                <p className={styles.name}>철수</p>
+              <div className={styles.Profile} style = {{ background : "blue"}}>
+                <p className={styles.Name}>철수</p>
               </div>
-              <div className={styles.profile} style = {{ background : "red"}}>
-              <p className={styles.name}>영희</p>
+              <div className={styles.Profile} style = {{ background : "red"}}>
+              <p className={styles.Name}>영희</p>
               </div>
-              <div className={styles.chatting}>
-                <p className={styles.font}>
+              <div className={styles.Chatting}>
+                <p className={styles.Font}>
                   철수 : 안녕하세요. 저는 철수입니다.
                 </p>
-                <p className={styles.font}>
+                <p className={styles.Font}>
                   영희 : 안녕하세요. 저는 영희입니다.
                 </p>
-                <p className={styles.font}>
+                <p className={styles.Font}>
                   철수 : 저는 당신의 코드를 도와드리고 싶어요.
                 </p>
-                <p className={styles.font}>
+                <p className={styles.Font}>
                   영희 : 감사합니다.
                 </p>
               </div>
@@ -50,11 +50,11 @@ const Sidebar = (props) => {
             <div style={{ marginLeft: "0px" }}>
               <MdKeyboardArrowRight
                 onClick={toggle}
-                className={styles.button}
+                className={styles.Button}
               />
-              <div className={styles.profile} style = {{ background : "blue"}}>
+              <div className={styles.Profile} style = {{ background : "blue"}}>
               </div>
-              <div className={styles.profile} style = {{ background : "red"}}>
+              <div className={styles.Profile} style = {{ background : "red"}}>
               </div>
             </div>
           )}
