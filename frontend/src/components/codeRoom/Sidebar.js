@@ -3,7 +3,6 @@ import React from "react";
 import logo from "../../images/Coby.png";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./Sidebar.module.css";
-import ChatRoom from "./ChatRoom";
 
 const Sidebar = (props) => {
   const toggle = () => props.setIsOpen(!props.isOpen);

@@ -5,7 +5,7 @@ import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
 import SaveRoomList from "../../../sevices/SaveRoomList";
-import WebSocket from "../../../sevices/WebSocket";
+import ChatRoom from "../../codeRoom/ChatRoom";
 
 function MakeRoomModal(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -16,7 +16,7 @@ function MakeRoomModal(props) {
   const [enteredLink, setEnteredLink] = useState("");
   const [isLinkValid, setIsLinkValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
-  const {registerUser} = WebSocket();
+ 
 
   const titleChangeHandler = (event) => {
     console.log("Title Changed");
@@ -107,7 +107,7 @@ function MakeRoomModal(props) {
     }
 
     window.location.href = "/CodeRoom";
-    registerUser(); 
+    // ChatRoom.registerUser(); 
   };
 
   return (

@@ -1,12 +1,11 @@
-.code{
-    display:flex;
-    width:100vw;
-    height:100vh;
-    float: right;
-}
-.img{
-    position: relative;
-    bottom: 0.5rem;
-    width: 103%;
-    height: 100vh;
+.IframeBox{
+    display: column;
+    align-items: center;
+    justify-content: center;
+    width: 1240px;
+    max-width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    padding: 0.4rem;
+    background: rgb(219,227,227);
 }

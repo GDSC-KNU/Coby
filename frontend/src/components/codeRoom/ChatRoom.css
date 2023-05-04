@@ -39,6 +39,7 @@ body{
   background-color: white;
   border-top-right-radius: 0.8rem;
   border-top-left-radius: 0.8rem;
+  text-align: left;
   height: 38vh;
   margin: 0;
 }

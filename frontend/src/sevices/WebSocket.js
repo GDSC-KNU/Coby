@@ -3,31 +3,35 @@ import { over } from "stompjs";
 import SockJS from "sockjs-client";
 import MyPage from "./MyPage";
 import getRoomId from "./getRoomId.js";
+import { BASE_URL } from "../constants/Url";
 
+
+var stompClient = null;
 const WebSocket = () => {
   const [publicChats, setPublicChats] = useState([]);
   const [userData, setUserData] = useState({
     username: "",
-    connencted: false,
+    connected: false,
     message: "",
   });
   useEffect(() => {
     MyPage()
       .then((data) => {
-        setUserData((prevUserData) => ({
-          ...prevUserData,
+        setUserData(() => ({
           username: data.name,
         }));
+        console.log(data.name);
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log("useEffect에러입니다. " + err.message);
       });
   }, []);
 
- let stompClient = null;
+  
 
   const connect = () => {
-    let Sock = new SockJS("http://localhost:8080/api/ws/");
+    let Sock = new SockJS(`${BASE_URL}/ws/`);
+
     stompClient = over(Sock);
     stompClient.connect({}, onConnected, onError);
   };
@@ -35,26 +39,27 @@ const WebSocket = () => {
   const onConnected = async () => {
     setUserData({ ...userData, connected: true });
     const roomId = await getRoomId();
-   
     stompClient.subscribe(`/chatroom/chat/${roomId}`, onMessageReceived);
     userJoin();
   };
 
-  const userJoin = () => {
+  const userJoin = async () => {
+    const roomId = await getRoomId();
     var chatMessage = {
-      senderName: userData.username,
+      name: userData.username,
+      roomId: roomId,
       status: "JOIN",
     };
-    stompClient.send("/message", {}, JSON.stringify(chatMessage));
+    stompClient.send("/coby/chat", {}, JSON.stringify(chatMessage));
   };
 
   const onMessageReceived = (payload) => {
     var payloadData = JSON.parse(payload.body);
     switch (payloadData.status) {
       case "JOIN":
-        if (payloadData.senderName !== userData.username) {
-            setPublicChats((prevChats) => [...prevChats, payloadData]);
-          }
+        if (payloadData.name !== userData.username) {
+          setPublicChats((prevChats) => [...prevChats, payloadData]);
+        }
         break;
       case "MESSAGE":
         setPublicChats((prevChats) => [...prevChats, payloadData]);
@@ -65,7 +70,7 @@ const WebSocket = () => {
   };
 
   const onError = (err) => {
-    console.log(err);
+    console.log("onError 함수 에러입니다. " + err);
   };
 
   const registerUser = () => {
