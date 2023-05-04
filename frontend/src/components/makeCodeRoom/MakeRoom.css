@@ -50,54 +50,6 @@
   text-align: center;
   /* align-items: center; */
 }
-
-.search {
-  position : relative;
-  left: 4.4%;
-  width: 7rem;
-}
-
-input {
-  width: 100%;
-  border: 1px solid #A8A8A8;
-  border-radius: 5px;
-  padding: 3px 10px;
-  font-size: 10px;
-  overflow: hidden;
-}
-
-/*돋보기 태그*/
-img {
-  position: absolute;
-  width: 15px;
-  top: 1vh;
-  right: 0.3rem;
-  margin: 0;
-}
-
-/*filter_set 으로 가로배치*/
-.filter_set {
-  display:flex;
-}
-
-/*filter 버튼*/
-.filter {
-  position:relative;
-  left: 4.4%;
-  box-sizing: border-box;
-  background: #FFFFFF;
-  border: 1px solid #A8A8A8;
-  border-radius: 5px;
-  margin:0.1rem;
-  font-size: 12px;
-}
-
-/*filter hover effect*/
-.filter:hover{
-  background:#5579FE;
-  color:white;
-  border: 1px solid #5579FE;
-}
 /* .MakeRoomBtn {
   width: 17%;
   height: 1.5rem;
@@ -168,6 +120,8 @@ img {
     width: 90rem;
     margin: 0.1rem auto;
    
+   
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
