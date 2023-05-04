@@ -25,7 +25,7 @@ function MakeRoom(props) {
       <div className="CodeRoomListBox">
         {filteredMakeRooms.map((makeRoom) => (
           <RoomItem
-            // key={makeRoom.id}
+            key={makeRoom.id}
             title={makeRoom.title}
             language={makeRoom.language}
             tool={makeRoom.tool}

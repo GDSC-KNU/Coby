@@ -3,6 +3,7 @@ import React from "react";
 import logo from "../../images/Coby.png";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import styles from "./Sidebar.module.css";
+import ChatRoom from "./ChatRoom";
 
 const Sidebar = (props) => {
   const toggle = () => props.setIsOpen(!props.isOpen);
@@ -10,7 +11,7 @@ const Sidebar = (props) => {
   return (
     <div className={styles.out}>
       <div
-        style={{ width: props.isOpen ? "15vw" : "3.1vw" }}
+        style={{ width: props.isOpen ? "350px" : "60px" }}
         className={styles.sidebar1}
       >
         <div>
@@ -22,29 +23,18 @@ const Sidebar = (props) => {
           />
           {props.isOpen ? (
             <>
-              <div style={{ marginLeft: "13vw" }}>
-                <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
+              <div style={{ marginLeft: "310px" }}>
+                <MdKeyboardArrowLeft
+                  onClick={toggle}
+                  className={styles.button}
+                />
               </div>
-              <div className={styles.profile} style = {{ background : "blue"}}>
+              {/* <div className={styles.profile} style={{ background: "blue" }}>
                 <p className={styles.name}>철수</p>
               </div>
-              <div className={styles.profile} style = {{ background : "red"}}>
-              <p className={styles.name}>영희</p>
-              </div>
-              <div className={styles.chatting}>
-                <p className={styles.font}>
-                  철수 : 안녕하세요. 저는 철수입니다.
-                </p>
-                <p className={styles.font}>
-                  영희 : 안녕하세요. 저는 영희입니다.
-                </p>
-                <p className={styles.font}>
-                  철수 : 저는 당신의 코드를 도와드리고 싶어요.
-                </p>
-                <p className={styles.font}>
-                  영희 : 감사합니다.
-                </p>
-              </div>
+              <div className={styles.profile} style={{ background: "red" }}>
+                <p className={styles.name}>영희</p>
+              </div> */}
             </>
           ) : (
             <div style={{ marginLeft: "0px" }}>
@@ -52,10 +42,14 @@ const Sidebar = (props) => {
                 onClick={toggle}
                 className={styles.button}
               />
-              <div className={styles.profile} style = {{ background : "blue"}}>
-              </div>
-              <div className={styles.profile} style = {{ background : "red"}}>
-              </div>
+              <div
+                className={styles.profile}
+                style={{ background: "blue" }}
+              ></div>
+              <div
+                className={styles.profile}
+                style={{ background: "red" }}
+              ></div>
             </div>
           )}
         </div>

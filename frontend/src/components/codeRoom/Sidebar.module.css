@@ -9,6 +9,9 @@
 .out {
   display: flex;
 }
+body{
+  overflow: auto;
+}
 
 .sidebar1 {
   background-color: #5579fe;
@@ -35,10 +38,10 @@
 }
 .logo {
   position: absolute;
-  left: 4.25vw;
-  top: 5vh;
-  width: 7vw;
-  height: 11vh;
+  left: 120px;
+  top: 50px;
+  width: 120px;
+  height: 100px;
   /* animation: smoothAppear 1s; */
 }
 .profile{

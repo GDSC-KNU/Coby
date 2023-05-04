@@ -37,11 +37,12 @@ function CodeRoomListPage() {
       try {
         const newRooms = await ShowRoomList();
         const mappedRooms = newRooms.map((makeRoom) => ({
+          id: makeRoom.id,
           title: makeRoom.name,
           language: makeRoom.language,
           tool: makeRoom.tool,
           password: makeRoom.password,
-          url: makeRoom.url
+          url: makeRoom.url,
         }));
         setMakeRooms(mappedRooms);
       } catch (error) {

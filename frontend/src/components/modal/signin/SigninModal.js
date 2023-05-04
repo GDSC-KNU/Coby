@@ -1,4 +1,4 @@
-import './SigninModal.css';
+import styles from './SigninModal.module.css';
 import { useState } from 'react';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
 import signUp from "../../../sevices/signUp";
@@ -40,27 +40,27 @@ function SignIn({ setModalOpen }) {
     }
 
     return (
-        <div className="container1">
-            <div className="form1">
+        <div className={styles.container1}>
+            <div className={styles.form1}>
                 <p>아이디</p>
-                <input className="input1" type='text' name='input_id' value={newId} onChange={handleNewId} />
+                <input  type='text' name='input_id' value={newId} onChange={handleNewId} />
                 <p>이름</p>
-                <input className="input1" type='text' name='input_name' value={newName} onChange={handleNewName} />
+                <input  type='text' name='input_name' value={newName} onChange={handleNewName} />
                 <p>비밀번호</p>
-                <input className="input1" type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
+                <input  type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
                     {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
                     ) : (
-                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
+                    <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
                     )}
                 <p>비밀번호 확인</p>
-                <input className="input1" type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
+                <input type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
                     {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
                     ) : (
-                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
+                    <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
                     )}
-                <button className="button1" onClick={onclickSignin}>회원가입</button>
+                <button className={styles.button1} onClick={onclickSignin}>회원가입</button>
             </div>
         </div>
     );

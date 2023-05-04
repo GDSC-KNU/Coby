@@ -13,7 +13,7 @@ const SaveRoomList = async (title, url, language, tool, password ) => {
             }
         );
         alert("방 생성 완료");
-        return response.data;
+        return response.data.id;
     } catch (error) {
         console.error(error);
         alert(error.response.data);

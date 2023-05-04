@@ -5,6 +5,7 @@ import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
 import SaveRoomList from "../../../sevices/SaveRoomList";
+import WebSocket from "../../../sevices/WebSocket";
 
 function MakeRoomModal(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -15,6 +16,7 @@ function MakeRoomModal(props) {
   const [enteredLink, setEnteredLink] = useState("");
   const [isLinkValid, setIsLinkValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const {registerUser} = WebSocket();
 
   const titleChangeHandler = (event) => {
     console.log("Title Changed");
@@ -61,7 +63,7 @@ function MakeRoomModal(props) {
   };
   /*https://prod.liveshare.vsengsaas.visualstudio.com/join? 예시 링크*/
   /* Intellij 링크도 추가해주어야함. 이것 나중에 CodeWithMe 공통 링크 알아낼것 */
-  
+
   const validateLinkHandler = () => {
     setIsLinkValid(
       enteredLink.includes(
@@ -69,6 +71,8 @@ function MakeRoomModal(props) {
       )
     );
   };
+
+
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -101,6 +105,9 @@ function MakeRoomModal(props) {
       console.error(error);
       throw new Error(error.response.data.message);
     }
+
+    window.location.href = "/CodeRoom";
+    registerUser(); 
   };
 
   return (
