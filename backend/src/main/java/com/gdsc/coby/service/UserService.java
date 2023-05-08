@@ -4,7 +4,6 @@ import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.UserDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.SecurityUtil;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -71,5 +70,11 @@ public class UserService {
         userRepository.delete(user);
 
         return true;
+    }
+
+    public void updateUserExp(List<String> users) {
+        users.forEach(userId -> userRepository.findByUserId(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("유저 정보가 존재하지 않습니다."))
+                .setExp_point(100L));
     }
 }
