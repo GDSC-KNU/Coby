@@ -4,8 +4,8 @@ import searchimg from "../../images/icon-search.png"
 import RoomItem from "./RoomItem";
 // import Card from "../reuseUI/Card";
 import styles from "./MakeRoom.module.css";
-import MakeRoomToolFilter from "./MakeRoomToolFilter";
 
+import MakeRoomToolFilter from "./MakeRoomToolFilter";
 
 // import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
 // import Backdrop from "../reuseUI/Backdrop";
@@ -13,19 +13,47 @@ import MakeRoomToolFilter from "./MakeRoomToolFilter";
 function MakeRoom(props) {
   const [filteredTool, setFilteredTool] = useState("");
 
+  const [devVscode, setVscode] = useState(false);
+  const [devIntellij, setIntellij] = useState(false);
+  const [devC, setC] = useState(false);
+  const [devCpp, setCpp] = useState(false);
+  const [devJava, setJava] = useState(false);
+  const [devJavascript, setJavascript] = useState(false);
+  const [devRuby, setRuby] = useState(false);
+  const [devEtc, setEtc] = useState(false);
+
   const filterToolChangeHandler = (selectTool) => {
-    setFilteredTool(selectTool);
+    setFilteredTool(selectTool)
+  }
+  const onClickVs = () => {
+    setVscode(!devVscode);
+  };
+  const onClickInt = () => {
+    setIntellij(!devIntellij);
+  };
+  const onClickC = () => {
+    setC(!devC);
+  };
+  const onClickCpp = () => {
+    setCpp(!devCpp);
+  };
+  const onClickJava = () => {
+    setJava(!devJava);
+  };
+  const onClickJs = () => {
+    setJavascript(!devJavascript);
+  };
+  const onClickRuby = () => {
+    setRuby(!devRuby);
+  };
+  const onClickEtc = () => {
+    setEtc(!devEtc);
   };
 
+ 
   const filteredMakeRooms = props.items.filter((makeRoom) => {
     return makeRoom.tool === filteredTool;
   });
-
-  // 위쪽 (사용하는 환경) const[상태 값 저장 변수, 상태값 갱신 함수] = useState(상태 초기 값);
-  //const [Dev_Environment, setDev] = useState(True);
-  // 아래쪽 (사용언어)
-  //const [Dev_Language, setLang] = useState(True);
-
   return (
     <div className={styles.PageBox}>
       {/* <MakeRoomToolFilter
@@ -37,19 +65,16 @@ function MakeRoom(props) {
           <input type="text" placeholder="검색어 입력"></input>
           <img src ={searchimg} className={styles.searchimg}></img>
         </div>
-        
-        <button className={styles.filter}>Visual Studio Code</button>
-        <button className={styles.filter}>IntelliJ</button>
+        <button className={styles.filter} onClick={onClickVs} style={{ backgroundColor: devVscode ? '#5579fe' : '' , color: devVscode ? 'white' : 'black'}}>Visual Studio Code</button>
+        <button className={styles.filter} onClick={onClickInt} style={{ backgroundColor: devIntellij ? '#5579fe' : '' , color: devIntellij ? 'white' : 'black'}}>IntelliJ</button>
       </div>
       <div className={styles.filter_set}>
-        
-        <button className={styles.filter}>C</button>
-        <button className={styles.filter}>C++</button>
-        <button className={styles.filter}>Java</button>
-        <button className={styles.filter}>JavaScript</button>
-        <button className={styles.filter}>Ruby</button>
-        <button className={styles.filter}>기타</button>
-      
+        <button className={styles.filter} onClick={onClickC} style={{ backgroundColor: devC ? '#5579fe' : '' , color: devC ? 'white' : 'black'}}>C</button>
+        <button className={styles.filter} onClick={onClickCpp} style={{ backgroundColor: devCpp ? '#5579fe' : '' , color: devCpp ? 'white' : 'black'}}>C++</button>
+        <button className={styles.filter} onClick={onClickJava} style={{ backgroundColor: devJava ? '#5579fe' : '' , color: devJava ? 'white' : 'black'}}>Java</button>
+        <button className={styles.filter} onClick={onClickJs} style={{ backgroundColor: devJavascript ? '#5579fe' : '' , color: devJavascript ? 'white' : 'black'}}>JavaScript</button>
+        <button className={styles.filter} onClick={onClickRuby} style={{ backgroundColor: devRuby ? '#5579fe' : '' , color: devRuby ? 'white' : 'black'}}>Ruby</button>
+        <button className={styles.filter} onClick={onClickEtc} style={{ backgroundColor: devEtc ? '#5579fe' : '' , color: devEtc ? 'white' : 'black'}}>기타</button>
       </div>
       <div className={styles.CodeRoomListBox}>
         {filteredMakeRooms.map((makeRoom) => (
