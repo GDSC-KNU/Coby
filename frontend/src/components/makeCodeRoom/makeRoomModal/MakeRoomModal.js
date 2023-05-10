@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import styles from "./MakeRoomModal.module.css";
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
 import MakeRoomToolFilter from "./MakeRoomToolFilter";
 import SaveRoomList from "../../../sevices/SaveRoomList";
-import ChatRoom from "../../codeRoom/ChatRoom";
 
 function MakeRoomModal(props) {
+  const navigate = useNavigate();
   const [enteredTitle, setEnteredTitle] = useState("");
   const [isTitleValid, setIsTitleValid] = useState();
   const [enteredLanguage, setEnteredLanguage] = useState("");
@@ -16,7 +16,6 @@ function MakeRoomModal(props) {
   const [enteredLink, setEnteredLink] = useState("");
   const [isLinkValid, setIsLinkValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
- 
 
   const titleChangeHandler = (event) => {
     console.log("Title Changed");
@@ -72,8 +71,6 @@ function MakeRoomModal(props) {
     );
   };
 
-
-
   const submitHandler = async (event) => {
     event.preventDefault();
 
@@ -105,9 +102,7 @@ function MakeRoomModal(props) {
       console.error(error);
       throw new Error(error.response.data.message);
     }
-
-    window.location.href = "/CodeRoom";
-    // ChatRoom.registerUser(); 
+    navigate("/CodeRoomList");
   };
 
   return (

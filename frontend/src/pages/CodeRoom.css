@@ -1,11 +1,14 @@
 .IframeBox{
-    display: column;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 1240px;
+    float: middle;
+    margin-left: 23rem;
+    width: 1180px;
     max-width: 90%;
-    height: 90%;
-    margin: 0 auto;
-    padding: 0.4rem;
-    background: rgb(219,227,227);
+    height: 100%;
+    
+    padding: 0.3rem;
+    background: #DFE5EC;
+    /*rgb(219,227,227)*/
 }

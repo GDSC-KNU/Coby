@@ -1,34 +1,23 @@
 import React from "react";
-import Layout from "../components/reuseUI/Layout";
-import exit from "../images/exit.png";
+
 import "./CodeRoom.css";
+import Sidebar from "../components/codeRoom/Sidebar";
 
 const CodeRoom = () => {
-  const deleteHandler = () => {
-    const confirmed = window.confirm(
-      "정말 나가시겠습니까? 방장이 아닌 경우 포인트를 얻지 못합니다."
-    );
-    if (confirmed) {
-      window.location.href = "/CodeRoomList";
-    }
-  };
   return (
     <div>
-      <Layout />
+      <Sidebar />
       <div className="IframeBox">
-        <div>
-          <img src={exit} alt="로고" className="Exit" onClick={deleteHandler} />
-        </div>
         <p align="middle">
           <iframe
-            src="https://www.vchatcloud.com/chat-demo/iframe/iframe_rtc_1/v4/index.html?
-channelkey=yCjJFXDKvi-tB2VfcAJPe-20230504154859"
+            src="https://www.vchatcloud.com/chat-demo/iframe/iframe_rtc_1/v4/index.html?channelkey=yCjJFXDKvi-tB2VfcAJPe-20230504154859"
             allow="camera *;microphone *;"
-            frameborder="no"
+            title="example of WebChatting"
+            frameBorder="no"
             scrolling="no"
-            marginwidth="0"
-            marginheight="0"
-            width="1216"
+            marginWidth="0"
+            marginHeight="0"
+            width="1180"
             height="691"
           />
         </p>

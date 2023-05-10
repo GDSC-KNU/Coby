@@ -1,56 +1,81 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../images/Coby.png";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import styles from "./Sidebar.module.css";
 
-const Sidebar = (props) => {
-  const toggle = () => props.setIsOpen(!props.isOpen);
+import styles from "./Sidebar.module.css";
+import exit from "../../images/exit.png";
+import MyPage from "../../sevices/MyPage";
+import getRoomId from "../../sevices/getRoomId";
+import DeleteRoom from "../../sevices/DeleteRoom";
+
+const Sidebar = () => {
+  const navigate = useNavigate();
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    const fetchUserList = async () => {
+      try {
+        const response = await MyPage();
+        setUserList(response.data);
+      } catch (error) {
+        console.log(error);
+        console.log(
+          "useEffect 에러입니다. 사용자 리스트를 가져오는 데 실패했습니다."
+        );
+      }
+    };
+
+    fetchUserList();
+  }, []);
+
+  const DeleteRoomHandler = async () => {
+    try {
+      const roomData = await getRoomId();
+      await DeleteRoom(roomData, userList);
+    } catch (error) {
+      console.error(error);
+      alert(error.response.data);
+
+      throw new Error(error.response.data.message);
+    }
+  };
+
+  const deleteHandler = () => {
+    const confirmed = window.confirm(
+      "정말 나가시겠습니까? 방장이 아닌 경우 포인트를 얻지 못합니다."
+    );
+    if (confirmed) {
+      DeleteRoomHandler();
+      navigate("/CodeRoomList");
+    }
+  };
 
   return (
     <div className={styles.out}>
-      <div
-        style={{ width: props.isOpen ? "350px" : "60px" }}
-        className={styles.sidebar1}
-      >
-        <div>
+      <div style={{ width: "320px" }} className={styles.sidebar1}>
+        <img
+          src={logo}
+          alt="로고"
+          className={styles.logo}
+          style={{ display: "block" }}
+        />
+        <div className={styles.memberlist}>
+          <ul>
+            {userList.map((user) => (
+              <li key={user.userid}>{user.name}</li>
+            ))}
+          </ul>
+          {/* <ul>member2</ul>
+          <ul>member3</ul> */}
+        </div>
+
+        <div className={styles.imgbox}>
           <img
-            src={logo}
-            alt="로고"
-            className={styles.logo}
-            style={{ display: props.isOpen ? "block" : "none" }}
+            src={exit}
+            alt="나가기"
+            className={styles.exit}
+            onClick={deleteHandler}
           />
-          {props.isOpen ? (
-            <>
-              <div style={{ marginLeft: "310px" }}>
-                <MdKeyboardArrowLeft
-                  onClick={toggle}
-                  className={styles.button}
-                />
-              </div>
-              {/* <div className={styles.profile} style={{ background: "blue" }}>
-                <p className={styles.name}>철수</p>
-              </div>
-              <div className={styles.profile} style={{ background: "red" }}>
-                <p className={styles.name}>영희</p>
-              </div> */}
-            </>
-          ) : (
-            <div style={{ marginLeft: "0px" }}>
-              <MdKeyboardArrowRight
-                onClick={toggle}
-                className={styles.button}
-              />
-              <div
-                className={styles.profile}
-                style={{ background: "blue" }}
-              ></div>
-              <div
-                className={styles.profile}
-                style={{ background: "red" }}
-              ></div>
-            </div>
-          )}
         </div>
       </div>
     </div>

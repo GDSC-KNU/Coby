@@ -1,15 +1,8 @@
-@keyframes smoothAppear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1; 
-  }
-}
 .out {
   display: flex;
 }
-body{
+
+body {
   overflow: auto;
 }
 
@@ -24,7 +17,12 @@ body{
   height: 100%;
   z-index: 99;
 }
-.button{
+
+.exit {
+  position: absolute;
+  top: 95%;
+}
+.button {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -38,13 +36,13 @@ body{
 }
 .logo {
   position: absolute;
-  left: 120px;
+  left: 105px;
   top: 50px;
   width: 120px;
   height: 100px;
   /* animation: smoothAppear 1s; */
 }
-.profile{
+.profile {
   position: relative;
   top: 20vh;
   margin-top: 1rem;
@@ -54,14 +52,14 @@ body{
   background: white;
   border-radius: 50%;
 }
-.name{
+.name {
   position: relative;
   top: 1.5vh;
   left: 5rem;
-  color : white;
+  color: white;
   font-size: 1rem;
 }
-.chatting{
+.chatting {
   position: relative;
   top: 36vh;
   left: 5%;
@@ -70,9 +68,8 @@ body{
   background: white;
   border-radius: 5%;
   transition: 2s;
-  /* animation: smoothAppear 1s; */
 }
-.font{
+.font {
   position: relative;
   top: 2vh;
   left: 0.7vw;
@@ -80,7 +77,17 @@ body{
   font-weight: bold;
   color: black;
 }
-.profileImg{
+.profileImg {
   display: block;
   width: 100%;
+}
+
+.memberlist {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.memberlist ul {
+  position: relative;
+  top: 300%;
 }
