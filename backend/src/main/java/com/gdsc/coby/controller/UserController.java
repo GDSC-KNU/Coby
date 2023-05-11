@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class UserController {
     @PostMapping("/myinfo")
     @Operation(description = "로그인된 유저의 정보를 수정합니다.")
     public ResponseEntity<UserResponseDto> updateMyInfo(@RequestBody UserRequestDto requestDto) {
-        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name())));
+        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name(), requestDto.profileImage())));
     }
 
     @PostMapping("/password")
