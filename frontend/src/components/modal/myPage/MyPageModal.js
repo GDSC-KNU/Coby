@@ -24,7 +24,7 @@ function MyPageModal(setMyPageOpen){
             setName(data.name);
             setGroup(data.group);
             setExp(data.exp_point);
-            checkGrade(exp);
+            checkGrade(data.exp_point);
         }).catch((err) => {
             console.log(err.message);
         });
