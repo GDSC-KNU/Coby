@@ -7,10 +7,16 @@ import CodeRoomListPage from "./pages/CodeRoomListPage";
 import CodeRoom from "./pages/CodeRoom";
 import Main from "./pages/Main";
 import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
-
+import Nogroup from "./pages/MyGroup/NoGroup";
+import GroupInfo from "./pages/MyGroup/GroupInfo";
+import GroupBoard from "./pages/MyGroup/GroupBoard";
+import GroupMember from "./pages/MyGroup/GroupMember";
+import Write from "./pages/MyGroup/BoardWirte";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [infoEditOpen, setInfoEditModalOpen] = useState(false);
+
   return (
     <div>
         <Routes>
@@ -19,6 +25,11 @@ function App() {
           <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} />} />
           <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />
           <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage/>} />
+          <Route path="/NoGroup" element={<Nogroup/>} />
+          <Route path="/GroupInfo" element={<GroupInfo infoEditOpen={infoEditOpen} setInfoEditModalOpen={setInfoEditModalOpen}/>} />
+          <Route path="/GroupBoard" element={<GroupBoard/>} />
+          <Route path="/BoardWrite" element={<Write/>} />
+          <Route path="/GroupMember" element={<GroupMember/>} />
         </Routes>
     </div>
   );

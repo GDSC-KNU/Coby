@@ -1,0 +1,58 @@
+.outerEdit {
+  width: 25rem;
+  height: 30rem;
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px #000;
+}
+.uploader{
+  position: relative;
+  left: 50%;
+  transform: translate(-26%);
+  margin-top: 70px;
+}
+
+.profileImg{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.editFont{
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.editInput{
+  width: 15rem;
+  height: 2rem;
+  position: relative;
+  right: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding-left: 1rem;
+}
+
+.editBtn{
+  width: 5rem;
+  height: 2rem;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 1rem;
+  border-radius: 10px;
+  background-color: #5579fe;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}

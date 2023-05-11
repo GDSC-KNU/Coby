@@ -10,7 +10,7 @@ const Menu = () => {
             <div className="sev">
                 <h1>멘토링</h1>
                 <br/>
-                <p>멘토링 이랑</p>
+                <p>멘토링 이란</p>
                 <p>멘토와 멘티</p>
             </div>
             <div className="sev">

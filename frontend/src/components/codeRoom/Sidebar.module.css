@@ -1,3 +1,4 @@
+
 .out {
   display: flex;
 }
@@ -30,11 +31,11 @@ body {
   display: flex;
   /* animation: smoothAppear 0.5s; */
 }
-.icon {
+.Icon {
   margin: 0;
   color: white;
 }
-.logo {
+.Logo {
   position: absolute;
   left: 105px;
   top: 50px;
@@ -42,6 +43,7 @@ body {
   height: 100px;
   /* animation: smoothAppear 1s; */
 }
+
 .profile {
   position: relative;
   top: 20vh;
@@ -52,6 +54,7 @@ body {
   background: white;
   border-radius: 50%;
 }
+
 .name {
   position: relative;
   top: 1.5vh;
@@ -59,6 +62,7 @@ body {
   color: white;
   font-size: 1rem;
 }
+
 .chatting {
   position: relative;
   top: 36vh;
@@ -69,6 +73,7 @@ body {
   border-radius: 5%;
   transition: 2s;
 }
+
 .font {
   position: relative;
   top: 2vh;
@@ -77,6 +82,7 @@ body {
   font-weight: bold;
   color: black;
 }
+
 .profileImg {
   display: block;
   width: 100%;

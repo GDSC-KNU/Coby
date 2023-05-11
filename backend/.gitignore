@@ -38,3 +38,8 @@ out/
 
 ### Querydsl ###
 src/main/generated
+
+### S3 관련 파일 ###
+application-aws.yml
+application-credentials.yml
+>>>>>>> origin/main

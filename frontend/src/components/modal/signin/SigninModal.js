@@ -27,6 +27,8 @@ function SignIn({ setModalOpen }) {
     const handleNewName = (e) => {
         setNewName(e.target.value)
     }
+
+
     const onclickSignin = async () => {
         try {
             const sign = await signUp(newId, newPw, newName);
@@ -48,18 +50,18 @@ function SignIn({ setModalOpen }) {
                 <input  type='text' name='input_name' value={newName} onChange={handleNewName} />
                 <p>비밀번호</p>
                 <input  type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
-                    {showPswd ? (
+                {showPswd ? (
                     <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
-                    ) : (
+                ) : (
                     <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
-                    )}
+                )}
                 <p>비밀번호 확인</p>
                 <input type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
-                    {showPswd ? (
+                {showPswd ? (
                     <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
-                    ) : (
+                ) : (
                     <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
-                    )}
+                )}
                 <button className={styles.button1} onClick={onclickSignin}>회원가입</button>
             </div>
         </div>

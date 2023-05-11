@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "./slick-theme.css"; 
 import "./slick.css";
-import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 
 import img1 from '../../images/banner1.png';
 import img2 from '../../images/banner2.png';

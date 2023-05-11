@@ -21,6 +21,11 @@ function Header(props) {
     window.location.href="/";
   }
 
+  function MyGroupClick(event){
+    window.location.href="/GroupInfo"
+    //window.location.href="/NoGroup"
+  }
+
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
   const [mypagemodalOpen, setMypageModalOpen] = useState(false);
@@ -111,7 +116,7 @@ function Header(props) {
                 페어 프로그래밍
               </li>
               {/* <div className="MyGroup" /> */}
-              <li>마이그룹</li>
+              <li onClick={MyGroupClick}>마이그룹</li>
               {/* <div className="Question" /> */}
               <li>도움말</li>
             </ul>

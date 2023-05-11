@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
+import axios from "axios";
 import './MyPageModal.css';
-import MyPage from "../../../sevices/MyPage";
+
 
 function MyPageModal(setMyPageOpen){
     const [name,setName] = useState('');
