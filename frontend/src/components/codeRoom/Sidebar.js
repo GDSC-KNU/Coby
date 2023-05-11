@@ -16,7 +16,11 @@ const Sidebar = () => {
     const fetchUserList = async () => {
       try {
         const response = await MyPage();
-        setUserList(response.data);
+        const data = response.userId;
+        setUserList((prevUserList) => {
+          const updatedUserList = prevUserList.filter((user) => user !== data);
+          return [...updatedUserList, data];
+        });
       } catch (error) {
         console.log(error);
         console.log(
@@ -32,10 +36,9 @@ const Sidebar = () => {
     try {
       const roomData = await getRoomId();
       await DeleteRoom(roomData, userList);
+      setUserList([]);
     } catch (error) {
-      console.error(error);
       alert(error.response.data);
-
       throw new Error(error.response.data.message);
     }
   };
@@ -59,16 +62,6 @@ const Sidebar = () => {
           className={styles.logo}
           style={{ display: "block" }}
         />
-        <div className={styles.memberlist}>
-          <ul>
-            {userList.map((user) => (
-              <li key={user.userid}>{user.name}</li>
-            ))}
-          </ul>
-          {/* <ul>member2</ul>
-          <ul>member3</ul> */}
-        </div>
-
         <div className={styles.imgbox}>
           <img
             src={exit}

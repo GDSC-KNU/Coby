@@ -9,7 +9,7 @@ const getRoomId = async () => {
       },
     });
 
-    const data = response.data.map((room) => ({ id: room.id }));
+    const data = response.data.map((room) => (room.id));
     return data;
   } catch (error) {
     console.error(error);
