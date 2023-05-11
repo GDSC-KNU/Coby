@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Axios from "axios";
 
 import styles from "./MakeRoomModalPair.module.css";
-
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilterPair from "./MakeRoomLanguageFilterPair";
-import MakeRoomToolFilterPair from "../MakeRoomToolFilterPair";
-// import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
+import MakeRoomToolFilterPair from "./MakeRoomToolFilterPair";
+import SaveRoomListPair from "../../../sevices/SaveRoomListPair";
 
 function MakeRoomModalPair(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -62,7 +60,8 @@ function MakeRoomModalPair(props) {
     );
   };
   /*https://prod.liveshare.vsengsaas.visualstudio.com/join? 예시 링크*/
-
+  /* Intellij 링크도 추가해주어야함. 이것 나중에 CodeWithMe 공통 링크 알아낼것 */
+  
   const validateLinkHandler = () => {
     setIsLinkValid(
       enteredLink.includes(
@@ -71,14 +70,13 @@ function MakeRoomModalPair(props) {
     );
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const makeRoomDataPair = {
       title: enteredTitle,
       language: enteredLanguage,
       tool: enteredTool,
-      // purpose: enteredPurpose,
       password: enteredPassWord,
       link: enteredLink,
     };
@@ -87,17 +85,24 @@ function MakeRoomModalPair(props) {
     setEnteredTitle("");
     setEnteredLanguage("");
     setEnteredTool("");
-    // setEnteredPurpose("");
     setEnteredPassWord("");
     setEnteredLink("");
     // 임시 전송할 데이터
-  };
 
-  // document.querySelector('button').addEventlistener('click', (e) => {
-  //   e.stopPropagation(); // 이벤트 전파 방지
-  //   console.log('버튼 클릭');
-  //   e.target.setAttribute('type', 'submit');
-  // });
+    try {
+      const Create = await SaveRoomListPair(
+        enteredTitle,
+        enteredLink,
+        enteredLanguage,
+        enteredTool,
+        enteredPassWord
+      );
+      console.log(Create);
+    } catch (error) {
+      console.error(error);
+      throw new Error(error.response.data.message);
+    }
+  };
 
   return (
     <div className={styles.RoomModalsPair}>
@@ -125,29 +130,14 @@ function MakeRoomModalPair(props) {
             selected={enteredLanguage}
             onChangeFilter={languageChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredLanguage}
-            onChange={languageChangeHandler}
-          /> */}
         </div>
-        {/* 언어가 너무 다양한데 이거 그냥 글로 쓰는게 낫지 않을까? */}
         <div className={styles.RoomModalControlPair}>
           <p>사용 도구</p>
           <MakeRoomToolFilterPair
             selected={enteredTool}
             onChangeFilter={toolChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredTool}
-            onChange={toolChangeHandler}
-          /> */}
-        </div>
-        {/* <div className="RoomModal-control">
-          <p>사용 목적</p>
-          <MakeRoomPurposeFilter />
-        </div> */}
+        </div>        
         <div className={styles.RoomModalControlPair}>
           <p>비밀번호</p>
           <input

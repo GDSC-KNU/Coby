@@ -10,13 +10,18 @@ const MakeRoomLanguageFilterPair = (props) => {
   return (
     <div className={styles.RoomModalControlPair}>
       <select value={props.selected} onChange={dropdownHandler}>
-        <option value="" selected disabled hidden></option>
-        <option value="C++">C++</option>
-        <option value="C">C</option>
-        <option value="C#">C#</option>
-        <option value="Python3">Python3</option>
-        <option value="React">React</option>
+      <option value="" selected disabled hidden></option>
+        <option value="Python">Python</option>
         <option value="Java">Java</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Kotlin">Kotlin</option>
+        <option value="Swift">Swift</option>
+        <option value="Go">Go</option>
+        <option value="C#">C#</option>
+        <option value="Scala">Scala</option>
+        <option value="Ruby">Ruby</option>
       </select>
     </div>
   );

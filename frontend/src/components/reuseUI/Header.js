@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
@@ -31,7 +30,6 @@ function Header(props) {
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
   const [mypagemodalOpen, setMypageModalOpen] = useState(false);
 
-  const navigate = useNavigate();
 
   const showLoginModal = () => {
       setLoginModalOpen(true);
@@ -57,6 +55,7 @@ function Header(props) {
       const message = await Logout();
       // 로그아웃에 성공한 경우, 메시지를 출력하고 페이지를 새로고침합니다.
       alert("로그아웃 완료");
+      console.log(message);
       window.location.reload();
     } catch (error) {
       // 로그아웃에 실패한 경우, 에러 메시지를 출력합니다.

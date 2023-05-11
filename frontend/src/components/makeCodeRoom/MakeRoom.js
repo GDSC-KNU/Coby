@@ -2,13 +2,9 @@ import React, { useState } from "react";
 
 import searchimg from "../../images/icon-search.png"
 import RoomItem from "./RoomItem";
-// import Card from "../reuseUI/Card";
 import styles from "./MakeRoom.module.css";
 
-import MakeRoomToolFilter from "./MakeRoomToolFilter";
 
-// import NewMakeRoom from "./makeRoomModal/NewMakeRoom";
-// import Backdrop from "../reuseUI/Backdrop";
 
 function MakeRoom(props) {
   const [filteredTool, setFilteredTool] = useState("");
@@ -50,10 +46,10 @@ function MakeRoom(props) {
     setEtc(!devEtc);
   };
 
- 
-  const filteredMakeRooms = props.items.filter((makeRoom) => {
-    return makeRoom.tool === filteredTool;
-  });
+    const filteredMakeRooms = filteredTool
+        ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
+        : props.items;
+
   return (
     <div className={styles.PageBox}>
       {/* <MakeRoomToolFilter
@@ -83,6 +79,8 @@ function MakeRoom(props) {
             title={makeRoom.title}
             language={makeRoom.language}
             tool={makeRoom.tool}
+            password={makeRoom.password}
+            url = {makeRoom.url}
           />
         ))}
       </div>

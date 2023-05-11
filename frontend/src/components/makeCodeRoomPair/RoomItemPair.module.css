@@ -2,14 +2,15 @@
 .RoomItemPair {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 0.5rem;
-  height: 80%;
-  width: 95%;
+  height: 11vh;
+  width: 19.3rem;
   margin: 0;
 
   border: 2px solid #dfe5ec;
-  border-radius: 20px;
+  border-radius: 8px;
   background-color: white;
   cursor: pointer;
 }
@@ -64,6 +65,18 @@
   font-size: 0.8rem;
   margin: 0.2rem;
   font-weight: bold;
+}
+
+.RoomItemLockedDescriptionPair{
+  display: flex;
+}
+.RoomItemLockedPair{
+  height:16px;
+  width:16.44px;
+}
+
+.personPair{
+  font-size: 0.8rem;
 }
 
 @media (min-width: 1920px){

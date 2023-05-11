@@ -92,6 +92,11 @@ public class UserService {
         return true;
     }
 
+    public void updateUserExp(List<String> users) {
+        users.forEach(userId -> userRepository.findByUserId(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("유저 정보가 존재하지 않습니다."))
+                .setExp_point(100L));
+
     private String upload(String userId, MultipartFile multipartFile) {
         File uploadFile = convert(multipartFile)
                 .orElseThrow(() -> new IllegalArgumentException("MultipartFile -> File로 전환이 실패했습니다."));
@@ -133,5 +138,6 @@ public class UserService {
         }
 
         return Optional.empty();
+>>>>>>> origin/main
     }
 }

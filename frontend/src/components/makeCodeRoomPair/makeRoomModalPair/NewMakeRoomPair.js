@@ -6,7 +6,7 @@ function NewMakeRoomPair(props) {
   const saveRoomDataHandler = (enteredRoomDataPair) => {
     const makeRoomDataPair = {
       ...enteredRoomDataPair,
-      id: Math.random().toString(),
+      // id: Math.random().toString(),
     };
     props.onAddData(makeRoomDataPair);
   };

@@ -1,8 +1,10 @@
 package com.gdsc.coby.controller;
 
 import com.gdsc.coby.dto.request.RoomRequestDto;
+import com.gdsc.coby.dto.request.UserListRequestDto;
 import com.gdsc.coby.dto.response.RoomResponseDto;
 import com.gdsc.coby.service.RoomService;
+import com.gdsc.coby.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ import java.util.List;
 public class RoomController {
 
     private final RoomService roomService;
+    private final UserService userService;
 
     @ExceptionHandler(value = {UsernameNotFoundException.class, NotFoundException.class, RuntimeException.class})
     public ResponseEntity<?> exceptionHandler(Exception e) {
@@ -65,12 +68,12 @@ public class RoomController {
     @Operation(description = "코드 룸의 상세정보를 수정합니다.")
     public ResponseEntity<RoomResponseDto> updateRoom(@PathVariable Long roomId, @RequestBody RoomRequestDto requestDto){
         return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto.toDto())));
-
     }
 
-    @DeleteMapping("/{roomId}")
+    @PostMapping("/{roomId}/exit")
     @Operation(description = "코드룸을 나갑니다. (방 삭제)")
-    public ResponseEntity<Boolean> exitRoom(@PathVariable Long roomId){
+    public ResponseEntity<?> exitRoom(@PathVariable Long roomId, @RequestBody UserListRequestDto requestDto){
+        userService.updateUserExp(requestDto.users());
         return ResponseEntity.ok(roomService.deleteRoom(roomId));
     }
 }

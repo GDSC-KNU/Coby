@@ -15,21 +15,27 @@
 .form1{
 position:relative;
 top: 27px;
-left: 43px;
+left: 10px;
+display: inline-block;
+text-align: center;
 }
-.input1{
+.form1 p{
+  position: relative;
+  text-align: left;
+  left: 40px;
+}
+.form1 input{
 border-radius: 20px;
-width: 310px;
+width: 320px;
 height: 35px;
-position: relative;
-top: -1px;
 }
 .button1{
 width: 320px;
 height: 43px;
 border-radius: 20px;
 position: relative;
-top: 35px;
+top: 28px;
+left: -6px;
 background-color: #5579fe;
 border: 0px;
 color: white;
@@ -41,8 +47,8 @@ scale: 1.1;
 }
 .icon{
 position: relative;
-right: 5%;
-top: -20px;
+left: -30px;
+top: 6px;
 z-index: 200;
 }
 .font{

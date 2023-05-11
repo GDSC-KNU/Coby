@@ -1,63 +1,74 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../images/Coby.png";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import styles from "./Sidebar.module.css";
 
-const Sidebar = (props) => {
-  const toggle = () => props.setIsOpen(!props.isOpen);
+import styles from "./Sidebar.module.css";
+import exit from "../../images/exit.png";
+import MyPage from "../../sevices/MyPage";
+import getRoomId from "../../sevices/getRoomId";
+import DeleteRoom from "../../sevices/DeleteRoom";
+
+const Sidebar = () => {
+  const navigate = useNavigate();
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    const fetchUserList = async () => {
+      try {
+        const response = await MyPage();
+        const data = response.userId;
+        setUserList((prevUserList) => {
+          const updatedUserList = prevUserList.filter((user) => user !== data);
+          return [...updatedUserList, data];
+        });
+      } catch (error) {
+        console.log(error);
+        console.log(
+          "useEffect 에러입니다. 사용자 리스트를 가져오는 데 실패했습니다."
+        );
+      }
+    };
+
+    fetchUserList();
+  }, []);
+
+  const DeleteRoomHandler = async () => {
+    try {
+      const roomData = await getRoomId();
+      await DeleteRoom(roomData, userList);
+      setUserList([]);
+    } catch (error) {
+      alert(error.response.data);
+      throw new Error(error.response.data.message);
+    }
+  };
+
+  const deleteHandler = () => {
+    const confirmed = window.confirm(
+      "정말 나가시겠습니까? 방장이 아닌 경우 포인트를 얻지 못합니다."
+    );
+    if (confirmed) {
+      DeleteRoomHandler();
+      navigate("/CodeRoomList");
+    }
+  };
 
   return (
-    <div className={styles.Out}>
-      <div
-        style={{ width: props.isOpen ? "15vw" : "3.1vw" }}
-        className={styles.sidebar1}
-      >
-        <div>
+    <div className={styles.out}>
+      <div style={{ width: "320px" }} className={styles.sidebar1}>
+        <img
+          src={logo}
+          alt="로고"
+          className={styles.logo}
+          style={{ display: "block" }}
+        />
+        <div className={styles.imgbox}>
           <img
-            src={logo}
-            alt="로고"
-            className={styles.Logo}
-            style={{ display: props.isOpen ? "block" : "none" }}
+            src={exit}
+            alt="나가기"
+            className={styles.exit}
+            onClick={deleteHandler}
           />
-          {props.isOpen ? (
-            <>
-              <div style={{ marginLeft: "13vw" }}>
-                <MdKeyboardArrowLeft onClick={toggle} className={styles.button} />
-              </div>
-              <div className={styles.Profile} style = {{ background : "blue"}}>
-                <p className={styles.Name}>철수</p>
-              </div>
-              <div className={styles.Profile} style = {{ background : "red"}}>
-              <p className={styles.Name}>영희</p>
-              </div>
-              <div className={styles.Chatting}>
-                <p className={styles.Font}>
-                  철수 : 안녕하세요. 저는 철수입니다.
-                </p>
-                <p className={styles.Font}>
-                  영희 : 안녕하세요. 저는 영희입니다.
-                </p>
-                <p className={styles.Font}>
-                  철수 : 저는 당신의 코드를 도와드리고 싶어요.
-                </p>
-                <p className={styles.Font}>
-                  영희 : 감사합니다.
-                </p>
-              </div>
-            </>
-          ) : (
-            <div style={{ marginLeft: "0px" }}>
-              <MdKeyboardArrowRight
-                onClick={toggle}
-                className={styles.Button}
-              />
-              <div className={styles.Profile} style = {{ background : "blue"}}>
-              </div>
-              <div className={styles.Profile} style = {{ background : "red"}}>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
