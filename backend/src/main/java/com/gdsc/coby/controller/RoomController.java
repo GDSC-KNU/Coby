@@ -1,6 +1,7 @@
 package com.gdsc.coby.controller;
 
 import com.gdsc.coby.dto.request.RoomRequestDto;
+import com.gdsc.coby.dto.request.UserListRequestDto;
 import com.gdsc.coby.dto.response.RoomResponseDto;
 import com.gdsc.coby.service.RoomService;
 import com.gdsc.coby.service.UserService;
@@ -69,10 +70,10 @@ public class RoomController {
         return ResponseEntity.ok(RoomResponseDto.from(roomService.updateRoomInfo(roomId, requestDto.toDto())));
     }
 
-    @DeleteMapping("/{roomId}")
+    @PostMapping("/{roomId}/exit")
     @Operation(description = "코드룸을 나갑니다. (방 삭제)")
-    public ResponseEntity<Boolean> exitRoom(@PathVariable Long roomId, @RequestBody List<String> users){
-        userService.updateUserExp(users);
+    public ResponseEntity<?> exitRoom(@PathVariable Long roomId, @RequestBody UserListRequestDto requestDto){
+        userService.updateUserExp(requestDto.users());
         return ResponseEntity.ok(roomService.deleteRoom(roomId));
     }
 }

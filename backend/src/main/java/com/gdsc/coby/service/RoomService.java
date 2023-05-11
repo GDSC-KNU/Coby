@@ -121,6 +121,11 @@ public class RoomService {
     public Boolean deleteRoom(Long roomId) {
         Room room = roomRepository.findById(roomId)
                 .orElseThrow(() -> new NotFoundException("방찾기 실패 : 해당 코드룸을 찾을 수 없습니다."));
+
+        if(!room.getCreatedBy().equals(SecurityUtil.getCurrentUserId())) {
+            throw new RuntimeException("코드룸 삭제 권한이 없습니다.");
+        }
+        roomTagMapRepository.deleteAll(roomTagMapRepository.findAllByRoom_Id(roomId));
         roomRepository.delete(room);
         return true;
     }

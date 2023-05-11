@@ -12,5 +12,5 @@ public interface RoomTagMapRepository extends
         JpaRepository<RoomTagMap,Long>,
         RoomTagMapRepositoryCustom
 {
-
+    List<RoomTagMap> findAllByRoom_Id(Long roomId);
 }
