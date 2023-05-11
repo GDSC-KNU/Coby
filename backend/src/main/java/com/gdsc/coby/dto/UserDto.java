@@ -10,10 +10,11 @@ public record UserDto(
         GroupDto group,
         String name,
         String password,
+        String profileUrl,
         Long exp_point
 ) {
-    public static UserDto of(String userId, GroupDto group, String name, String password, Long exp_point){
-        return new UserDto(userId, group, name, password, exp_point);
+    public static UserDto of(String userId, GroupDto group, String name, String password, String profileUrl, Long exp_point){
+        return new UserDto(userId, group, name, password, profileUrl, exp_point);
     }
 
     public static UserDto from(User entity){
@@ -24,6 +25,7 @@ public record UserDto(
                 group != null ? GroupDto.from(group) : null,
                 entity.getName(),
                 entity.getPassword(),
+                entity.getProfileUrl(),
                 entity.getExp_point()
         );
     }
@@ -34,6 +36,7 @@ public record UserDto(
                 group,
                 name,
                 passwordEncoder.encode(password),
+                profileUrl,
                 exp_point
         );
     }
@@ -44,6 +47,7 @@ public record UserDto(
                 null,
                 name,
                 passwordEncoder.encode(password),
+                profileUrl,
                 exp_point
         );
     }

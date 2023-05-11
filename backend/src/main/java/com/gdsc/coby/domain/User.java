@@ -26,9 +26,12 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String name;
-    
+
     @Column(nullable = false)
     private String password;
+
+    @Column
+    private String profileUrl;
 
     private Long exp_point;
 
@@ -37,16 +40,17 @@ public class User implements UserDetails {
 
     protected User() {}
 
-    private User(String userId, Group group, String name, String password, Long exp_point) {
+    private User(String userId, Group group, String name, String password, String profileUrl, Long exp_point) {
         this.userId = userId;
         this.group = group;
         this.name = name;
         this.password = password;
+        this.profileUrl = profileUrl;
         this.exp_point = exp_point;
     }
 
-    public static User of(String userId, Group group, String name, String password, Long exp_point) {
-        return new User(userId, group, name, password, exp_point);
+    public static User of(String userId, Group group, String name, String password, String profileUrl,Long exp_point) {
+        return new User(userId, group, name, password, profileUrl, exp_point);
     }
 
     @Override
