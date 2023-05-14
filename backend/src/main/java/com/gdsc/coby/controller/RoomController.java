@@ -34,8 +34,9 @@ public class RoomController {
     @Operation(description = "코드 리뷰 룸 목록을 조회합니다.")
     public ResponseEntity<List<RoomResponseDto>> reviewRooms(
             @RequestParam(required = false) List<String> tool,
-            @RequestParam(required = false) List<String> language) {
-        return ResponseEntity.ok(roomService.getReviewRooms(tool, language).stream()
+            @RequestParam(required = false) List<String> language,
+            @RequestParam(required = false) String s) {
+        return ResponseEntity.ok(roomService.getReviewRooms(tool, language, s).stream()
                 .map(RoomResponseDto::from)
                 .toList());
     }
@@ -44,8 +45,9 @@ public class RoomController {
     @Operation(description = "페어 프로그래밍 룸 목록을 조회합니다.")
     public ResponseEntity<List<RoomResponseDto>> pairRooms(
             @RequestParam(required = false) List<String> tool,
-            @RequestParam(required = false) List<String> language) {
-        return ResponseEntity.ok(roomService.getPairRooms(tool, language).stream()
+            @RequestParam(required = false) List<String> language,
+            @RequestParam(required = false) String s) {
+        return ResponseEntity.ok(roomService.getPairRooms(tool, language, s).stream()
                 .map(RoomResponseDto::from)
                 .toList());
     }

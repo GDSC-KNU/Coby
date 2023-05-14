@@ -1,6 +1,7 @@
 package com.gdsc.coby.repository.querydsl;
 
 import com.gdsc.coby.domain.*;
+import com.gdsc.coby.domain.constant.Purpose;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -42,7 +43,7 @@ public class RoomTagMapRepositoryCustomImpl
                 .from(roomTagMap)
                 .leftJoin(room).on(roomTagMap.room.id.eq(room.id))
                 .leftJoin(tag).on(roomTagMap.tag.id.eq(tag.id))
-                .where(tag.name.eq("코드리뷰"))
+                .where(tag.name.eq(Purpose.REVIEW.getInfo()))
                 .fetch();
     }
 
@@ -53,7 +54,7 @@ public class RoomTagMapRepositoryCustomImpl
                 .from(roomTagMap)
                 .leftJoin(room).on(roomTagMap.room.id.eq(room.id))
                 .leftJoin(tag).on(roomTagMap.tag.id.eq(tag.id))
-                .where(tag.name.eq("페어프로그래밍/몹프로그래밍"))
+                .where(tag.name.eq(Purpose.PAIR.getInfo()))
                 .fetch();
     }
 
