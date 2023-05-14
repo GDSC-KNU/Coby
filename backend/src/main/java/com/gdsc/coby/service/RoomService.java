@@ -27,26 +27,42 @@ public class RoomService {
 
     // 코드룸 목록 조회
     @Transactional(readOnly = true)
-    public List<RoomDto> getReviewRooms(){
+    public List<RoomDto> getReviewRooms(List<String> tool, List<String> language){
         List<RoomDto> result = new ArrayList<>();
-        roomTagMapRepository.findReviewRooms()
-                .forEach(room -> {
-                    result.add(RoomDto.from(room,
-                        roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
-                                .map(TagDto::from).toList()));
-                });
+
+        if(tool == null && language == null) {
+            roomTagMapRepository.findReviewRooms()
+                    .forEach(room -> result.add(RoomDto.from(room,
+                            roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                                    .map(TagDto::from).toList())));
+        }
+        else {
+            roomTagMapRepository.findRoomsContainingTags("코드리뷰", tool, language)
+                    .forEach(room -> result.add(RoomDto.from(room,
+                            roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                                    .map(TagDto::from).toList())));
+        }
+
         return result;
     }
 
     @Transactional(readOnly = true)
-    public List<RoomDto> getPairRooms(){
+    public List<RoomDto> getPairRooms(List<String> tool, List<String> language){
         List<RoomDto> result = new ArrayList<>();
-        roomTagMapRepository.findPairRooms()
-                .forEach(room -> {
-                    result.add(RoomDto.from(room,
+
+        if(tool == null && language == null) {
+            roomTagMapRepository.findPairRooms()
+                    .forEach(room -> result.add(RoomDto.from(room,
                             roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
-                                    .map(TagDto::from).toList()));
-                });
+                                    .map(TagDto::from).toList())));
+        }
+        else {
+            roomTagMapRepository.findRoomsContainingTags("페어프로그래밍/몹프로그래밍", tool, language)
+                    .forEach(room -> result.add(RoomDto.from(room,
+                            roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                                    .map(TagDto::from).toList())));
+        }
+
         return result;
     }
 

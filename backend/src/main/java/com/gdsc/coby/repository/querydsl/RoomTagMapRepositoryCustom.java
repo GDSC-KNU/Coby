@@ -6,8 +6,8 @@ import com.gdsc.coby.domain.Tag;
 import java.util.List;
 
 public interface RoomTagMapRepositoryCustom {
-    List<Room> findRoomsByTagName(String tagName);
     List<Tag> findTagsByRoom_Id(Long roomId);
     List<Room> findReviewRooms();
     List<Room> findPairRooms();
+    List<Room> findRoomsContainingTags(String purpose, List<String> tool, List<String> language);
 }
