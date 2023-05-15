@@ -50,8 +50,8 @@ public class UserController {
 
     @PostMapping("/myinfo")
     @Operation(description = "로그인된 유저의 정보를 수정합니다.")
-    public ResponseEntity<UserResponseDto> updateMyInfo(@RequestBody UserRequestDto requestDto) {
-        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name(), requestDto.profileImage())));
+    public ResponseEntity<UserResponseDto> updateMyInfo(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestParam(required = false,value = "name") String name) {
+        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(profileImage, name)));
     }
 
     @PostMapping("/password")
