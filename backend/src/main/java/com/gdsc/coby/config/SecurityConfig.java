@@ -25,6 +25,7 @@ public class SecurityConfig {
 
     private final JwtProvider jwtProvider;
     private final RedisTemplate<String, Object> redisTemplate;
+    private final CorsConfig corsConfig;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -33,22 +34,23 @@ public class SecurityConfig {
                 .httpBasic().disable()
                 // 쿠키 기반이 아닌 JWT 기반이므로 사용하지 않음
                 .csrf().disable()
-                // CORS 설정
-                .cors(c -> {
-                            CorsConfigurationSource source = request -> {
-                                // Cors 허용 패턴
-                                CorsConfiguration config = new CorsConfiguration();
-                                config.setAllowedOrigins(
-                                        List.of("*")
-                                );
-                                config.setAllowedMethods(
-                                        List.of("*")
-                                );
-                                return config;
-                            };
-                            c.configurationSource(source);
-                        }
-                )
+//                // CORS 설정
+//                .cors(c -> {
+//                            CorsConfigurationSource source = request -> {
+//                                // Cors 허용 패턴
+//                                CorsConfiguration config = new CorsConfiguration();
+//                                config.setAllowedOrigins(
+//                                        List.of("http://localhost:3000")
+//                                );
+//                                config.setAllowedMethods(
+//                                        List.of("*")
+//                                );
+//                                return config;
+//                            };
+//                            c.configurationSource(source);
+//                        }
+//                )
+                .addFilter(corsConfig.corsFilter())
                 // Spring Security 세션 정책 : 세션을 생성 및 사용하지 않음
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()

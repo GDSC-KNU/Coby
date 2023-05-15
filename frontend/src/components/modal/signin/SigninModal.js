@@ -1,20 +1,23 @@
-import './SigninModal.css';
+import styles from './SigninModal.module.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-// import Axios from "axios";
+import signUp from "../../../sevices/signUp";
 
-function SignIn({ setModalOpen}) {
-    const navigate = useNavigate();
+function SignIn({ setModalOpen }) {
 
     const [showPswd, setShowPswd] = useState(false);
+    const [showPswdTrue, setShowPswdTrue] = useState(false);
     const [newId, setNewId] = useState('')
     const [newName, setNewName] = useState('')
     const [newPw, setNewPw] = useState('')
     const [newPwC, setNewPwC] = useState('')
 
-    const toggleShowPswd = () => {
+    const toggleShowPswd1 = () => {
         setShowPswd(!showPswd);
+    }
+
+    const toggleShowPswd2 = () => {
+        setShowPswdTrue(!showPswdTrue);
     }
 
     const handleNewId = (e) => {
@@ -29,40 +32,42 @@ function SignIn({ setModalOpen}) {
     const handleNewName = (e) => {
         setNewName(e.target.value)
     }
-    const onclickSignin = () => {
-        alert('회원가입 완료');
-        /*Axios.post('http://localhost:8080/api/signup', {
-            userId: newId,
-            password: newPw,
-            name: newName,
-            emil: newEmail
-          }).then(()=>{
-            alert('등록 완료!');
-          })*/
+
+
+    const onclickSignin = async () => {
+        try {
+            const sign = await signUp(newId, newPw, newName);
+            alert("회원가입 완료");
+            console.log(sign);
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
     }
 
     return (
-        <div className="container1">
-            <div className="form1">
-                <p>이메일</p>
-                <input className="input1" type='text' name='input_id' value={newId} onChange={handleNewId} />
+        <div className={styles.container1}>
+            <div className={styles.form1}>
+                <p>아이디</p>
+                <input  type='text' name='input_id' value={newId} onChange={handleNewId} />
                 <p>이름</p>
-                <input className="input1" type='text' name='input_name' value={newName} onChange={handleNewName} />
+                <input  type='text' name='input_name' value={newName} onChange={handleNewName} />
                 <p>비밀번호</p>
-                <input className="input1" type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
-                    {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
-                    ) : (
-                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
-                    )}
+                <input  type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
+                {showPswd ? (
+                    <AiFillEye onClick={toggleShowPswd1} className={styles.icon}/>
+                ) : (
+                    <AiFillEyeInvisible onClick={toggleShowPswd1} className={styles.icon}/>
+                )}
                 <p>비밀번호 확인</p>
-                <input className="input1" type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
-                    {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
-                    ) : (
-                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
-                    )}
-                <button className="button1" onClick={onclickSignin}>회원가입</button>
+                <input type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
+                {showPswdTrue ? (
+                    <AiFillEye onClick={toggleShowPswd2} className={styles.icon}/>
+                ) : (
+                    <AiFillEyeInvisible onClick={toggleShowPswd2} className={styles.icon}/>
+                )}
+                <button className={styles.button1} onClick={onclickSignin}>회원가입</button>
             </div>
         </div>
     );

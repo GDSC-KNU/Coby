@@ -1,8 +1,13 @@
 package com.gdsc.coby.dto;
 
 import com.gdsc.coby.domain.Room;
+import com.gdsc.coby.domain.constant.TagType;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public record RoomDto(
         Long id,
@@ -10,24 +15,25 @@ public record RoomDto(
         String url,
         String password,
         Integer personnel,
+        List<TagDto> tags,
         LocalDateTime createdAt,
         String createdBy)
 {
-    public RoomDto of(Long id, String name, String url, String password, Integer personnel, LocalDateTime createdAt, String createdBy){
-        return new RoomDto(id, name, url, password, personnel, createdAt, createdBy);
+
+    public static RoomDto of (String name, String url, String password, String language, String tool){
+        return new RoomDto(null, name, url, password, 6,
+                new ArrayList<>(List.of(TagDto.of(language, TagType.LANGUAGE), TagDto.of(tool, TagType.TOOL))),
+                null, null);
     }
 
-    public RoomDto of (Long id, String name, String url, String password, Integer limit){
-        return new RoomDto(id, name, url, password, limit,null, null);
-    }
-
-    public static RoomDto from(Room entity){
+    public static RoomDto from(Room entity, List<TagDto> tag){
         return new RoomDto(
                 entity.getId(),
                 entity.getName(),
                 entity.getUrl(),
                 entity.getPassword(),
                 entity.getPersonnel(),
+                tag,
                 entity.getCreatedAt(),
                 entity.getCreatedBy()
         );

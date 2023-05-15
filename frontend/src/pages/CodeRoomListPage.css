@@ -6,9 +6,6 @@
   transform: translate(-12%,-160%);
 }
 
-.modal-event{
-  transition: 1s;
-}
 
 .MakeRoomBtn {
   width: 17%;
@@ -84,4 +81,32 @@
       grid-row-gap: 0.1px;
       grid-column-gap: 8px;
     } */
+}
+
+@media(min-width: 1220px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 78%;
+  }
+}
+
+
+@media(min-width: 1440px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 73%;
+  }
+}
+
+@media(min-width: 1920px) {
+  .MakeRoomBtn{
+    width: 8%;
+    height: 2rem;
+    font-size: 0.8rem;
+    left: 68%;
+  }
 }

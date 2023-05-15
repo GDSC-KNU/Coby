@@ -18,6 +18,7 @@ public record GroupDto(
         Set<User> members,
         List<TagDto> tags
 ) {
+
     public static GroupDto of (String name, String description, String purpose, String language, String tool, String detail){
         List<TagDto> tagList = new ArrayList<>();
         for(String p : purpose.split(","))

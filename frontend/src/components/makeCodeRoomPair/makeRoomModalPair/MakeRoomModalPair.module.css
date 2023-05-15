@@ -1,0 +1,111 @@
+.RoomModalsPair {
+  /* 모달창 크기 */
+  width: 25rem;
+  height: 26rem;
+
+  /* 최상단 위치 */
+  z-index: 999;
+
+  /* 중앙 배치 */
+  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+  /* translate는 본인의 크기 기준으로 작동한다. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  padding-top: 1rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.RoomModalLogoPair {
+  width: 20%;
+  height: 4rem;
+  position: relative;
+  left: 40%;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.RoomModalControlPair {
+  flex-wrap: wrap;
+  margin-top: 0rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.RoomModalsPair form{
+  display: grid;
+  align-items: center;
+ 
+} 
+
+
+.RoomModalControlPair p {
+  font-weight: bold;
+  display: block;
+  font-size: 0.4rem;
+  text-align: left;
+  position: relative;
+  left: 55px; 
+}
+
+.RoomModalControlPair input {
+  font: inherit;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 20rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.RoomModalControlPair input:focus {
+  border-color: #E5F6FF;
+  background: #E5F6FF;
+;
+}
+
+.RoomModalControlPair select{
+  font: inherit;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  width: 20.3rem;
+  height: 1.5rem;
+}
+
+.RoomModalActionsPair {
+  text-align: center;
+}
+
+.RoomModalActionsPair button {
+  width: 8rem;
+  height: 1.8rem;
+  border-radius: 20px;
+  position: relative;
+  top: 2rem;
+  background-color: #5579fe;
+  border: 0px;
+  color: white;
+}
+
+.RoomModalActionsPair button:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+.RoomModalControlPair.invalid input{
+  border-color: red;
+  background: #ffd7d7;
+}
+
+.RoomModalControlPair.invalid p{
+  color: red;
+}

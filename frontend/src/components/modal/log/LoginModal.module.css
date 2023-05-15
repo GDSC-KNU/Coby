@@ -1,0 +1,70 @@
+.container {
+  width: 25rem;
+  height: 24rem;
+  z-index: 999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 4%); /*위치 임시 조정*/
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px #000;
+}
+.logo_login {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -220%);
+  
+}
+.form {
+  position: relative;
+  top: 100px;
+  left: 13px;
+}
+.input {
+  margin: 25px;
+  border-radius: 20px;
+  width: 320px;
+  height: 34px;
+}
+.button {
+  width: 320px;
+  height: 36px;
+  border-radius: 20px;
+  position: relative;
+  left: 8px;
+  top: 20px;
+  background-color: #5579fe;
+  border: 0px;
+  color: white;
+}
+.button:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.1;
+}
+.bottom {
+  position: relative;
+  top: 110px;
+  left: 30px;
+}
+/* .find_botton {
+  
+  border: 0px;
+  background-color: white;
+}
+.find_botton:hover {
+  color: #5579fe;
+  font-weight: bold;
+  transition: all 0.3s;
+} */
+.icon {
+  position: absolute;
+  left: 86%;
+  top: 50%;
+  transform: translate(-120%, -45%);
+}

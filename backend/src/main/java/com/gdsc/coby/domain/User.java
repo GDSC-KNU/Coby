@@ -14,21 +14,27 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@Setter
 @Table(name = "user_account")
 public class User implements UserDetails {
     @Id
     @Column(length = 50)
     private String userId;
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     private Group group;
 
+    @Setter
     @Column(nullable = false)
     private String name;
-    
+
+    @Setter
     @Column(nullable = false)
     private String password;
+
+    @Setter
+    @Column
+    private String profileUrl;
 
     private Long exp_point;
 
@@ -37,16 +43,17 @@ public class User implements UserDetails {
 
     protected User() {}
 
-    private User(String userId, Group group, String name, String password, Long exp_point) {
+    private User(String userId, Group group, String name, String password, String profileUrl, Long exp_point) {
         this.userId = userId;
         this.group = group;
         this.name = name;
         this.password = password;
+        this.profileUrl = profileUrl;
         this.exp_point = exp_point;
     }
 
-    public static User of(String userId, Group group, String name, String password, Long exp_point) {
-        return new User(userId, group, name, password, exp_point);
+    public static User of(String userId, Group group, String name, String password, String profileUrl,Long exp_point) {
+        return new User(userId, group, name, password, profileUrl, exp_point);
     }
 
     @Override
@@ -84,5 +91,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setExp_point(Long exp) {
+        exp_point += exp;
     }
 }

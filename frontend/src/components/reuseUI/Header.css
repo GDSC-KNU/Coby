@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 1rem;
+  height: 2rem;
   background-color: #5579fe;
   z-index: 996;
 }
@@ -23,9 +23,9 @@
   left: 0;
   top: 1rem;
   width: 100%;
-  height: 3rem;
+  height: 5rem;
   background-color: #5579fe;
-  z-index: 996;
+  z-index: 995;
 }
 
 .contents {
@@ -51,38 +51,7 @@
   background-repeat: no-repeat;
 }
 
-/* .Group{
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 0rem;
-  width: 30%;
-  height: 1rem;
-  background-image: url(/src/images/Group.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
-.MyGroup {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 0rem;
-  width: 40%;
-  height: 1rem;
-  background-image: url(/src/images/MyGroup.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.Question{
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 0rem;
-  width: 40%;
-  height: 1rem;
-  background-image: url(/src/images/Question.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-} */
 
 .upside-navigation ul {
   display: flex;
@@ -107,7 +76,11 @@
 .navigation li:hover {
   font-weight: bold;
   transition: all 0.3s;
-  scale: 1.05;
+  scale: 1.1;
+}
+
+.navigation li.active{
+  text-decoration: underline white 2px;
 }
 
 .navigation li + li {

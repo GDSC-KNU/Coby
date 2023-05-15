@@ -1,63 +1,100 @@
-@keyframes smoothAppear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1; 
-  }
+
+.out {
+  display: flex;
 }
 
+body {
+  overflow: auto;
+}
 
-.sidebar {
-  display: flex;
+.sidebar1 {
   background-color: #5579fe;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
   color: white;
   height: 100%;
   z-index: 99;
 }
-.button{
+
+.exit {
+  position: absolute;
+  top: 95%;
+  left: 3%;
+}
+.button {
   position: absolute;
   width: 40px;
   height: 40px;
   top: 0%;
   display: flex;
-  animation: smoothAppear 0.5s;
+  /* animation: smoothAppear 0.5s; */
 }
-.icon {
+.Icon {
   margin: 0;
-  color: #202020;
+  color: white;
 }
 .logo {
   position: absolute;
-  left: 90px;
-  top: 60px;
-  width: 100px;
-  height: 80px;
-  animation: smoothAppear 1s;
+  left: 105px;
+  top: 50px;
+  width: 120px;
+  height: 100px;
+  /* animation: smoothAppear 1s; */
 }
-.profile{
+
+.profile {
   position: relative;
-  top: 11rem;
+  top: 20vh;
   margin-top: 1rem;
-  left: 8%;
-  width: 3rem;
-  height: 3rem;
+  left: 12%;
+  width: 2.5vw;
+  height: 4.8vh;
   background: white;
   border-radius: 50%;
 }
-.chatting{
+
+.name {
   position: relative;
-  top: 16rem;
-  left: 7%;
-  width: 15rem;
-  height: 20rem;
+  top: 1.5vh;
+  left: 5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.chatting {
+  position: relative;
+  top: 36vh;
+  left: 5%;
+  width: 13.7vw;
+  height: 40vh;
   background: white;
   border-radius: 5%;
   transition: 2s;
-  animation: smoothAppear 1s;
+}
+
+.font {
+  position: relative;
+  top: 2vh;
+  left: 0.7vw;
+  font-size: 0.48em;
+  font-weight: bold;
+  color: black;
+}
+
+.profileImg {
+  display: block;
+  width: 100%;
+}
+
+.memberlist {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.memberlist ul {
+  position: relative;
+  top: 300%;
 }

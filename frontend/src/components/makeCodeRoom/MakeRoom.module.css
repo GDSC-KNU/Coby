@@ -1,0 +1,212 @@
+.PageBox {
+  /* padding-top: 5rem; */
+  display: column;
+  align-items: center;
+  justify-content: center;
+  width: 47rem;
+  max-width: 90%;
+  height: 100%;
+  height: calc(100vh - 6.7rem);
+  margin: 0 auto;
+  padding: 0.7rem;
+  background: #ffffff;
+  
+}
+
+.search {
+  position: relative;
+  width: 7rem;
+  left: 4.4%;
+}
+
+.searchimg {
+  position:absolute;
+  right: 0.3rem;
+  width: 13px;
+  top: 5px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #A8A8A8;
+  border-radius: 5px;
+  padding: 3px 12px;
+  font-size: 12px;
+}
+
+/*filter_set 으로 가로배치*/
+.filter_set {
+  display:flex;
+}
+
+/*filter 버튼*/
+.filter {
+  position:relative;
+  left: 4.4%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #A8A8A8;
+  border-radius: 5px;
+  margin:0.1rem;
+  font-size: 12px;
+}
+
+/*filter hover effect*/
+.filter:hover{
+  background:#5579FE;
+  color:white;
+  border: 1px solid #5579FE;
+}
+
+.filter:focus{
+  background: #5579FE;
+  color:white;
+  border: 1px solid #5579FE;
+}
+
+.CodeRoomListBox {
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%); */
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 0.1px;
+  grid-column-gap: 8px;
+
+  /* 
+    width: 50%;
+    max-width: 100%;
+    
+    padding: 0.5rem;
+    margin: 1rem 0 auto;
+    background-color: white; */
+  overflow: auto;
+  padding: 0.4rem;
+  margin: 0.1rem auto;
+
+  height: 78%;
+  max-width: 90%;
+  border-radius: 8px;
+  background-color: rgba(223, 229, 236, 0.3);
+}
+
+
+.CodeRoomListBox p{
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  /* align-items: center; */
+}
+/* .MakeRoomBtn {
+  width: 17%;
+  height: 1.5rem;
+
+  position: relative;
+  left: 80%;
+  top: 0%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  cursor: pointer;
+  background-color: #5579fe;
+  color: white;
+  border-color: #5579fe;
+  border-bottom: #5579fe;
+  border-right: #5579fe;
+  border-radius: 8px;
+  font-size: 0.4rem;
+}
+
+
+.MakeRoomBtn:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+} */
+
+@media (min-width: 460px) {
+  /* .MakeRoomBtn{
+    width: 12%;
+    height: 1.7rem;
+    font-size: 0.3rem;
+  } */
+
+  .CodeRoomListBox {
+  
+    height: 88%;
+    margin: 0.1rem auto;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%, -39%); */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 8px;
+  }
+}
+
+/* @media (min-width: 600px){
+  .MakeRoomBtn{
+    width: 10%;
+    height: 1.8rem;
+    font-size: 0.6rem;
+  }
+} */
+
+
+@media (min-width: 750px) {
+  
+  .CodeRoomListBox {
+    
+    height: 88%;
+    width: 90rem;
+    margin: 0.1rem auto;
+   
+   
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* .MakeRoomBtn {
+    width: 10%;
+    height: 2rem;
+    font-size: 0.8rem;
+  } */
+  .CodeRoomListBox {
+    height: 84%;
+    width: 90%;
+    margin: 0.1rem auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+    grid-column-gap: 8px;
+  }
+}
+
+@media (min-width: 1920px){
+  .CodeRoomListBox{
+    height: 90%;
+    width: 80rem;
+    margin : 0.1rem auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.1px;
+    grid-column-gap: 0.1px;
+  }
+}

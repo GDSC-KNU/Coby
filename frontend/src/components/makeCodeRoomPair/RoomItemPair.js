@@ -1,0 +1,115 @@
+import React, { useState, useEffect } from "react";
+
+import styles from "./RoomItemPair.module.css";
+import locked from "../../images/locked.png";
+import unlocked from "../../images/unlocked.png";
+
+function RoomItemPair(props) {
+  const [languageColor, setLanguageColor] = useState("");
+  const [languageBackgroundColor, setLanguageBackgroundColor] = useState("");
+  const [toolColor, setToolColor] = useState("");
+
+  const handleClick = () => {
+    if (props.password.trim().length !== 0) {
+      const password = prompt("비밀번호를 입력하세요.");
+      if (props.password === password) {
+        window.location.href = "/CodeRoom";
+      } else if (password !== null) {
+        alert("비밀번호가 일치하지 않습니다.");
+      }
+    } else {
+      window.location.href = "/CodeRoom";
+    }
+  };
+
+  useEffect(() => {
+    if (props.language === "C") {
+      setLanguageColor("#7B88FF");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "C++") {
+      setLanguageColor("#7B88FF");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "C#") {
+      setLanguageColor("#7B88FF");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "Python") {
+      setLanguageColor("#FFB800");
+      setLanguageBackgroundColor("#FFF7B0");
+    } else if (props.language === "Java") {
+      setLanguageColor("#FF5C5C");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Ruby") {
+      setLanguageColor("#FF5C5C");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Swift") {
+      setLanguageColor("#F05138");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "JavaScript") {
+      setLanguageColor("#FFB800");
+      setLanguageBackgroundColor("#FFF7B0");
+    } else if (props.language === "Scala") {
+      setLanguageColor("#DE3835");
+      setLanguageBackgroundColor("#FFE5E5");
+    } else if (props.language === "Go") {
+      setLanguageColor("#00ACD7");
+      setLanguageBackgroundColor("#E5F6FF");
+    } else if (props.language === "Kotlin") {
+      setLanguageColor("#A532F1");
+      setLanguageBackgroundColor("#ECDEF5");
+    }
+  }, [props.language]);
+
+  useEffect(() => {
+    if (props.tool === "Live Share") {
+      setToolColor("#29A0F1");
+    } else if (props.tool === "Code With Me") {
+      setToolColor("#FD7864");
+    }
+  }, [props.tool]);
+
+  return (
+    <div>
+      {props.password.trim().length > 0 ? (
+        <div className={styles.RoomItemPair} onClick={handleClick}>
+          <div className={styles.RoomItemDescriptionPair}>
+            <h4 style={{ color: toolColor }}>{props.tool}</h4>
+            <h2>{props.title}</h2>
+            <span
+              style={{
+                color: languageColor,
+                backgroundColor: languageBackgroundColor,
+              }}
+            >
+              {props.language}
+            </span>
+          </div>
+          <div className={styles.RoomItemLockedDescriptionPair}>
+            <img src={locked} alt="로고" className={styles.RoomItemLockedPair} />
+            <div className={styles.personPair}>0명 / 6명</div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.RoomItemPair} onClick={handleClick}>
+          <div className={styles.RoomItemDescriptionPair}>
+            <h4 style={{ color: toolColor }}>{props.tool}</h4>
+            <h2>{props.title}</h2>
+            <span
+              style={{
+                color: languageColor,
+                backgroundColor: languageBackgroundColor,
+              }}
+            >
+              {props.language}
+            </span>
+          </div>
+          <div className={styles.RoomItemLockedDescriptionPair}>
+            <img src={unlocked} alt="로고" className={styles.RoomItemLockedPair} />
+            <div className={styles.personPair}>0명 / 6명</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default RoomItemPair;

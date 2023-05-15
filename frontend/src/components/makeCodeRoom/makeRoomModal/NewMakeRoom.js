@@ -6,11 +6,10 @@ function NewMakeRoom(props) {
   const saveRoomDataHandler = (enteredRoomData) => {
     const makeRoomData = {
       ...enteredRoomData,
-      id: Math.random().toString(),
+      // id: Math.random().toString(),
     };
     props.onAddData(makeRoomData);
   };
-
 
   return (
     <div>

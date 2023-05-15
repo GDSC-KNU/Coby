@@ -1,64 +1,81 @@
-import { useState } from 'react';
-import { AiFillEyeInvisible, AiFillEye} from "react-icons/ai";
-<<<<<<< HEAD
-=======
+import { useState } from "react";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import Login from "../../../sevices/Login";
 
->>>>>>> main
-import Backdrop from '../../reuseUI/Backdrop';
+import styles from "./LoginModal.module.css";
+import logo from "../../../images/logo_black.png";
 
-import './LoginModal.css';
-import logo from '../../../images/logo_black.png'
-
-function Login({ setModalOpen}) {
+function LoginModal() {
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
-    }
-    const [inputId, setInputId] = useState('')
-    const [inputPw, setInputPw] = useState('')
+    };
+    const [inputId, setInputId] = useState("");
+    const [inputPw, setInputPw] = useState("");
 
     const handleInputId = (e) => {
-        setInputId(e.target.value)
-    }
+        setInputId(e.target.value);
+    };
     const handleInputPw = (e) => {
-        setInputPw(e.target.value)
-    }
-    const onClickLogin = () => {
-        console.log({inputId},{inputPw})
-    }
+        setInputPw(e.target.value);
+    };
 
-    const onclickSignin = () => {
-        alert('회원가입 완료');
-        /*Axios.post('http://localhost:8080/api/login', {
-            userId: newId,
-            password: newPw,
-          }).then(()=>{
-            alert('등록 완료!');
-          })*/
-    }
+    const onClickLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const token = await Login(inputId, inputPw);
+            localStorage.setItem("token", token.accessToken);
+            window.location.reload();
+            window.alert("로그인 성공");
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
+    };
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             <div>
-                <img src={logo} alt="로고" className="logo" />
+                <img src={logo} alt="로고" className={styles.logo_login} />
             </div>
-            <div className="form">
-                <p>이메일</p>
-                <input className="input" type='text' name='input_id' value={inputId} onChange={handleInputId}></input>
-                <p>비밀번호</p>
-                <input className="input" type={showPswd ? "text" : "password"} name='input_pw' value={inputPw} onChange={handleInputPw}></input>
-                    {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className="icon"/>
-                    ) : (
-                    <AiFillEye onClick={toggleShowPswd} className="icon"/>
-                    )}
+            <div className={styles.form}>
+                {/* <p>아이디</p> */}
+                <input
+                    className={styles.input}
+                    type="text"
+                    placeholder="아이디"
+                    name="input_id"
+                    value={inputId}
+                    onChange={handleInputId}
+                />
             </div>
-            <div className="bottom">
-                <button className="find_botton">아이디 찾기</button>
-                <button className="find_botton">비밀번호 찾기</button>
-                <button className="button" onClick={onClickLogin}>로그인</button>
+            <div className={styles.form}>
+                {/* <p>비밀번호</p> */}
+                <input
+                    className={styles.input}
+                    type={showPswd ? "text" : "password"}
+                    placeholder="비밀번호"
+                    name="input_pw"
+                    value={inputPw}
+                    onChange={handleInputPw}
+                />
+                {showPswd ? (
+                    <AiFillEye
+                        onClick={toggleShowPswd}
+                        className={styles.icon}
+                    />
+                ) : (
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon} />
+                )}
+            </div>
+            <div className={styles.bottom}>
+                {/* <button className={styles.find_botton}>아이디 찾기</button>
+                <button className={styles.find_botton}>비밀번호 찾기</button> */}
+                <button className={styles.button} onClick={onClickLogin}>
+                    로그인
+                </button>
             </div>
         </div>
     );
 }
-export default Login;
+export default LoginModal;

@@ -1,0 +1,97 @@
+.RoomItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.5rem;
+  height: 11vh;
+  width: 19.3rem;
+  margin: 0;
+
+  border: 2px solid #dfe5ec;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* .RoomItem__tool {
+  display: flex;
+  flex-direction: column;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  border: 1px solid #ececec;
+  background-color: #5579fe;
+  color: white;
+  border-radius: 12px;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+} */
+
+.RoomItemDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.RoomItemDescription h2 {
+  
+  margin-left: 2;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+.RoomItemDescription h4 {
+  margin-left: 2;
+  /* color:#29A0F1; */
+  /* background-color: #D6D6D6; */
+  font-size: 0.5rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+.RoomItemDescription span {
+  font-size: 0.8rem;
+  margin: 0.2rem;
+  font-weight: bold;
+}
+
+.RoomItemLockedDescription{
+  display: flex;
+}
+.RoomItemLocked{
+  height:16px;
+  width:16.44px;
+}
+
+.person{
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1920px){
+  .RoomItemDescription h2 {
+    font-size: 1.4rem;
+  }
+  
+  .RoomItemDescription h4 {
+    font-size: 0.8rem;
+  }
+  
+  .RoomItemDescription span {
+    font-size: 1rem;
+  }
+
+  .RoomItem {
+    height: 9.5vh;
+  }
+}

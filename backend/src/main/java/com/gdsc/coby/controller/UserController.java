@@ -7,9 +7,11 @@ import com.gdsc.coby.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -22,8 +24,8 @@ public class UserController {
     private final UserService userService;
 
     @ExceptionHandler(value = {UsernameNotFoundException.class, IllegalArgumentException.class})
-    public ResponseEntity<String> exceptionHandler(Exception e) {
-        return ResponseEntity.ok(e.getMessage());
+    public ResponseEntity<?> exceptionHandler(Exception e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping
@@ -48,13 +50,13 @@ public class UserController {
 
     @PostMapping("/myinfo")
     @Operation(description = "로그인된 유저의 정보를 수정합니다.")
-    public ResponseEntity<UserResponseDto> updateMyInfo(UserRequestDto requestDto) {
-        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(requestDto.name())));
+    public ResponseEntity<UserResponseDto> updateMyInfo(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestParam(required = false,value = "name") String name) {
+        return ResponseEntity.ok(UserResponseDto.from(userService.updateUserInfo(profileImage, name)));
     }
 
     @PostMapping("/password")
     @Operation(description = "로그인된 유저의 비밀번호를 변경합니다.")
-    public ResponseEntity<UserResponseDto> updatePassword(PasswordRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> updatePassword(@RequestBody PasswordRequestDto requestDto) {
         return ResponseEntity.ok(UserResponseDto.from(userService.updateUserPassword(
                 requestDto.exPassword(), requestDto.newPassword()
         )));
