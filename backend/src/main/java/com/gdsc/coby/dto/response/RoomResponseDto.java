@@ -25,9 +25,13 @@ public record RoomResponseDto(
                 dto.id(),
                 dto.name(),
                 dto.tags().stream().filter(tag -> tag.tagType().equals(TagType.LANGUAGE))
-                        .map(TagDto::name).collect(Collectors.joining(",")),
+                        .map(TagDto::name).collect(Collectors.joining())
+                        .replaceAll("Cplusplus", "C++")
+                        .replaceAll("Csharp", "C#")
+                        .replaceAll("JS", "JavaScript")
+                        .replaceAll("Clang", "C"),
                 dto.tags().stream().filter(tag -> tag.tagType().equals(TagType.TOOL))
-                        .map(TagDto::name).collect(Collectors.joining(",")),
+                        .map(TagDto::name).collect(Collectors.joining()),
                 dto.password(),
                 dto.url(),
                 dto.createdBy()

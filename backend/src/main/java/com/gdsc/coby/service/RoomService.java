@@ -2,6 +2,7 @@ package com.gdsc.coby.service;
 
 import com.gdsc.coby.domain.Room;
 import com.gdsc.coby.domain.RoomTagMap;
+import com.gdsc.coby.domain.constant.Purpose;
 import com.gdsc.coby.domain.constant.TagType;
 import com.gdsc.coby.dto.RoomDto;
 import com.gdsc.coby.dto.TagDto;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.webjars.NotFoundException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,27 +27,31 @@ public class RoomService {
 
     // 코드룸 목록 조회
     @Transactional(readOnly = true)
-    public List<RoomDto> getReviewRooms(){
-        List<RoomDto> result = new ArrayList<>();
-        roomTagMapRepository.findReviewRooms()
-                .forEach(room -> {
-                    result.add(RoomDto.from(room,
-                        roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
-                                .map(TagDto::from).toList()));
-                });
-        return result;
+    public List<RoomDto> getReviewRooms(List<String> tool, List<String> language, String searchKeyword){
+        if(searchKeyword != null)
+            return searchRoom(searchKeyword);
+
+        if(tool == null && language == null)
+            return roomTagMapRepository.findReviewRooms().stream()
+                    .map(room -> RoomDto.from(room, roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                            .map(TagDto::from).toList()))
+                    .toList();
+
+        else return searchRoom(Purpose.REVIEW.getInfo(), tool, language);
     }
 
     @Transactional(readOnly = true)
-    public List<RoomDto> getPairRooms(){
-        List<RoomDto> result = new ArrayList<>();
-        roomTagMapRepository.findPairRooms()
-                .forEach(room -> {
-                    result.add(RoomDto.from(room,
-                            roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
-                                    .map(TagDto::from).toList()));
-                });
-        return result;
+    public List<RoomDto> getPairRooms(List<String> tool, List<String> language, String searchKeyword){
+        if(searchKeyword != null)
+            return searchRoom(searchKeyword);
+
+        if(tool == null && language == null)
+            return roomTagMapRepository.findPairRooms().stream()
+                    .map(room -> RoomDto.from(room, roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                                    .map(TagDto::from).toList()))
+                    .toList();
+
+        else return searchRoom(Purpose.PAIR.getInfo(), tool, language);
     }
 
     // 코드룸 정보 조회
@@ -59,21 +63,25 @@ public class RoomService {
                 .map(TagDto::from).toList());
     }
 
-   //TODO: 검색 기능 구현 시 상세화
-//    @Transactional(readOnly = true)
-//    public List<RoomDto> searchRoom(String searchKeyword){
-//        return roomRepository.findByNameContaining(searchKeyword);
-//    }
-//    @Transactional(readOnly = true)
-//    public List<RoomDto> getRoomByTag(String tagName) {
-//        return roomTagMapRepository.findAllByTagName().stream()
-//                .map(RoomDto::from)
-//                .toList();
-//    }
+    @Transactional(readOnly = true)
+    public List<RoomDto> searchRoom(String purpose, List<String> tool, List<String> language){
+        return roomTagMapRepository.findRoomsContainingTags(purpose, tool, language).stream()
+                .map(room -> RoomDto.from(room, roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                        .map(TagDto::from).toList()))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<RoomDto> searchRoom(String searchKeyword){
+        return roomRepository.findByNameContaining(searchKeyword).stream()
+                .map(room -> RoomDto.from(room, roomTagMapRepository.findTagsByRoom_Id(room.getId()).stream()
+                        .map(TagDto::from).toList()))
+                .toList();
+    }
 
     public RoomDto createReviewRoom(RoomDto dto){
         Room room = roomRepository.save(dto.toEntity());
-        dto.tags().add(TagDto.of("코드리뷰", TagType.PURPOSE));
+        dto.tags().add(TagDto.of(Purpose.REVIEW.getInfo(), TagType.PURPOSE));
         dto.tags().stream()
                 .map(TagDto::name)
                 .map(tagRepository::findByName)
@@ -84,7 +92,7 @@ public class RoomService {
 
     public RoomDto createPairRoom(RoomDto dto){
         Room room = roomRepository.save(dto.toEntity());
-        dto.tags().add(TagDto.of("페어프로그래밍/몹프로그래밍", TagType.PURPOSE));
+        dto.tags().add(TagDto.of(Purpose.PAIR.getInfo(), TagType.PURPOSE));
         dto.tags().stream()
                 .map(TagDto::name)
                 .map(tagRepository::findByName)
