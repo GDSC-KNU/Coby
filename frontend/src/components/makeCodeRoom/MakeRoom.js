@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import searchimg from "../../images/icon-search.png";
 import RoomItem from "./RoomItem";
 import styles from "./MakeRoom.module.css";
+import SearchRoomList from "../../sevices/SearchRoomList";
+import { useNavigate } from "react-router-dom";
 
 function MakeRoom(props) {
   const [filteredTool, setFilteredTool] = useState("");
@@ -41,6 +43,26 @@ function MakeRoom(props) {
     setEtc(!devEtc);
   };
 
+  const [enteredSearch, setEnteredSearch] = useState("");
+  const navigate = useNavigate();
+
+  const searchChangeHandler = (event) => {
+    setEnteredSearch(event.target.value);
+  };
+
+  const SearchClickHandler = async (event) => {
+    event.preventDefault();
+    setEnteredSearch("");
+    try { 
+      const Search = await SearchRoomList(enteredSearch);
+      console.log(Search);
+      const encodedSearch = encodeURIComponent(enteredSearch);
+      navigate(`/CodeRoomList?s=${encodedSearch}`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const filteredMakeRooms = filteredTool
     ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
     : props.items;
@@ -49,8 +71,18 @@ function MakeRoom(props) {
     <div className={styles.PageBox}>
       <div className={styles.filter_set}>
         <div className={styles.search}>
-          <input type="text" placeholder="검색어 입력"></input>
-          <img src={searchimg} className={styles.searchimg}></img>
+          <input
+            type="text"
+            placeholder="검색어 입력"
+            value={enteredSearch}
+            onChange={searchChangeHandler}
+          />
+          <img
+            src={searchimg}
+            alt="검색"
+            className={styles.searchimg}
+            onClick={SearchClickHandler}
+          ></img>
         </div>
         <button
           className={styles.filter}

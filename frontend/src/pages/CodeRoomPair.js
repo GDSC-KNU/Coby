@@ -1,13 +1,13 @@
 import React from "react";
 
 import "./CodeRoom.css";
-import Sidebar from "../components/codeRoom/Sidebar";
+import SidebarPair from "../components/codeRoom/SidebarPair";
 
 const CodeRoom = () => {
   return (
     <div>
-      <Sidebar />
-      <div className="IframeBox">
+      <SidebarPair />
+      <div className="IframeBoxPair">
         <p align="middle">
           <iframe
             src="https://www.vchatcloud.com/chat-demo/iframe/iframe_rtc_1/v4/index.html?channelkey=yCjJFXDKvi-tB2VfcAJPe-20230504154859"
