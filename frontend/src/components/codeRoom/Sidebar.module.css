@@ -22,6 +22,7 @@ body {
 .exit {
   position: absolute;
   top: 95%;
+  left: 3%;
 }
 .button {
   position: absolute;
@@ -35,7 +36,7 @@ body {
   margin: 0;
   color: white;
 }
-.Logo {
+.logo {
   position: absolute;
   left: 105px;
   top: 50px;

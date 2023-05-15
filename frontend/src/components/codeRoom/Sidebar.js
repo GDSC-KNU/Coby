@@ -5,7 +5,6 @@ import logo from "../../images/Coby.png";
 import styles from "./Sidebar.module.css";
 import exit from "../../images/exit.png";
 import MyPage from "../../sevices/MyPage";
-import getRoomId from "../../sevices/getRoomId";
 import DeleteRoom from "../../sevices/DeleteRoom";
 import ShowRoomList from "../../sevices/ShowRoomList";
 

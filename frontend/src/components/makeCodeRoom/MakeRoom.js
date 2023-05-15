@@ -16,9 +16,6 @@ function MakeRoom(props) {
   const [devRuby, setRuby] = useState(false);
   const [devEtc, setEtc] = useState(false);
 
-  const filterToolChangeHandler = (selectTool) => {
-    setFilteredTool(selectTool);
-  };
   const onClickVs = () => {
     setVscode(!devVscode);
   };
@@ -50,10 +47,6 @@ function MakeRoom(props) {
 
   return (
     <div className={styles.PageBox}>
-      {/* <MakeRoomToolFilter
-        selected={filteredTool}
-        onChangeFilter={filterToolChangeHandler}/>  
-      */}
       <div className={styles.filter_set}>
         <div className={styles.search}>
           <input type="text" placeholder="검색어 입력"></input>

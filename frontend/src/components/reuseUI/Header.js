@@ -7,23 +7,25 @@ import MypageModal from "../modal/myPage/MyPageModal";
 
 import "./Header.css";
 import Logout from "../../sevices/Logout";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
+  const navigate = useNavigate();
+  
   function CodeReviewHandleClick(event){
-    window.location.href="/CodeRoomList";
+    navigate("/CodeRoomList");
   }
 
   function PairProgrammingHandleClick(event){
-    window.location.href="/PairCodeRoomList";
+    navigate("/PairCodeRoomList");
   }
 
   function MainHandleClick(event){
-    window.location.href="/";
+    navigate("/");
   }
 
   function MyGroupClick(event){
-    window.location.href="/GroupInfo"
-    //window.location.href="/NoGroup"
+    navigate("/GroupInfo");
   }
 
   const [logInmodalOpen, setLoginModalOpen] = useState(false);

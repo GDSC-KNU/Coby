@@ -21,8 +21,8 @@
 .searchimg {
   position:absolute;
   right: 0.3rem;
-  width: 2.7vh;
-  top: 0.7vh;
+  width: 13px;
+  top: 5px;
 }
 
 input {
@@ -186,14 +186,14 @@ input {
     font-size: 0.8rem;
   } */
   .CodeRoomListBox {
-    height: 88%;
+    height: 84%;
     width: 90%;
     margin: 0.1rem auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 0.1px;
+    grid-row-gap: 5px;
     grid-column-gap: 8px;
   }
 }

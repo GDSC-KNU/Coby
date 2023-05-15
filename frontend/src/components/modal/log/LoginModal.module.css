@@ -23,7 +23,7 @@
 .form {
   position: relative;
   top: 100px;
-  left: 0px;
+  left: 13px;
 }
 .input {
   margin: 25px;
@@ -36,7 +36,7 @@
   height: 36px;
   border-radius: 20px;
   position: relative;
-  left: -30px;
+  left: 8px;
   top: 20px;
   background-color: #5579fe;
   border: 0px;
@@ -64,7 +64,7 @@
 } */
 .icon {
   position: absolute;
-  left: 90%;
+  left: 86%;
   top: 50%;
   transform: translate(-120%, -45%);
 }

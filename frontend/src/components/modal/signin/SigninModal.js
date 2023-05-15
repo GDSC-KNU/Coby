@@ -6,13 +6,18 @@ import signUp from "../../../sevices/signUp";
 function SignIn({ setModalOpen }) {
 
     const [showPswd, setShowPswd] = useState(false);
+    const [showPswdTrue, setShowPswdTrue] = useState(false);
     const [newId, setNewId] = useState('')
     const [newName, setNewName] = useState('')
     const [newPw, setNewPw] = useState('')
     const [newPwC, setNewPwC] = useState('')
 
-    const toggleShowPswd = () => {
+    const toggleShowPswd1 = () => {
         setShowPswd(!showPswd);
+    }
+
+    const toggleShowPswd2 = () => {
+        setShowPswdTrue(!showPswdTrue);
     }
 
     const handleNewId = (e) => {
@@ -51,16 +56,16 @@ function SignIn({ setModalOpen }) {
                 <p>비밀번호</p>
                 <input  type={showPswd ? "text" : "password"} name='input_pw' value={newPw} onChange={handleNewPw}></input>
                 {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
+                    <AiFillEye onClick={toggleShowPswd1} className={styles.icon}/>
                 ) : (
-                    <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
+                    <AiFillEyeInvisible onClick={toggleShowPswd1} className={styles.icon}/>
                 )}
                 <p>비밀번호 확인</p>
                 <input type={showPswd ? "text" : "password"}  name='input_pwc' value={newPwC} onChange={handleNewPwC}></input>
-                {showPswd ? (
-                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon}/>
+                {showPswdTrue ? (
+                    <AiFillEye onClick={toggleShowPswd2} className={styles.icon}/>
                 ) : (
-                    <AiFillEye onClick={toggleShowPswd} className={styles.icon}/>
+                    <AiFillEyeInvisible onClick={toggleShowPswd2} className={styles.icon}/>
                 )}
                 <button className={styles.button1} onClick={onclickSignin}>회원가입</button>
             </div>

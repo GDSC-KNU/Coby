@@ -5,7 +5,7 @@ import Login from "../../../sevices/Login";
 import styles from "./LoginModal.module.css";
 import logo from "../../../images/logo_black.png";
 
-function LoginModal(props) {
+function LoginModal() {
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
@@ -47,7 +47,7 @@ function LoginModal(props) {
                     name="input_id"
                     value={inputId}
                     onChange={handleInputId}
-                ></input>
+                />
             </div>
             <div className={styles.form}>
                 {/* <p>비밀번호</p> */}
@@ -58,14 +58,14 @@ function LoginModal(props) {
                     name="input_pw"
                     value={inputPw}
                     onChange={handleInputPw}
-                ></input>
+                />
                 {showPswd ? (
-                    <AiFillEyeInvisible
+                    <AiFillEye
                         onClick={toggleShowPswd}
                         className={styles.icon}
                     />
                 ) : (
-                    <AiFillEye onClick={toggleShowPswd} className={styles.icon} />
+                    <AiFillEyeInvisible onClick={toggleShowPswd} className={styles.icon} />
                 )}
             </div>
             <div className={styles.bottom}>

@@ -3,54 +3,55 @@
   height: 30rem;
   z-index: 999;
   position: absolute;
-  
+
   left: 50%;
   top: 50%;
-  transform: translate(-50%,8%); /*위치 임시 조정*/
-  background-color:white;
+  transform: translate(-50%, 8%); /*위치 임시 조정*/
+  background-color: white;
   border: 1px solid black;
   border-radius: 30px;
   box-shadow: 0px 0px 20px #000;
 }
-.form1{
-position:relative;
-top: 27px;
-left: 10px;
-display: inline-block;
-text-align: center;
+.form1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  padding: 0.4rem;
 }
-.form1 p{
+.form1 p {
   position: relative;
-  text-align: left;
-  left: 40px;
+  left: 12px;
+  font-size: 16px;
 }
-.form1 input{
-border-radius: 20px;
-width: 320px;
-height: 35px;
+.form1 input {
+  border-radius: 20px;
+  width: 320px;
+  height: 35px;
+  margin: 0 auto;
 }
-.button1{
-width: 320px;
-height: 43px;
-border-radius: 20px;
-position: relative;
-top: 28px;
-left: -6px;
-background-color: #5579fe;
-border: 0px;
-color: white;
+.button1 {
+  width: 320px;
+  height: 43px;
+  border-radius: 20px;
+  position: relative;
+  top: 28px;
+  left: 2px;
+  background-color: #5579fe;
+  border: 0px;
+  color: white;
 }
-.button1:hover{
-font-weight: bold;
-transition: all 0.3s;
-scale: 1.1;
+.button1:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.1;
 }
-.icon{
-position: relative;
-left: -30px;
-top: 6px;
-z-index: 200;
+.icon {
+  position: relative;
+  left: 280px;
+  top: -29px;
+ 
 }
-.font{
+.font {
   font-size: 15px;
 }
