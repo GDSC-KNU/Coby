@@ -5,6 +5,7 @@
   justify-content: center;
   width: 47rem;
   max-width: 90%;
+  height: 100%;
   height: calc(100vh - 6.7rem);
   margin: 0 auto;
   padding: 0.7rem;
