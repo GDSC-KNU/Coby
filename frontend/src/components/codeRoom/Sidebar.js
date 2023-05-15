@@ -7,6 +7,7 @@ import exit from "../../images/exit.png";
 import MyPage from "../../sevices/MyPage";
 import getRoomId from "../../sevices/getRoomId";
 import DeleteRoom from "../../sevices/DeleteRoom";
+import ShowRoomList from "../../sevices/ShowRoomList";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -34,8 +35,13 @@ const Sidebar = () => {
 
   const DeleteRoomHandler = async () => {
     try {
-      const roomData = await getRoomId();
-      await DeleteRoom(roomData, userList);
+      const currentUser = await MyPage();
+      const currentUserId = currentUser.userId;
+      const roomData = await ShowRoomList();
+      const roomId = roomData
+        .filter((makeRoom) => makeRoom.createdBy === currentUserId)
+        .map((makeRoom) => makeRoom.id);
+      await DeleteRoom(roomId, userList);
       setUserList([]);
     } catch (error) {
       alert(error.response.data);
@@ -43,12 +49,21 @@ const Sidebar = () => {
     }
   };
 
-  const deleteHandler = () => {
+  const deleteHandler = async () => {
     const confirmed = window.confirm(
       "정말 나가시겠습니까? 방장이 아닌 경우 포인트를 얻지 못합니다."
     );
     if (confirmed) {
-      DeleteRoomHandler();
+      const currentUser = await MyPage();
+      const currentUserId = currentUser.userId;
+      const makeUserList = await ShowRoomList();
+      const makeUserIds = makeUserList.map((makeRoom) => makeRoom.createdBy);
+      const isCurrentUserMakeUser = makeUserIds.includes(currentUserId);
+
+      if (isCurrentUserMakeUser) {
+        await DeleteRoomHandler();
+      }
+
       navigate("/CodeRoomList");
     }
   };

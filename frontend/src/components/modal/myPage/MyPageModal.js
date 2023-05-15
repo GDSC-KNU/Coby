@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Backdrop from "../../reuseUI/Backdrop";
 import Layout from "../../reuseUI/Layout";
-import axios from "axios";
+import MyPage from "../../../sevices/MyPage";
 import './MyPageModal.css';
 
 
