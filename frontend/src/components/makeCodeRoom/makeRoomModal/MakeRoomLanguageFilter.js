@@ -13,13 +13,13 @@ const MakeRoomLanguageFilter = (props) => {
         <option value="" selected disabled hidden></option>
         <option value="Python">Python</option>
         <option value="Java">Java</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value="C">C</option>
-        <option value="C++">C++</option>
+        <option value="JS">JavaScript</option>
+        <option value="Clang">C</option>
+        <option value="Cplusplus">C++</option>
         <option value="Kotlin">Kotlin</option>
         <option value="Swift">Swift</option>
         <option value="Go">Go</option>
-        <option value="C#">C#</option>
+        <option value="Csharp">C#</option>
         <option value="Scala">Scala</option>
         <option value="Ruby">Ruby</option>
       </select>
