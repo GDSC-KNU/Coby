@@ -11,8 +11,8 @@ const MakeRoomPurposeFilterPair = (props) => {
     <div className={styles.RoomModalsPair}>
       <select value={props.selected} onChange={dropdownHandler}>
         <option value="" selected disabled hidden></option>
-        <option value="Code Review">Code Review</option>
-        <option value="Pair Programming">Pair Programming</option>
+        <option value="Live Share">Visual Studio Code</option>
+        <option value="Code With Me">IntelliJ</option>
       </select>
     </div>
   );

@@ -1,16 +1,13 @@
-@keyframes smoothAppear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1; 
-  }
-}
-.Out {
+
+.out {
   display: flex;
 }
 
-.Sidebar {
+body {
+  overflow: auto;
+}
+
+.sidebar1 {
   background-color: #5579fe;
   position: fixed;
   top: 0;
@@ -21,7 +18,13 @@
   height: 100%;
   z-index: 99;
 }
-.Button{
+
+.exit {
+  position: absolute;
+  top: 95%;
+  left: 3%;
+}
+.button {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -33,15 +36,16 @@
   margin: 0;
   color: white;
 }
-.Logo {
+.logo {
   position: absolute;
-  left: 4.25vw;
-  top: 5vh;
-  width: 7vw;
-  height: 11vh;
+  left: 105px;
+  top: 50px;
+  width: 120px;
+  height: 100px;
   /* animation: smoothAppear 1s; */
 }
-.Profile{
+
+.profile {
   position: relative;
   top: 20vh;
   margin-top: 1rem;
@@ -51,14 +55,16 @@
   background: white;
   border-radius: 50%;
 }
-.Name{
+
+.name {
   position: relative;
   top: 1.5vh;
   left: 5rem;
-  color : white;
+  color: white;
   font-size: 1rem;
 }
-.Chatting{
+
+.chatting {
   position: relative;
   top: 36vh;
   left: 5%;
@@ -67,9 +73,9 @@
   background: white;
   border-radius: 5%;
   transition: 2s;
-  /* animation: smoothAppear 1s; */
 }
-.Font{
+
+.font {
   position: relative;
   top: 2vh;
   left: 0.7vw;
@@ -77,7 +83,18 @@
   font-weight: bold;
   color: black;
 }
-.ProfileImg{
+
+.profileImg {
   display: block;
   width: 100%;
+}
+
+.memberlist {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.memberlist ul {
+  position: relative;
+  top: 300%;
 }

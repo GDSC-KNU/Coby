@@ -2,32 +2,24 @@ package com.gdsc.coby.dto.request;
 
 import com.gdsc.coby.dto.RoomDto;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public record RoomRequestDto(
-        String name,
+        String title,
         String url,
-        List<String> language,
-        List<String> tool,
-        String password,
-        Integer personnel
+        String language,
+        String tool,
+        String password
 ) {
-    public static RoomRequestDto of(String name, String url, List<String> language, List<String> tool, String password, Integer personnel) {
-        return new RoomRequestDto(name, url, language, tool, password, personnel);
+    public static RoomRequestDto of(String title, String url, String language, String tool, String password) {
+        return new RoomRequestDto(title, url, language, tool, password);
     }
 
     public RoomDto toDto() {
         return RoomDto.of(
-                name,
+                title,
                 url,
                 password,
-                personnel,
-                Stream.of(language, tool)
-                        .flatMap(Collection::stream)
-                        .collect(Collectors.toList())
+                language,
+                tool
         );
     }
 }

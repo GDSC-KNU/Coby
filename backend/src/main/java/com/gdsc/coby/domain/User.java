@@ -14,22 +14,25 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@Setter
 @Table(name = "user_account")
 public class User implements UserDetails {
     @Id
     @Column(length = 50)
     private String userId;
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     private Group group;
 
+    @Setter
     @Column(nullable = false)
     private String name;
 
+    @Setter
     @Column(nullable = false)
     private String password;
 
+    @Setter
     @Column
     private String profileUrl;
 
@@ -88,5 +91,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setExp_point(Long exp) {
+        exp_point += exp;
     }
 }

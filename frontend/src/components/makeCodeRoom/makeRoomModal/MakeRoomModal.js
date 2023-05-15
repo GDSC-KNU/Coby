@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import styles from "./MakeRoomModal.module.css";
-
 import logo from "../../../images/logo_black.png";
 import MakeRoomLanguageFilter from "./MakeRoomLanguageFilter";
-import MakeRoomToolFilter from "../MakeRoomToolFilter";
-// import MakeRoomPurposeFilter from "./MakeRoomPurposeFilter";
+import MakeRoomToolFilter from "./MakeRoomToolFilter";
+import SaveRoomList from "../../../sevices/SaveRoomList";
 
 function MakeRoomModal(props) {
+  const navigate = useNavigate();
   const [enteredTitle, setEnteredTitle] = useState("");
   const [isTitleValid, setIsTitleValid] = useState();
   const [enteredLanguage, setEnteredLanguage] = useState("");
@@ -62,6 +61,7 @@ function MakeRoomModal(props) {
     );
   };
   /*https://prod.liveshare.vsengsaas.visualstudio.com/join? 예시 링크*/
+  /* Intellij 링크도 추가해주어야함. 이것 나중에 CodeWithMe 공통 링크 알아낼것 */
 
   const validateLinkHandler = () => {
     setIsLinkValid(
@@ -71,7 +71,7 @@ function MakeRoomModal(props) {
     );
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const makeRoomData = {
@@ -82,22 +82,29 @@ function MakeRoomModal(props) {
       password: enteredPassWord,
       link: enteredLink,
     };
-
     props.onSaveRoomData(makeRoomData);
     setEnteredTitle("");
     setEnteredLanguage("");
     setEnteredTool("");
-    // setEnteredPurpose("");
     setEnteredPassWord("");
     setEnteredLink("");
-    // 임시 전송할 데이터
-  };
 
-  // document.querySelector('button').addEventlistener('click', (e) => {
-  //   e.stopPropagation(); // 이벤트 전파 방지
-  //   console.log('버튼 클릭');
-  //   e.target.setAttribute('type', 'submit');
-  // });
+    try {
+      const Create = await SaveRoomList(
+        enteredTitle,
+        enteredLink,
+        enteredLanguage,
+        enteredTool,
+        enteredPassWord
+      );
+      console.log(Create);
+      localStorage.setItem(Create);
+    } catch (error) {
+      console.error(error);
+      throw new Error(error.response.data.message);
+    }
+    //navigate("/CodeRoom");
+  };
 
   return (
     <div className={styles.RoomModals}>
@@ -125,29 +132,14 @@ function MakeRoomModal(props) {
             selected={enteredLanguage}
             onChangeFilter={languageChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredLanguage}
-            onChange={languageChangeHandler}
-          /> */}
         </div>
-        {/* 언어가 너무 다양한데 이거 그냥 글로 쓰는게 낫지 않을까? */}
         <div className={styles.RoomModalControl}>
           <p>사용 도구</p>
           <MakeRoomToolFilter
             selected={enteredTool}
             onChangeFilter={toolChangeHandler}
           />
-          {/* <input
-            type="text"
-            value={enteredTool}
-            onChange={toolChangeHandler}
-          /> */}
         </div>
-        {/* <div className="RoomModal-control">
-          <p>사용 목적</p>
-          <MakeRoomPurposeFilter />
-        </div> */}
         <div className={styles.RoomModalControl}>
           <p>비밀번호</p>
           <input
