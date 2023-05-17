@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
 import Layout from "../../reuseUI/Layout";
-import MyPage from "../../../sevices/MyPage";
 import './MyPageModal.css';
+import MyPage from "../../../sevices/MyPage";
+import MyInfoEdit from "../myInfoEdit/myInfoEdit";
+import Backdrop from "../../reuseUI/Backdrop";
+import pencil from '../../../images/pencil.png';
 
-
-function MyPageModal(setMyPageOpen){
+function MyPageModal(props){
+    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [name,setName] = useState('');
     const [group,setGroup] = useState('');
     const [exp, setExp] = useState('');
     const [grade, setGrade] = useState('');
+
+    const showEditModal = () => {
+        props.setInfoEditModalOpen(true);
+    };
+    const closeEditModal = () => {
+        props.setInfoEditModalOpen(false);
+    }
 
     function checkGrade(exp) {
         if (exp < 1000) {
@@ -25,7 +35,9 @@ function MyPageModal(setMyPageOpen){
             setName(data.name);
             setGroup(data.group);
             setExp(data.exp_point);
-            checkGrade(data.exp_point);
+            setProfileImg(data.profileUrl);
+            checkGrade(exp);
+            console.log(data);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -40,19 +52,20 @@ function MyPageModal(setMyPageOpen){
                         <br />＜COBY.＞
                     </div>
                     <div className="userinfo">
-                        <p><br/><br/><br/>이름 : {name}</p>
+                        <img src={pencil} alt="pencil" onClick={showEditModal} className="correction"></img>
+                        <p>이름 : {name}</p>
                         <p>그룹 : {group}</p>
                         <p>등급 : {grade}</p>
                         <p>기여도 : {exp}</p>
                     </div>
-                    <div className="userphoto"></div>
+                    <img className="userphoto" src={profileImg} alt="profileimg"></img>
                     <div className="tier"></div>
                 </div>
             </div>
+            {props.infoEditOpen && <MyInfoEdit setModalOpen={props.setInfoEditModalOpen}/>}
+            {props.infoEditOpen && <Backdrop onCancel={closeEditModal} />}
         </div>
     );
 }
 
 export default MyPageModal;
-
-

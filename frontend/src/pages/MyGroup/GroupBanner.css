@@ -8,16 +8,6 @@
     background: #ffffff;
 }
 
-.groupbanner{
-    position: absolute;
-    background-color: #5579fe;
-    width: 15rem;
-    height: 40rem;
-    right: 46rem;
-    top: 6.5rem;
-    border-radius: 10px
-}
-
 .font{
     font-size: 3vw;
     position: relative;
@@ -48,8 +38,8 @@
 /*배너(휘장 부분)*/
 .groupbanner_body {
     position: absolute;
-    width: 13.4rem;
-    height: 40.3rem;
+    width: 214px;
+    height: 645px;
     
     left: -3%;
     top: 15vh;
@@ -93,7 +83,7 @@
     text-align: center;
 
     color: white;
-    top:28vh;
+    top:9vh;
     font-size: 1rem;
     font-weight:lighter;
 }
@@ -104,7 +94,7 @@
     height: 3rem;
 
     position: relative;
-    top: 40vh;
+    top: 17vh;
     left: 47%;
     transform: translate(-100%);
     margin-left: 4.2rem;
@@ -126,4 +116,37 @@
 .groupbtn:hover {
     font-weight: bold;
     transition: all 0.3s;
+}
+.activebtn{
+    width: 8rem;
+    height: 3rem;
+
+    position: relative;
+    top: 17vh;
+    left: 47%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: underline white 2px;
+  }
+
+.group_img{
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    background-color: #5579fe;
+    margin-left:2.9rem;
+    margin-top: 5rem;
 }
