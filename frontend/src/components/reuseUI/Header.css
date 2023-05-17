@@ -115,6 +115,22 @@
   scale: 1.05;
 }
 
+.Help {
+  cursor: pointer;
+  font-weight:bold;
+  font-size: 0.6rem;
+  border: 0px;
+  border-radius: 3px;
+  background-color: #5579fe;
+  color:white;
+}
+.Help:hover {
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+
 @media (min-width: 600px) {
   .navigation li {
     font-size: 0.8rem;
