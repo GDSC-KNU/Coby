@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface PostRepository extends JpaRepository<Post,Long> {
     Optional<Post> findById(Long postId);
-    //List<Post> findAllByGroup_Id(Long groupId);
+    List<Post> findAllByGroup_Id(Long groupId);
     void deleteByIdAndCreatedBy(Long postId, String userId);
 }
