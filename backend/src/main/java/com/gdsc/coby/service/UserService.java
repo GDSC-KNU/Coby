@@ -5,6 +5,7 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.UserDto;
+import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.SecurityUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+
 
 @Service
 @Slf4j
@@ -55,19 +58,23 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("로그인 유저 정보가 없습니다."));
     }
 
-    public UserDto updateUserInfo(String name, MultipartFile multipartFile) {
+
+    public UserDto updateUserInfo(MultipartFile profileImage,String name) {
         User user = userRepository.findByUserId(SecurityUtil.getCurrentUserId())
                 .orElseThrow(() -> new UsernameNotFoundException("로그인 유저 정보가 없습니다."));
-
-        String uploadImageUrl= upload(user.getUserId(),multipartFile);
-
-        if(name == null)
+        if((name==null && profileImage==null))
             throw new IllegalArgumentException("수정할 정보가 없습니다.");
-        if(name != null && !name.equals(user.getName()))
-            user.setName(name);
+        if(name!=null) {
 
-        if(uploadImageUrl != null && !uploadImageUrl.equals(user.getProfileUrl()))
-            user.setProfileUrl(uploadImageUrl);
+            if (!name.equals(user.getName()))
+                user.setName(name);
+        }
+        if(profileImage!=null) {
+            String uploadImageUrl = upload(user.getUserId(), profileImage);
+
+            if (uploadImageUrl != null && !uploadImageUrl.equals(user.getProfileUrl()))
+                user.setProfileUrl(uploadImageUrl);
+        }
 
         return UserDto.from(user);
     }
