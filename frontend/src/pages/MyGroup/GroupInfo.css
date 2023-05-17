@@ -6,11 +6,11 @@ body{
     display: column;
     align-items: center;
     justify-content: center;
-    width: 60rem;
-    max-width: 90%;
-    height: 98vh;
+    width: 950px;
+    height: 762px;
     padding: 0.7rem;
     background: #ffffff;
+    z-index: 1;
 }
 .info{
     position: relative;
@@ -56,7 +56,7 @@ body{
 .groupNotice{
     margin-top: 0.8rem;
     position: relative;
-    width: 43rem;
+    width: 690px;
     height: 2.8rem;
     background-color: #5579fe;
     border-radius: 10px;
@@ -91,6 +91,7 @@ body{
     height: 11rem;
 }
 .subtitle{
+    position: relative;
     font-size: 1rem;
     margin-top: 10px;
     margin-left: 1rem;
@@ -101,7 +102,7 @@ body{
 .profile_outer{
     display: flex;
 }
-.profile_img{
+.profile_Img{
     border-radius: 50%;
     width: 5.5rem;
     height: 5.5rem;
