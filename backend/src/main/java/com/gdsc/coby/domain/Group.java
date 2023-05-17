@@ -4,22 +4,23 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Fetch;
 
 import java.util.*;
 
 @Entity
 @Getter
-@Setter
 @Table(name = "group_list")
 public class Group extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter
     private Long id;
 
     @Column(nullable = false)
+    @Setter
     private String name;
 
+    @Setter
     private String description;
 
     @ToString.Exclude
@@ -27,6 +28,7 @@ public class Group extends AuditingFields{
     @OneToMany(mappedBy = "group")
     private Set<User> members = new LinkedHashSet<>();
 
+    @Setter
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
     private List<Post> posts = new LinkedList<>();
@@ -36,6 +38,14 @@ public class Group extends AuditingFields{
     private Group(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public void setMembers(User user) {
+        members.add(user);
+    }
+
+    public void updateMembers(User user){
+        members.remove(user);
     }
 
     public static Group of(String name, String description) {
