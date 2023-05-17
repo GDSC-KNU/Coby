@@ -6,9 +6,7 @@ import styles from "./MakeRoom.module.css";
 import SearchRoomList from "../../sevices/SearchRoomList";
 import { useNavigate } from "react-router-dom";
 
-function MakeRoom(props) {
-  const [filteredTool, setFilteredTool] = useState("");
-
+function MakeRoom() {
   const [devVscode, setVscode] = useState(false);
   const [devIntellij, setIntellij] = useState(false);
   const [devC, setC] = useState(false);
@@ -16,31 +14,44 @@ function MakeRoom(props) {
   const [devJava, setJava] = useState(false);
   const [devJavascript, setJavascript] = useState(false);
   const [devRuby, setRuby] = useState(false);
-  const [devEtc, setEtc] = useState(false);
+  const [devKotlin, setKotlin] = useState(false);
+  const [devSwift, setSwift] = useState(false);
+  const [devGo, setGo] = useState(false);
+  const [devLinq, setLinq] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
 
   const onClickVs = () => {
-    setVscode(!devVscode);
+    setVscode(true);
   };
   const onClickInt = () => {
-    setIntellij(!devIntellij);
+    setIntellij(true);
   };
   const onClickC = () => {
-    setC(!devC);
+    setC(true);
   };
   const onClickCpp = () => {
-    setCpp(!devCpp);
+    setCpp(true);
   };
   const onClickJava = () => {
-    setJava(!devJava);
+    setJava(true);
   };
   const onClickJs = () => {
-    setJavascript(!devJavascript);
+    setJavascript(true);
   };
   const onClickRuby = () => {
-    setRuby(!devRuby);
+    setRuby(true);
   };
-  const onClickEtc = () => {
-    setEtc(!devEtc);
+  const onClickKotlin = () => {
+    setKotlin(true);
+  };
+  const onClickSwift = () => {
+    setSwift(true);
+  };
+  const onClickGo = () => {
+    setGo(true);
+  };
+  const onClickLinq = () => {
+    setLinq(true);
   };
 
   const [enteredSearch, setEnteredSearch] = useState("");
@@ -53,9 +64,10 @@ function MakeRoom(props) {
   const SearchClickHandler = async (event) => {
     event.preventDefault();
     setEnteredSearch("");
-    try { 
-      const Search = await SearchRoomList(enteredSearch);
-      console.log(Search);
+    try {
+      const SearchResults = await SearchRoomList(enteredSearch);
+      setSearchResult(SearchResults);
+      console.log(SearchResults);
       const encodedSearch = encodeURIComponent(enteredSearch);
       navigate(`/CodeRoomList?s=${encodedSearch}`);
     } catch (err) {
@@ -63,9 +75,26 @@ function MakeRoom(props) {
     }
   };
 
-  const filteredMakeRooms = filteredTool
-    ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
-    : props.items;
+  const filteredResults = searchResult.filter((makeRoom) => {
+    if (
+      (devVscode && makeRoom.tool === "Visual Studio Code") ||
+      (devIntellij && makeRoom.tool === "IntelliJ") ||
+      (devC && makeRoom.language === "C") ||
+      (devCpp && makeRoom.language === "C++") ||
+      (devJava && makeRoom.language === "Java") ||
+      (devJavascript && makeRoom.language === "JavaScript") ||
+      (devRuby && makeRoom.language === "Ruby") ||
+      (devKotlin && makeRoom.language === "Kotlin") ||
+      (devSwift && makeRoom.language === "Swift") ||
+      (devGo && makeRoom.language === "Go") ||
+      (devLinq && makeRoom.language === "C#")
+    ) {
+      return true;
+    }
+    return false;
+  });
+  // ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
+  // : props.items;
 
   return (
     <div className={styles.PageBox}>
@@ -88,7 +117,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickVs}
           style={{
-            backgroundColor: devVscode ? "#5579fe" : "",
+            backgroundColor: devVscode ? "#5579fe" : "#ffffff",
             color: devVscode ? "white" : "black",
           }}
         >
@@ -98,7 +127,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickInt}
           style={{
-            backgroundColor: devIntellij ? "#5579fe" : "",
+            backgroundColor: devIntellij ? "#5579fe" : "#ffffff",
             color: devIntellij ? "white" : "black",
           }}
         >
@@ -110,7 +139,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickC}
           style={{
-            backgroundColor: devC ? "#5579fe" : "",
+            backgroundColor: devC ? "#5579fe" : "#ffffff",
             color: devC ? "white" : "black",
           }}
         >
@@ -118,9 +147,19 @@ function MakeRoom(props) {
         </button>
         <button
           className={styles.filter}
+          onClick={onClickLinq}
+          style={{
+            backgroundColor: devLinq ? "#5579fe" : "#ffffff",
+            color: devLinq ? "white" : "black",
+          }}
+        >
+          C#
+        </button>
+        <button
+          className={styles.filter}
           onClick={onClickCpp}
           style={{
-            backgroundColor: devCpp ? "#5579fe" : "",
+            backgroundColor: devCpp ? "#5579fe" : "#ffffff",
             color: devCpp ? "white" : "black",
           }}
         >
@@ -130,7 +169,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickJava}
           style={{
-            backgroundColor: devJava ? "#5579fe" : "",
+            backgroundColor: devJava ? "#5579fe" : "#ffffff",
             color: devJava ? "white" : "black",
           }}
         >
@@ -140,7 +179,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickJs}
           style={{
-            backgroundColor: devJavascript ? "#5579fe" : "",
+            backgroundColor: devJavascript ? "#5579fe" : "#ffffff",
             color: devJavascript ? "white" : "black",
           }}
         >
@@ -150,7 +189,7 @@ function MakeRoom(props) {
           className={styles.filter}
           onClick={onClickRuby}
           style={{
-            backgroundColor: devRuby ? "#5579fe" : "",
+            backgroundColor: devRuby ? "#5579fe" : "#ffffff",
             color: devRuby ? "white" : "black",
           }}
         >
@@ -158,17 +197,37 @@ function MakeRoom(props) {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickEtc}
+          onClick={onClickKotlin}
           style={{
-            backgroundColor: devEtc ? "#5579fe" : "",
-            color: devEtc ? "white" : "black",
+            backgroundColor: devKotlin ? "#5579fe" : "#ffffff",
+            color: devKotlin ? "white" : "black",
           }}
         >
-          기타
+          Kotlin
+        </button>
+        <button
+          className={styles.filter}
+          onClick={onClickSwift}
+          style={{
+            backgroundColor: devSwift ? "#5579fe" : "#ffffff",
+            color: devSwift ? "white" : "black",
+          }}
+        >
+          Swift
+        </button>
+        <button
+          className={styles.filter}
+          onClick={onClickGo}
+          style={{
+            backgroundColor: devGo ? "#5579fe" : "#ffffff",
+            color: devGo ? "white" : "black",
+          }}
+        >
+          Go
         </button>
       </div>
       <div className={styles.CodeRoomListBox}>
-        {filteredMakeRooms.map((makeRoom) => (
+        {filteredResults.map((makeRoom) => (
           <RoomItem
             key={makeRoom.id}
             title={makeRoom.title}
