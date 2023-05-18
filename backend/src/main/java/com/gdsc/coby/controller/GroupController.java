@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.webjars.NotFoundException;
 
 import java.util.List;
@@ -37,16 +38,37 @@ public class GroupController {
         return ResponseEntity.ok(GroupResponseDto.from(groupService.getGroupInfo(groupId)));
     }
 
+    @GetMapping("/my")
+    @Operation(description = "마이 그룹 정보를 조회합니다.")
+    public ResponseEntity<GroupResponseDto> myGroup(){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.getMyGroupInfo()));
+    }
+
     @PostMapping
     @Operation(description = "그룹을 생성합니다.")
-    public ResponseEntity<GroupResponseDto> createGroup(GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(requestDto)));
+    public ResponseEntity<GroupResponseDto> createGroup(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "requestDto") GroupRequestDto requestDto){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(profileImage,requestDto.toDto())));
     }
+
+    @PostMapping("/join/{groupId}")
+    @Operation(description = "로그인한 사용자가 그룹에 가입합니다.")
+    public ResponseEntity<?> joinGroup(@PathVariable Long groupId) {
+        return ResponseEntity.ok(groupService.join(groupId));
+    }
+
+
     @PostMapping("/{groupId}")
     @Operation(description = "그룹 상세정보를 수정합니다.")
-    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,requestDto)));
+    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, @RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "info") GroupRequestDto requestDto){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,profileImage,requestDto.toDto())));
     }
+
+    @PostMapping("/leave/{groupId}")
+    @Operation(description = "로그인한 사용자가 그룹을 탈퇴합니다.")
+    public ResponseEntity<?> leaveGroup(@PathVariable Long groupId) {
+        return ResponseEntity.ok(groupService.leave(groupId));
+    }
+
 
     @DeleteMapping("/{groupId}")
     @Operation(description = "그룹을 삭제합니다.")
