@@ -3,7 +3,6 @@ import "./GroupBoard.css"
 import Layout from "../../components/reuseUI/Layout";
 import GroupBanner from "./GroupBanner";
 import Pagination from 'react-js-pagination';
-import axios from "axios";
 
 const GroupBoard = () => {
   const [page, setPage] = useState(1);
@@ -18,7 +17,7 @@ const GroupBoard = () => {
   }
 
   return (
-    <div className="outer">
+    <div className="outer1">
       <Layout/>
       <GroupBanner/>
       <div className="boardouter">

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import MyPage from '../../../sevices/MyPage';
-import MyprofileEdit from '../../../sevices/MyprofileEdit';
+import MyGroup from '../../../sevices/MyPage';
+import MyGroupInfoEdit from '../../../sevices/MyprofileEdit';
 
-import './myInfoEdit.css';
+import './myGroupEdit.css';
 
-function MyInfoEdit(props) {
+function MyGroupEdit(props) {
     const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [name,setName] = useState('');
     const [file, setFile] = useState(null);
@@ -26,24 +26,24 @@ function MyInfoEdit(props) {
     };
 
     useEffect(() => {
-        MyPage().then((data) => {
+        MyGroup().then((data) => {
             setProfileImg(data.profileUrl);
             setName(data.name);
         }).catch((err) => {
             console.log(err.message);
         });
     }, []);
-    
+
     const onClickChange = async (event) => {
         event.preventDefault();
         try {
             const formData = new FormData();
+            const jsonData = JSON.stringify({ name: "groupname", description: "" });
             formData.append("profileImage", file);
-            formData.append('name', name);
+            formData.append('info', jsonData);
 
-            MyprofileEdit(formData).then((data) => {
+            MyGroupInfoEdit(formData).then((data) => {
                 alert("수정 완료!");
-                props.setModalOpen(false);
                 window.location.reload();
             });
         } catch (error) {
@@ -53,9 +53,9 @@ function MyInfoEdit(props) {
     };
 
     return (
-        <div className="infoOuterEdit">
-            <div className='infoUploader'>
-                <p className='editFont'>프로필 수정</p>
+        <div className="outerEdit">
+            <div className='uploader'>
+                <p className='editFont'>그룹정보 수정</p>
                 <div className="preview">
                     <input className="fileinput" type="file" accept="image/jpg,image/png,image/jpeg,image/gif" name="file" onChange={(e) => {encodeFileToBase64(e.target.files[0])}}/>
                     {profileImg && <img src={profileImg} alt="preview-img" className='profileImg'/>}
@@ -66,4 +66,4 @@ function MyInfoEdit(props) {
         </div>
     );
 }
-export default MyInfoEdit;
+export default MyGroupEdit;

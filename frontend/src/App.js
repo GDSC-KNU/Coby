@@ -15,7 +15,6 @@ import Write from "./pages/MyGroup/BoardWirte";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [infoEditOpen, setInfoEditModalOpen] = useState(false);
 
   return (
     <div>
@@ -26,8 +25,9 @@ function App() {
           <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />
           <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
-          <Route path="/GroupInfo" element={<GroupInfo infoEditOpen={infoEditOpen} setInfoEditModalOpen={setInfoEditModalOpen}/>} />
+          <Route path="/GroupInfo" element={<GroupInfo />}/>
           <Route path="/GroupBoard" element={<GroupBoard/>} />
+          <Route path="/NoGroup" element={<Nogroup/>} />
           <Route path="/BoardWrite" element={<Write/>} />
           <Route path="/GroupMember" element={<GroupMember/>} />
         </Routes>

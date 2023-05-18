@@ -6,18 +6,22 @@ import MyInfoEdit from "../myInfoEdit/myInfoEdit";
 import Backdrop from "../../reuseUI/Backdrop";
 import pencil from '../../../images/pencil.png';
 
-function MyPageModal(props){
+function MyPageModal(){
     const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [name,setName] = useState('');
     const [group,setGroup] = useState('');
     const [exp, setExp] = useState('');
     const [grade, setGrade] = useState('');
+    const [infoEditOpen, setInfoEditModalOpen] = useState(false);
 
     const showEditModal = () => {
-        props.setInfoEditModalOpen(true);
+        setInfoEditModalOpen(true);
     };
     const closeEditModal = () => {
-        props.setInfoEditModalOpen(false);
+        setInfoEditModalOpen(false);
+    }
+    const onClickCheck = () => {
+        window.location.reload();
     }
 
     function checkGrade(exp) {
@@ -33,7 +37,7 @@ function MyPageModal(props){
     useEffect(() => {
         MyPage().then((data) => {
             setName(data.name);
-            setGroup(data.group);
+            setGroup(data.groupName);
             setExp(data.exp_point);
             setProfileImg(data.profileUrl);
             checkGrade(exp);
@@ -52,18 +56,19 @@ function MyPageModal(props){
                         <br />＜COBY.＞
                     </div>
                     <div className="userinfo">
-                        <img src={pencil} alt="pencil" onClick={showEditModal} className="correction"></img>
                         <p>이름 : {name}</p>
                         <p>그룹 : {group}</p>
                         <p>등급 : {grade}</p>
                         <p>기여도 : {exp}</p>
+                        <button onClick={showEditModal} className="editbtn">수정</button>
+                        <button onClick={onClickCheck} className="checkbtn">확인</button>
                     </div>
                     <img className="userphoto" src={profileImg} alt="profileimg"></img>
                     <div className="tier"></div>
                 </div>
             </div>
-            {props.infoEditOpen && <MyInfoEdit setModalOpen={props.setInfoEditModalOpen}/>}
-            {props.infoEditOpen && <Backdrop onCancel={closeEditModal} />}
+            {infoEditOpen && <MyInfoEdit setModalOpen={setInfoEditModalOpen}/>}
+            {infoEditOpen && <Backdrop onCancel={closeEditModal} />}
         </div>
     );
 }
