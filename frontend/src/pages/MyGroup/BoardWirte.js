@@ -20,6 +20,7 @@ function Write(props) {
         })
     }
     /*
+    /api/posts
     const submitReview = ()=>{
       Axios.post('http://localhost:8000/insert', {
         title: content.title,

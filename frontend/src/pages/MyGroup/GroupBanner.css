@@ -5,7 +5,7 @@
     height: 50rem;
     margin: 0 auto;
     padding: 0.7rem;
-    background: #ffffff;
+    background: white;
 }
 
 .font{
@@ -39,7 +39,7 @@
 .groupbanner_body {
     position: absolute;
     width: 214px;
-    height: 645px;
+    height: 663px;
     
     left: -3%;
     top: 15vh;

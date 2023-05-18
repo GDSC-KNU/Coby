@@ -60,7 +60,7 @@ body {
 .userinfo {
     position: absolute;
     left:249px;
-    top:50px;
+    top:70px;
     font-size: 23px;
     font-weight: 700;
     font-style: normal;
@@ -81,3 +81,43 @@ body {
     top:181px;
     background: url('silver.png');
 }
+
+.editbtn{
+    position: relative;
+    left: 90%;
+    top: 10px;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+    border: none;
+    background-color: #5579FE;
+    color: white;
+}
+.editbtn:hover {
+    font-weight: bold;
+    transition: all 0.3s;
+    scale: 1.1;
+}
+.checkbtn{
+    position: relative;
+    left: 90%;
+    top: 10px;
+    margin-left: 5px;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+    border: none;
+    background-color: #5579FE;
+    color: white;
+}
+.checkbtn:hover {
+    font-weight: bold;
+    transition: all 0.3s;
+    scale: 1.1;
+  }

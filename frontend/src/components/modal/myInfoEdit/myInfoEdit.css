@@ -1,17 +1,16 @@
-.outerEdit {
+.infoOuterEdit {
   width: 25rem;
   height: 30rem;
   z-index: 999;
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%);
   background-color: white;
   border: 1px solid black;
   border-radius: 30px;
   box-shadow: 0px 0px 20px #000;
 }
-.uploader{
+.infoUploader{
   position: relative;
   left: 50%;
   transform: translate(-26%);
@@ -55,4 +54,20 @@
   font-weight: bold;
   cursor: pointer;
   color: white;
+}
+.fileinput{
+  position: relative;
+  width: 300px;
+  left: 105px;
+  transform: translate(-50%);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.editName{
+  position: relative;
+  left: 105px;
+  width: 300px;
+  transform: translate(-50%);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

@@ -118,6 +118,13 @@ function Header(props) {
                   <SignIn setModalOpen={setSigninModalOpen} />
                 )}
                 {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+                <button onClick={showMypageModal} className="Signin">
+                  마이페이지
+                </button>
+                {mypagemodalOpen && (
+                  <MypageModal setModalOpen={setMypageModalOpen} />
+                )}
+                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
                 <button onClick={showLoginModal} className="Login">
                   로그인
                 </button>
