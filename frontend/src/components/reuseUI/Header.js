@@ -4,6 +4,8 @@ import Login from "../modal/log/LoginModal";
 import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
+import Help from "../modal/help/HelpModal";
+import HelpWindow from "../../pages/Help";
 
 import "./Header.css";
 import Logout from "../../sevices/Logout";
@@ -50,6 +52,8 @@ function Header(props) {
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
   const [mypagemodalOpen, setMypageModalOpen] = useState(false);
+  const [helpModalOpen, setHelpModalOpen] = useState(false);
+
 
   const showLoginModal = () => {
     setLoginModalOpen(true);
@@ -69,6 +73,14 @@ function Header(props) {
   const closeSigninModal = () => {
     setSigninModalOpen(false);
   };
+
+  const showHelpModal = () => {
+    setHelpModalOpen(true);
+  }
+  const closeHelpModal = () => {
+    setHelpModalOpen(false);
+  }
+
 
   const logOut = async (event) => {
     event.preventDefault();
@@ -164,7 +176,10 @@ function Header(props) {
               >
                 마이그룹
               </li>
-              <li>도움말</li>
+              <li  onClick={showHelpModal} className="Help">도움말</li>
+              {helpModalOpen && <Help setHelpModalOpen={setHelpModalOpen} />}
+              {helpModalOpen && <HelpWindow onCancel={closeHelpModal} />}
+
             </ul>
           </nav>
         </div>
