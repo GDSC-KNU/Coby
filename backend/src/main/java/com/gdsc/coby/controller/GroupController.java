@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.webjars.NotFoundException;
 
 import java.util.List;
@@ -45,8 +46,8 @@ public class GroupController {
 
     @PostMapping
     @Operation(description = "그룹을 생성합니다.")
-    public ResponseEntity<GroupResponseDto> createGroup(@RequestBody GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(requestDto.toDto())));
+    public ResponseEntity<GroupResponseDto> createGroup(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "requestDto") GroupRequestDto requestDto){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(profileImage,requestDto.toDto())));
     }
 
     @PostMapping("/join/{groupId}")
@@ -58,8 +59,8 @@ public class GroupController {
 
     @PostMapping("/{groupId}")
     @Operation(description = "그룹 상세정보를 수정합니다.")
-    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,requestDto.toDto())));
+    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, @RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "info") GroupRequestDto requestDto){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,profileImage,requestDto.toDto())));
     }
 
     @PostMapping("/leave/{groupId}")

@@ -14,13 +14,14 @@ public record GroupDto(
         Long id,
         String name,
         String description,
+        String profileUrl,
         LocalDateTime createdAt,
         String createdBy,
         Set<UserDto> members
 ) {
 
-    public static GroupDto of (String name, String description,Set<UserDto> members){
-        return new GroupDto(null,name,description,null,null, members);
+    public static GroupDto of (String name, String description,String profileUrl,Set<UserDto> members){
+        return new GroupDto(null,name,description,profileUrl,null,null, members);
     }
 
     public static GroupDto from (Group entity){
@@ -28,6 +29,7 @@ public record GroupDto(
                 entity.getId(),
                 entity.getName(),
                 entity.getDescription(),
+                entity.getProfileUrl(),
                 entity.getCreatedAt(),
                 entity.getCreatedBy(),
                 entity.getMembers().stream().map(UserDto::from)

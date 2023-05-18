@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
 
 import java.util.*;
 
@@ -23,6 +24,10 @@ public class Group extends AuditingFields{
     @Setter
     private String description;
 
+    @Setter
+    @Column
+    private String profileUrl;
+
     @ToString.Exclude
     @OrderBy("exp_point ASC")
     @OneToMany(mappedBy = "group")
@@ -30,7 +35,7 @@ public class Group extends AuditingFields{
 
     @Setter
     @OrderBy("createdAt DESC")
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Post> posts = new LinkedList<>();
 
     protected Group() {}
