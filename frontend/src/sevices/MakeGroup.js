@@ -1,13 +1,15 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
 
-const MyGroup = async () => {
+const MakeGroup = async (formData) => {
     try {
-        const response = await axios.get(
-            `${BASE_URL}/groups/my`,
+        const response = await axios.post(
+            `${BASE_URL}/groups`,
+            formData,
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    'Content-Type': 'multipart/form-data'
                 },
             }
         );
@@ -20,4 +22,4 @@ const MyGroup = async () => {
     }
 };
 
-export default MyGroup;
+export default MakeGroup;

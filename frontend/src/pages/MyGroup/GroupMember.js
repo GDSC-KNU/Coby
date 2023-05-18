@@ -4,7 +4,7 @@ import "./GroupMember.css"
 
 const GroupMember = () => {
     return (
-        <div className="outer">
+        <div className="outer1">
             <Layout/>
             <GroupBanner/>
         </div>                
