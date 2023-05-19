@@ -297,7 +297,7 @@ function MakeRoomPair(props) {
               .map((makeRoom) => (
                 <RoomItemPair
                   key={makeRoom.id}
-                  title={makeRoom.title}
+                  title={makeRoom.name}
                   language={makeRoom.language}
                   tool={makeRoom.tool}
                   password={makeRoom.password}
@@ -307,7 +307,7 @@ function MakeRoomPair(props) {
           : searchResult.map((makeRoom) => (
               <RoomItemPair
                 key={makeRoom.id}
-                title={makeRoom.title}
+                title={makeRoom.name}
                 language={makeRoom.language}
                 tool={makeRoom.tool}
                 password={makeRoom.password}

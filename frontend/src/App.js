@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -11,17 +11,17 @@ import Nogroup from "./pages/MyGroup/NoGroup";
 import GroupInfo from "./pages/MyGroup/GroupInfo";
 import GroupBoard from "./pages/MyGroup/GroupBoard";
 import GroupMember from "./pages/MyGroup/GroupMember";
+import CodeRoomPair from "./pages/CodeRoomPair"
 import Write from "./pages/MyGroup/BoardWirte";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div>
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
-          <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} />} />
+          <Route path="/CodeRoom" element={<CodeRoom/>} />
+          <Route Path="/CodeRoomPair" element={<CodeRoomPair/>}/>
           <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />
           <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
