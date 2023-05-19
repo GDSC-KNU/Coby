@@ -3,22 +3,24 @@ import React, { useState, useEffect } from "react";
 import styles from "./RoomItemPair.module.css";
 import locked from "../../images/locked.png";
 import unlocked from "../../images/unlocked.png";
+import { useNavigate } from "react-router";
 
 function RoomItemPair(props) {
   const [languageColor, setLanguageColor] = useState("");
   const [languageBackgroundColor, setLanguageBackgroundColor] = useState("");
   const [toolColor, setToolColor] = useState("");
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (props.password.trim().length !== 0) {
       const password = prompt("비밀번호를 입력하세요.");
       if (props.password === password) {
-        window.location.href = "/CodeRoom";
+        navigate("/CodeRoomPair");
       } else if (password !== null) {
         alert("비밀번호가 일치하지 않습니다.");
       }
     } else {
-      window.location.href = "/CodeRoom";
+      navigate("/CodeRoomPair");
     }
   };
 

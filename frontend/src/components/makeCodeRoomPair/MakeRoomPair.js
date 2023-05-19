@@ -40,7 +40,7 @@ function MakeRoomPair(props) {
         console.log(SearchResult);
         const encodedSearch = encodeURIComponent(selectedToolOptions);
         const encodedLanguage = encodeURIComponent(selectedLanguageOptions);
-        navigate(`/CodeRoomList?t=${encodedSearch}&l=${encodedLanguage}`);
+        navigate(`/PairCodeRoomList?t=${encodedSearch}&l=${encodedLanguage}`);
       } catch (err) {
         console.error(err);
       }

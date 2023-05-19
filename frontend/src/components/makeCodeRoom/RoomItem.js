@@ -16,7 +16,7 @@ function RoomItem(props) {
     if (props.password.trim().length !== 0) {
       const password = prompt("비밀번호를 입력하세요.");
       if (props.password === password) {
-        window.location.href = "/CodeRoom";
+        navigate("/CodeRoom");
       } else if (password !== null) {
         alert("비밀번호가 일치하지 않습니다.");
       }

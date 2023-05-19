@@ -63,7 +63,7 @@ const SidebarPair = () => {
         await DeleteRoomHandler();
       }
 
-      navigate("/CodeRoomListPair");
+      navigate("/PairCodeRoomList");
     }
   };
 
