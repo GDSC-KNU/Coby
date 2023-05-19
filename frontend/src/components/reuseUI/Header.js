@@ -104,9 +104,13 @@ function Header(props) {
           <div className="upside-contents">
             <nav className="upside-navigation">
               <ul>
+              {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
                 <button onClick={showMypageModal} className="Signin">
                   마이페이지
                 </button>
+                {mypagemodalOpen && (
+                  <MypageModal setModalOpen={setMypageModalOpen} />
+                )}
                 {mypagemodalOpen && (
                   <MypageModal setModalOpen={setMypageModalOpen} />
                 )}
@@ -126,13 +130,13 @@ function Header(props) {
                 <button onClick={showSigninModal} className="Signin">
                   회원가입
                 </button>
-                {signInmodalOpen && (
+                {/* {signInmodalOpen && (
                   <SignIn setModalOpen={setSigninModalOpen} />
                 )}
                 {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
                 <button onClick={showMypageModal} className="Signin">
                   마이페이지
-                </button>
+                </button> */}
                 {mypagemodalOpen && (
                   <MypageModal setModalOpen={setMypageModalOpen} />
                 )}
