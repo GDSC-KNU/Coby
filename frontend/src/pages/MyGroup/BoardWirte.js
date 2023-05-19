@@ -4,10 +4,9 @@ import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/reuseUI/Layout';
 import "./BoardWrite.css"
-import Axios from "axios";
+import WriteGroup from '../../sevices/GroupWrite';
 
 function Write(props) {
-    const navigate = useNavigate();
     const [content, setContent] = useState({
         title: '',
         content: ''
@@ -19,18 +18,17 @@ function Write(props) {
             [name]: value
         })
     }
-    /*
-    /api/posts
-    const submitReview = ()=>{
-      Axios.post('http://localhost:8000/insert', {
-        title: content.title,
-        body: content.content,
-      }).then(()=>{
-        alert('등록 완료!');
-        navigate('/');
-      })
+    const onClickWrite = (e) => {
+        e.preventDefault();
+        try {
+            WriteGroup(content.title,content.content).then((data) => {
+                alert("작성 완료!");
+            });
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
     };
-    */
 
     return(
         <div>
@@ -41,24 +39,18 @@ function Write(props) {
                     editor={ClassicEditor}
                     data="<p></p>"
                     onReady={editor => {
-                    console.log('Editor is ready to use!', editor);
+                        console.log('Editor is ready to use!', editor);
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();
                         setContent({
-                          ...content,
-                          content: data
+                            ...content,
+                            content: data
                         })
-                      }}
-                    onBlur={(event, editor) => {
-                    console.log('Blur.', editor);
                     }}
-                    onFocus={(event, editor) => {
-                    console.log('Focus.', editor);
-                     }}
                 />
             </div>
-            <button className='enterBtn'>입력</button>
+            <button className='enterBtn' onClick={onClickWrite}>입력</button>
         </div>
     )
 }

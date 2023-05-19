@@ -1,10 +1,10 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
 
-const leaveGroup = async (groupId) => {
+const Writeget = async () => {
     try {
-        const response = await axios.post(
-            `${BASE_URL}/groups/leave/${groupId}`,
+        const response = await axios.get(
+            `${BASE_URL}/posts`,
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -16,9 +16,8 @@ const leaveGroup = async (groupId) => {
     } catch (error) {
         console.error(error);
         alert(error.response.data);
-
         throw new Error(error.response.data.message);
     }
 };
 
-export default leaveGroup;
+export default Writeget;

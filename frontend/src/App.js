@@ -12,12 +12,14 @@ import GroupInfo from "./pages/MyGroup/GroupInfo";
 import GroupBoard from "./pages/MyGroup/GroupBoard";
 import GroupMember from "./pages/MyGroup/GroupMember";
 import Write from "./pages/MyGroup/BoardWirte";
+// import Test from "./pages/test";
+import PostDetail from "./pages/MyGroup/Board/PostsDetail";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+      <div>
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
@@ -29,9 +31,11 @@ function App() {
           <Route path="/GroupBoard" element={<GroupBoard/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
           <Route path="/BoardWrite" element={<Write/>} />
+          <Route path='/posts/:id' element = {<PostDetail/>} />
           <Route path="/GroupMember" element={<GroupMember/>} />
+          {/*<Route path="/Test" element={<Test/>} />*/}
         </Routes>
-    </div>
+      </div>
   );
 }
 

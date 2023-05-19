@@ -45,17 +45,17 @@ function MyPageModal(){
         }).catch((err) => {
             console.log(err.message);
         });
-      }, []);
-    
+    }, []);
+
     return (
         <div>
             <Layout/>
-            <div className="modal">
-                <div className="modal-content">
-                    <div className="upper">
+            <div className="modal1">
+                <div className="modal-content1">
+                    <div className="upper1">
                         <br />＜COBY.＞
                     </div>
-                    <div className="userinfo">
+                    <div className="userinfo1">
                         <p>이름 : {name}</p>
                         <p>그룹 : {group}</p>
                         <p>등급 : {grade}</p>

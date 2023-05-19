@@ -12,21 +12,24 @@ import { useState } from "react";
 import MyGroupInfoEdit from "../../sevices/MyGroupInfoEdit";
 import MyPage from "../../sevices/MyPage";
 import MyGroup from "../../sevices/MyGroup";
+import leaveGroup from "../../sevices/leaveGroup";
 
 
 const GroupInfo = (props) => {
     const [groupname, setGroupname] = useState("");
-    const [groupdescription, setGroupdescription] = useState("그룹소개 글꼴 테스트중입니다. 만나서 반갑습니다.");
+    const [groupdescription, setGroupdescription] = useState("");
     const [name, setName] = useState("");
     const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [introEdit, setIntroEdit] = useState(false);
     const [expPoint, setExpPoint] = useState(0);
+    const [groupId, setGroupId] = useState('');
 
     useEffect(() => {
         MyGroup().then((data) => {
             setGroupname(data.name);
             setGroupdescription(data.description);
             setExpPoint(data.exp_point);
+            setGroupId(data.id);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -47,10 +50,9 @@ const GroupInfo = (props) => {
         setIntroEdit(!introEdit);
         try {
             const formData = new FormData();
-            const jsonData = JSON.stringify({ name: "groupname", description: "groupdescription" });
-            formData.append("jsonData", jsonData);
+            formData.append("description", groupdescription);
 
-            MyGroupInfoEdit(formData).then((data) => {
+            MyGroupInfoEdit(formData, groupId).then((data) => {
                 setIntroEdit(!introEdit);
             });
         } catch (error) {
@@ -59,9 +61,18 @@ const GroupInfo = (props) => {
         }
     };
 
-    function ExitHandleClick(event){
-        alert('탈퇴')
-    }
+    const ExitHandleClick = async (event) => {
+        event.preventDefault();
+        try {
+            leaveGroup(groupId).then((data) => {
+                alert("그룹 탈퇴 완료!");
+            });
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
+    };
+
 
     return (
         <div className="outer1">
@@ -94,8 +105,8 @@ const GroupInfo = (props) => {
                         <div className="profile">
                             <p className="subtitle">내정보</p>
                             <div className="profile_outer">
-                              <img src={profileImg} alt="ProfileImage" className="profile_Img"></img>
-                              <p>{name}</p>
+                                <img src={profileImg} alt="ProfileImage" className="profile_Img"></img>
+                                <p>{name}</p>
                             </div>
                         </div>
                         <div className="myboard">
@@ -105,7 +116,7 @@ const GroupInfo = (props) => {
                 </div>
             </header>
         </div>
-  );
+    );
 }
 
 export default GroupInfo;

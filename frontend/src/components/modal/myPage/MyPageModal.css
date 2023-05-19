@@ -17,7 +17,7 @@ body {
     line-height: 0.6em;
 }
 
-.modal {
+.modal1 {
     /*Center*/
     position : fixed;
     top: 50%;
@@ -26,7 +26,7 @@ body {
     z-index : 999;
 }
 
-.modal-content {
+.modal-content1 {
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -44,7 +44,7 @@ body {
     padding:18px;
 }
 
-.upper{
+.upper1{
     position: fixed;
     width: 568px;
     height: 73px;
@@ -57,7 +57,7 @@ body {
     color: #FFFFFF;
 }
 
-.userinfo {
+.userinfo1 {
     position: absolute;
     left:249px;
     top:70px;
@@ -120,4 +120,4 @@ body {
     font-weight: bold;
     transition: all 0.3s;
     scale: 1.1;
-  }
+}

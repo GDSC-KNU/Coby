@@ -5,11 +5,14 @@ const leaveGroup = async (groupId) => {
     try {
         const response = await axios.post(
             `${BASE_URL}/groups/leave/${groupId}`,
+            {},
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             }
+
+
         );
 
         return response.data;

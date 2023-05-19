@@ -36,7 +36,7 @@ const GroupBanner = () => {
     useEffect(() => {
         MyGroup().then((data) => {
             setGroupname(data.name);
-            setGroupimage(data.image);
+            setGroupimage(data.profileUrl);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -50,21 +50,14 @@ const GroupBanner = () => {
                 <div className = "group_name">
                     {groupname}
                 </div>
-
-                {/*------------------------------------*/}
-
-                {/* <div>
-                    <button className = "groupbtn" onClick={NoGroupHandleClick}>그룹x</button>
-                </div>  이부분은 그룹이 없을때만 나타나도록.*/}
-                
                 <div>
                     <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
                 </div>
-                
+
                 <div>
                     <button onClick={GroupBoardHandleClick} className="groupbtn">그룹게시판</button>
                 </div>
-                
+
                 <div>
                     <button onClick={GroupMemberHandleClick} className="groupbtn">그룹원목록</button>
                 </div>

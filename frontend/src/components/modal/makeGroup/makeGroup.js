@@ -44,9 +44,9 @@ function MyGroupMake(props) {
         event.preventDefault();
         try {
             const formData = new FormData();
-            const jsonData = JSON.stringify({ name: name, description: description });
             formData.append("profileImage", file);
-            formData.append('info', jsonData);
+            formData.append('name', name);
+            formData.append('description', description);
 
             MakeGroup(formData).then((data) => {
                 alert("생성 완료!");
