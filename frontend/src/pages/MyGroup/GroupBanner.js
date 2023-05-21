@@ -4,26 +4,28 @@ import { useState, useEffect } from "react";
 import pencil from '../../images/pencil.png'
 import Backdrop from "../../components/reuseUI/Backdrop";
 import MyGroupEdit from "../../components/modal/myGroupEdit/myGroupEdit";
+import { useNavigate } from "react-router-dom";
 
 const GroupBanner = () => {
     const [groupname, setGroupname] = useState("");
     const [groupimage, setGroupimage] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [groupEditOpen, setGroupEditModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     function NoGroupHandleClick(event){
-        window.location.href="/Nogroup";
+        navigate("/Nogroup");
     }
 
     function GroupInfoHandleClick(event){
-        window.location.href="/GroupInfo";
+        navigate("/GroupInfo");
     }
 
     function GroupBoardHandleClick(event){
-        window.location.href="/GroupBoard";
+        navigate("/GroupBoard");
     }
 
     function GroupMemberHandleClick(event){
-        window.location.href="/GroupMember";
+        navigate("/GroupMember");
     }
 
     const showGroupEditModal = () => {

@@ -83,7 +83,7 @@ const GroupBoard = () => {
             </div>
           </section>
           <button className={styles.writebtn} onClick={WriteHandleClick}>
-            글쓰기123
+            글쓰기
           </button>
         </div>
       </div>

@@ -10,3 +10,45 @@
     position: relative;
     left: 250px;
 }
+
+@media (max-width: 1023px) {
+    .outer3 {
+      left: 6rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .outer3 {
+      left: 8rem;
+    }
+  }
+  
+  @media (min-width: 1335px) {
+    .outer3 {
+      left: 12rem;
+    }
+  }
+  
+  @media (min-width: 1517px) {
+    .outer3 {
+      left: 18rem;
+    }
+  }
+  
+  @media (min-width: 1668px) {
+    .outer3 {
+      left: 24rem;
+    }
+  }
+  
+  @media (min-width: 1854px) {
+    .outer3 {
+      left: 29rem;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .outer3 {
+      left: 30rem;
+    }
+  }

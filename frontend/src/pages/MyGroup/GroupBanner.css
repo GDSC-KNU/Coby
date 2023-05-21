@@ -11,6 +11,7 @@
     backdrop-filter: blur(3.5px);
     border-radius: 8px;
 }
+
 .groupbanner_body:after{
     content: ' ';
     position: absolute;
