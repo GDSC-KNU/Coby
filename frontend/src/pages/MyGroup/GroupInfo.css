@@ -2,12 +2,12 @@ body{
     overflow: auto;
 }
 
-.outer1{
+.outer2{
     display: column;
     align-items: center;
     justify-content: center;
     width: 950px;
-    height: 780px;
+    height: 8000px;
     padding: 0.7rem;
     background: #ffffff;
     z-index: 1;
