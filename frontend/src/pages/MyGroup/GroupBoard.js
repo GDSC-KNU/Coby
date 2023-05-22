@@ -41,7 +41,7 @@ const GroupBoard = () => {
               </thead>
             </table>
             <div className={styles.post_list_body}>
-              {
+              {/* {
                 posts.map((post) => (
                     <div className={styles.post_item}>
                       <div className={styles.post_item_title}>
@@ -51,14 +51,7 @@ const GroupBoard = () => {
                       <div className={styles.post_item_date}>{post.createdAt}</div>
                     </div>
                 ))
-              }
-              {/* <div className={styles.post_item}>
-                <div className={styles.post_item_title}>
-                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
-                </div>
-                <div className={styles.post_item_writer}>작성자</div>
-                <div className={styles.post_item_date}>날짜</div>
-              </div>
+              } */}
               <div className={styles.post_item}>
                 <div className={styles.post_item_title}>
                   <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
@@ -79,7 +72,14 @@ const GroupBoard = () => {
                 </div>
                 <div className={styles.post_item_writer}>작성자</div>
                 <div className={styles.post_item_date}>날짜</div>
-              </div> */}
+              </div>
+              <div className={styles.post_item}>
+                <div className={styles.post_item_title}>
+                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
+                </div>
+                <div className={styles.post_item_writer}>작성자</div>
+                <div className={styles.post_item_date}>날짜</div>
+              </div>
             </div>
           </section>
           <button className={styles.writebtn} onClick={WriteHandleClick}>
