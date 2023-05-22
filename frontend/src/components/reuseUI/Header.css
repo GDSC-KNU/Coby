@@ -5,7 +5,7 @@
   width: 100%;
   height: 2rem;
   background-color: #5579fe;
-  z-index: 996;
+  z-index: 994;
 }
 
 .upside-contents {
@@ -21,11 +21,11 @@
 .header {
   position: fixed;
   left: 0;
-  top: 1rem;
+  top: 1.4rem;
   width: 100%;
   height: 5rem;
   background-color: #5579fe;
-  z-index: 995;
+  z-index: 994;
 }
 
 .contents {

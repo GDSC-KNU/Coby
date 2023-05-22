@@ -14,6 +14,7 @@ import GroupMember from "./pages/MyGroup/GroupMember";
 import Write from "./pages/MyGroup/BoardWirte";
 import PostDetail from "./pages/MyGroup/Board/PostsDetail";
 import PostsModify from "./pages/MyGroup/Board/PostsModify";
+import Help from "./pages/Help";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           <Route path='/posts/:id' element = {<PostDetail/>} />
           <Route path='/posts/:id/modify' element = {<PostsModify/>} />
           <Route path="/GroupMember" element={<GroupMember/>} />
+          <Route path="/Help" element={<Help/>} />
         </Routes>
       </div>
   );

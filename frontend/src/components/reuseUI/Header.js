@@ -5,7 +5,6 @@ import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
 import Help from "../modal/help/HelpModal";
-import HelpWindow from "../../pages/Help";
 
 import "./Header.css";
 import Logout from "../../sevices/Logout";
@@ -40,8 +39,12 @@ function Header(props) {
     setActiveMenu("myGroup");
   }
 
+  function HelpClick(){
+    navigate("/Help");
+    setActiveMenu("help");
+  }
+
   useEffect(() => {
-    // 페이지 이동 후 activeMenu 상태가 변경되면 색상 업데이트
     const currentPath = location.pathname;
     if (currentPath === "/CodeRoomList") {
       setActiveMenu("codeReview");
@@ -49,7 +52,9 @@ function Header(props) {
       setActiveMenu("pairProgramming");
     } else if (currentPath === "/GroupInfo") {
       setActiveMenu("myGroup");
-    } else {
+    } else if( currentPath === "/Help"){
+      setActiveMenu("help");
+    }else {
       setActiveMenu("");
     }
   }, [location.pathname]);
@@ -184,15 +189,77 @@ function Header(props) {
                 >
                   마이그룹
                 </li>
-                <li  onClick={showHelpModal} className="Help">도움말</li>
-                {helpModalOpen && <Help setHelpModalOpen={setHelpModalOpen} />}
-                {helpModalOpen && <HelpWindow onCancel={closeHelpModal} />}
+                <li  onClick={HelpClick} className="Help">도움말</li>
 
               </ul>
             </nav>
           </div>
         </header>
-      </div>
+      ) : (
+        <header className="upside-header">
+          <div className="upside-contents">
+            <nav className="upside-navigation">
+              <ul>
+                <button onClick={showSigninModal} className="Signin">
+                  회원가입
+                </button>
+                {signInmodalOpen && (
+                  <SignIn setModalOpen={setSigninModalOpen} />
+                )}
+                {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+                <button onClick={showMypageModal} className="Signin">
+                  마이페이지
+                </button>
+                {mypagemodalOpen && (
+                  <MypageModal setModalOpen={setMypageModalOpen} />
+                )}
+                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
+                <button onClick={showLoginModal} className="Login">
+                  로그인
+                </button>
+                {logInmodalOpen && (
+                  <Login
+                    setLoginModalOpen={setLoginModalOpen}
+                    cookies={props.cookies}
+                    setCookie={props.setCookie}
+                  />
+                )}
+                {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+              </ul>
+            </nav>
+          </div>
+        </header>
+      )}
+      <header className="header">
+        <div className="contents">
+          <div className="Coby" onClick={MainHandleClick} />
+          <nav className="navigation">
+            <ul>
+              <li
+                onClick={CodeReviewHandleClick}
+                className={activeMenu === "codeReview" ? "active" : ""}
+              >
+                코드 리뷰
+              </li>
+              <li
+                onClick={PairProgrammingHandleClick}
+                className={activeMenu === "pairProgramming" ? "active" : ""}
+              >
+                페어 프로그래밍
+              </li>
+              <li
+                onClick={MyGroupClick}
+                className={activeMenu === "myGroup" ? "active" : ""}
+              >
+                마이그룹
+              </li>
+              <li  onClick={HelpClick} className={activeMenu === "help" ? "active" : ""}  >도움말</li>
+
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
   );
 }
 
