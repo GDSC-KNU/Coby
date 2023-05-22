@@ -26,62 +26,62 @@ const GroupInfo = (props) => {
     const [userId, setUserId] = useState("");
 
     useEffect(() => {
-        MyGroup().then((data) => {
-            setGroupname(data.name);
-            setGroupdescription(data.description);
-            setExpPoint(data.exp_point);
-            setGroupId(data.id);
-            setCreatedBy(data.createdBy);
-        }).catch((err) => {
-            console.log(err.message);
-        });
-        MyPage().then((data) => {
-            setName(data.name);
-            setProfileImg(data.profileUrl);
-            setUserId(data.userId);
-        }).catch((err) => {
-            console.log(err.message);
-        });
-    }, []);
+      MyGroup().then((data) => {
+          setGroupname(data.name);
+          setGroupdescription(data.description);
+          setExpPoint(data.exp_point);
+          setGroupId(data.id);
+          setCreatedBy(data.createdBy);
+      }).catch((err) => {
+          console.log(err.message);
+      });
+      MyPage().then((data) => {
+          setName(data.name);
+          setProfileImg(data.profileUrl);
+          setUserId(data.userId);
+      }).catch((err) => {
+          console.log(err.message);
+      });
+  }, []);
+
 
   const handleInputChange = (e) => {
     setGroupdescription(e.target.value);
-  };
+};
 
-    const handleIntroduce = (e) => {
-        try{e.preventDefault();
-            setIntroEdit(!introEdit);
-        };
-    catch (error) {
-            console.error(error);
-            throw new Error(error.response.data.message);
-        }
-    };
+const handleIntroduce = (e) => {
+    e.preventDefault();
+    setIntroEdit(!introEdit);
+    try {
+        const formData = new FormData();
+        formData.append("description", groupdescription);
 
-            MyGroupInfoEdit(formData, groupId).then((data) => {
-                alert("수정 완료!");
-            });
-        } catch (error) {
-            console.error(error);
-            throw new Error(error.response.data.message);
-        }
-    };
+        MyGroupInfoEdit(formData, groupId).then((data) => {
+            alert("수정 완료!");
+        });
+    } catch (error) {
+        console.error(error);
+        throw new Error(error.response.data.message);
+    }
+};
 
-    };
-            throw new Error(error.response.data.message);
-        }
-            console.error(error);
-        } catch (error) {
-            });
-                alert("그룹 탈퇴 완료!");
-            leaveGroup(groupId).then((data) => {
-        try {
-    const ExitHandleClick = async (e) => {
-        e.preventDefault();
-    const onClickIntroduce = (e) => {
-        e.preventDefault();
-        setIntroEdit(!introEdit);
-    };
+const onClickIntroduce = (e) => {
+    e.preventDefault();
+    setIntroEdit(!introEdit);
+};
+
+const ExitHandleClick = async (e) => {
+    e.preventDefault();
+    try {
+        leaveGroup(groupId).then((data) => {
+            alert("그룹 탈퇴 완료!");
+        });
+    } catch (error) {
+        console.error(error);
+        throw new Error(error.response.data.message);
+    }
+};
+
 
   return (
     <div>

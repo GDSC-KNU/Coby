@@ -10,12 +10,17 @@
 }
 
 .nogroup-image{
-    position: absolute;
-    left: 50%;
+    /* position: absolute;
+    left: 80%;
     top: 25vh;
     transform: translate(-50%);
     width: 10vw;
-    height: 10vw;
+    height: 10vw; */
+    position: relative;
+    top: 20vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .nogroup_main{
@@ -29,6 +34,10 @@
 .nogroup_font{
     position: relative;
     top: 20vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
 }
 
 .sub{
@@ -66,6 +75,3 @@
     transition: all 0.3s;
     scale: 1.1;
   }
-
-
-  /*반응형 조절*/
