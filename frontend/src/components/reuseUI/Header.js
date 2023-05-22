@@ -5,7 +5,6 @@ import Backdrop from "./Backdrop";
 import SignIn from "../modal/signin/SigninModal";
 import MypageModal from "../modal/myPage/MyPageModal";
 import Help from "../modal/help/HelpModal";
-import HelpWindow from "../../pages/Help";
 
 import "./Header.css";
 import Logout from "../../sevices/Logout";
@@ -35,8 +34,12 @@ function Header(props) {
     setActiveMenu("myGroup");
   }
 
+  function HelpClick(){
+    navigate("/Help");
+    setActiveMenu("help");
+  }
+
   useEffect(() => {
-    // 페이지 이동 후 activeMenu 상태가 변경되면 색상 업데이트
     const currentPath = location.pathname;
     if (currentPath === "/CodeRoomList") {
       setActiveMenu("codeReview");
@@ -44,7 +47,9 @@ function Header(props) {
       setActiveMenu("pairProgramming");
     } else if (currentPath === "/GroupInfo") {
       setActiveMenu("myGroup");
-    } else {
+    } else if( currentPath === "/Help"){
+      setActiveMenu("help");
+    }else {
       setActiveMenu("");
     }
   }, [location.pathname]);
@@ -176,9 +181,9 @@ function Header(props) {
               >
                 마이그룹
               </li>
-              <li  onClick={showHelpModal} className="Help">도움말</li>
+              <li  onClick={HelpClick} className={activeMenu === "help" ? "active" : ""}  >도움말</li>
               {helpModalOpen && <Help setHelpModalOpen={setHelpModalOpen} />}
-              {helpModalOpen && <HelpWindow onCancel={closeHelpModal} />}
+              {helpModalOpen && <Backdrop onCancel={closeHelpModal} />}
 
             </ul>
           </nav>
