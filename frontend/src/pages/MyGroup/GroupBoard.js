@@ -26,7 +26,7 @@ const GroupBoard = () => {
 
   return (
     <div>
-      <Layout />
+      <Layout/>
       <div className={styles.groupBoardOuter}>
       <GroupBanner />
         <div className={styles.boardouter}>

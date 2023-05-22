@@ -18,7 +18,7 @@ const Nogroup = () => {
   return (
     <div className={styles.outer}>
         <Layout />
-        <div className={styles.sogroup_main}>
+        <div className={styles.nogroup_main}>
             <p className={styles.nogroup_font}>가입된 그룹이 없습니다.</p>
             <img src={logo} alt="그룹" className= {styles.nogroup_image} />
         </div>
