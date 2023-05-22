@@ -50,15 +50,14 @@ function PostsModify() {
                 <input className="title-input" type='text' name = 'title' placeholder='제목을 입력해 주세요.' defaultValue={title ? title : null} onChange={getValue} />
                 <CKEditor
                     editor={ClassicEditor}
-                    data = {content?ReactHtmlParser(content):null}
-                //     onChange={(event, editor) => {
-                //         const data = editor.getData();
-                //         setContent({
-                //             ...content,
-                //             content: data
-                //         })
-                //         console.log(content);
-                //     }}
+                    data = {content?content:''}
+                    onChange={(event, editor) => {
+                        const data = editor.getData();
+                        setContent(
+                            data
+                        )
+                        console.log(content);
+                    }}
                 />
             </div>
             <button className='enterBtn' onClick={update}>수정</button>

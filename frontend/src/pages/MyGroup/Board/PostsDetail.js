@@ -4,6 +4,7 @@ import { useParams, useNavigate} from "react-router-dom";
 import ReactHtmlParser from 'html-react-parser';
 import Detailget from "../../../sevices/Detailget";
 import PostsModify from "./PostsModify";
+import DeleteWrite from "../../../sevices/DeleteWrite";
 
 const PostDetail = () => {
     const navigate = useNavigate();
@@ -23,7 +24,15 @@ const PostDetail = () => {
     }
 
     const remove = () => {
-        alert("삭제");
+        try {
+            DeleteWrite(id).then((data) => {
+                alert("삭제 완료!");
+                navigate(`/groupboard`);
+            });
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
     }
 
     return(

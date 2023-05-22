@@ -6,7 +6,7 @@ import MyInfoEdit from "../myInfoEdit/myInfoEdit";
 import Backdrop from "../../reuseUI/Backdrop";
 import pencil from '../../../images/pencil.png';
 
-function MyPageModal(){
+function MyPageModal(props){
     const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [name,setName] = useState('');
     const [group,setGroup] = useState('');
@@ -33,18 +33,18 @@ function MyPageModal(){
             setGrade('Gold');
         }
     }
-
     useEffect(() => {
-        MyPage().then((data) => {
-            setName(data.name);
-            setGroup(data.groupName);
-            setExp(data.exp_point);
-            setProfileImg(data.profileUrl);
-            checkGrade(exp);
-            console.log(data);
-        }).catch((err) => {
-            console.log(err.message);
-        });
+        if (props.isLogin) {
+            MyPage().then((data) => {
+                setName(data.name);
+                setGroup(data.groupName);
+                setExp(data.exp_point);
+                setProfileImg(data.profileUrl);
+                checkGrade(exp);
+            }).catch((err) => {
+                console.log('마이페이지 수정 모달 불러오기 실패');
+            });
+        }
     }, []);
 
     return (
@@ -67,7 +67,7 @@ function MyPageModal(){
                     <div className="tier"></div>
                 </div>
             </div>
-            {infoEditOpen && <MyInfoEdit setModalOpen={setInfoEditModalOpen}/>}
+            {infoEditOpen && <MyInfoEdit setModalOpen={setInfoEditModalOpen} isLogin={props.isLogin}/>}
             {infoEditOpen && <Backdrop onCancel={closeEditModal} />}
         </div>
     );

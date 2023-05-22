@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -17,11 +17,18 @@ import PostsModify from "./pages/MyGroup/Board/PostsModify";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setIsLogin(true);
+    }
+  }, []);
 
   return (
       <div>
         <Routes>
-          <Route path="/" element={<Main/>} />
+          <Route path="/" element={<Main isLogin = {isLogin} setIsLogin = {setIsLogin} />} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
           <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} />} />
           <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />

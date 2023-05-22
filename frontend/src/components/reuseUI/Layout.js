@@ -4,11 +4,11 @@ import Header from "./Header";
 import "./Layout.css";
 
 function Layout(props) {
-  return (
-    <div className="layout">
-      <Header cookies = {props.cookies} setCookie = {props.setCookie} />
-    </div>
-  );
+    return (
+        <div className="layout">
+            <Header isLogin={props.isLogin} setIsLogin={props.setIsLogin}/>
+        </div>
+    );
 }
 
 export default Layout;

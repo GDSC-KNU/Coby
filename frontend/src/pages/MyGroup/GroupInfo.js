@@ -6,7 +6,7 @@ import medal from "../../images/medal.png";
 import group from "../../images/member.png";
 import logo from "../../images/minilogo.png";
 import pencil from "../../images/pencil.png";
-
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import MyGroupInfoEdit from "../../sevices/MyGroupInfoEdit";
@@ -24,6 +24,7 @@ const GroupInfo = (props) => {
     const [expPoint, setExpPoint] = useState(0);
     const [createdBy, setCreatedBy] = useState("");
     const [userId, setUserId] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
       MyGroup().then((data) => {
@@ -75,6 +76,7 @@ const ExitHandleClick = async (e) => {
     try {
         leaveGroup(groupId).then((data) => {
             alert("그룹 탈퇴 완료!");
+            navigate(`/`);
         });
     } catch (error) {
         console.error(error);

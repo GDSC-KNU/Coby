@@ -7,6 +7,7 @@ import "./BoardWrite.css";
 import WriteGroup from "../../sevices/GroupWrite";
 
 function Write(props) {
+  const navigate = useNavigate()
   const [content, setContent] = useState({
     title: "",
     content: "",
@@ -23,6 +24,7 @@ function Write(props) {
     try {
       WriteGroup(content.title, content.content).then((data) => {
         alert("작성 완료!");
+        navigate("/GroupBoard");
       });
     } catch (error) {
       console.error(error);

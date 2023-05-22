@@ -9,12 +9,15 @@ import HelpWindow from "../../pages/Help";
 
 import "./Header.css";
 import Logout from "../../sevices/Logout";
+import MyPage from "../../sevices/MyPage";
+
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Header(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState("");
+  const [groupName, setGroupName] = useState("");
 
   function CodeReviewHandleClick() {
     setActiveMenu("codeReview");
@@ -31,7 +34,9 @@ function Header(props) {
   }
 
   function MyGroupClick() {
-    navigate("/GroupInfo");
+    props.isLogin ?
+        (groupName ? navigate("/GroupInfo") : navigate("/NoGroup")):
+        (alert("로그인이 필요한 서비스입니다."));
     setActiveMenu("myGroup");
   }
 
@@ -48,6 +53,16 @@ function Header(props) {
       setActiveMenu("");
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (props.isLogin) {
+      MyPage().then((data) => {
+        setGroupName(data.groupName);
+      }).catch((err) => {
+        console.log('마이페이지 불러오기 실패');
+      });
+    }
+  }, [props.isLogin]);
 
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
@@ -88,103 +103,96 @@ function Header(props) {
       const message = await Logout();
       // 로그아웃에 성공한 경우, 메시지를 출력하고 페이지를 새로고침합니다.
       alert("로그아웃 완료");
-      console.log(message);
+      navigate("/");
+      props.setIsLogin(false)
       window.location.reload();
     } catch (error) {
       // 로그아웃에 실패한 경우, 에러 메시지를 출력합니다.
-      console.error(error);
+      console.error('로그아웃 실패');
       throw new Error(error.response.data.message);
     }
   };
 
   return (
-    <div>
-      {localStorage.getItem("token") ? (
-        <header className="upside-header">
-          <div className="upside-contents">
-            <nav className="upside-navigation">
+      <div>
+        {localStorage.getItem("token") ? (
+            <header className="upside-header">
+              <div className="upside-contents">
+                <nav className="upside-navigation">
+                  <ul>
+                    <button onClick={showMypageModal} className="Signin">
+                      마이페이지
+                    </button>
+                    {mypagemodalOpen && (
+                        <MypageModal setModalOpen={setMypageModalOpen} isLogin={props.isLogin}/>
+                    )}
+                    {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
+                    <button onClick={logOut} className="Login">
+                      로그아웃
+                    </button>
+                  </ul>
+                </nav>
+              </div>
+            </header>
+        ) : (
+            <header className="upside-header">
+              <div className="upside-contents">
+                <nav className="upside-navigation">
+                  <ul>
+                    <button onClick={showSigninModal} className="Signin">
+                      회원가입
+                    </button>
+                    {signInmodalOpen && (
+                        <SignIn setModalOpen={setSigninModalOpen} />
+                    )}
+                    {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
+                    <button onClick={showLoginModal} className="Login">
+                      로그인
+                    </button>
+                    {logInmodalOpen && (
+                        <Login
+                            setLoginModalOpen={setLoginModalOpen}
+                            setIsLogin={props.setIsLogin}
+                        />
+                    )}
+                    {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
+                  </ul>
+                </nav>
+              </div>
+            </header>
+        )}
+        <header className="header">
+          <div className="contents">
+            <div className="Coby" onClick={MainHandleClick} />
+            <nav className="navigation">
               <ul>
-                <button onClick={showMypageModal} className="Signin">
-                  마이페이지
-                </button>
-                {mypagemodalOpen && (
-                  <MypageModal setModalOpen={setMypageModalOpen} />
-                )}
-                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
-                <button onClick={logOut} className="Login">
-                  로그아웃
-                </button>
-              </ul>
-            </nav>
-          </div>
-        </header>
-      ) : (
-        <header className="upside-header">
-          <div className="upside-contents">
-            <nav className="upside-navigation">
-              <ul>
-                <button onClick={showSigninModal} className="Signin">
-                  회원가입
-                </button>
-                {signInmodalOpen && (
-                  <SignIn setModalOpen={setSigninModalOpen} />
-                )}
-                {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
-                <button onClick={showMypageModal} className="Signin">
-                  마이페이지
-                </button>
-                {mypagemodalOpen && (
-                  <MypageModal setModalOpen={setMypageModalOpen} />
-                )}
-                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
-                <button onClick={showLoginModal} className="Login">
-                  로그인
-                </button>
-                {logInmodalOpen && (
-                  <Login
-                    setLoginModalOpen={setLoginModalOpen}
-                    cookies={props.cookies}
-                    setCookie={props.setCookie}
-                  />
-                )}
-                {logInmodalOpen && <Backdrop onCancel={closeLoginModal} />}
-              </ul>
-            </nav>
-          </div>
-        </header>
-      )}
-      <header className="header">
-        <div className="contents">
-          <div className="Coby" onClick={MainHandleClick} />
-          <nav className="navigation">
-            <ul>
-              <li
-                onClick={CodeReviewHandleClick}
-                className={activeMenu === "codeReview" ? "active" : ""}
-              >
-                코드 리뷰
-              </li>
-              <li
-                onClick={PairProgrammingHandleClick}
-                className={activeMenu === "pairProgramming" ? "active" : ""}
-              >
-                페어 프로그래밍
-              </li>
-              <li
-                onClick={MyGroupClick}
-                className={activeMenu === "myGroup" ? "active" : ""}
-              >
-                마이그룹
-              </li>
-              <li  onClick={showHelpModal} className="Help">도움말</li>
-              {helpModalOpen && <Help setHelpModalOpen={setHelpModalOpen} />}
-              {helpModalOpen && <HelpWindow onCancel={closeHelpModal} />}
+                <li
+                    onClick={CodeReviewHandleClick}
+                    className={activeMenu === "codeReview" ? "active" : ""}
+                >
+                  코드 리뷰
+                </li>
+                <li
+                    onClick={PairProgrammingHandleClick}
+                    className={activeMenu === "pairProgramming" ? "active" : ""}
+                >
+                  페어 프로그래밍
+                </li>
+                <li
+                    onClick={MyGroupClick}
+                    className={activeMenu === "myGroup" ? "active" : ""}
+                >
+                  마이그룹
+                </li>
+                <li  onClick={showHelpModal} className="Help">도움말</li>
+                {helpModalOpen && <Help setHelpModalOpen={setHelpModalOpen} />}
+                {helpModalOpen && <HelpWindow onCancel={closeHelpModal} />}
 
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </div>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
   );
 }
 
