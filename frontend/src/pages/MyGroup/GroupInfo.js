@@ -12,71 +12,76 @@ import { useState } from "react";
 import MyGroupInfoEdit from "../../sevices/MyGroupInfoEdit";
 import MyPage from "../../sevices/MyPage";
 import MyGroup from "../../sevices/MyGroup";
-import leaveGroup from "../../sevices/leaveGroup";
+import leaveGroup from "../../sevices/DeleteGroup";
 
 const GroupInfo = (props) => {
-  const [groupname, setGroupname] = useState("");
-  const [groupdescription, setGroupdescription] = useState("");
-  const [name, setName] = useState("");
-  const [profileImg, setProfileImg] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-  );
-  const [introEdit, setIntroEdit] = useState(false);
-  const [expPoint, setExpPoint] = useState(0);
-  const [groupId, setGroupId] = useState("");
+    const [groupname, setGroupname] = useState("");
+    const [groupdescription, setGroupdescription] = useState("");
+    const [name, setName] = useState("");
+    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+    const [introEdit, setIntroEdit] = useState(false);
+    const [groupId, setGroupId] = useState('');
+    const [expPoint, setExpPoint] = useState(0);
+    const [createdBy, setCreatedBy] = useState("");
+    const [userId, setUserId] = useState("");
 
-  useEffect(() => {
-    MyGroup()
-      .then((data) => {
-        setGroupname(data.name);
-        setGroupdescription(data.description);
-        setExpPoint(data.exp_point);
-        setGroupId(data.id);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-    MyPage()
-      .then((data) => {
-        setName(data.name);
-        setProfileImg(data.profileUrl);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+    useEffect(() => {
+        MyGroup().then((data) => {
+            setGroupname(data.name);
+            setGroupdescription(data.description);
+            setExpPoint(data.exp_point);
+            setGroupId(data.id);
+            setCreatedBy(data.createdBy);
+        }).catch((err) => {
+            console.log(err.message);
+        });
+        MyPage().then((data) => {
+            setName(data.name);
+            setProfileImg(data.profileUrl);
+            setUserId(data.userId);
+        }).catch((err) => {
+            console.log(err.message);
+        });
+    }, []);
 
   const handleInputChange = (e) => {
     setGroupdescription(e.target.value);
   };
 
-  const onClickIntroduce = (e) => {
-    e.preventDefault();
-    setIntroEdit(!introEdit);
-    try {
-      const formData = new FormData();
-      formData.append("description", groupdescription);
+    const handleIntroduce = (e) => {
+        try{e.preventDefault();
+            setIntroEdit(!introEdit);
+        };
+    catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
+    };
 
-      MyGroupInfoEdit(formData, groupId).then((data) => {
+            MyGroupInfoEdit(formData, groupId).then((data) => {
+                alert("수정 완료!");
+            });
+        } catch (error) {
+            console.error(error);
+            throw new Error(error.response.data.message);
+        }
+    };
+
+    };
+            throw new Error(error.response.data.message);
+        }
+            console.error(error);
+        } catch (error) {
+            });
+                alert("그룹 탈퇴 완료!");
+            leaveGroup(groupId).then((data) => {
+        try {
+    const ExitHandleClick = async (e) => {
+        e.preventDefault();
+    const onClickIntroduce = (e) => {
+        e.preventDefault();
         setIntroEdit(!introEdit);
-      });
-    } catch (error) {
-      console.error(error);
-      throw new Error(error.response.data.message);
-    }
-  };
-
-  const ExitHandleClick = async (event) => {
-    event.preventDefault();
-    try {
-      leaveGroup(groupId).then((data) => {
-        alert("그룹 탈퇴 완료!");
-      });
-    } catch (error) {
-      console.error(error);
-      throw new Error(error.response.data.message);
-    }
-  };
+    };
 
   return (
     <div>

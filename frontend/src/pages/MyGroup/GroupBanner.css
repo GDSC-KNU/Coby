@@ -4,7 +4,7 @@
     position: absolute;
     width: 214px;
     height: 663px;
-    
+
     top: 3vh;
 
     background: linear-gradient(180deg, #5579FE 0%, rgba(85,121,254,0.33) 100%);
@@ -62,12 +62,12 @@
     left: 47%;
     transform: translate(-100%);
     margin-left: 4.2rem;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-  
+
     cursor: pointer;
     background-color: transparent;
     color: white;
@@ -90,7 +90,7 @@
     left: 47%;
     transform: translate(-100%);
     margin-left: 4.2rem;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,7 +104,7 @@
     border-radius: 8px;
     font-size: 1rem;
     text-decoration: underline white 2px;
-  }
+}
 
 .group_img{
     border-radius: 50%;

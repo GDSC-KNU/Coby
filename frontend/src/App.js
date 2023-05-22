@@ -12,8 +12,8 @@ import GroupInfo from "./pages/MyGroup/GroupInfo";
 import GroupBoard from "./pages/MyGroup/GroupBoard";
 import GroupMember from "./pages/MyGroup/GroupMember";
 import Write from "./pages/MyGroup/BoardWirte";
-// import Test from "./pages/test";
 import PostDetail from "./pages/MyGroup/Board/PostsDetail";
+import PostsModify from "./pages/MyGroup/Board/PostsModify";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +32,8 @@ function App() {
           <Route path="/NoGroup" element={<Nogroup/>} />
           <Route path="/BoardWrite" element={<Write/>} />
           <Route path='/posts/:id' element = {<PostDetail/>} />
+          <Route path='/posts/:id/modify' element = {<PostsModify/>} />
           <Route path="/GroupMember" element={<GroupMember/>} />
-          {/*<Route path="/Test" element={<Test/>} />*/}
         </Routes>
       </div>
   );
