@@ -5,8 +5,11 @@ import com.gdsc.coby.dto.response.GroupResponseDto;
 import com.gdsc.coby.service.GroupService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,8 +24,14 @@ import java.util.List;
 public class GroupController {
     private final GroupService groupService;
 
-    @ExceptionHandler(value = {UsernameNotFoundException.class, NotFoundException.class, RuntimeException.class})
-    public ResponseEntity<String> exceptionHandler(Exception e) { return ResponseEntity.ok(e.getMessage());}
+    @ExceptionHandler(value = {
+            UsernameNotFoundException.class,
+            NotFoundException.class,
+            RuntimeException.class
+    })
+    public ResponseEntity<?> exceptionHandler(Exception e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 
     @GetMapping
     @Operation(description = "그룹 목록 조회합니다.")
@@ -46,8 +55,9 @@ public class GroupController {
 
     @PostMapping
     @Operation(description = "그룹을 생성합니다.")
-    public ResponseEntity<GroupResponseDto> createGroup(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "requestDto") GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(profileImage,requestDto.toDto())));
+//    public ResponseEntity<GroupResponseDto> createGroup(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "info") GroupRequestDto requestDto){
+    public ResponseEntity<GroupResponseDto> createGroup(@RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestParam(required = false,value = "name") String name, @RequestParam(required = false,value = "description") String description){
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.creatGroup(profileImage,name,description)));
     }
 
     @PostMapping("/join/{groupId}")
@@ -59,13 +69,15 @@ public class GroupController {
 
     @PostMapping("/{groupId}")
     @Operation(description = "그룹 상세정보를 수정합니다.")
-    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, @RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestPart(required = false,value = "info") GroupRequestDto requestDto){
-        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,profileImage,requestDto.toDto())));
+    public ResponseEntity<GroupResponseDto> updateGroup(@PathVariable Long groupId, @RequestParam(required = false,value = "profileImage") MultipartFile profileImage,@RequestParam(required = false,value = "name") String name, @RequestParam(required = false,value = "description") String description){
+//        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,profileImage,requestDto.toDto())));
+        return ResponseEntity.ok(GroupResponseDto.from(groupService.updateGroupInfo(groupId,profileImage,name,description)));
     }
 
     @PostMapping("/leave/{groupId}")
     @Operation(description = "로그인한 사용자가 그룹을 탈퇴합니다.")
     public ResponseEntity<?> leaveGroup(@PathVariable Long groupId) {
+        System.out.println(groupId);
         return ResponseEntity.ok(groupService.leave(groupId));
     }
 

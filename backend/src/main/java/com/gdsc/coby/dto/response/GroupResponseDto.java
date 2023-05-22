@@ -10,12 +10,10 @@ public record GroupResponseDto(
         String description,
         String profileUrl,
         List<UserResponseDto> members,
-        Long exp_point
+        Long exp_point,
+        String createdBy
 ) {
 
-    public static GroupResponseDto of(Long id, String name, String description,String profileUrl, List<UserResponseDto> members,Long exp_point){
-        return new GroupResponseDto(id,name,description,profileUrl,members,exp_point);
-    }
     public static GroupResponseDto from(GroupDto dto){
         List<UserResponseDto> members = dto.members().stream().map(UserResponseDto::from).toList();
 
@@ -27,7 +25,8 @@ public record GroupResponseDto(
                 members,
                 members.stream().map(UserResponseDto::exp_point)
                         .reduce((total, exp) -> total += exp)
-                        .orElse(0L)
+                        .orElse(0L),
+                dto.createdBy()
         );
     }
 }

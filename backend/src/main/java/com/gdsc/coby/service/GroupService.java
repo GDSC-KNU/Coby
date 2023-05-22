@@ -4,17 +4,9 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.gdsc.coby.domain.Group;
-import com.gdsc.coby.domain.GroupTagMap;
 import com.gdsc.coby.domain.User;
-import com.gdsc.coby.domain.constant.Purpose;
-import com.gdsc.coby.domain.constant.TagType;
 import com.gdsc.coby.dto.GroupDto;
-import com.gdsc.coby.dto.TagDto;
-import com.gdsc.coby.dto.UserDto;
-import com.gdsc.coby.dto.request.GroupRequestDto;
 import com.gdsc.coby.repository.GroupRepository;
-import com.gdsc.coby.repository.GroupTagMapRepository;
-import com.gdsc.coby.repository.TagRepository;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.SecurityUtil;
 import lombok.RequiredArgsConstructor;
@@ -29,10 +21,8 @@ import org.webjars.NotFoundException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -74,9 +64,12 @@ public class GroupService {
 
     //그룹 생성
     @Transactional
-    public GroupDto creatGroup(MultipartFile profileImage,GroupDto dto){
-        Group group = groupRepository.save(dto.toEntity());
-        join(group.getId());
+    public GroupDto creatGroup(MultipartFile profileImage,String name,String description){
+        Group group = groupRepository.save(Group.of(name,description));
+
+        if(group==null || group.getId()==null) throw new IllegalArgumentException("그룹생성 실패");
+        else join(group.getId());
+
         if(profileImage!=null) {
             String uploadImageUrl = upload(group.getName(), profileImage);
 
@@ -108,7 +101,7 @@ public class GroupService {
 
         Group group = groupRepository.findById(groupId)
                 .orElseThrow(() -> new NotFoundException("그룹찾기 실패 : 해당 그룹을 찾을 수 없습니다."));
-        System.out.println(group.getCreatedBy());
+        System.out.println("생성자: " +group.getCreatedBy());
         if(group.getCreatedBy().equals(user.getUserId())) {
             group.getMembers()
                     .forEach(members -> {
@@ -126,16 +119,13 @@ public class GroupService {
     }
 
     @Transactional
-    public GroupDto updateGroupInfo(Long groupId,MultipartFile profileImage, GroupDto dto){
+    public GroupDto updateGroupInfo(Long groupId,MultipartFile profileImage, String name, String description){
         Group group = groupRepository.findById(groupId)
                 .orElseThrow(()-> new NotFoundException("그룹찾기 실패 : 해당 그룹을 찾을 수 없습니다."));
 
         if(!group.getCreatedBy().equals(SecurityUtil.getCurrentUserId())){
             throw new RuntimeException("그룹 수정 권한이 없습니다.");
         }
-
-        String name = dto.name();
-        String description = dto.description();
 
         if(name!=null && !group.getName().equals(name)) group.setName(name);
         if(description!=null && !group.getDescription().equals(description)) group.setDescription(description);
