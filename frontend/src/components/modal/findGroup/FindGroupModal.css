@@ -1,0 +1,63 @@
+.outerFind {
+    width: 40rem;
+    height: 30rem;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #000;
+  }
+  .uploader2{
+    position: relative;
+    left: 50%;
+    transform: translate(-26%);
+    margin-top: 50px;
+  }
+  
+  .findFont{
+    position: relative;
+    left: 2.8rem;
+    top: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .findBtn{
+    width: 5rem;
+    height: 2rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 1rem;
+    border-radius: 10px;
+    background-color: #5579fe;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+  }
+
+  .upper_bar{
+    margin-top: ;
+    border: #000 1px solid;
+    width: 35rem;
+    height: 3rem;
+    position: relative;
+    left: 2.5rem;
+    border-radius: 8px;
+  }
+
+  .bottom_bar{
+    border: #000 1px solid;
+    margin-top: 20px;
+    width: 35rem;
+    height: 18rem;
+    position: relative;
+    left: 2.5rem;
+    border-radius: 8px;
+  }
