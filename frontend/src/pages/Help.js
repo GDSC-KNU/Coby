@@ -1,6 +1,6 @@
 import Layout from "../components/reuseUI/Layout";
 import styles from "./Help.module.css";
-import logo from "../images/Coby_darkBlue.png";
+import logo from "../images/logo_black.png";
 import { useNavigate } from "react-router-dom";
 
 const Help = () => {
@@ -28,6 +28,9 @@ const Help = () => {
           className={styles.logo}
           style={{ display: "block" }}
         />
+        <br/>
+        <br/>
+        <br/>
         <div>
           <div className={styles.title}>
             <h2>코드 리뷰</h2>
@@ -41,7 +44,9 @@ const Help = () => {
               방을 만들고, 멘토님과의 소통을 통해 내 코드의 문제점을 알아봅시다!
             </p>
           </div>
-          <br />
+          <br/>
+          <div className= {styles.line}></div>
+          <br/>
           <div className={styles.title}>
             <h2>페어프로그래밍</h2>
             <button className={styles.Go} onClick={PairClick}>
@@ -65,9 +70,13 @@ const Help = () => {
               있습니다.
             </p>
             <p>
-              채팅방에서 방장이 Live Share나 Code With Me 링크를 받아서
+              채팅방에서 방장이 Live Share나 Code With Me 링크를 받아
+            </p>
+            <p>  
               코드리뷰와 페어프로그래밍에 참여해보아요!
             </p>
+            <br/>
+            <div className= {styles.line}></div>
           </div>
           <br />
           <div className={styles.title}>
