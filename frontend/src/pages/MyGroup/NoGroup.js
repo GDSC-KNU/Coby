@@ -20,7 +20,7 @@ const Nogroup = () => {
         <Layout />
         <div className={styles.nogroup_main}>
             <p className={styles.nogroup_font}>가입된 그룹이 없습니다.</p>
-            <img src={logo} alt="그룹" className= {styles.nogroup_image} />
+            <img src={logo} alt="그룹" />
         </div>
         <div className={styles.sub}>
             <button className={styles.search_btn1}>+그룹 탐색하기</button>

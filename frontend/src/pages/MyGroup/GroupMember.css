@@ -1,54 +1,91 @@
-.outer3{
-    display: column;
-    align-items: center;
-    justify-content: center;
-    width: 950px;
-    height: 780px;
-    padding: 0.7rem;
-    background: #ffffff;
-    z-index: 1;
-    position: relative;
-    left: 250px;
+.outer3 {
+  display: column;
+  align-items: center;
+  justify-content: center;
+  width: 950px;
+  height: 780px;
+  padding: 0.7rem;
+  background: #ffffff;
+  z-index: 1;
+  position: relative;
+  left: 250px;
+}
+
+.group_Members_Content{
+  width: 600px;
+  height: 780px;
+ 
+}
+
+.group_Member_list_body {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  /* border: 1px solid #5579fe; */
+  /* box-shadow: 0px 0px 6px #5579fe; */
+  margin: 0;
+  padding: 2rem;
+  left: 15rem;
+  overflow: auto;
+}
+
+.group_Member_list_item {
+  display: flex;
+  width: 600px;
+  height: 74px;
+  border: 1px solid #DFE5EC;
+  border-radius: 10px;
+  margin-bottom: 1.3rem;
+  text-align: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.groupMember_img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-right: 1rem;
 }
 
 @media (max-width: 1023px) {
-    .outer3 {
-      left: 6rem;
-    }
+  .outer3 {
+    left: 6rem;
   }
-  
-  @media (min-width: 1024px) {
-    .outer3 {
-      left: 8rem;
-    }
+}
+
+@media (min-width: 1024px) {
+  .outer3 {
+    left: 8rem;
   }
-  
-  @media (min-width: 1335px) {
-    .outer3 {
-      left: 12rem;
-    }
+}
+
+@media (min-width: 1335px) {
+  .outer3 {
+    left: 12rem;
   }
-  
-  @media (min-width: 1517px) {
-    .outer3 {
-      left: 18rem;
-    }
+}
+
+@media (min-width: 1517px) {
+  .outer3 {
+    left: 18rem;
   }
-  
-  @media (min-width: 1668px) {
-    .outer3 {
-      left: 24rem;
-    }
+}
+
+@media (min-width: 1668px) {
+  .outer3 {
+    left: 24rem;
   }
-  
-  @media (min-width: 1854px) {
-    .outer3 {
-      left: 29rem;
-    }
+}
+
+@media (min-width: 1854px) {
+  .outer3 {
+    left: 29rem;
   }
-  
-  @media (min-width: 1920px) {
-    .outer3 {
-      left: 30rem;
-    }
+}
+
+@media (min-width: 1920px) {
+  .outer3 {
+    left: 30rem;
   }
+}
