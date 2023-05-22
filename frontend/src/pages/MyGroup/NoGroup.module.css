@@ -17,6 +17,7 @@
     width: 10vw;
     height: 10vw;
 }
+
 .nogroup_main{
     position: relative;
     left: 50%;
@@ -65,3 +66,6 @@
     transition: all 0.3s;
     scale: 1.1;
   }
+
+
+  /*반응형 조절*/
