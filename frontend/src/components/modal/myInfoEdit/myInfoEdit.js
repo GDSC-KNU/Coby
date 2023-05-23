@@ -26,15 +26,13 @@ function MyInfoEdit(props) {
     };
 
     useEffect(() => {
-        if(props.isLogin){
-            MyPage().then((data) => {
-                setProfileImg(data.profileUrl);
-                setName(data.name);
-            }).catch((err) => {
-                console.log('마이페이지 수정 모달 불러오기 실패');
-            });
-        }
-    }, [props.isLogin]);
+        MyPage().then((data) => {
+            setProfileImg(data.profileUrl);
+            setName(data.name);
+        }).catch((err) => {
+            console.log('마이페이지 수정 모달 불러오기 실패');
+        });
+    }, []);
 
     const onClickChange = async (event) => {
         event.preventDefault();

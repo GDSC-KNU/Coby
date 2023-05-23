@@ -34,17 +34,15 @@ function MyPageModal(props){
         }
     }
     useEffect(() => {
-        if (props.isLogin) {
-            MyPage().then((data) => {
-                setName(data.name);
-                setGroup(data.groupName);
-                setExp(data.exp_point);
-                setProfileImg(data.profileUrl);
-                checkGrade(exp);
-            }).catch((err) => {
-                console.log('마이페이지 수정 모달 불러오기 실패');
-            });
-        }
+        MyPage().then((data) => {
+            setName(data.name);
+            setGroup(data.groupName);
+            setExp(data.exp_point);
+            setProfileImg(data.profileUrl);
+            checkGrade(exp);
+        }).catch((err) => {
+            console.log('마이페이지 수정 모달 불러오기 실패');
+        });
     }, []);
 
     return (
