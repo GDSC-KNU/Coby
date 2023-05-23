@@ -1,6 +1,6 @@
 import Layout from "../../components/reuseUI/Layout";
 import GroupBanner from "./GroupBanner";
-import "./GroupMember.css";
+import styles from "./GroupMember.module.css";
 
 import React, { useState, useEffect } from "react";
 import MyGroup from "../../sevices/MyGroup";
@@ -21,11 +21,10 @@ const GroupMember = () => {
       });
   }, []);
   return (
-    <div>
+    <div className={styles.outer}>
       <Layout />
-      <div className="outer3">
-        <GroupBanner />
-          <div className="group_Member_list_body">
+      <GroupBanner />
+          <div className={styles.group_Member_list_body}>
             {/* {members.map((member) => (
               <div className="group_Member_list_item">
                 <img
@@ -37,67 +36,84 @@ const GroupMember = () => {
                 <div>{member.profileUrl}</div>
               </div>
             ))} */}
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
+              />
+              <p>이름</p>
+            </div>
+            <div className={styles.group_Member_list_item}>
+              <img
+                src={groupimage}
+                alt="groupImage"
+                className={styles.groupMember_img}
+              />
+              <p>이름</p>
+            </div>
+            <div className={styles.group_Member_list_item}>
+              <img
+                src={groupimage}
+                alt="groupImage"
+                className={styles.groupMember_img}
+              />
+              <p>이름</p>
+            </div>
+            <div className={styles.group_Member_list_item}>
+              <img
+                src={groupimage}
+                alt="groupImage"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
             <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>
-            <div className="group_Member_list_item">
+            <div className={styles.group_Member_list_item}>
               <img
                 src={groupimage}
                 alt="groupImage"
-                className="groupMember_img"
-              />
-              <p>이름</p>
-            </div>
-            <div className="group_Member_list_item">
-              <img
-                src={groupimage}
-                alt="groupImage"
-                className="groupMember_img"
+                className={styles.groupMember_img}
               />
               <p>이름</p>
             </div>

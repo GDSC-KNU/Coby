@@ -2,6 +2,7 @@ import "./GroupBanner.css"
 import { useState, useEffect } from "react";
 import pencil from '../../images/pencil.png'
 import Backdrop from "../../components/reuseUI/Backdrop";
+import crown from "../../images/crown.png";
 
 import MyGroup from "../../sevices/MyGroup";
 import MyPage from "../../sevices/MyPage";
@@ -15,10 +16,6 @@ const GroupBanner = () => {
     const navigate = useNavigate();
     const [myId, setMyId] = useState("");
     const [createdBy, setCreatedBy] = useState("");
-
-    function NoGroupHandleClick(event){
-        navigate("/Nogroup");
-    }
 
     function GroupInfoHandleClick(event){
         navigate("/GroupInfo");
@@ -63,6 +60,9 @@ const GroupBanner = () => {
                     <div className = "group_name">
                         {groupname}
                     </div>
+                    <div className="group_boss">
+                    <img src={crown} alt="medal"/>&nbsp;{createdBy}
+                    </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
                     </div>
@@ -73,10 +73,6 @@ const GroupBanner = () => {
 
                     <div>
                         <button onClick={GroupMemberHandleClick} className="groupbtn">그룹원목록</button>
-                    </div>
-
-                    <div>
-                        <button onClick={NoGroupHandleClick} className="groupbtn">그룹없을때</button>
                     </div>
                 </div>
             ) : (
@@ -85,6 +81,9 @@ const GroupBanner = () => {
                     <div className = "group_name">
                         {groupname}
                     </div>
+                    <div className="group_boss">
+                        {createdBy}
+                    </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
                     </div>
@@ -95,10 +94,6 @@ const GroupBanner = () => {
 
                     <div>
                         <button onClick={GroupMemberHandleClick} className="groupbtn">그룹원목록</button>
-                    </div>
-
-                    <div>
-                        <button onClick={NoGroupHandleClick} className="groupbtn">그룹없을때</button>
                     </div>
                 </div>
             )}

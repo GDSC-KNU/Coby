@@ -12,6 +12,10 @@ function FindGroupModal(props) {
         setEnteredSearch(event.target.value);
     };
 
+    const groupClickHandler = (event) => {
+        alert('그룹 클릭');
+    };
+
     useEffect(() => {
         MyGroup().then((data) => {
             setGroup(data);
@@ -42,7 +46,7 @@ function FindGroupModal(props) {
                         </tr>
                     </thead>
                     <tbody className='grouplist'>
-                        <tr>
+                        <tr onClick={groupClickHandler}>
                             <td className='table_td'><p>그룹이름입니다</p></td>
                             <td className='table_td'><p>남성훈</p></td>
                             <td className='table_td'><p>2450</p></td>

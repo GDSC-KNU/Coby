@@ -1,6 +1,6 @@
 import Layout from "../../components/reuseUI/Layout";
 import GroupBanner from "./GroupBanner";
-import "./GroupInfo.css"
+import styles from "./GroupInfo.module.css";
 import notice from '../../images/Vector.png'
 import medal from '../../images/medal.png'
 import group from '../../images/member.png'
@@ -88,51 +88,51 @@ const GroupInfo = (props) => {
 
 
     return (
-        <div className="outer1">
+        <div className={styles.outer}>
             <Layout/>
             <GroupBanner/>
             <header>
-                <div className="info1">
-                    <div className="groupName">
-                        <p className="group_exit" onClick={ExitHandleClick}>그룹 탈퇴하기</p>
-                        <h className="group_detail_name">{groupname}</h>
-                        <p className="group_detail_info"><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;3/20&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
+                <div className={styles.info}>
+                    <div className={styles.groupName}>
+                        <p className={styles.group_exit} onClick={ExitHandleClick}>그룹 탈퇴하기</p>
+                        <h className={styles.group_detail_name}>{groupname}</h>
+                        <p className={styles.group_detail_info}><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;3/20&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
                     </div>
-                    <div className="groupIntro">
+                    <div className={styles.groupIntro}>
                         { introEdit ? (
                             <div>
-                                <input className="introEditInput" type="text" value={groupdescription} onChange={handleInputChange} defaultValue={groupdescription}></input>
-                                <button className="introEditBtn" onClick={handleIntroduce}>수정</button>
+                                <input className={styles.introEditInput} type="text" value={groupdescription} onChange={handleInputChange} defaultValue={groupdescription}></input>
+                                <button className={styles.introEditBtn} onClick={handleIntroduce}>수정</button>
                             </div>
                         ) : (
                             <div>
                             { createdBy === userId ? (
                                 <div>
-                                <p className="subtitle">그룹 소개 <img src={pencil} alt="pencil" onClick={onClickIntroduce} className="correction"></img></p>
-                                <p className="groupdescription">{groupdescription}</p>
+                                <p className={styles.subtitle}>그룹 소개 <img src={pencil} alt="pencil" onClick={onClickIntroduce} className="correction"></img></p>
+                                <p className={styles.groupdescription}>{groupdescription}</p>
                                 </div>
                             ):(
                                 <div>
-                                <p className="subtitle">그룹 소개</p>
-                                <p className="groupdescription">{groupdescription}</p>
+                                <p className={styles.subtitle}>그룹 소개</p>
+                                <p className={styles.groupdescription}>{groupdescription}</p>
                                 </div>
                             )}
                             </div>
                         )}
                     </div>
-                    <div className="groupNotice">
-                        <p className="noticeline"><img src={notice} alt="img" className="noticeimg"></img><span className="noticetitle">&nbsp;&nbsp;공지사항&nbsp;&nbsp;&nbsp;</span>코린이를 위한 멘토멘티 프로그램 운영 중입니다. 많은 참여 부탁드립니다.</p>
+                    <div className={styles.groupNotice}>
+                        <p className={styles.noticeline}><img src={notice} alt="img" className={styles.noticeimg}></img><span className={styles.noticetitle}>&nbsp;&nbsp;공지사항&nbsp;&nbsp;&nbsp;</span>코린이를 위한 멘토멘티 프로그램 운영 중입니다. 많은 참여 부탁드립니다.</p>
                     </div>
-                    <div className="Myinfo">
-                        <div className="profile">
-                            <p className="subtitle">내정보</p>
-                            <div className="profile_outer">
-                              <img src={profileImg} alt="ProfileImage" className="profile_Img"></img>
+                    <div className={styles.Myinfo}>
+                        <div className={styles.profile}>
+                            <p className={styles.subtitle}>내정보</p>
+                            <div className={styles.profile_outer}>
+                              <img src={profileImg} alt="ProfileImage" className={styles.profile_Img}></img>
                               <p>{name}</p>
                             </div>
                         </div>
-                        <div className="myboard">
-                            <p className="subtitle">내가 쓴 글</p>
+                        <div className={styles.myboard}>
+                            <p className={styles.subtitle}>내가 쓴 글</p>
                         </div>
                     </div>
                 </div>

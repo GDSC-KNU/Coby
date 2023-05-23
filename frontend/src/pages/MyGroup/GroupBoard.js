@@ -25,9 +25,8 @@ const GroupBoard = () => {
   }
 
   return (
-    <div>
+    <div className={styles.groupBoardOuter}>
       <Layout/>
-      <div className={styles.groupBoardOuter}>
       <GroupBanner />
         <div className={styles.boardouter}>
           <section className={styles.post_list}>
@@ -86,7 +85,6 @@ const GroupBoard = () => {
             글쓰기
           </button>
         </div>
-      </div>
     </div>
   );
 };

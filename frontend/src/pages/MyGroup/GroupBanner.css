@@ -3,9 +3,9 @@
 .groupbanner_body {
     position: absolute;
     width: 214px;
-    height: 663px;
+    height: 620px;
 
-    top: 3vh;
+    top: 14vh;
 
     background: linear-gradient(180deg, #5579FE 0%, rgba(85,121,254,0.33) 100%);
     backdrop-filter: blur(3.5px);
@@ -35,12 +35,32 @@
 /*그룹 이름*/
 .group_name {
     position: relative;
-    width: 5.7rem;
+    width: 7rem;
     height: 0.5rem;
 
-    left: 40%;
+    left: 48%;
     transform: translate(-100%);
     margin-left: 4.2rem;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    top:7vh;
+    font-size: 1.3rem;
+    font-weight:lighter;
+
+}
+.group_boss{
+    position: relative;
+    width: 7rem;
+    height: 2rem;
+
+    left: 48%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+    margin-top: 10px;
 
     align-items: center;
     justify-content: center;
@@ -50,6 +70,7 @@
     top:9vh;
     font-size: 1rem;
     font-weight:lighter;
+    border-bottom: 1px solid white;
 }
 
 /*버튼 부분*/
@@ -58,7 +79,7 @@
     height: 3rem;
 
     position: relative;
-    top: 17vh;
+    top: 14vh;
     left: 47%;
     transform: translate(-100%);
     margin-left: 4.2rem;
@@ -75,7 +96,7 @@
     border-bottom: transparent;
     border-right: transparent;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1rem;;
 }
 .groupbtn:hover {
     font-weight: bold;

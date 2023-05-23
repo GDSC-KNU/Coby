@@ -1,4 +1,6 @@
-.outer3 {
+.outer {
+  position: absolute;
+  left: 16.5rem;
   display: column;
   align-items: center;
   justify-content: center;
@@ -7,8 +9,6 @@
   padding: 0.7rem;
   background: #ffffff;
   z-index: 1;
-  position: relative;
-  left: 250px;
 }
 
 .group_Members_Content{

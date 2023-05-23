@@ -2,19 +2,19 @@ body {
   overflow: auto;
 }
 
-.outer2 {
+.outer{
   position: absolute;
   display: column;
   align-items: center;
   justify-content: center;
   width: 950px;
   height: 780px;
-  left: 30rem;
+  left: 16.5rem;
   margin: 0 auto;
   padding: 0.1rem;
   background: #ffffff;
 }
-.info1 {
+.info{
   position: relative;
   width: 42rem;
   height: 80vh;

@@ -1,11 +1,11 @@
 .groupBoardOuter {
   position: absolute;
+  right: 184px;
   display: column;
   align-items: center;
   justify-content: center;
   width: 950px;
   height: 780px;
-  left: 30rem;
   margin: 0 auto;
   padding: 0.1rem;
   background: #ffffff;
