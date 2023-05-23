@@ -1,22 +1,43 @@
 import Layout from "../components/reuseUI/Layout";
 import styles from "./Help.module.css";
-import logo from "../images/Coby_darkBlue.png";
+import logo from "../images/logo_black.png";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import MyPage from "../sevices/MyPage";
 
-const Help = () => {
+const Help = (props) => {
+  const [groupName, setGroupName] = useState("");
+
   const navigate = useNavigate();
 
   function ReviewClick() {
     navigate("/CodeRoomList");
   }
-  
-  function PairClick(){
+
+  function PairClick() {
     navigate("/PairCodeRoomList");
   }
 
-  function MyGroupClick(){
-    navigate("/GroupInfo");
+  function MyGroupClick() {
+    props.isLogin
+      ? groupName
+        ? navigate("/GroupInfo")
+        : navigate("/NoGroup")
+      : alert("로그인이 필요한 서비스입니다.");
   }
+
+
+  useEffect(() => {
+    if (props.isLogin) {
+      MyPage()
+        .then((data) => {
+          setGroupName(data.groupName);
+        })
+        .catch((err) => {
+          console.log("마이페이지 불러오기 실패");
+        });
+    }
+  }, [props.isLogin]);
 
   return (
     <div>
@@ -28,6 +49,9 @@ const Help = () => {
           className={styles.logo}
           style={{ display: "block" }}
         />
+        <br />
+        <br />
+        <br />
         <div>
           <div className={styles.title}>
             <h2>코드 리뷰</h2>
@@ -41,6 +65,8 @@ const Help = () => {
               방을 만들고, 멘토님과의 소통을 통해 내 코드의 문제점을 알아봅시다!
             </p>
           </div>
+          <br />
+          <div className={styles.line}></div>
           <br />
           <div className={styles.title}>
             <h2>페어프로그래밍</h2>
@@ -64,10 +90,10 @@ const Help = () => {
               코드룸 들어갔을시 채팅방을 따로 입장해주셔야 대화에 참여하실 수
               있습니다.
             </p>
-            <p>
-              채팅방에서 방장이 Live Share나 Code With Me 링크를 받아서
-              코드리뷰와 페어프로그래밍에 참여해보아요!
-            </p>
+            <p>채팅방에서 방장이 Live Share나 Code With Me 링크를 받아</p>
+            <p>코드리뷰와 페어프로그래밍에 참여해보아요!</p>
+            <br />
+            <div className={styles.line}></div>
           </div>
           <br />
           <div className={styles.title}>

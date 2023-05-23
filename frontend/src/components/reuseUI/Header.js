@@ -34,7 +34,11 @@ function Header(props) {
   }
 
   function MyGroupClick() {
-    groupName ? navigate("/GroupInfo") : navigate("/NoGroup")
+    props.isLogin
+      ? groupName
+        ? navigate("/GroupInfo")
+        : navigate("/NoGroup")
+      : alert("로그인이 필요한 서비스입니다.");
     setActiveMenu("myGroup");
   }
 
@@ -61,17 +65,20 @@ function Header(props) {
 
   useEffect(() => {
     if (props.isLogin) {
-      MyPage().then((data) => {
-        setGroupName(data.groupName);
-      }).catch((err) => {
-        console.log('마이페이지 불러오기 실패');
-      });
+      MyPage()
+        .then((data) => {
+          setGroupName(data.groupName);
+        })
+        .catch((err) => {
+          console.log("마이페이지 불러오기 실패");
+        });
     }
   }, []);
 
   const [logInmodalOpen, setLoginModalOpen] = useState(false);
   const [signInmodalOpen, setSigninModalOpen] = useState(false);
   const [mypagemodalOpen, setMypageModalOpen] = useState(false);
+  // const [helpModalOpen, setHelpModalOpen] = useState(false);
 
   const showLoginModal = () => {
     setLoginModalOpen(true);
@@ -92,6 +99,13 @@ function Header(props) {
     setSigninModalOpen(false);
   };
 
+  // const showHelpModal = () => {
+  //   setHelpModalOpen(true);
+  // };
+  // const closeHelpModal = () => {
+  //   setHelpModalOpen(false);
+  // };
+
   const logOut = async (event) => {
     event.preventDefault();
     try {
@@ -99,10 +113,11 @@ function Header(props) {
       // 로그아웃에 성공한 경우, 메시지를 출력하고 페이지를 새로고침합니다.
       alert("로그아웃 완료");
       navigate("/");
+      props.setIsLogin(false);
       window.location.reload();
     } catch (error) {
       // 로그아웃에 실패한 경우, 에러 메시지를 출력합니다.
-      console.error('로그아웃 실패');
+      console.error("로그아웃 실패");
       throw new Error(error.response.data.message);
     }
   };
@@ -118,7 +133,10 @@ function Header(props) {
                   마이페이지
                 </button>
                 {mypagemodalOpen && (
-                  <MypageModal setModalOpen={setMypageModalOpen} isLogin={props.isLogin}/>
+                  <MypageModal
+                    setModalOpen={setMypageModalOpen}
+                    isLogin={props.isLogin}
+                  />
                 )}
                 {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
                 <button onClick={logOut} className="Login">
@@ -178,7 +196,7 @@ function Header(props) {
               >
                 마이그룹
               </li>
-              <li  
+              <li
                 onClick={HelpClick}
                 className={activeMenu === "help" ? "active" : ""}
               >
