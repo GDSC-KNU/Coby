@@ -2,9 +2,9 @@
 
 ## 1. 서비스 한 줄 소개 💻
 
-  ![logo_black](https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2d3edc7c-52d7-4cae-8072-034ed987f7b8)
+<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2d3edc7c-52d7-4cae-8072-034ed987f7b8" width="270px" height = "250px" />
 
-## &nbsp;&nbsp;&nbsp;"실시간 개발환경 공유 플랫폼"
+### &nbsp;"실시간 개발환경 공유 플랫폼"
 
 ## 2. 팀원소개 👨‍👨‍👧‍👦 
 
