@@ -34,7 +34,7 @@
      <img style="border: 0px solid black !important; border-radius:50%; " src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2e06f1e6-3b5b-49e0-addf-2a9ea4920551" width="180px" height = "180px" />
    </td>
      <td>
-     <img style="border: 0px solid black !important; border-radius:50%; " src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
+     <img style="border: 0px solid black !important; border-radius:50%; " src="https://avatars.githubusercontent.com/u/75965656?v=4" width="180px" height = "180px" />
    </td>
     <td>
       <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
