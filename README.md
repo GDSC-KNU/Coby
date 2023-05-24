@@ -40,7 +40,8 @@
 - 서비스 목적
 - 피그마 전체 화면
 
-  ![프로젝트전체이미지](https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2ea40d02-7cb6-449b-a7c5-81c77e658964)
+  ![프로젝트전체이미지](https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d)
+
 
 - 데이터베이스 (ERDs)
 - 각 화면 별 캡처 후, 간단한 설명
