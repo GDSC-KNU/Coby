@@ -2,23 +2,22 @@ import React,{useState,useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import MakeRoom from "./components/makeCodeRoom/MakeRoom";
-import CodeRoomListPage from "./pages/CodeRoomListPage";
-import CodeRoom from "./pages/CodeRoom";
-import CodeRoomPair from "./pages/CodeRoomPair";
-import Main from "./pages/Main";
-import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
-import Nogroup from "./pages/MyGroup/NoGroup";
-import GroupInfo from "./pages/MyGroup/GroupInfo";
-import GroupBoard from "./pages/MyGroup/GroupBoard";
-import GroupMember from "./pages/MyGroup/GroupMember";
-import Write from "./pages/MyGroup/BoardWirte";
-import PostDetail from "./pages/MyGroup/Board/PostsDetail";
-import PostsModify from "./pages/MyGroup/Board/PostsModify";
-import Help from "./pages/Help";
+import MakeRoom from "./components/pages/DetailPage/CodeReview/components/MakeRoom";
+import CodeRoomListPage from "./components/pages/DetailPage/CodeReview/containers/CodeRoomListPage";
+import CodeRoom from "./components/pages/DetailPage/CodeRoom/CodeReview/containers/CodeRoom";
+import CodeRoomPair from "./components/pages/DetailPage/CodeRoom/PairProgramming/containers/CodeRoomPair";
+import Main from "./components/pages/MainPages/containers/Main";
+import PairCodeRoomListPage from "./components/pages/DetailPage/PairProgramming/containers/PairCodeRoomListPage";
+import Nogroup from "./components/pages/DetailPage/MyGroup/containers/NoGroup";
+import GroupInfo from "./components/pages/DetailPage/MyGroup/containers/GroupInfo";
+import GroupBoard from "./components/pages/DetailPage/MyGroup/containers/GroupBoard";
+import GroupMember from "./components/pages/DetailPage/MyGroup/containers/GroupMember";
+import Write from "./components/pages/DetailPage/MyGroup/containers/BoardWirte";
+import PostDetail from "./components/pages/DetailPage/MyGroup/containers/PostsDetail";
+import PostsModify from "./components/pages/DetailPage/MyGroup/containers/PostsModify";
+import Help from "./components/pages/DetailPage/Help/containers/Help";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -30,7 +29,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main isLogin = {isLogin} setIsLogin = {setIsLogin} />} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
-          <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} />} />
+          <Route path="/CodeRoom" element={<CodeRoom />} />
+          <Route path="/CodeRoomPair" element={<CodeRoomPair />} />
           <Route path="/CodeRoomList" element={<CodeRoomListPage isLogin={isLogin}/>} />
           <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage isLogin={isLogin}/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
