@@ -3,7 +3,6 @@ package com.gdsc.coby.service;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.TokenDto;
 import com.gdsc.coby.dto.UserDto;
-import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.JwtProvider;
 import jakarta.persistence.EntityExistsException;
@@ -18,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.MissingRequestHeaderException;
 
 import java.util.concurrent.TimeUnit;
 
