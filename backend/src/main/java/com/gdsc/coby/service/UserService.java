@@ -5,7 +5,6 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.UserDto;
-import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.repository.UserRepository;
 import com.gdsc.coby.security.SecurityUtil;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,6 @@
 package com.gdsc.coby.controller;
 
 import com.gdsc.coby.dto.request.PasswordRequestDto;
-import com.gdsc.coby.dto.request.UserRequestDto;
 import com.gdsc.coby.dto.response.UserResponseDto;
 import com.gdsc.coby.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;

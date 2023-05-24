@@ -30,10 +30,10 @@ function MyInfoEdit(props) {
             setProfileImg(data.profileUrl);
             setName(data.name);
         }).catch((err) => {
-            console.log(err.message);
+            console.log('마이페이지 수정 모달 불러오기 실패');
         });
     }, []);
-    
+
     const onClickChange = async (event) => {
         event.preventDefault();
         try {
@@ -59,7 +59,7 @@ function MyInfoEdit(props) {
                 <div className="preview">
                     <input className="fileinput" type="file" accept="image/jpg,image/png,image/jpeg,image/gif" name="file" onChange={(e) => {encodeFileToBase64(e.target.files[0])}}/>
                     {profileImg && <img src={profileImg} alt="preview-img" className='profileImg'/>}
-                    <input type='text' className='editName' placeholder='그룹이름을 입력해 주세요.' onChange={handleName} value={name}/>
+                    <input type='text' className='editName' placeholder='이름을 입력해 주세요.' onChange={handleName} value={name}/>
                 </div>
             </div>
             <button className='editBtn' onClick={onClickChange}>수정</button>

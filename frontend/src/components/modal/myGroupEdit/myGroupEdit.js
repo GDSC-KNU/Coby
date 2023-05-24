@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import MyGroup from '../../../sevices/MyPage';
-import MyGroupInfoEdit from '../../../sevices/MyprofileEdit';
+import MyGroup from '../../../sevices/MyGroup';
+import MyGroupInfoEdit from '../../../sevices/MyGroupInfoEdit';
 
 import './myGroupEdit.css';
 
 function MyGroupEdit(props) {
-    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+    const [groupImg, setGroupImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [name,setName] = useState('');
     const [file, setFile] = useState(null);
+    const [description, setDescription] = useState('');
+    const [groupId, setGroupId] = useState('');
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -19,7 +21,7 @@ function MyGroupEdit(props) {
         setFile(fileBlob);
         return new Promise((resolve) => {
             reader.onload = () => {
-                setProfileImg(reader.result);
+                setGroupImg(reader.result);
                 resolve();
             };
         });
@@ -27,8 +29,10 @@ function MyGroupEdit(props) {
 
     useEffect(() => {
         MyGroup().then((data) => {
-            setProfileImg(data.profileUrl);
+            setGroupImg(data.profileUrl);
             setName(data.name);
+            setDescription(data.description);
+            setGroupId(data.id);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -38,11 +42,11 @@ function MyGroupEdit(props) {
         event.preventDefault();
         try {
             const formData = new FormData();
-            const jsonData = JSON.stringify({ name: "groupname", description: "" });
             formData.append("profileImage", file);
-            formData.append('info', jsonData);
+            formData.append('name', name);
+            formData.append('description', description);
 
-            MyGroupInfoEdit(formData).then((data) => {
+            MyGroupInfoEdit(formData,groupId).then((data) => {
                 alert("수정 완료!");
                 window.location.reload();
             });
@@ -58,7 +62,7 @@ function MyGroupEdit(props) {
                 <p className='editFont'>그룹정보 수정</p>
                 <div className="preview">
                     <input className="fileinput" type="file" accept="image/jpg,image/png,image/jpeg,image/gif" name="file" onChange={(e) => {encodeFileToBase64(e.target.files[0])}}/>
-                    {profileImg && <img src={profileImg} alt="preview-img" className='profileImg'/>}
+                    {groupImg && <img src={groupImg} alt="preview-img" className='profileImg'/>}
                     <input type='text' className='editName' placeholder='그룹이름을 입력해 주세요.' onChange={handleName} value={name}/>
                 </div>
             </div>

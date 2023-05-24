@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import MyGroup from '../../../sevices/MyPage';
 import MakeGroup from '../../../sevices/MakeGroup';
+import {useNavigate} from 'react-router-dom';
 
 import './makeGroup.css';
 
@@ -9,6 +10,7 @@ function MyGroupMake(props) {
     const [name,setName] = useState('');
     const [description, setDescription] = useState('');
     const [file, setFile] = useState(null);
+    const navigate = useNavigate();
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -44,13 +46,14 @@ function MyGroupMake(props) {
         event.preventDefault();
         try {
             const formData = new FormData();
-            const jsonData = JSON.stringify({ name: name, description: description });
             formData.append("profileImage", file);
-            formData.append('info', jsonData);
+            formData.append('name', name);
+            formData.append('description', description);
 
             MakeGroup(formData).then((data) => {
                 alert("생성 완료!");
                 props.setModalOpen(false);
+                navigate('/GroupInfo');
             });
         } catch (error) {
             console.error(error);

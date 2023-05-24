@@ -17,7 +17,7 @@ body {
     line-height: 0.6em;
 }
 
-.modal {
+.modal1 {
     /*Center*/
     position : fixed;
     top: 50%;
@@ -26,7 +26,7 @@ body {
     z-index : 999;
 }
 
-.modal-content {
+.modal-content1 {
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -44,11 +44,10 @@ body {
     padding:18px;
 }
 
-.upper{
+.upper1{
     position: fixed;
     width: 568px;
-    height: 73px;
-
+    height: 70px;
     background: #5579FE;
     border-top-left-radius : 35px;
     border-top-right-radius : 35px;
@@ -57,20 +56,24 @@ body {
     color: #FFFFFF;
 }
 
-.userinfo {
+.userinfo1 {
     position: absolute;
-    left:249px;
-    top:70px;
+    left:33vh;
+    top:9vh;
     font-size: 23px;
     font-weight: 700;
     font-style: normal;
     color: #000000;
 }
-
+.userinfo2 {
+    position: relative;
+    top: 30px;
+}
 .userphoto{
     position:absolute;
-    width:233px;
-    height: 230px;
+    border-radius: 50%;
+    width:210px;
+    height: 210px;
     left: 16px;
     top:81px;
 }
@@ -84,8 +87,8 @@ body {
 
 .editbtn{
     position: relative;
-    left: 90%;
-    top: 10px;
+    left: 20vh;
+    top: 5vh;
     border-radius: 20px;
     width: 70px;
     height: 30px;
@@ -103,8 +106,8 @@ body {
 }
 .checkbtn{
     position: relative;
-    left: 90%;
-    top: 10px;
+    left: 20vh;
+    top: 5vh;
     margin-left: 5px;
     border-radius: 20px;
     width: 70px;
@@ -120,4 +123,4 @@ body {
     font-weight: bold;
     transition: all 0.3s;
     scale: 1.1;
-  }
+}

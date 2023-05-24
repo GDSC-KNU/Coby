@@ -14,11 +14,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Tag(name = "게시글 컨트롤러", description = "게시글 관련 기능 제공")
 @RequiredArgsConstructor
-@RequestMapping("/api/groups/{groupId}/posts")
+@RequestMapping("/api/posts")
 @RestController
 public class PostController {
 
@@ -36,8 +35,8 @@ public class PostController {
 
     @GetMapping
     @Operation(description = "게시글 목록을 조회합니다.")
-    public ResponseEntity<List<PostResponseDto>> getPosts(@PathVariable Long groupId) {
-        return ResponseEntity.ok(postService.getPosts(groupId).stream()
+    public ResponseEntity<List<PostResponseDto>> getPosts() {
+        return ResponseEntity.ok(postService.getPosts().stream()
                 .map(PostResponseDto::from)
                 .toList());
     }
@@ -50,11 +49,11 @@ public class PostController {
 
     @PostMapping
     @Operation(description = "게시글을 생성합니다.")
-    public ResponseEntity<PostResponseDto> createPost(@PathVariable Long groupId, @RequestBody PostRequestDto requestDto) {
-        return ResponseEntity.ok(PostResponseDto.from(postService.createPost(groupId, requestDto.toDto())));
+    public ResponseEntity<PostResponseDto> createPost(@RequestBody PostRequestDto requestDto) {
+        return ResponseEntity.ok(PostResponseDto.from(postService.createPost(requestDto.toDto())));
     }
 
-    @PutMapping("/{postId}")
+    @PostMapping("/{postId}")
     @Operation(description = "게시글을 수정합니다.")
     public ResponseEntity<PostResponseDto> updatePost(@PathVariable Long postId, @RequestBody PostRequestDto requestDto) {
         return ResponseEntity.ok(PostResponseDto.from(postService.updatePost(postId, requestDto.toDto())));

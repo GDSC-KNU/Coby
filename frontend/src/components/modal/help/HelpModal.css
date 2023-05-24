@@ -10,9 +10,9 @@
 .modal-content {
     width: 23rem;
     height: 75vh;
-
-    background: #E0EAF7;
+    background: #ffffff;
     border-radius: 25px;
+    box-shadow: 0px 0px 20px #000;
 }
 
 .modal-content > div {
@@ -33,6 +33,7 @@
     color: white;
     text-align: center;
     justify-content: center;
+    box-shadow: 0px 0px 20px white;
 }
 
 .review {
@@ -43,8 +44,8 @@
     height:12vh;
     
     background:#F8F8F8;
-    font-size : 5px;
-    text-align: center;
+    font-size : 11px;
+    text-align: left;
     color:black;
 }
 
@@ -59,7 +60,7 @@
     background: #5579FE;
     color: white;
     border-radius: 5px;
-    font-size : 8px;
+    font-size : 11px;
     text-align: center;
 }
 
@@ -71,8 +72,8 @@
     height:12vh;
     
     background:#F8F8F8;
-    font-size : 5px;
-    text-align: center;
+    font-size : 11px;
+    text-align:left;
     color:black;
 }
 
@@ -87,7 +88,7 @@
     background: #5579FE;
     color: white;
     border-radius: 5px;
-    font-size : 8px;
+    font-size : 12px;
     text-align: center;
     align-items: center;
 }
@@ -100,7 +101,7 @@
     height:12vh;
     
     background:#F8F8F8;
-    font-size : 5px;
-    text-align: center;
+    font-size : 11px;
+    text-align: left;
     color:black;
 }

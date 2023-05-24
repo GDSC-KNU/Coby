@@ -1,0 +1,26 @@
+.outer{
+    position: absolute;
+    display: column;
+    align-items: center;
+    justify-content: center;
+    width: 950px;
+    height: 780px;
+    left: 16.5rem;
+    margin: 0 auto;
+    padding: 0.1rem;
+    background: #ffffff;
+}
+.input_title{
+    height: 30px;
+}
+.btn{
+    background-color: #5579fe;
+    border: 0px;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+    color: white;
+    position: relative;
+    left: 850px;
+    top: 30px;
+}

@@ -1,28 +1,70 @@
-import { useState } from "react";
-import "./GroupBoard.css"
+import { useState, useEffect } from "react";
+import styles from "./GroupBoard.module.css";
 import Layout from "../../components/reuseUI/Layout";
 import GroupBanner from "./GroupBanner";
-import Pagination from 'react-js-pagination';
+import Pagination from "react-js-pagination";
+import Writeget from "../../sevices/Board";
+import { useNavigate } from "react-router-dom";
+import moment from 'moment'
 
 const GroupBoard = () => {
-  const [page, setPage] = useState(1);
+  const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
-  const handlePageChange = (page) => {
-    setPage(page);
-    console.log(page);
-  };
+  useEffect(() => {
+    Writeget()
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
-  function WriteHandleClick(event){
-    window.location.href="/BoardWrite";
+  function WriteHandleClick(event) {
+    navigate("/BoardWrite");
   }
 
   return (
-    <div className="outer1">
+    <div className={styles.groupBoardOuter}>
       <Layout/>
-      <GroupBanner/>
-      <div className="boardouter">
-        <h2>그룹게시판</h2>
-        <Pagination>
+      <GroupBanner />
+        <div className={styles.boardouter}>
+          <section className={styles.post_list}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th className={styles.first_th}>제목</th>
+                  <th className={styles.third_th}>작성자</th>
+                  <th className={styles.second_th}>작성일</th>
+                </tr>
+              </thead>
+            </table>
+            <div className={styles.post_list_body}>
+              {
+                posts.map((post) => (
+                    <div className={styles.post_item}>
+                      <div className={styles.post_item_title}>
+                        <a href={`/posts/${post.id}`}>{post.title}</a>
+                      </div>
+                      <div className={styles.post_item_writer}>{post.createdBy}</div>
+                      <div className={styles.post_item_date}>{moment(post.createdAt).format('MMMM Do YYYY')}</div>
+                    </div>
+                ))}
+            </div>
+          </section>
+          <button className={styles.writebtn} onClick={WriteHandleClick}>
+            글쓰기
+          </button>
+        </div>
+    </div>
+  );
+};
+
+export default GroupBoard;
+
+/*
+ <Pagination>
           activePage={page}
           itemsCountPerPage={10}
           totalItemsCount={450}
@@ -31,11 +73,4 @@ const GroupBoard = () => {
           nextPageText={"›"}
           onChange={handlePageChange}
         </Pagination>
-        <button onClick={WriteHandleClick}>글쓰기</button>
-      </div>
-    </div>
-  )
-}
-
-export default GroupBoard;
-
+*/

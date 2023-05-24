@@ -5,9 +5,10 @@ import MyPage from "../../../sevices/MyPage";
 import MyInfoEdit from "../myInfoEdit/myInfoEdit";
 import Backdrop from "../../reuseUI/Backdrop";
 import pencil from '../../../images/pencil.png';
+import person from '../../../images/person.png';
 
-function MyPageModal(){
-    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+function MyPageModal(props){
+    const [profileImg, setProfileImg] = useState();
     const [name,setName] = useState('');
     const [group,setGroup] = useState('');
     const [exp, setExp] = useState('');
@@ -33,33 +34,35 @@ function MyPageModal(){
             setGrade('Gold');
         }
     }
-
     useEffect(() => {
         MyPage().then((data) => {
             setName(data.name);
             setGroup(data.groupName);
             setExp(data.exp_point);
-            setProfileImg(data.profileUrl);
+            data.profileUrl ?
+                setProfileImg(data.profileUrl) :
+                setProfileImg(person);
             checkGrade(exp);
-            console.log(data);
         }).catch((err) => {
-            console.log(err.message);
+            console.log('마이페이지 수정 모달 불러오기 실패');
         });
-      }, []);
-    
+    }, []);
+
     return (
         <div>
             <Layout/>
-            <div className="modal">
-                <div className="modal-content">
-                    <div className="upper">
+            <div className="modal1">
+                <div className="modal-content1">
+                    <div className="upper1">
                         <br />＜COBY.＞
                     </div>
-                    <div className="userinfo">
-                        <p>이름 : {name}</p>
-                        <p>그룹 : {group}</p>
-                        <p>등급 : {grade}</p>
-                        <p>기여도 : {exp}</p>
+                    <div className="userinfo1">
+                        <div className="userinfo2">
+                            <p>이름 : {name}</p>
+                            <p>그룹 : {group}</p>
+                            <p>등급 : {grade}</p>
+                            <p>기여도 : {exp}</p>
+                        </div>
                         <button onClick={showEditModal} className="editbtn">수정</button>
                         <button onClick={onClickCheck} className="checkbtn">확인</button>
                     </div>
@@ -67,7 +70,7 @@ function MyPageModal(){
                     <div className="tier"></div>
                 </div>
             </div>
-            {infoEditOpen && <MyInfoEdit setModalOpen={setInfoEditModalOpen}/>}
+            {infoEditOpen && <MyInfoEdit setModalOpen={setInfoEditModalOpen} isLogin={props.isLogin}/>}
             {infoEditOpen && <Backdrop onCancel={closeEditModal} />}
         </div>
     );

@@ -5,7 +5,7 @@ import Login from "../../../sevices/Login";
 import styles from "./LoginModal.module.css";
 import logo from "../../../images/logo_black.png";
 
-function LoginModal() {
+function LoginModal(props) {
     const [showPswd, setShowPswd] = useState(false);
     const toggleShowPswd = () => {
         setShowPswd(!showPswd);
@@ -29,7 +29,6 @@ function LoginModal() {
             window.alert("로그인 성공");
         } catch (error) {
             console.error(error);
-            throw new Error(error.response.data.message);
         }
     };
 
@@ -39,7 +38,6 @@ function LoginModal() {
                 <img src={logo} alt="로고" className={styles.logo_login} />
             </div>
             <div className={styles.form}>
-                {/* <p>아이디</p> */}
                 <input
                     className={styles.input}
                     type="text"
@@ -50,7 +48,6 @@ function LoginModal() {
                 />
             </div>
             <div className={styles.form}>
-                {/* <p>비밀번호</p> */}
                 <input
                     className={styles.input}
                     type={showPswd ? "text" : "password"}
