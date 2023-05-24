@@ -103,7 +103,7 @@ function MakeRoomModal(props) {
       console.error(error);
       throw new Error(error.response.data.message);
     }
-    //navigate("/CodeRoom");
+    navigate("/CodeRoom");
   };
 
   return (

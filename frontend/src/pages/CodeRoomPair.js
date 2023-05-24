@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./CodeRoom.css";
+import "./CodeRoomPair.css";
 import SidebarPair from "../components/codeRoom/SidebarPair";
 
-const CodeRoom = () => {
+const CodeRoomPair = () => {
   return (
     <div>
       <SidebarPair />
@@ -26,4 +26,4 @@ const CodeRoom = () => {
   );
 };
 
-export default CodeRoom;
+export default CodeRoomPair;

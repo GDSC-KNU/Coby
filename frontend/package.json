@@ -15,6 +15,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "net": "^1.0.2",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-cookies": "^0.1.1",
@@ -37,6 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage":"https://cobys.netlify.app/",
   "eslintConfig": {
     "extends": [
       "react-app",

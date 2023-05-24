@@ -6,7 +6,7 @@ import styles from "./SidebarPair.module.css";
 import exit from "../../images/exit.png";
 import MyPage from "../../sevices/MyPage";
 import DeleteRoom from "../../sevices/DeleteRoom";
-import ShowRoomListPair from "../../services/ShowRoomListPair"
+import ShowRoomListPair from "../../sevices/ShowRoomListPair";
 
 const SidebarPair = () => {
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ const SidebarPair = () => {
         await DeleteRoomHandler();
       }
 
-      navigate("/CodeRoomListPair");
+      navigate("/PairCodeRoomList");
     }
   };
 

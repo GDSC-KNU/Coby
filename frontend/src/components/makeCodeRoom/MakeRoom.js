@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import searchimg from "../../images/icon-search.png";
 import RoomItem from "./RoomItem";
@@ -6,7 +6,7 @@ import styles from "./MakeRoom.module.css";
 import SearchRoomList from "../../sevices/SearchRoomList";
 import { useNavigate } from "react-router-dom";
 
-function MakeRoom() {
+function MakeRoom(props) {
   const [devVscode, setVscode] = useState(false);
   const [devIntellij, setIntellij] = useState(false);
   const [devC, setC] = useState(false);
@@ -18,104 +18,137 @@ function MakeRoom() {
   const [devSwift, setSwift] = useState(false);
   const [devGo, setGo] = useState(false);
   const [devLinq, setLinq] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
+  const [devScala, setScala] = useState(false);
+  const [devPython, setPython] = useState(false);
 
-  const onClickVs = () => {
-    setVscode(true);
-  };
-  const onClickInt = () => {
-    setIntellij(true);
-  };
-  const onClickC = () => {
-    setC(true);
-  };
-  const onClickCpp = () => {
-    setCpp(true);
-  };
-  const onClickJava = () => {
-    setJava(true);
-  };
-  const onClickJs = () => {
-    setJavascript(true);
-  };
-  const onClickRuby = () => {
-    setRuby(true);
-  };
-  const onClickKotlin = () => {
-    setKotlin(true);
-  };
-  const onClickSwift = () => {
-    setSwift(true);
-  };
-  const onClickGo = () => {
-    setGo(true);
-  };
-  const onClickLinq = () => {
-    setLinq(true);
-  };
+  const [selectedToolOptions, setSelectedToolOptions] = useState([]);
+  const [selectedLanguageOptions, setSelectedLanguageOptions] = useState([]);
+
+  const [searchResult, setSearchResult] = useState([]);
 
   const [enteredSearch, setEnteredSearch] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const SearchResult = await SearchRoomList(
+          selectedToolOptions,
+          selectedLanguageOptions
+        );
+        setSearchResult(SearchResult);
+        console.log(SearchResult);
+        const encodedSearch = encodeURIComponent(selectedToolOptions);
+        const encodedLanguage = encodeURIComponent(selectedLanguageOptions);
+        navigate(`/CodeRoomList?t=${encodedSearch}&l=${encodedLanguage}`);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, [selectedToolOptions, selectedLanguageOptions]);
+
+  const handleToolOptionClick = (option) => {
+    if (selectedToolOptions.includes(option)) {
+      setSelectedToolOptions(
+        selectedToolOptions.filter((item) => item !== option)
+      );
+      if (option === "Live Share") {
+        setVscode(!devVscode);
+      } else if (option === "Code With Me") {
+        setIntellij(!devIntellij);
+      }
+    } else {
+      setSelectedToolOptions([...selectedToolOptions, option]);
+      if (option === "Live Share") {
+        setVscode(!devVscode);
+      } else if (option === "Code With Me") {
+        setIntellij(!devIntellij);
+      }
+    }
+    // console.log(selectedToolOptions);
+  };
+
+  const handleLanguageOptionClick = (option) => {
+    if (selectedLanguageOptions.includes(option)) {
+      setSelectedLanguageOptions(
+        selectedLanguageOptions.filter((item) => item !== option)
+      );
+      if (option === "Clang") {
+        setC(!devC);
+      } else if (option === "Cplusplus") {
+        setCpp(!devCpp);
+      } else if (option === "Java") {
+        setJava(!devJava);
+      } else if (option === "JS") {
+        setJavascript(!devJavascript);
+      } else if (option === "Ruby") {
+        setRuby(!devRuby);
+      } else if (option === "Kotlin") {
+        setKotlin(!devKotlin);
+      } else if (option === "Swift") {
+        setSwift(!devSwift);
+      } else if (option === "Go") {
+        setGo(!devGo);
+      } else if (option === "Csharp") {
+        setLinq(!devLinq);
+      } else if (option === "Scala") {
+        setScala(!devScala);
+      } else if (option === "Python") {
+        setPython(!devPython);
+      }
+    } else {
+      setSelectedLanguageOptions([...selectedLanguageOptions, option]);
+      if (option === "Clang") {
+        setC(!devC);
+      } else if (option === "Cplusplus") {
+        setCpp(!devCpp);
+      } else if (option === "Java") {
+        setJava(!devJava);
+      } else if (option === "JS") {
+        setJavascript(!devJavascript);
+      } else if (option === "Ruby") {
+        setRuby(!devRuby);
+      } else if (option === "Kotlin") {
+        setKotlin(!devKotlin);
+      } else if (option === "Swift") {
+        setSwift(!devSwift);
+      } else if (option === "Go") {
+        setGo(!devGo);
+      } else if (option === "Csharp") {
+        setLinq(!devLinq);
+      } else if (option === "Scala") {
+        setScala(!devScala);
+      } else if (option === "Python") {
+        setPython(!devPython);
+      }
+    }
+  };
+
   const searchChangeHandler = (event) => {
     setEnteredSearch(event.target.value);
+    console.log(props.items);
   };
-
-  const SearchClickHandler = async (event) => {
-    event.preventDefault();
-    setEnteredSearch("");
-    try {
-      const SearchResults = await SearchRoomList(enteredSearch);
-      setSearchResult(SearchResults);
-      console.log(SearchResults);
-      const encodedSearch = encodeURIComponent(enteredSearch);
-      navigate(`/CodeRoomList?s=${encodedSearch}`);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const filteredResults = searchResult.filter((makeRoom) => {
-    if (
-      (devVscode && makeRoom.tool === "Visual Studio Code") ||
-      (devIntellij && makeRoom.tool === "IntelliJ") ||
-      (devC && makeRoom.language === "C") ||
-      (devCpp && makeRoom.language === "C++") ||
-      (devJava && makeRoom.language === "Java") ||
-      (devJavascript && makeRoom.language === "JavaScript") ||
-      (devRuby && makeRoom.language === "Ruby") ||
-      (devKotlin && makeRoom.language === "Kotlin") ||
-      (devSwift && makeRoom.language === "Swift") ||
-      (devGo && makeRoom.language === "Go") ||
-      (devLinq && makeRoom.language === "C#")
-    ) {
-      return true;
-    }
-    return false;
-  });
-  // ? props.items.filter((makeRoom) => makeRoom.tool === filteredTool)
-  // : props.items;
 
   return (
     <div className={styles.PageBox}>
       <div className={styles.filter_set}>
         <div className={styles.search}>
+          <img src={searchimg} alt="검색" className={styles.searchimg} />
           <input
             type="text"
             placeholder="검색어 입력"
             value={enteredSearch}
             onChange={searchChangeHandler}
           />
-          <img
-            src={searchimg}
-            alt="검색"
-            className={styles.searchimg}
-            onClick={SearchClickHandler}
-          ></img>
         </div>
+        {/* <button onClick={() => console.log(selectedToolOptions)}>test</button>
+        <button onClick={() => console.log(props.items)}>test</button> */}
         <button
+          value="Live Share"
           className={styles.filter}
-          onClick={onClickVs}
+          onClick={() => handleToolOptionClick("Live Share")}
           style={{
             backgroundColor: devVscode ? "#5579fe" : "#ffffff",
             color: devVscode ? "white" : "black",
@@ -125,7 +158,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickInt}
+          onClick={() => handleToolOptionClick("Code With Me")}
           style={{
             backgroundColor: devIntellij ? "#5579fe" : "#ffffff",
             color: devIntellij ? "white" : "black",
@@ -137,7 +170,7 @@ function MakeRoom() {
       <div className={styles.filter_set}>
         <button
           className={styles.filter}
-          onClick={onClickC}
+          onClick={() => handleLanguageOptionClick("Clang")}
           style={{
             backgroundColor: devC ? "#5579fe" : "#ffffff",
             color: devC ? "white" : "black",
@@ -147,7 +180,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickLinq}
+          onClick={() => handleLanguageOptionClick("Csharp")}
           style={{
             backgroundColor: devLinq ? "#5579fe" : "#ffffff",
             color: devLinq ? "white" : "black",
@@ -157,7 +190,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickCpp}
+          onClick={() => handleLanguageOptionClick("Cplusplus")}
           style={{
             backgroundColor: devCpp ? "#5579fe" : "#ffffff",
             color: devCpp ? "white" : "black",
@@ -167,7 +200,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickJava}
+          onClick={() => handleLanguageOptionClick("Java")}
           style={{
             backgroundColor: devJava ? "#5579fe" : "#ffffff",
             color: devJava ? "white" : "black",
@@ -177,7 +210,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickJs}
+          onClick={() => handleLanguageOptionClick("JS")}
           style={{
             backgroundColor: devJavascript ? "#5579fe" : "#ffffff",
             color: devJavascript ? "white" : "black",
@@ -187,7 +220,17 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickRuby}
+          onClick={() => handleLanguageOptionClick("Python")}
+          style={{
+            backgroundColor: devPython ? "#5579fe" : "#ffffff",
+            color: devPython ? "white" : "black",
+          }}
+        >
+          Python
+        </button>
+        <button
+          className={styles.filter}
+          onClick={() => handleLanguageOptionClick("Ruby")}
           style={{
             backgroundColor: devRuby ? "#5579fe" : "#ffffff",
             color: devRuby ? "white" : "black",
@@ -197,7 +240,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickKotlin}
+          onClick={() => handleLanguageOptionClick("Kotlin")}
           style={{
             backgroundColor: devKotlin ? "#5579fe" : "#ffffff",
             color: devKotlin ? "white" : "black",
@@ -207,7 +250,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickSwift}
+          onClick={() => handleLanguageOptionClick("Swift")}
           style={{
             backgroundColor: devSwift ? "#5579fe" : "#ffffff",
             color: devSwift ? "white" : "black",
@@ -217,7 +260,7 @@ function MakeRoom() {
         </button>
         <button
           className={styles.filter}
-          onClick={onClickGo}
+          onClick={() => handleLanguageOptionClick("Go")}
           style={{
             backgroundColor: devGo ? "#5579fe" : "#ffffff",
             color: devGo ? "white" : "black",
@@ -225,18 +268,52 @@ function MakeRoom() {
         >
           Go
         </button>
+        <button
+          className={styles.filter}
+          onClick={() => handleLanguageOptionClick("Scala")}
+          style={{
+            backgroundColor: devScala ? "#5579fe" : "#ffffff",
+            color: devScala ? "white" : "black",
+          }}
+        >
+          Scala
+        </button>
       </div>
       <div className={styles.CodeRoomListBox}>
-        {filteredResults.map((makeRoom) => (
-          <RoomItem
-            key={makeRoom.id}
-            title={makeRoom.title}
-            language={makeRoom.language}
-            tool={makeRoom.tool}
-            password={makeRoom.password}
-            url={makeRoom.url}
-          />
-        ))}
+        {props.items.length === 0
+          ? props.items.map((makeRoom) => (
+              <RoomItem
+                key={makeRoom.id}
+                title={makeRoom.name}
+                language={makeRoom.language}
+                tool={makeRoom.tool}
+                password={makeRoom.password}
+                url={makeRoom.url}
+              />
+            ))
+          : enteredSearch
+          ? searchResult
+              .filter((makeRoom) => makeRoom.name.includes(enteredSearch))
+              .map((makeRoom) => (
+                <RoomItem
+                  key={makeRoom.id}
+                  title={makeRoom.name}
+                  language={makeRoom.language}
+                  tool={makeRoom.tool}
+                  password={makeRoom.password}
+                  url={makeRoom.url}
+                />
+              ))
+          : searchResult.map((makeRoom) => (
+              <RoomItem
+                key={makeRoom.id}
+                title={makeRoom.name}
+                language={makeRoom.language}
+                tool={makeRoom.tool}
+                password={makeRoom.password}
+                url={makeRoom.url}
+              />
+            ))}
       </div>
     </div>
   );

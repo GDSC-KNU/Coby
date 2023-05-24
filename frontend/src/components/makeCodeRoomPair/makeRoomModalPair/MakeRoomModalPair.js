@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 import styles from "./MakeRoomModalPair.module.css";
 import logo from "../../../images/logo_black.png";
@@ -15,6 +16,7 @@ function MakeRoomModalPair(props) {
   const [enteredLink, setEnteredLink] = useState("");
   const [isLinkValid, setIsLinkValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const navigate = useNavigate();
 
   const titleChangeHandler = (event) => {
     console.log("Title Changed");
@@ -102,6 +104,7 @@ function MakeRoomModalPair(props) {
       console.error(error);
       throw new Error(error.response.data.message);
     }
+    navigate("/CodeRoom");
   };
 
   return (

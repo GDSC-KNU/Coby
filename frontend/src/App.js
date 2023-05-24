@@ -5,6 +5,7 @@ import "./App.css";
 import MakeRoom from "./components/makeCodeRoom/MakeRoom";
 import CodeRoomListPage from "./pages/CodeRoomListPage";
 import CodeRoom from "./pages/CodeRoom";
+import CodeRoomPair from "./pages/CodeRoomPair";
 import Main from "./pages/Main";
 import PairCodeRoomListPage from "./pages/PairCodeRoomListPage";
 import Nogroup from "./pages/MyGroup/NoGroup";

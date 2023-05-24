@@ -9,7 +9,7 @@ axios.defaults.paramsSerializer = (params) => {
 const SearchRoomList = async (tool, language) => {
   try {
     const params = { tool: tool, language: language };
-    const response = await axios.get(`${BASE_URL}/coderooms/review`, {
+    const response = await axios.get(`${BASE_URL}/coderooms/pair`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
