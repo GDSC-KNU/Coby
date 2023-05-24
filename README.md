@@ -37,7 +37,7 @@
      <img style="border: 0px solid black !important; border-radius:50%; " src="https://avatars.githubusercontent.com/u/75965656?v=4" width="180px" height = "180px" />
    </td>
     <td>
-      <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
+      <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/3354d8dc-c70c-44d6-bae2-2246f41c2b72" width="180px" height = "180px" />
    </td>
   </tr>
 </table>
