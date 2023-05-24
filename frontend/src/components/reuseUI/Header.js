@@ -5,7 +5,7 @@ import Backdrop from "./Backdrop";
 import MypageModal from "../modal/myPage/MyPageModal";
 import Help from "../modal/help/HelpModal";
 import HelpWindow from "../../pages/Help";
-
+import SignIn from "../modal/signin/SigninModal"
 import "./Header.css";
 import Logout from "../../sevices/Logout";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -129,17 +129,17 @@ function Header(props) {
                 <button onClick={showSigninModal} className="Signin">
                   회원가입
                 </button>
-                {/* {signInmodalOpen && (
+                {signInmodalOpen && (
                   <SignIn setModalOpen={setSigninModalOpen} />
                 )}
                 {signInmodalOpen && <Backdrop onCancel={closeSigninModal} />}
-                <button onClick={showMypageModal} className="Signin">
+                {/* <button onClick={showMypageModal} className="Signin">
                   마이페이지
-                </button> */}
+                </button>
                 {mypagemodalOpen && (
                   <MypageModal setModalOpen={setMypageModalOpen} />
                 )}
-                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />}
+                {mypagemodalOpen && <Backdrop onCancel={closeMypageModal} />} */}
                 <button onClick={showLoginModal} className="Login">
                   로그인
                 </button>
