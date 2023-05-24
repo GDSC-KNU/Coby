@@ -46,6 +46,12 @@
 
 - 서비스 소개
   <div>
+    <p>들어갈곳.</p>
+    <br/>
+  </div>
+
+- 서비스 목적
+    <div>
     <p>
       Coby는 함께하다의 Co, 또는 Coding의 Co와 By가 합쳐져
     </p>
@@ -62,12 +68,11 @@
     <p>
       또한 마음이 맞는 사람과 그룹을 지어 함께 활동할 수 있는 플랫폼입니다.
     </p>
+    <br/>
   </div>
-- 서비스 목적
 - 피그마 전체 화면
-
-  ![프로젝트전체이미지](https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d)
-
+  
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d" width="750px" height = "500px" />
 
 - 데이터베이스 (ERDs)
 - 각 화면 별 캡처 후, 간단한 설명
