@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/MakeRoom" element={<MakeRoom />} />
         <Route path="/CodeRoom" element={<CodeRoom />} />
-        <Route path="/CodeRoomPair" element={<CodeRoomPair/>} />
+        <Route path="/CodeRoomPair" element={<CodeRoomPair />} />
         <Route path="/CodeRoomList" element={<CodeRoomListPage />} />
         <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage />} />
         <Route path="/NoGroup" element={<Nogroup />} />
