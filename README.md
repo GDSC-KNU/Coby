@@ -17,11 +17,11 @@
     <td><a href="https://github.com/20220402">이창윤</td>
   </tr>
   <tr>
-    <td>Front-end</td>
-    <td>Front-end</td>
-    <td>Front-end</td>
-    <td>Back-end</td>
-    <td>Back-end</td>
+    <td>Frontend</td>
+    <td>Frontend</td>
+    <td>Frontend</td>
+    <td>Backend</td>
+    <td>Backend</td>
   </tr>
   <tr>
     <td>
@@ -42,7 +42,7 @@
   </tr>
 </table>
 
-## 3. 서비스에 대한 설명 📌
+## 3. 서비스 설명 📌
 
 - 서비스 소개
   <div>
