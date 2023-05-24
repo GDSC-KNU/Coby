@@ -5,6 +5,7 @@ import GroupBanner from "./GroupBanner";
 import Pagination from "react-js-pagination";
 import Writeget from "../../sevices/Board";
 import { useNavigate } from "react-router-dom";
+import moment from 'moment'
 
 const GroupBoard = () => {
   const [posts, setPosts] = useState([]);
@@ -47,38 +48,9 @@ const GroupBoard = () => {
                         <a href={`/posts/${post.id}`}>{post.title}</a>
                       </div>
                       <div className={styles.post_item_writer}>{post.createdBy}</div>
-                      <div className={styles.post_item_date}>{post.createdAt}</div>
+                      <div className={styles.post_item_date}>{moment(post.createdAt).format('MMMM Do YYYY')}</div>
                     </div>
-                ))
-              }
-              {/*<div className={styles.post_item}>
-                <div className={styles.post_item_title}>
-                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
-                </div>
-                <div className={styles.post_item_writer}>작성자</div>
-                <div className={styles.post_item_date}>날짜</div>
-              </div>
-              <div className={styles.post_item}>
-                <div className={styles.post_item_title}>
-                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
-                </div>
-                <div className={styles.post_item_writer}>작성자</div>
-                <div className={styles.post_item_date}>날짜</div>
-              </div>
-              <div className={styles.post_item}>
-                <div className={styles.post_item_title}>
-                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
-                </div>
-                <div className={styles.post_item_writer}>작성자</div>
-                <div className={styles.post_item_date}>날짜</div>
-              </div>
-              <div className={styles.post_item}>
-                <div className={styles.post_item_title}>
-                  <a>게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.게시글 제목입니다.</a>
-                </div>
-                <div className={styles.post_item_writer}>작성자</div>
-                <div className={styles.post_item_date}>날짜</div>
-              </div>*/}
+                ))}
             </div>
           </section>
           <button className={styles.writebtn} onClick={WriteHandleClick}>

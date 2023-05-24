@@ -11,22 +11,15 @@
   z-index: 1;
 }
 
-.group_Members_Content{
-  width: 600px;
-  height: 780px;
- 
-}
-
 .group_Member_list_body {
   position: absolute;
   width: 700px;
-  height: 700px;
+  height: 650px;
   /* border: 1px solid #5579fe; */
   /* box-shadow: 0px 0px 6px #5579fe; */
-  margin: 0;
-  padding: 2rem;
-  left: 15rem;
+  left: 16.5rem;
   overflow: auto;
+  margin-top: 10px;
 }
 
 .group_Member_list_item {
@@ -46,6 +39,22 @@
   height: 50px;
   border-radius: 50px;
   margin-right: 1rem;
+}
+.member_name{
+  font-size: 1rem;
+}
+.member_point{
+  font-size: 1rem;
+  position: absolute;
+  right: 140px;
+}
+.crown{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: 6rem;
+  bottom: 25px;
+  transform: rotate(330deg);
 }
 
 @media (max-width: 1023px) {

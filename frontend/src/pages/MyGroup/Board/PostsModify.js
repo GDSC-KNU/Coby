@@ -5,6 +5,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
 import Modify from '../../../sevices/Modify';
 import Detailget from '../../../sevices/Detailget';
+import Layout from '../../../components/reuseUI/Layout'
+
+import styles from '../../../pages/MyGroup/Board/PostModify.module.css'
 
 function PostsModify() {
     const navigate = useNavigate();
@@ -45,9 +48,10 @@ function PostsModify() {
 
 
     return(
-        <div className='total-write'>
-            <div className='form-wrapper'>
-                <input className="title-input" type='text' name = 'title' placeholder='제목을 입력해 주세요.' defaultValue={title ? title : null} onChange={getValue} />
+        <div className={styles.outer}>
+            <Layout/>
+            <div>
+                <input className={styles.input_title} type='text' name = 'title' placeholder='제목을 입력해 주세요.' defaultValue={title ? title : null} onChange={getValue} />
                 <CKEditor
                     editor={ClassicEditor}
                     data = {content?content:''}
@@ -60,7 +64,7 @@ function PostsModify() {
                     }}
                 />
             </div>
-            <button className='enterBtn' onClick={update}>수정</button>
+            <button className={styles.btn} onClick={update}>수정</button>
         </div>
     )
 }

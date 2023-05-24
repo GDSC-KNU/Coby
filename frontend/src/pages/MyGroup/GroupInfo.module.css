@@ -88,6 +88,13 @@ body {
   height: 9rem;
   border-bottom: 1px solid #dfe5ec;
 }
+.profile_Name {
+  position: relative;
+  font-size: 1.5rem;
+  top: 10px;
+  left: 20px;
+
+}
 .myboard {
   width: 43rem;
   height: 11rem;

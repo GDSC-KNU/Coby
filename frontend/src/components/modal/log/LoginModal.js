@@ -25,12 +25,10 @@ function LoginModal(props) {
         try {
             const token = await Login(inputId, inputPw);
             localStorage.setItem("token", token.accessToken);
-            props.setIsLogin(true);
             window.location.reload();
             window.alert("로그인 성공");
         } catch (error) {
             console.error(error);
-            throw new Error(error.response.data.message);
         }
     };
 

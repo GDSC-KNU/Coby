@@ -6,6 +6,7 @@ import medal from '../../images/medal.png'
 import group from '../../images/member.png'
 import logo from '../../images/minilogo.png'
 import pencil from '../../images/pencil.png'
+import person from "../../images/person.png";
 
 import { useEffect } from "react";
 import { useState } from "react";
@@ -20,12 +21,13 @@ const GroupInfo = (props) => {
     const [groupname, setGroupname] = useState("");
     const [groupdescription, setGroupdescription] = useState("");
     const [name, setName] = useState("");
-    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+    const [profileImg, setProfileImg] = useState('');
     const [introEdit, setIntroEdit] = useState(false);
     const [expPoint, setExpPoint] = useState(0);
     const [groupId, setGroupId] = useState('');
     const [createdBy, setCreatedBy] = useState("");
     const [userId, setUserId] = useState("");
+    const [members, setMembers] = useState(0);
 
     const navigate = useNavigate();
 
@@ -36,6 +38,7 @@ const GroupInfo = (props) => {
             setExpPoint(data.exp_point);
             setGroupId(data.id);
             setCreatedBy(data.createdBy);
+            setMembers(data.members.length);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -96,7 +99,7 @@ const GroupInfo = (props) => {
                     <div className={styles.groupName}>
                         <p className={styles.group_exit} onClick={ExitHandleClick}>그룹 탈퇴하기</p>
                         <h className={styles.group_detail_name}>{groupname}</h>
-                        <p className={styles.group_detail_info}><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;3/20&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
+                        <p className={styles.group_detail_info}><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;{members}/50&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
                     </div>
                     <div className={styles.groupIntro}>
                         { introEdit ? (
@@ -106,17 +109,17 @@ const GroupInfo = (props) => {
                             </div>
                         ) : (
                             <div>
-                            { createdBy === userId ? (
-                                <div>
-                                <p className={styles.subtitle}>그룹 소개 <img src={pencil} alt="pencil" onClick={onClickIntroduce} className="correction"></img></p>
-                                <p className={styles.groupdescription}>{groupdescription}</p>
-                                </div>
-                            ):(
-                                <div>
-                                <p className={styles.subtitle}>그룹 소개</p>
-                                <p className={styles.groupdescription}>{groupdescription}</p>
-                                </div>
-                            )}
+                                { createdBy === userId ? (
+                                    <div>
+                                        <p className={styles.subtitle}>그룹 소개 <img src={pencil} alt="pencil" onClick={onClickIntroduce} className="correction"></img></p>
+                                        <p className={styles.groupdescription}>{groupdescription}</p>
+                                    </div>
+                                ):(
+                                    <div>
+                                        <p className={styles.subtitle}>그룹 소개</p>
+                                        <p className={styles.groupdescription}>{groupdescription}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
@@ -126,10 +129,16 @@ const GroupInfo = (props) => {
                     <div className={styles.Myinfo}>
                         <div className={styles.profile}>
                             <p className={styles.subtitle}>내정보</p>
-                            <div className={styles.profile_outer}>
-                              <img src={profileImg} alt="ProfileImage" className={styles.profile_Img}></img>
-                              <p>{name}</p>
-                            </div>
+                            {profileImg ?
+                                <div className={styles.profile_outer}>
+                                    <img src={profileImg} alt="ProfileImage" className={styles.profile_Img}></img>
+                                    <p className={styles.profile_Name}>{name}</p>
+                                </div>
+                                :
+                                <div className={styles.profile_outer}>
+                                    <img src={person} alt="ProfileImage" className={styles.profile_Img}></img>
+                                    <p className={styles.profile_Name}>{name}</p>
+                                </div>}
                         </div>
                         <div className={styles.myboard}>
                             <p className={styles.subtitle}>내가 쓴 글</p>
@@ -138,7 +147,7 @@ const GroupInfo = (props) => {
                 </div>
             </header>
         </div>
-  );
+    );
 }
 
 export default GroupInfo;

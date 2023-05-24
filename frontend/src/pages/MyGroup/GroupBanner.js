@@ -58,10 +58,10 @@ const GroupBanner = () => {
                     <img src = {groupimage} alt="groupImage" className="group_img"/>
                     <img src={pencil} alt="pencil" onClick={showGroupEditModal} className="correction"></img>
                     <div className = "group_name">
-                        {groupname}
+                        <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                    <img src={crown} alt="medal"/>&nbsp;{createdBy}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -79,10 +79,10 @@ const GroupBanner = () => {
                 <div className="groupbanner_body">
                     <img src = {groupimage} alt="groupImage" className="group_img"/>
                     <div className = "group_name">
-                        {groupname}
+                        <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        {createdBy}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>

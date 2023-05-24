@@ -17,7 +17,7 @@
     transform: translate(-26%);
     margin-top: 50px;
 }
-  
+
 .findFont{
     position: relative;
     left: 2.8rem;
@@ -39,11 +39,11 @@
 }
 
 .selectbox{
-    width: 130px; 
-    height: 2.2rem;   
+    width: 130px;
+    height: 2.2rem;
     background-color: white;
     border: 0px;
-    border-radius: 8px; 
+    border-radius: 8px;
     position: relative;
     top: 6px;
     left: 6px;
@@ -82,7 +82,6 @@
     border-radius: 8px;
     overflow: auto;
 }
-
 .table{
     width: 35rem;
     overflow: auto;
@@ -96,27 +95,30 @@
     text-align: center;
     height: 2rem;
 }
-.table tr:hover{
-    background-color: #D9D9D9;
-    transition: all 0.3s;
-}
-
 .first_th{
     border-right: 1px solid white;
     font-size: 0.8rem;
-    width: 25%;
+    width: 20%;
 }
 .second_th{
     border-right: 1px solid white;
     font-size: 0.8rem;
-    width: 15%;
+    width: 12%;
 }
 .third_th{
     border-right: 1px solid white;
     font-size: 0.8rem;
-    width: 15%;
+    width: 13%;
 }
 .fourth_th{
     font-size: 0.8rem;
     width: 45%;
+}
+.fifth_th{
+    font-size: 0.8rem;
+    width: 10%;
+}
+.join_btn:hover{
+    background-color: #D9D9D9;
+    transition: all 0.3s;
 }

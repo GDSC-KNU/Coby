@@ -5,9 +5,10 @@ import MyPage from "../../../sevices/MyPage";
 import MyInfoEdit from "../myInfoEdit/myInfoEdit";
 import Backdrop from "../../reuseUI/Backdrop";
 import pencil from '../../../images/pencil.png';
+import person from '../../../images/person.png';
 
 function MyPageModal(props){
-    const [profileImg, setProfileImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+    const [profileImg, setProfileImg] = useState();
     const [name,setName] = useState('');
     const [group,setGroup] = useState('');
     const [exp, setExp] = useState('');
@@ -38,7 +39,9 @@ function MyPageModal(props){
             setName(data.name);
             setGroup(data.groupName);
             setExp(data.exp_point);
-            setProfileImg(data.profileUrl);
+            data.profileUrl ?
+                setProfileImg(data.profileUrl) :
+                setProfileImg(person);
             checkGrade(exp);
         }).catch((err) => {
             console.log('마이페이지 수정 모달 불러오기 실패');
@@ -54,10 +57,12 @@ function MyPageModal(props){
                         <br />＜COBY.＞
                     </div>
                     <div className="userinfo1">
-                        <p>이름 : {name}</p>
-                        <p>그룹 : {group}</p>
-                        <p>등급 : {grade}</p>
-                        <p>기여도 : {exp}</p>
+                        <div className="userinfo2">
+                            <p>이름 : {name}</p>
+                            <p>그룹 : {group}</p>
+                            <p>등급 : {grade}</p>
+                            <p>기여도 : {exp}</p>
+                        </div>
                         <button onClick={showEditModal} className="editbtn">수정</button>
                         <button onClick={onClickCheck} className="checkbtn">확인</button>
                     </div>

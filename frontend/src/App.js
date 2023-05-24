@@ -21,10 +21,8 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setIsLogin(true);
-    }
-  }, []);
+    setIsLogin(localStorage.getItem("token") ? true : false);
+  }, [localStorage.getItem("token")]);
 
   return (
       <div>
@@ -32,8 +30,8 @@ function App() {
           <Route path="/" element={<Main isLogin = {isLogin} setIsLogin = {setIsLogin} />} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
           <Route path="/CodeRoom" element={<CodeRoom isOpen={isOpen} setIsOpen={setIsOpen} />} />
-          <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />
-          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage/>} />
+          <Route path="/CodeRoomList" element={<CodeRoomListPage isLogin={isLogin}/>} />
+          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage isLogin={isLogin}/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
           <Route path="/GroupInfo" element={<GroupInfo />}/>
           <Route path="/GroupBoard" element={<GroupBoard/>} />
