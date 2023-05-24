@@ -8,14 +8,40 @@
 
 ## 2. 팀원소개 👨‍👨‍👧‍👦 
 
-- Frontend
+<table>
+  <tr>
+    <td><a href="https://github.com/KimKyuHoi">김규회</a></td>
+    <td><a href="https://github.com/yun8565">남성훈</td>
+    <td><a href="https://github.com/Usimth">이승운</td>
+    <td><a href="https://github.com/dahyun0917">이다현</td>
+    <td><a href="https://github.com/20220402">이창윤</td>
+  </tr>
+  <tr>
+    <td>Front-end</td>
+    <td>Front-end</td>
+    <td>Front-end</td>
+    <td>Back-end</td>
+    <td>Back-end</td>
+  </tr>
+  <tr>
+    <td>
+      <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/16192efd-99e6-4334-b474-10fe52952f07" width="180px" height = "180px" />
+   </td>
+    <td>
+     <img style="border: 0px solid black !important; border-radius:50%; " src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
+   </td>
+    <td>
+     <img style="border: 0px solid black !important; border-radius:50%; " src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2e06f1e6-3b5b-49e0-addf-2a9ea4920551" width="180px" height = "180px" />
+   </td>
+     <td>
+     <img style="border: 0px solid black !important; border-radius:50%; " src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
+   </td>
+    <td>
+      <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/00fa3730-7120-4482-a02e-350169b6aab5" width="180px" height = "180px" />
+   </td>
+  </tr>
+</table>
 
-  김규회 남성훈 이승운
-  
-- Backend
-
-  이다현 이창윤
-  
 ## 3. 서비스에 대한 설명 📌
 
 - 서비스 소개
