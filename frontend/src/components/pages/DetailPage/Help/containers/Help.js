@@ -11,11 +11,15 @@ const Help = (props) => {
   const navigate = useNavigate();
 
   function ReviewClick() {
-    navigate("/CodeRoomList");
+    localStorage.getItem("token")
+      ? navigate("/CodeRoomList")
+      : alert("로그인이 필요한 서비스입니다.");
   }
 
   function PairClick() {
-    navigate("/PairCodeRoomList");
+    localStorage.getItem("token")
+      ? navigate("/PairCodeRoomList")
+      : alert("로그인이 필요한 서비스입니다.");
   }
 
   function MyGroupClick() {
@@ -25,7 +29,6 @@ const Help = (props) => {
         : navigate("/NoGroup")
       : alert("로그인이 필요한 서비스입니다.");
   }
-
 
   useEffect(() => {
     if (props.isLogin) {
