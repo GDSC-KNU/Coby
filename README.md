@@ -42,37 +42,7 @@
   </tr>
 </table>
 
-## 3. 서비스 설명 📌
-
-- 서비스 소개
-  <div>
-    <p>들어갈곳.</p>
-    <br/>
-  </div>
-
-- 서비스 목적
-
-<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/ae18b184-c732-4066-91b6-657d1e975a24" width="1000px" height = "200px" />
-<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/108cbf61-0a60-4df3-8296-875e14a2cd93" width="1000px" height = "200px" />
-<br/>
-
-```
-      Coby는 함께하다의 Co, 또는 Coding의 Co와 By가 합쳐져
-      여러분과 함께하는 코딩이라는 의미를 담고 있습니다.
-      이곳에서 여러분들은 멘토가 되어 도움을 줄수도 있고,
-      멘티로써 멘토들에게 도움을 받을 수 있습니다.
-      또한 마음이 맞는 사람과 그룹을 지어 함께 활동할 수 있는 플랫폼입니다.
-```
-
-- 피그마 전체 화면
-  
-  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d" width="750px" height = "500px" />
-
-- 데이터베이스 (ERDs)
-- 서비스 기대효과 및 활용방안
-
-
-## 4. 기술스택 🔧
+## 3. 기술스택 🔧
  
  - Frontend
  <p>
@@ -102,6 +72,37 @@
   <img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=Netlify&logoColor=white"/>
 </p>
   
+## 4. 서비스 설명 📌
+
+- 서비스 소개
+  <div>
+    <p>들어갈곳.</p>
+    <br/>
+  </div>
+
+- 서비스 목적
+
+<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/ae18b184-c732-4066-91b6-657d1e975a24" width="1000px" height = "200px" />
+<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/108cbf61-0a60-4df3-8296-875e14a2cd93" width="1000px" height = "200px" />
+<br/>
+
+```
+      Coby는 함께하다의 Co, 또는 Coding의 Co와 By가 합쳐져
+      여러분과 함께하는 코딩이라는 의미를 담고 있습니다.
+      이곳에서 여러분들은 멘토가 되어 도움을 줄수도 있고,
+      멘티로써 멘토들에게 도움을 받을 수 있습니다.
+      또한 마음이 맞는 사람과 그룹을 지어 함께 활동할 수 있는 플랫폼입니다.
+```
+
+- 피그마 전체 화면
+  
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d" width="750px" height = "500px" />
+
+- 데이터베이스 (ERDs)
+- 서비스 기대효과 및 활용방안
+
+
+
 ## 5. 시연 영상 및 관련 링크 🔗
 - [배포링크](https://cobys.netlify.app/)
 - 시연영상 
