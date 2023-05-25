@@ -21,17 +21,19 @@ const PostDetail = () => {
     const [userId, setUserId] = useState('');
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState('');
+    const [writerImg, setWriterImg] = useState('');
 
     useEffect(() => {
         Detailget(id).then((data) => {
             setPosts(data);
             setCreatedBy(data.createdBy);
-            console.log(writerImg)
         }).catch((err) => {
             console.log(err.message);
         });
         MyGroup().then((data) => {
             setMembers(data.members);
+            setWriterImg(data.members.filter((member) => member.userId === createdBy)[0])
+            console.log(writerImg);
         })
         .catch((err) => {
             console.log(err.message);
@@ -64,26 +66,16 @@ const PostDetail = () => {
         }
     }
 
-    const writerImg = members.filter((member) => member.userId === createdBy)[0]
-
     return(
         <div className={styles.outer}>
             <Layout/>
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
-                {writerImg.profileUrl?
                     <div className={styles.writeInfo}>
-                    <img src={writerImg.profileUrl} alt="profileImg" className={styles.profileImg}></img>
-                    <p className={styles.post_writer}>{createdBy}</p>
-                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
-                </div>
-                :
-                <div className={styles.writeInfo}>
                     <img src={person} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
-                </div>
-                }  
+            </div>
             </div>
             <div className={styles.bottom}>
                 <p>{posts.content?ReactHtmlParser(posts.content):null}</p>
