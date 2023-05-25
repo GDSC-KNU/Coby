@@ -42,7 +42,15 @@ const PostDetail = () => {
         });
     }, []);
 
-  
+    useEffect(() => {
+        members.map((member) => (
+            member.userId === posts.createdBy ?
+                member.profileUrl ?
+                    setProfileImg(member.profileUrl) :
+                    setProfileImg(person)
+                : null
+        ))
+    }, [members]);
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -64,23 +72,13 @@ const PostDetail = () => {
         }
     }
 
-    /*
-    members.map((member) => (
-        member.userId === posts.createdBy ?
-            member.profileUrl ?
-                setProfileImg(member.profileUrl) :
-                setProfileImg(person)
-            : null
-    ))*/
-
-
     return(
         <div className={styles.outer}>
             <Layout/>
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
-                    {/*<img src={profileImg} alt="profileImg" className={styles.profileImg}></img>*/}
+                    <img src={profileImg} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{posts.createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>

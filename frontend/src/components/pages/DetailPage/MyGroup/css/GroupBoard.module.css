@@ -130,6 +130,9 @@ ul.pagination li a.active {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-decoration-line: none;
+  text-align: center;
+  color: black;
 }
 .post_item_title a {
   overflow: hidden;

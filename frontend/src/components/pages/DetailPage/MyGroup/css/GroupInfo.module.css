@@ -31,6 +31,7 @@ body {
   font-size: 2rem;
   position: relative;
   top: 35%;
+  margin-left: 10px;
 }
 .groupName {
   position: relative;
@@ -106,12 +107,12 @@ body {
 .myboard_inner{
   display: flex;
   height: 2.05rem;
-  border-bottom: 1px solid #dfe5ec;
+  border: 1px solid #dfe5ec;
   position: relative;
   bottom: 5px;
 }
 .myboard_title{
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   position: relative;
   top: 10px;
   left: 20px;
