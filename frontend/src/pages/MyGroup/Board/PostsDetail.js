@@ -6,7 +6,7 @@ import ReactHtmlParser from 'html-react-parser';
 
 import Detailget from "../../../sevices/Detailget";
 import DeleteWrite from "../../../sevices/DeleteWrite";
-import PostsModify from "./PostsModify";
+import PostsModify from "../../../components/pages/DetailPage/MyGroup/containers/PostsModify";
 
 const PostDetail = () => {
     const navigate = useNavigate(); 

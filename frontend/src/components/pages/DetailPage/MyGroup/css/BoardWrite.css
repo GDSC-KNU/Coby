@@ -1,0 +1,80 @@
+.outer {
+  position: absolute;
+  display: column;
+  align-items: center;
+  justify-content: center;
+  width: 950px;
+  height: 780px;
+  left: 30rem;
+  margin: 0 auto;
+  padding: 0.1rem;
+  background: #ffffff;
+}
+
+.title-input {
+  width: 45.6rem;
+}
+
+.enterBtn {
+  position: absolute;
+  top: 43rem;
+  left: 50rem;
+  width: 4.2rem;
+  height: 2.5rem;
+  background-color: #5579fe;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.enterBtn:hover {
+  
+  font-weight: bold;
+  transition: all 0.3s;
+  scale: 1.05;
+}
+
+@media (max-width: 1023px) {
+  .outer {
+    left: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .outer {
+    left: 8rem;
+  }
+}
+
+@media (min-width: 1335px) {
+  .outer {
+    left: 12rem;
+  }
+}
+
+@media (min-width: 1517px) {
+  .outer {
+    left: 18rem;
+  }
+}
+
+@media (min-width: 1668px) {
+  .outer {
+    left: 24rem;
+  }
+}
+
+@media (min-width: 1854px) {
+  .outer {
+    left: 29rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .outer {
+    left: 30rem;
+  }
+}

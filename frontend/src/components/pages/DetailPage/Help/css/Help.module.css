@@ -1,0 +1,87 @@
+
+.logo {
+    /* position: absolute;
+    left: 105px;
+    top: 50px; */
+    width: 150px;
+    height: 120px;
+    /* animation: smoothAppear 1s; */
+  }
+
+.helpGuide {
+  position: absolute;
+  display: column;
+  align-items: center;
+  justify-content: center;
+  width: 950px;
+  height: 1050px;
+  left: 30rem;
+  margin: 0 auto;
+  padding: 4rem;
+  background: #ffffff;
+}
+
+.title {
+    display: flex;
+    color:#5579FE;
+}
+.Go{
+    cursor: pointer;
+    font-size: 36px;
+    color:#5579FE;
+    background-color:transparent;
+    border:none;
+}
+
+.Go:hover {
+  background:transparent;
+  border:none;
+  color:#FABD03;
+}
+
+.line{
+  border-top: 3px solid #D9D9D9;
+  margin: 0 auto;
+}
+
+@media (max-width: 1023px) {
+  .helpGuide {
+    left: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .helpGuide {
+    left: 8rem;
+  }
+}
+
+@media (min-width: 1335px) {
+  .helpGuide {
+    left: 12rem;
+  }
+}
+
+@media (min-width: 1517px) {
+  .helpGuide {
+    left: 18rem;
+  }
+}
+
+@media (min-width: 1668px) {
+  .helpGuide {
+    left: 24rem;
+  }
+}
+
+@media (min-width: 1854px) {
+  .helpGuide {
+    left: 29rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .helpGuide {
+    left: 30rem;
+  }
+}

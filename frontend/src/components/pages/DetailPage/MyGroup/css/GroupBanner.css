@@ -1,0 +1,137 @@
+
+/*배너(휘장 부분)*/
+.groupbanner_body {
+    position: absolute;
+    width: 214px;
+    height: 620px;
+
+    top: 14vh;
+
+    background: linear-gradient(180deg, #5579FE 0%, rgba(85,121,254,0.33) 100%);
+    backdrop-filter: blur(3.5px);
+    border-radius: 8px;
+}
+
+.groupbanner_body:after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2.9rem solid transparent;
+    border-left: 6.7rem solid white;
+    border-right: 6.7rem solid white;
+}
+/*그룹 이미지 박스*/
+.group_imgbox {
+    position: relative;
+    width: 5rem;
+    height: 3rem;
+    left: 21%;
+    top: 9vh;
+}
+
+/*그룹 이름*/
+.group_name {
+    position: relative;
+    width: 12rem;
+    height: 0.5rem;
+
+    right: 55px;
+    margin-left: 4.2rem;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    top:7vh;
+    font-size: 1.2rem;
+    font-weight:900;
+    font-weight:lighter;
+
+}
+.group_boss{
+    position: relative;
+    width: 7rem;
+    height: 2rem;
+
+    left: 48%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+    margin-top: 10px;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    top:9vh;
+    font-size: 1rem;
+    font-weight:lighter;
+    border-bottom: 1px solid white;
+}
+
+/*버튼 부분*/
+.groupbtn {
+    width: 8rem;
+    height: 3rem;
+
+    position: relative;
+    top: 14vh;
+    left: 47%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-radius: 8px;
+    font-size: 1rem;;
+}
+.groupbtn:hover {
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.activebtn{
+    width: 8rem;
+    height: 3rem;
+
+    position: relative;
+    top: 17vh;
+    left: 47%;
+    transform: translate(-100%);
+    margin-left: 4.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: underline white 2px;
+}
+
+.group_img{
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    background-color: #5579fe;
+    margin-left:2.9rem;
+    margin-top: 5rem;
+}

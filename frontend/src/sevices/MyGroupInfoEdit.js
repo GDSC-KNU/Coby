@@ -1,10 +1,10 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/Url";
 
-const MyGroupInfoEdit = async (formData) => {
+const MyGroupInfoEdit = async (formData, groupId) => {
     try {
         const response = await axios.post(
-            `${BASE_URL}/groups/{groupId}`,
+            `${BASE_URL}/groups/${groupId}`,
             formData,
             {
                 headers: {
