@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Tag(name = "유저 컨트롤러", description = "유저 관련 기능 제공")
@@ -22,7 +23,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @ExceptionHandler(value = {UsernameNotFoundException.class, IllegalArgumentException.class})
+    @ExceptionHandler(value = {UsernameNotFoundException.class, IllegalArgumentException.class, IOException.class})
     public ResponseEntity<?> exceptionHandler(Exception e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
