@@ -23,7 +23,7 @@ const Help = (props) => {
   }
 
   function MyGroupClick() {
-    props.isLogin
+    localStorage.getItem("token")
       ? groupName
         ? navigate("/GroupInfo")
         : navigate("/NoGroup")
