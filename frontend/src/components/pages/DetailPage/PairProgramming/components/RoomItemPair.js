@@ -9,18 +9,25 @@ function RoomItemPair(props) {
   const [languageColor, setLanguageColor] = useState("");
   const [languageBackgroundColor, setLanguageBackgroundColor] = useState("");
   const [toolColor, setToolColor] = useState("");
+  const [count, setCount] = useState(1);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (props.password.trim().length !== 0) {
-      const password = prompt("비밀번호를 입력하세요.");
-      if (props.password === password) {
-        navigate("/CodeRoomPair");
-      } else if (password !== null) {
-        alert("비밀번호가 일치하지 않습니다.");
-      }
+    if (count === 6) {
+      alert("입장 가능한 인원 수를 초과하였습니다.");
     } else {
-      navigate("/CodeRoomPair");
+      if (props.password.trim().length !== 0) {
+        const password = prompt("비밀번호를 입력하세요.");
+        if (props.password === password) {
+          navigate("/CodeRoomPair");
+          setCount(count + 1);
+        } else if (password !== null) {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      } else {
+        navigate("/CodeRoomPair");
+        setCount(count + 1);
+      }
     }
   };
 
@@ -86,8 +93,12 @@ function RoomItemPair(props) {
             </span>
           </div>
           <div className={styles.RoomItemLockedDescriptionPair}>
-            <img src={locked} alt="로고" className={styles.RoomItemLockedPair} />
-            <div className={styles.personPair}>0명 / 6명</div>
+            <img
+              src={locked}
+              alt="로고"
+              className={styles.RoomItemLockedPair}
+            />
+            <div className={styles.personPair}>{count}명 / 6명</div>
           </div>
         </div>
       ) : (
@@ -105,8 +116,12 @@ function RoomItemPair(props) {
             </span>
           </div>
           <div className={styles.RoomItemLockedDescriptionPair}>
-            <img src={unlocked} alt="로고" className={styles.RoomItemLockedPair} />
-            <div className={styles.personPair}>0명 / 6명</div>
+            <img
+              src={unlocked}
+              alt="로고"
+              className={styles.RoomItemLockedPair}
+            />
+            <div className={styles.personPair}>{count}명 / 6명</div>
           </div>
         </div>
       )}

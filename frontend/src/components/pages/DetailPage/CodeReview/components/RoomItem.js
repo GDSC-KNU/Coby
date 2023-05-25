@@ -4,24 +4,29 @@ import styles from "./css/RoomItem.module.css";
 import locked from "../../../../../assets/locked.png";
 import unlocked from "../../../../../assets/unlocked.png";
 
-
 function RoomItem(props) {
   const navigate = useNavigate();
   const [languageColor, setLanguageColor] = useState("");
   const [languageBackgroundColor, setLanguageBackgroundColor] = useState("");
   const [toolColor, setToolColor] = useState("");
- 
+  const [count, setCount] = useState(1);
 
   const handleClick = () => {
-    if (props.password.trim().length !== 0) {
-      const password = prompt("비밀번호를 입력하세요.");
-      if (props.password === password) {
-        navigate("/CodeRoom");
-      } else if (password !== null) {
-        alert("비밀번호가 일치하지 않습니다.");
-      }
+    if (count === 6) {
+      alert("입장 인원 수가 초과했습니다.");
     } else {
-      navigate("/CodeRoom");
+      if (props.password.trim().length !== 0) {
+        const password = prompt("비밀번호를 입력하세요.");
+        if (props.password === password) {
+          navigate("/CodeRoom");
+          setCount(count + 1);
+        } else if (password !== null) {
+          alert("비밀번호가 일치하지 않습니다.");
+        }
+      } else {
+        navigate("/CodeRoom");
+        setCount(count + 1);
+      }
     }
   };
 
@@ -70,6 +75,8 @@ function RoomItem(props) {
     }
   }, [props.tool]);
 
+  
+
   return (
     <div>
       {props.password.trim().length > 0 ? (
@@ -88,7 +95,7 @@ function RoomItem(props) {
           </div>
           <div className={styles.RoomItemLockedDescription}>
             <img src={locked} alt="로고" className={styles.RoomItemLocked} />
-            <div className={styles.person}>0명 / 6명</div>
+            <div className={styles.person}>{count}명 / 6명</div>
           </div>
         </div>
       ) : (
@@ -107,7 +114,7 @@ function RoomItem(props) {
           </div>
           <div className={styles.RoomItemLockedDescription}>
             <img src={unlocked} alt="로고" className={styles.RoomItemLocked} />
-            <div className={styles.person}>0명 / 6명</div>
+            <div className={styles.person}>{count}명/ 6명</div>
           </div>
         </div>
       )}
