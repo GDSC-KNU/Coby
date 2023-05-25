@@ -45,6 +45,7 @@ const PostDetail = () => {
     const writer = members.filter((member) => member.userId === createdBy)
 
     const modify = () => {
+        console.log(writer);
         navigate(`/posts/${id}/modify`);
     }
 
