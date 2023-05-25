@@ -30,7 +30,8 @@ const GroupInfo = (props) => {
     const [groupId, setGroupId] = useState('');
     const [createdBy, setCreatedBy] = useState("");
     const [userId, setUserId] = useState("");
-    const [members, setMembers] = useState(0);
+    const [members, setMembers] = useState([]);
+    const [membersCount, setMembersCount] = useState(0);
     const [posts, setPosts] = useState([]);
 
     const navigate = useNavigate();
@@ -42,7 +43,8 @@ const GroupInfo = (props) => {
             setExpPoint(data.exp_point);
             setGroupId(data.id);
             setCreatedBy(data.createdBy);
-            setMembers(data.members.length);
+            setMembers(data.members);
+            setMembersCount(data.members.length);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -101,17 +103,18 @@ const GroupInfo = (props) => {
     };
 
     const myPosts = posts.filter((post) => post.createdBy === userId);
+    const leaderName = members.filter((member) => member.userId === createdBy)[0]?.name;
 
     return (
         <div className={styles.outer}>
             <Layout/>
-            <GroupBanner/>
+            <GroupBanner name={leaderName}/>
             <header>
                 <div className={styles.info}>
                     <div className={styles.groupName}>
                         <p className={styles.group_exit} onClick={ExitHandleClick}>그룹 탈퇴하기</p>
                         <h className={styles.group_detail_name}>{groupname}</h>
-                        <p className={styles.group_detail_info}><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;{members}/50&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
+                        <p className={styles.group_detail_info}><img src={medal} alt="medal"></img>&nbsp;1위&nbsp;&nbsp;&nbsp;<img src={group} alt="member"></img>&nbsp;{membersCount}/50&nbsp;&nbsp;&nbsp;<img src={logo} alt="logo"></img>&nbsp;{expPoint}&nbsp;&nbsp;&nbsp;</p>
                     </div>
                     <div className={styles.groupIntro}>
                         { introEdit ? (
@@ -158,7 +161,7 @@ const GroupInfo = (props) => {
                                 {myPosts.map((post) => (
                                     <div className={styles.myboard_inner}>
                                         <a href={`/posts/${post.id}`} className={styles.myboard_title}>{post.title}</a>
-                                        <p className={styles.myboard_date}>{moment(post.createdAt).format('MMMM Do YYYY')}</p>
+                                        <p className={styles.myboard_date}>{moment(post.createdAt).format('YYYY.MM.DD H:mm')}</p>
                                     </div>
                                 ))}
                             </div>
