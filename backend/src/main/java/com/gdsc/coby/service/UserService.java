@@ -2,6 +2,7 @@ package com.gdsc.coby.service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.UserDto;
@@ -16,12 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-
+import java.util.UUID;
 
 
 @Service
@@ -69,7 +67,7 @@ public class UserService {
                 user.setName(name);
         }
         if(profileImage!=null) {
-            String uploadImageUrl = upload(user.getUserId(), profileImage);
+            String uploadImageUrl = upload(profileImage);
 
             if (uploadImageUrl != null && !uploadImageUrl.equals(user.getProfileUrl()))
                 user.setProfileUrl(uploadImageUrl);
@@ -104,46 +102,23 @@ public class UserService {
                 .setExp_point(100L));
     }
 
-    private String upload(String userId, MultipartFile multipartFile) {
-        File uploadFile = convert(multipartFile)
-                .orElseThrow(() -> new IllegalArgumentException("MultipartFile -> File로 전환이 실패했습니다."));
-
-        // UserProfile/userId/파일이름
-        String fileName = "UserProfile/"+ userId + "/" + uploadFile.getName();
-        String uploadImageUrl = putS3(uploadFile, fileName);
-        removeNewFile(uploadFile);
+    private String upload(MultipartFile multipartFile) {
+        String fileName = "UserProfile/"+ UUID.randomUUID();
+        String uploadImageUrl = putS3(multipartFile, fileName);
 
         return uploadImageUrl;
     }
-
-    private String putS3(File uploadFile, String fileName) {
-        amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(
-                CannedAccessControlList.PublicRead));
-        return amazonS3Client.getUrl(bucket, fileName).toString();
-    }
-
-    private void removeNewFile(File targetFile) {
-        if (targetFile.delete()) {
-            log.info("파일이 삭제되었습니다.");
-        } else {
-            log.info("파일이 삭제되지 못했습니다.");
-        }
-    }
-
-    private Optional<File> convert(MultipartFile file) {
-
-        File convertFile = new File(file.getOriginalFilename());
+    private String putS3(MultipartFile uploadFile, String fileName) {
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType(uploadFile.getContentType());
+        metadata.setContentLength(uploadFile.getSize());
         try {
-            if(convertFile.createNewFile()) {
-                try (FileOutputStream fos = new FileOutputStream(convertFile)) {
-                    fos.write(file.getBytes());
-                }
-                return Optional.of(convertFile);
-            }
-        } catch (IOException e) {
-            throw new IllegalArgumentException("MultipartFile -> File로 작성 실패했습니다.");
-        }
+            amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile.getInputStream(), metadata).withCannedAcl(CannedAccessControlList.PublicRead));
 
-        return Optional.empty();
-    }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return amazonS3Client.getUrl(bucket, fileName).toString();
+}
+
 }
