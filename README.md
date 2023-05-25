@@ -6,9 +6,9 @@
 
 ### &nbsp;"실시간 개발환경 공유 플랫폼"
 
-## 2. 시연 영상 및 관련 링크 🔗
-- [배포링크](https://cobys.netlify.app/)
-- 시연영상 
+## 2. 관련 링크 🔗
+
+- [배포링크](https://cobys.netlify.app/) 
 - [피그마 링크](https://www.figma.com/file/qQDDWzqkgIukzNdL9UNkLP/Coby-Design-File?type=design&node-id=0-1&t=2oCCePBv0KUqnbtv-0)
 
 ## 3. 팀원소개 👨‍👨‍👧‍👦 
