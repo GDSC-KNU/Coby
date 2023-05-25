@@ -33,7 +33,7 @@ const GroupMember = () => {
             <div className={styles.group_Member_list_body}>
                 {leaders.map((leader) => (
                     leader.profileUrl ?
-                        <div className={styles.group_Member_list_item}>
+                        <div className={styles.group_Leader_list_item}>
                             <img
                                 src={leader.profileUrl}
                                 alt="groupImage"
