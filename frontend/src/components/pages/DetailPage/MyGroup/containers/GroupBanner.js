@@ -28,7 +28,6 @@ const GroupBanner = () => {
 
     function GroupMemberHandleClick(event){
         navigate("/GroupMember");
-        console.log(leaderName);
     }
 
     const showGroupEditModal = () => {
@@ -54,7 +53,7 @@ const GroupBanner = () => {
         });
     }, []);
 
-    const leaderName = members.filter((member) => member.userId === createdBy);
+    const leaderName = members.filter((member) => member.userId === createdBy)[0].name;
 
     return (
         <div>
@@ -66,7 +65,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;
+                        <img src={crown} alt="medal"/>&nbsp;{leaderName}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -87,7 +86,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;
+                        <img src={crown} alt="medal"/>&nbsp;{leaderName}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>

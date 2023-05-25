@@ -58,7 +58,6 @@ const PostDetail = () => {
             DeleteWrite(id).then((data) => {
                 alert("삭제 완료!");
                 navigate(`/groupboard`);
-                console.log(writer.profileUrl);
             });
         } catch (error) {
             console.error(error);
@@ -71,7 +70,7 @@ const PostDetail = () => {
             <Layout/>
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
-                {writer.profileUrl?
+                {writer[0].profileUrl?
                     <div className={styles.writeInfo}>
                     <img src={writer.profileUrl} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
@@ -81,7 +80,7 @@ const PostDetail = () => {
                 <div className={styles.writeInfo}>
                     <img src={person} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
-                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD')}</p>
+                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
                 </div>
                 }  
             </div>
