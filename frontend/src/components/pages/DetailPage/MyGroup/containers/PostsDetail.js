@@ -42,7 +42,7 @@ const PostDetail = () => {
         });
     }, []);
 
-    const writerProfileImg = members.filter((member) => member.userId === createdBy).profileUrl
+    const writer = members.filter((member) => member.userId === createdBy)
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -55,7 +55,6 @@ const PostDetail = () => {
     const remove = () => {
         try {
             DeleteWrite(id).then((data) => {
-                console.log(writerProfileImg);
                 alert("삭제 완료!");
                 navigate(`/groupboard`);
             });
@@ -70,11 +69,19 @@ const PostDetail = () => {
             <Layout/>
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
-                <div className={styles.writeInfo}>
-                    <img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>
+                {writer.profileUrl?
+                    <div className={styles.writeInfo}>
+                    <img src={writer.profileUrl} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
-                    <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
+                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
                 </div>
+                :
+                <div className={styles.writeInfo}>
+                    <img src={person} alt="profileImg" className={styles.profileImg}></img>
+                    <p className={styles.post_writer}>{createdBy}</p>
+                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
+                </div>
+                }  
             </div>
             <div className={styles.bottom}>
                 <p>{posts.content?ReactHtmlParser(posts.content):null}</p>
