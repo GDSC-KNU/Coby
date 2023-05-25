@@ -5,7 +5,7 @@ import ReactHtmlParser from 'html-react-parser';
 
 import person from '../../../../../assets/person.png';
 
-import MyGroup from "../../../../../sevices/MyGroup";
+import MyGroup from "../../../../../sevices/Groups";
 import MyPage from "../../../../../sevices/MyPage";
 import Detailget from "../../../../../sevices/Detailget";
 import DeleteWrite from "../../../../../sevices/DeleteWrite";
