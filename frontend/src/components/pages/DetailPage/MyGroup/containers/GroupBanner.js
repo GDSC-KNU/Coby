@@ -53,7 +53,7 @@ const GroupBanner = () => {
         });
     }, []);
 
-    const leader = members.filter((member) => member.userId === createdBy);
+    //const leader = members.filter((member) => member.userId === createdBy);
 
     return (
         <div>
@@ -65,7 +65,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{leader.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -86,7 +86,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{leader.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>

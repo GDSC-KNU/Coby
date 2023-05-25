@@ -43,7 +43,7 @@ const PostDetail = () => {
         });
     }, []);
 
-    const myMembers = members.filter((member) => member.userId === createdBy);
+    //const myMembers = members.filter((member) => member.userId === createdBy);
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -72,7 +72,6 @@ const PostDetail = () => {
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
                     {/*<img src={myMembers.profileUrl} alt="profileImg" className={styles.profileImg}></img>*/}
-                    <p>{myMembers}</p>
                     <p className={styles.post_writer}>{createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>
