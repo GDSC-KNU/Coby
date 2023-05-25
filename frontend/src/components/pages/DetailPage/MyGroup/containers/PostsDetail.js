@@ -69,7 +69,8 @@ const PostDetail = () => {
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
-                    <img src={myMembers.profileUrl} alt="profileImg" className={styles.profileImg}></img>
+                    {/*<img src={myMembers.profileUrl} alt="profileImg" className={styles.profileImg}></img>*/}
+                    <p>{myMembers}</p>
                     <p className={styles.post_writer}>{posts.createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>
