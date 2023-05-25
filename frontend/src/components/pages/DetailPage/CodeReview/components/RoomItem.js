@@ -12,21 +12,15 @@ function RoomItem(props) {
   const [count, setCount] = useState(1);
 
   const handleClick = () => {
-    if (count === 6) {
-      alert("입장 인원 수가 초과했습니다.");
-    } else {
-      if (props.password.trim().length !== 0) {
-        const password = prompt("비밀번호를 입력하세요.");
-        if (props.password === password) {
-          navigate("/CodeRoom");
-          setCount(count + 1);
-        } else if (password !== null) {
-          alert("비밀번호가 일치하지 않습니다.");
-        }
-      } else {
+    if (props.password.trim().length !== 0) {
+      const password = prompt("비밀번호를 입력하세요.");
+      if (props.password === password) {
         navigate("/CodeRoom");
-        setCount(count + 1);
+      } else if (password !== null) {
+        alert("비밀번호가 일치하지 않습니다.");
       }
+    } else {
+      navigate("/CodeRoom");
     }
   };
 
@@ -95,7 +89,6 @@ function RoomItem(props) {
           </div>
           <div className={styles.RoomItemLockedDescription}>
             <img src={locked} alt="로고" className={styles.RoomItemLocked} />
-            <div className={styles.person}>{count}명 / 6명</div>
           </div>
         </div>
       ) : (
@@ -114,7 +107,6 @@ function RoomItem(props) {
           </div>
           <div className={styles.RoomItemLockedDescription}>
             <img src={unlocked} alt="로고" className={styles.RoomItemLocked} />
-            <div className={styles.person}>{count}명/ 6명</div>
           </div>
         </div>
       )}

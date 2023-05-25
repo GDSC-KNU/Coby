@@ -26,7 +26,7 @@ function MakeRoomModalPair(props) {
       event.target.value.trim().length < 16 &&
         event.target.value.trim().length > 0 &&
         enteredLink.includes(
-          "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+          ""
         )
     );
   };
@@ -55,7 +55,7 @@ function MakeRoomModalPair(props) {
     setEnteredLink(event.target.value);
     setFormIsValid(
       event.target.value.includes(
-        "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+        ""
       ) &&
         enteredTitle.trim().length < 16 &&
         enteredTitle.trim().length > 0
@@ -67,7 +67,7 @@ function MakeRoomModalPair(props) {
   const validateLinkHandler = () => {
     setIsLinkValid(
       enteredLink.includes(
-        "https://prod.liveshare.vsengsaas.visualstudio.com/join?"
+        ""
       )
     );
   };
@@ -157,6 +157,7 @@ function MakeRoomModalPair(props) {
           <p>링크</p>
           <input
             type="text"
+            placeholder="https://prod.liveshare.vsengsaas.visualstudio.com/join?"
             value={enteredLink}
             onChange={linkChangeHandler}
             onBlur={validateLinkHandler}
