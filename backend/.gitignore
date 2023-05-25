@@ -44,5 +44,5 @@ application-aws.yml
 application-credentials.yml
 
 ### SSL ###
-static/.well-known/
+src/main/resources/static
 keystore.p12
