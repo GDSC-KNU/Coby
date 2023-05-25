@@ -27,7 +27,6 @@ const GroupBanner = () => {
     }
 
     function GroupMemberHandleClick(event){
-        console.log(leaderName.name);
         navigate("/GroupMember");
     }
 
@@ -66,7 +65,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;
+                        <img src={crown} alt="medal"/>&nbsp;{leaderName.name}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -87,7 +86,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;
+                        <img src={crown} alt="medal"/>&nbsp;{leaderName.name}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
