@@ -27,7 +27,7 @@ const GroupBanner = () => {
     }
 
     function GroupMemberHandleClick(event){
-        console.log(leaderName);
+        console.log(leaderName.name);
         navigate("/GroupMember");
     }
 
