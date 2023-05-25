@@ -19,7 +19,6 @@ const GroupBanner = () => {
     const [members, setMembers] = useState([]);
 
     function GroupInfoHandleClick(event){
-        console.log(leaderName)
         navigate("/GroupInfo");
     }
 
@@ -29,6 +28,7 @@ const GroupBanner = () => {
 
     function GroupMemberHandleClick(event){
         navigate("/GroupMember");
+        console.log(leaderName);
     }
 
     const showGroupEditModal = () => {

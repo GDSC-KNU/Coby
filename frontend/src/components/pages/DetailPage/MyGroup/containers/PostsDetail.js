@@ -58,6 +58,7 @@ const PostDetail = () => {
             DeleteWrite(id).then((data) => {
                 alert("삭제 완료!");
                 navigate(`/groupboard`);
+                console.log(writer.profileUrl);
             });
         } catch (error) {
             console.error(error);
