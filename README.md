@@ -155,14 +155,15 @@
 
 - 피그마 전체 화면
   
-  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d" width="750px" height = "500px" />
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/80fad036-70cb-42bc-bdee-8195a46d5f1f" width="750px" height = "600px" />
 
 - 데이터베이스 (ERDs)
-- 서비스 기대효과 및 활용방안
+
 
 ## 6. Project Structure
 
--frontend
+- frontend
+
 ```
 ├─assets
 ├─components
@@ -223,6 +224,38 @@
 └─sevices
 
 ```
+```
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0",
+    "@ckeditor/ckeditor5-react": "^6.0.0",
+    "@stomp/stompjs": "^7.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.4.6",
+    "axios": "^1.3.4",
+    "html-react-parser": "^3.0.16",
+    "moment": "^2.29.4",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "net": "^1.0.2",
+    "qs": "^6.11.2",
+    "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.8.0",
+    "react-js-pagination": "^3.0.3",
+    "react-router-dom": "^6.8.2",
+    "react-scripts": "^5.0.1",
+    "react-slick": "^0.29.0",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
+    "styled-component": "^2.8.0",
+    "styled-components": "^5.3.9",
+    "web-vitals": "^2.1.4"
+```
+
 -backend
 
 
