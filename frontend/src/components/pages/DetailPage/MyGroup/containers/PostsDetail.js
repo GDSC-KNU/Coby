@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate} from "react-router-dom";
 import ReactHtmlParser from 'html-react-parser';
 
-import person from '../../../images/person.png';
+import person from '../../../../../assets/person.png';
 
-import MyGroup from "../../../sevices/MyGroup";
-import MyPage from "../../../sevices/MyPage";
-import Detailget from "../../../sevices/Detailget";
-import DeleteWrite from "../../../sevices/DeleteWrite";
-import Layout from '../../../components/reuseUI/Layout'
+import MyGroup from "../../../../../sevices/MyGroup";
+import MyPage from "../../../../../sevices/MyPage";
+import Detailget from "../../../../../sevices/Detailget";
+import DeleteWrite from "../../../../../sevices/DeleteWrite";
+import Layout from '../../../../common/Layout/Layout';
 import moment from 'moment'
 
-import styles from './PostsDetail.module.css'
+import styles from '../css/PostsDetail.module.css';
 
 const PostDetail = () => {
     const navigate = useNavigate();
