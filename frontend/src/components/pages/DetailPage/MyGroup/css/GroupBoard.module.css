@@ -130,7 +130,7 @@ ul.pagination li a.active {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-decoration-line: none;
+
   text-align: center;
   color: black;
 }
@@ -150,6 +150,10 @@ ul.pagination li a.active {
 .post_item_writer {
   font-size: 0.93rem;
   width: 25%;
+  text-align: center;
+}
+.post_title{
+  text-decoration-line: none;
   text-align: center;
 }
 

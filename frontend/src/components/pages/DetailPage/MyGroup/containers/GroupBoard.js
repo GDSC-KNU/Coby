@@ -44,7 +44,7 @@ const GroupBoard = () => {
                 posts.map((post) => (
                     <div className={styles.post_item}>
                       <div className={styles.post_item_title}>
-                        <a href={`/posts/${post.id}`}>{post.title}</a>
+                        <a href={`/posts/${post.id}`} className={styles.post_title}>{post.title}</a>
                       </div>
                       <div className={styles.post_item_writer}>{post.createdBy}</div>
                       <div className={styles.post_item_date}>{moment(post.createdAt).format('MMMM Do YYYY')}</div>
