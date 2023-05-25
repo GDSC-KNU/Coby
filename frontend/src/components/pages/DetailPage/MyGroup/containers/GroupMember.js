@@ -37,9 +37,9 @@ const GroupMember = () => {
                             <img
                                 src={leader.profileUrl}
                                 alt="groupImage"
-                                className={styles.groupMember_img}
+                                className={styles.groupLeader_img}
                             />
-                            <p className={styles.member_name}><img src={crown} alt="crown"></img>{leader.name}</p>
+                            <p className={styles.member_name}>{leader.name}</p>
                             <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
                         </div>
                         :
@@ -49,7 +49,7 @@ const GroupMember = () => {
                                 alt="groupImage"
                                 className={styles.groupMember_img}
                             />
-                            <p className={styles.member_name}><img src={crown} alt="crown"></img>{leader.name}</p>
+                            <p className={styles.member_name}>{leader.name}</p>
                             <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
                         </div>
                 ))}
