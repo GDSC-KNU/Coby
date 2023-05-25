@@ -110,252 +110,63 @@
 
 -frontend
 ```
-│  App.css
-│  App.js
-│  index.css
-│  index.js
-│  
 ├─assets
-│      banner1.png
-│      banner2.png
-│      banner3.png
-│      banner4.png
-│      Coby.png
-│      Coby_darkBlue.png
-│      crown.png
-│      crown1.png
-│      exit.png
-│      Group.png
-│      GroupImg.png
-│      GroupInsignia.png
-│      icon-search.png
-│      locked.png
-│      logo_black.png
-│      medal.png
-│      member.png
-│      minilogo.png
-│      MyGroup.png
-│      NoGroup.png
-│      pencil.png
-│      person.png
-│      Question.png
-│      silver.png
-│      unlocked.png
-│      user.png
-│      Vector.png
-│      
 ├─components
 │  ├─common
-│  │  │  Backdrop.js
-│  │  │  Card.js
-│  │  │  
 │  │  ├─css
-│  │  │      Backdrop.css
-│  │  │      Card.css
-│  │  │      
 │  │  └─Layout
-│  │      │  Header.js
-│  │      │  Layout.js
-│  │      │  
 │  │      └─css
-│  │              Header.css
-│  │              Layout.css
-│  │              
 │  └─pages
 │      ├─DetailPage
 │      │  ├─CodeReview
 │      │  │  ├─components
-│      │  │  │  │  MakeRoom.js
-│      │  │  │  │  RoomItem.js
-│      │  │  │  │  searchFilter.js
-│      │  │  │  │  ToolFilter.js
-│      │  │  │  │  
 │      │  │  │  ├─css
-│      │  │  │  │      MakeRoom.module.css
-│      │  │  │  │      RoomItem.module.css
-│      │  │  │  │      ToolFilter.css
-│      │  │  │  │      
 │      │  │  │  └─Modal
-│      │  │  │      │  MakeRoomLanguageFilter.js
-│      │  │  │      │  MakeRoomModal.js
-│      │  │  │      │  MakeRoomPurposeFilter.js
-│      │  │  │      │  MakeRoomToolFilter.js
-│      │  │  │      │  NewMakeRoom.js
-│      │  │  │      │  
 │      │  │  │      └─css
-│      │  │  │              MakeRoomModal.module.css
-│      │  │  │              MakeRoomToolFilter.css
-│      │  │  │              
 │      │  │  ├─containers
-│      │  │  │      CodeRoomListPage.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          CodeRoomListPage.css
-│      │  │          
 │      │  ├─CodeRoom
 │      │  │  ├─CodeReview
 │      │  │  │  ├─components
-│      │  │  │  │  │  Sidebar.js
-│      │  │  │  │  │  
 │      │  │  │  │  └─css
-│      │  │  │  │          Sidebar.module.css
-│      │  │  │  │          
 │      │  │  │  ├─containers
-│      │  │  │  │      CodeRoom.js
-│      │  │  │  │      
 │      │  │  │  └─css
-│      │  │  │          CodeRoom.css
-│      │  │  │          
 │      │  │  └─PairProgramming
 │      │  │      ├─components
-│      │  │      │  │  SidebarPair.js
-│      │  │      │  │  
 │      │  │      │  └─css
-│      │  │      │          SidebarPair.module.css
-│      │  │      │          
 │      │  │      ├─containers
-│      │  │      │      CodeRoomPair.js
-│      │  │      │      
 │      │  │      └─css
-│      │  │              CodeRoomPair.css
-│      │  │              
 │      │  ├─Help
 │      │  │  ├─containers
-│      │  │  │      Help.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          Help.module.css
-│      │  │          
 │      │  ├─Login
 │      │  │  ├─containers
-│      │  │  │      LoginModal.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          LoginModal.module.css
-│      │  │          
 │      │  ├─MyGroup
 │      │  │  ├─components
-│      │  │  │  │  findGroup.js
-│      │  │  │  │  makeGroup.js
-│      │  │  │  │  myGroupEdit.js
-│      │  │  │  │  myInfoEdit.js
-│      │  │  │  │  
 │      │  │  │  └─css
-│      │  │  │          findGroupModal.css
-│      │  │  │          makeGroup.css
-│      │  │  │          myGroupEdit.css
-│      │  │  │          myInfoEdit.css
-│      │  │  │          
 │      │  │  ├─containers
-│      │  │  │      BoardWirte.js
-│      │  │  │      GroupBanner.js
-│      │  │  │      GroupBoard.js
-│      │  │  │      GroupInfo.js
-│      │  │  │      GroupMember.js
-│      │  │  │      NoGroup.js
-│      │  │  │      PostsDetail.js
-│      │  │  │      PostsModify.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          BoardWrite.css
-│      │  │          GroupBanner.css
-│      │  │          GroupBoard.module.css
-│      │  │          GroupInfo.module.css
-│      │  │          GroupMember.module.css
-│      │  │          NoGroup.module.css
-│      │  │          PostModify.module.css
-│      │  │          PostsDetail.module.css
-│      │  │          
 │      │  ├─MyPage
 │      │  │  ├─containers
-│      │  │  │      MyPageModal.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          MyPageModal.css
-│      │  │          
 │      │  ├─PairProgramming
 │      │  │  ├─components
-│      │  │  │  │  MakeRoomPair.js
-│      │  │  │  │  RoomItemPair.js
-│      │  │  │  │  ToolFilterPair.js
-│      │  │  │  │  
 │      │  │  │  ├─css
-│      │  │  │  │      MakeRoomPair.module.css
-│      │  │  │  │      RoomItemPair.module.css
-│      │  │  │  │      ToolFilterPair.css
-│      │  │  │  │      
 │      │  │  │  └─Modal
-│      │  │  │      │  MakeRoomLanguageFilterPair.js
-│      │  │  │      │  MakeRoomModalPair.js
-│      │  │  │      │  MakeRoomPurposeFilterPair.js
-│      │  │  │      │  MakeRoomToolFilterPair.js
-│      │  │  │      │  NewMakeRoomPair.js
-│      │  │  │      │  
 │      │  │  │      └─css
-│      │  │  │              MakeRoomModalPair.module.css
-│      │  │  │              MakeRoomToolFilterPair.css
-│      │  │  │              
 │      │  │  ├─containers
-│      │  │  │      PairCodeRoomListPage.js
-│      │  │  │      
 │      │  │  └─css
-│      │  │          PairCodeRoomListPage.css
-│      │  │          
 │      │  └─SignIn
 │      │      ├─containers
-│      │      │      SigninModal.js
-│      │      │      
 │      │      └─css
-│      │              SigninModal.module.css
-│      │              
 │      └─MainPages
 │          ├─components
-│          │  │  Carousel.js
-│          │  │  Menu.js
-│          │  │  
 │          │  └─css
-│          │          Menu.css
-│          │          slick-theme.css
-│          │          slick.css
-│          │          
 │          ├─containers
-│          │      Main.js
-│          │      
 │          └─css
-│                  Main.css
-│                  
 ├─constants
-│      Url.js
-│      
 └─sevices
-        Board.js
-        DeleteGroup.js
-        DeleteRoom.js
-        DeleteWrite.js
-        Detailget.js
-        getRoomId.js
-        Groups.js
-        GroupWrite.js
-        JoinGroups.js
-        leaveGroup.js
-        Login.js
-        Logout.js
-        MakeGroup.js
-        Modify.js
-        MyGroup.js
-        MyGroupInfoEdit.js
-        MyPage.js
-        MyprofileEdit.js
-        SaveRoomList.js
-        SaveRoomListPair.js
-        SearchRoomList.js
-        SearchRoomListPair.js
-        ShowRoomList.js
-        ShowRoomListPair.js
-        signUp.js
-        WebSocket.js
-        
-
 
 ```
 -backend
