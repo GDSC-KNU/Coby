@@ -80,7 +80,7 @@ const PostDetail = () => {
                 <div className={styles.writeInfo}>
                     <img src={person} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
-                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
+                    <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD')}</p>
                 </div>
                 }  
             </div>
