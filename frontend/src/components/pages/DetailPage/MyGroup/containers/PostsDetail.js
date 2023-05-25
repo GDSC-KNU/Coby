@@ -42,7 +42,7 @@ const PostDetail = () => {
         });
     }, []);
 
-    const writerProfileImg = members.filter((member) => member.userId === createdBy).profileUrl ? members.filter((member) => member.userId === createdBy).profileUrl : person;
+    const writerProfileImg = members.filter((member) => member.userId === createdBy).profileUrl
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
