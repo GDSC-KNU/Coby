@@ -6,7 +6,12 @@
 
 ### &nbsp;"실시간 개발환경 공유 플랫폼"
 
-## 2. 팀원소개 👨‍👨‍👧‍👦 
+## 2. 시연 영상 및 관련 링크 🔗
+- [배포링크](https://cobys.netlify.app/)
+- 시연영상 
+- [피그마 링크](https://www.figma.com/file/qQDDWzqkgIukzNdL9UNkLP/Coby-Design-File?type=design&node-id=0-1&t=2oCCePBv0KUqnbtv-0)
+
+## 3. 팀원소개 👨‍👨‍👧‍👦 
 
 <table>
   <tr>
@@ -42,7 +47,7 @@
   </tr>
 </table>
 
-## 3. 기술스택 🔧
+## 4. 기술스택 🔧
  
  - Frontend
  <p>
@@ -72,7 +77,7 @@
   <img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=Netlify&logoColor=white"/>
 </p>
   
-## 4. 서비스 설명 📌
+## 5. 서비스 설명 📌
 
 - 서비스 소개
   <div>
@@ -101,9 +106,69 @@
 - 데이터베이스 (ERDs)
 - 서비스 기대효과 및 활용방안
 
+## 6. Project Structure
+
+-frontend
+```
+├─assets
+├─components
+│  ├─common
+│  │  ├─css
+│  │  └─Layout
+│  │      └─css
+│  └─pages
+│      ├─DetailPage
+│      │  ├─CodeReview
+│      │  │  ├─components
+│      │  │  │  ├─css
+│      │  │  │  └─Modal
+│      │  │  │      └─css
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  ├─CodeRoom
+│      │  │  ├─CodeReview
+│      │  │  │  ├─components
+│      │  │  │  │  └─css
+│      │  │  │  ├─containers
+│      │  │  │  └─css
+│      │  │  └─PairProgramming
+│      │  │      ├─components
+│      │  │      │  └─css
+│      │  │      ├─containers
+│      │  │      └─css
+│      │  ├─Help
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  ├─Login
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  ├─MyGroup
+│      │  │  ├─components
+│      │  │  │  └─css
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  ├─MyPage
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  ├─PairProgramming
+│      │  │  ├─components
+│      │  │  │  ├─css
+│      │  │  │  └─Modal
+│      │  │  │      └─css
+│      │  │  ├─containers
+│      │  │  └─css
+│      │  └─SignIn
+│      │      ├─containers
+│      │      └─css
+│      └─MainPages
+│          ├─components
+│          │  └─css
+│          ├─containers
+│          └─css
+├─constants
+└─sevices
+
+```
+-backend
 
 
-## 5. 시연 영상 및 관련 링크 🔗
-- [배포링크](https://cobys.netlify.app/)
-- 시연영상 
-- [피그마 링크](https://www.figma.com/file/qQDDWzqkgIukzNdL9UNkLP/Coby-Design-File?type=design&node-id=0-1&t=2oCCePBv0KUqnbtv-0)
