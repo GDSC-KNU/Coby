@@ -1,8 +1,7 @@
 package com.gdsc.coby.service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.gdsc.coby.domain.Group;
 import com.gdsc.coby.domain.User;
 import com.gdsc.coby.dto.GroupDto;
@@ -18,11 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.webjars.NotFoundException;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -71,10 +68,14 @@ public class GroupService {
         else join(group.getId());
 
         if(profileImage!=null) {
-            String uploadImageUrl = upload(group.getName(), profileImage);
-
-            if (uploadImageUrl != null && !uploadImageUrl.equals(group.getProfileUrl()))
-                group.setProfileUrl(uploadImageUrl);
+            try {
+                String uploadImageUrl = upload(profileImage);
+                if (uploadImageUrl != null && !uploadImageUrl.equals(group.getProfileUrl()))
+                    group.setProfileUrl(uploadImageUrl);
+            }
+            catch (Exception e) {
+                throw new IllegalArgumentException("S3 업로드 실패");
+            }
         }
         return GroupDto.from(group);
     }
@@ -129,11 +130,16 @@ public class GroupService {
 
         if(name!=null && !group.getName().equals(name)) group.setName(name);
         if(description!=null && !group.getDescription().equals(description)) group.setDescription(description);
-        if(profileImage!=null) {
-            String uploadImageUrl = upload(group.getName(), profileImage);
 
-            if (uploadImageUrl != null && !uploadImageUrl.equals(group.getProfileUrl()))
-                group.setProfileUrl(uploadImageUrl);
+        if(profileImage!=null) {
+            try {
+                String uploadImageUrl = upload(profileImage);
+                if (uploadImageUrl != null && !uploadImageUrl.equals(group.getProfileUrl()))
+                    group.setProfileUrl(uploadImageUrl);
+            }
+            catch (Exception e) {
+                throw new IllegalArgumentException("S3 업로드 실패");
+            }
         }
 
         return GroupDto.from(group);
@@ -146,48 +152,20 @@ public class GroupService {
         return true;
     }
 
-    private String upload(String groupName, MultipartFile multipartFile) {
-        File uploadFile = convert(multipartFile)
-                .orElseThrow(() -> new IllegalArgumentException("MultipartFile -> File로 전환이 실패했습니다."));
+    private String upload(MultipartFile multipartFile) throws IOException {
+        String fileName = "GroupProfile/"+ UUID.randomUUID()+"-"+multipartFile.getOriginalFilename();
 
-        // UserProfile/groupName/파일이름
-        String fileName = "GroupProfile/"+ groupName.toString() + "/" + uploadFile.getName();
-        String uploadImageUrl = putS3(uploadFile, fileName);
-        removeNewFile(uploadFile);
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentLength(multipartFile.getInputStream().available());
 
-        return uploadImageUrl;
-    }
+        try {
+            amazonS3Client.putObject(bucket, fileName, multipartFile.getInputStream(), metadata);
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("putobject 실패");
+        }
 
-    private String putS3(File uploadFile, String fileName) {
-        amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(
-                CannedAccessControlList.PublicRead));
         return amazonS3Client.getUrl(bucket, fileName).toString();
     }
-
-    private void removeNewFile(File targetFile) {
-        if (targetFile.delete()) {
-            log.info("파일이 삭제되었습니다.");
-        } else {
-            log.info("파일이 삭제되지 못했습니다.");
-        }
-    }
-
-    private Optional<File> convert(MultipartFile file) {
-
-        File convertFile = new File(file.getOriginalFilename());
-        try {
-            if(convertFile.createNewFile()) {
-                try (FileOutputStream fos = new FileOutputStream(convertFile)) {
-                    fos.write(file.getBytes());
-                }
-                return Optional.of(convertFile);
-            }
-        } catch (IOException e) {
-            throw new IllegalArgumentException("MultipartFile -> File로 작성 실패했습니다.");
-        }
-
-        return Optional.empty();
-    }
-
 
 }
