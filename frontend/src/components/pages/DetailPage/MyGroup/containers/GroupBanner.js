@@ -43,6 +43,7 @@ const GroupBanner = () => {
             setGroupimage(data.profileUrl);
             setCreatedBy(data.createdBy);
             setMembers(data.members);
+            console.log(leaderName.name)
         }).catch((err) => {
             console.log(err.message);
         });
@@ -65,7 +66,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{leaderName.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -86,7 +87,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{leaderName.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>

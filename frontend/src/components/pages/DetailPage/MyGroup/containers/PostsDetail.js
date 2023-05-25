@@ -26,6 +26,7 @@ const PostDetail = () => {
         Detailget(id).then((data) => {
             setPosts(data);
             setCreatedBy(data.createdBy);
+            console.log(writerImg)
         }).catch((err) => {
             console.log(err.message);
         });
