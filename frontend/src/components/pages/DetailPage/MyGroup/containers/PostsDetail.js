@@ -21,6 +21,7 @@ const PostDetail = () => {
     const [userId, setUserId] = useState('');
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState('');
+    const [writerProfileImg, setWriterProfileImg] = useState(person);
 
     useEffect(() => {
         Detailget(id).then((data) => {
@@ -43,8 +44,8 @@ const PostDetail = () => {
         });
     }, []);
 
-    //const myInfo = members.filter((member) => member.userId === createdBy);
-    const writerProfileImg = members.filter((member) => member.userId === createdBy);
+    const myInfo = members.filter((member) => member.userId === createdBy);
+    setWriterProfileImg(myInfo[0].profileUrl)
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -73,7 +74,7 @@ const PostDetail = () => {
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
-                    {/*<img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>*/}
+                    <img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>
