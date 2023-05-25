@@ -9,13 +9,14 @@ import MyPage from "../../../../../sevices/MyPage";
 import MyGroupEdit from "../components/myGroupEdit";
 import { useNavigate } from "react-router-dom";
 
-const GroupBanner = (props) => {
+const GroupBanner = () => {
     const [groupname, setGroupname] = useState("");
     const [groupimage, setGroupimage] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
     const [groupEditOpen, setGroupEditModalOpen] = useState(false);
     const navigate = useNavigate();
     const [myId, setMyId] = useState("");
     const [createdBy, setCreatedBy] = useState("");
+    const [members, setMembers] = useState([]);
 
     function GroupInfoHandleClick(event){
         navigate("/GroupInfo");
@@ -41,6 +42,7 @@ const GroupBanner = (props) => {
             setGroupname(data.name);
             setGroupimage(data.profileUrl);
             setCreatedBy(data.createdBy);
+            setMembers(data.members);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -61,7 +63,7 @@ const GroupBanner = (props) => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{props.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -82,7 +84,7 @@ const GroupBanner = (props) => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{props.name}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
