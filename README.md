@@ -134,9 +134,24 @@
   <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/22aa2c5d-786b-48ad-8339-09b381e18fb8" width="750px" height = "500px" />
 <br/>
 
-- 도움말
+- 그룹내부
   
-  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/5e504318-4207-49b7-8818-fc6c85f57dff" width="750px" height = "500px" />
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/395ab9e8-7538-49a4-bd86-c589f22f9376" width="750px" height = "500px" />
+<br/>
+
+- 그룹게시판
+  
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/fe5434a0-fbcd-402a-b82f-a6daf2459d6e" width="750px" height = "500px" />
+<br/>
+
+- 게시판 글 클릭시
+  
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/b65d89b0-8524-4479-af04-7a5146eeece8" width="750px" height = "500px" />
+<br/>
+
+- 그룹원 목록
+  
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/de650b18-7848-498d-b5ab-5fe2e5b0a930" width="750px" height = "500px" />
 <br/>
 
 - 서비스 목적
