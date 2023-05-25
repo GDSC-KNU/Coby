@@ -3,7 +3,6 @@ import GroupBanner from "../../../../../components/pages/DetailPage/MyGroup/cont
 import styles from "../css/GroupMember.module.css";
 import person from '../../../../../assets/person.png';
 import logo from '../../../../../assets/minilogo.png'
-import crown from '../../../../../assets/crown.png'
 
 import React, { useState, useEffect } from "react";
 import MyGroup from "../../../../../sevices/MyGroup";

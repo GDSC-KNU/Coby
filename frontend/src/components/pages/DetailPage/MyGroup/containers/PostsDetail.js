@@ -5,7 +5,7 @@ import ReactHtmlParser from 'html-react-parser';
 
 import person from '../../../../../assets/person.png';
 
-import MyGroup from "../../../../../sevices/Groups";
+import MyGroup from "../../../../../sevices/MyGroup";
 import MyPage from "../../../../../sevices/MyPage";
 import Detailget from "../../../../../sevices/Detailget";
 import DeleteWrite from "../../../../../sevices/DeleteWrite";
@@ -21,7 +21,6 @@ const PostDetail = () => {
     const [userId, setUserId] = useState('');
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState('');
-    const [writerProfileImg, setWriterProfileImg] = useState(person);
 
     useEffect(() => {
         Detailget(id).then((data) => {
@@ -30,10 +29,8 @@ const PostDetail = () => {
         }).catch((err) => {
             console.log(err.message);
         });
-        MyGroup()
-        .then((data) => {
+        MyGroup().then((data) => {
             setMembers(data.members);
-            console.log(members)
         })
         .catch((err) => {
             console.log(err.message);
@@ -45,7 +42,7 @@ const PostDetail = () => {
         });
     }, []);
 
-    //const myInfo = members.filter((member) => member.userId === createdBy);
+    const writerProfileImg = members.filter((member) => member.userId === createdBy).profileUrl ? members.filter((member) => member.userId === createdBy).profileUrl : person;
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -74,7 +71,7 @@ const PostDetail = () => {
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
-                    {/*<img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>*/}
+                    <img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>
