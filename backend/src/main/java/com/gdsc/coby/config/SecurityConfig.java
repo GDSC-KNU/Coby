@@ -57,7 +57,7 @@ public class SecurityConfig {
                 // 조건별로 요청 허용/제한 설정
                 .authorizeHttpRequests()
                 // 회원가입과 로그인은 모두 승인
-                .requestMatchers("/api/signup", "/api/login").permitAll()
+                .requestMatchers("/api/signup", "/api/login", "/.well-known/pki-validation/**").permitAll()
                 .requestMatchers("/v3/api-docs/**", "/configuration/**", "/swagger-resources/**", "/swagger-ui/**", "/webjars/**", "swagger-ui.html", "/api-docs/json").permitAll()
                 .requestMatchers("/api/users/**").hasRole("USER")
                 .anyRequest().authenticated()
