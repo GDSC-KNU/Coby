@@ -155,7 +155,7 @@
 
 - 피그마 전체 화면
   
-  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/a7235fb4-9460-4684-b704-b5580c0acc3d" width="750px" height = "500px" />
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/80fad036-70cb-42bc-bdee-8195a46d5f1f" width="750px" height = "600px" />
 
 - 데이터베이스 (ERDs)
 - 서비스 기대효과 및 활용방안
