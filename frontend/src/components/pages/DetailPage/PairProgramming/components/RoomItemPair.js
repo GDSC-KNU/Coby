@@ -98,7 +98,6 @@ function RoomItemPair(props) {
               alt="로고"
               className={styles.RoomItemLockedPair}
             />
-            <div className={styles.personPair}>{count}명 / 6명</div>
           </div>
         </div>
       ) : (
@@ -121,7 +120,6 @@ function RoomItemPair(props) {
               alt="로고"
               className={styles.RoomItemLockedPair}
             />
-            <div className={styles.personPair}>{count}명 / 6명</div>
           </div>
         </div>
       )}
