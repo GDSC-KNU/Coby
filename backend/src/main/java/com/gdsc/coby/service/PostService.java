@@ -2,8 +2,6 @@ package com.gdsc.coby.service;
 
 import com.gdsc.coby.domain.Group;
 import com.gdsc.coby.domain.Post;
-import com.gdsc.coby.domain.User;
-import com.gdsc.coby.dto.GroupDto;
 import com.gdsc.coby.dto.PostDto;
 import com.gdsc.coby.repository.GroupRepository;
 import com.gdsc.coby.repository.PostRepository;
@@ -29,16 +27,10 @@ public class PostService {
     private final UserRepository userRepository;
 
     @Transactional(readOnly = true)
-    public List<PostDto> getPosts(Long groupId) {
-        return groupRepository.findById(groupId)
-                .orElseThrow(() -> new EntityNotFoundException("그룹을 찾을 수 없습니다."))
-                .getPosts().stream()
+    public List<PostDto> getPosts() {
+        return postRepository.findAllByGroup_Id(getGroupIdBySecurity()).stream()
                 .map(PostDto::from)
                 .toList();
-
-//        return postRepository.findAllByGroup_Id(getGroupIdBySecurity()).stream()
-//                .map(PostDto::from)
-//                .toList();
     }
 
     @Transactional(readOnly = true)
@@ -48,12 +40,9 @@ public class PostService {
                 .orElseThrow(() -> new EntityNotFoundException("게시물을 찾을 수 없습니다."));
     }
 
-    public PostDto createPost(Long groupId, PostDto dto) {
-        Group group = groupRepository.findById(groupId)
+    public PostDto createPost(PostDto dto) {
+        Group group = groupRepository.findById(getGroupIdBySecurity())
                 .orElseThrow(() -> new EntityNotFoundException("그룹을 찾을 수 없습니다."));
-
-        if(!getGroupIdBySecurity().equals(groupId))
-            throw new AuthorizationServiceException("게시글 작성 권한이 없습니다. 그룹에 가입해주세요.");
 
         return PostDto.from(postRepository.save(dto.toEntity(group)));
     }

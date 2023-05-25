@@ -81,6 +81,7 @@ ul.pagination li a.active {
 .table {
   border-spacing: 0;
   width: 700px;
+  margin-top: 10px;
 }
 .first_th {
   line-height: 3rem;
