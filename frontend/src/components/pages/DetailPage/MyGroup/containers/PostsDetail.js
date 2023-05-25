@@ -21,7 +21,6 @@ const PostDetail = () => {
     const [userId, setUserId] = useState('');
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState('');
-    const [writerImg, setWriterImg] = useState('');
 
     useEffect(() => {
         Detailget(id).then((data) => {
@@ -32,8 +31,6 @@ const PostDetail = () => {
         });
         MyGroup().then((data) => {
             setMembers(data.members);
-            setWriterImg(data.members.filter((member) => member.userId === createdBy)[0])
-            console.log(writerImg);
         })
         .catch((err) => {
             console.log(err.message);
@@ -73,7 +70,7 @@ const PostDetail = () => {
                 <p className={styles.post_title}>{posts.title}</p>
                     <div className={styles.writeInfo}>
                     <img src={person} alt="profileImg" className={styles.profileImg}></img>
-                    <p className={styles.post_writer}>{createdBy}</p>
+                    <p className={styles.post_writer}>{posts.createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
             </div>
             </div>

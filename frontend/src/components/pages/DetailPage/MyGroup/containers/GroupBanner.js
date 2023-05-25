@@ -17,7 +17,6 @@ const GroupBanner = () => {
     const [myId, setMyId] = useState("");
     const [createdBy, setCreatedBy] = useState("");
     const [members, setMembers] = useState([]);
-    const [leaderName, setLeaderName] = useState("");
 
     function GroupInfoHandleClick(event){
         navigate("/GroupInfo");
@@ -44,7 +43,6 @@ const GroupBanner = () => {
             setGroupimage(data.profileUrl);
             setCreatedBy(data.createdBy);
             setMembers(data.members);
-            setLeaderName(data.members.filter((member) => member.userId === createdBy)[0].name);
         }).catch((err) => {
             console.log(err.message);
         });
@@ -65,7 +63,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{createdBy}{leaderName}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
@@ -86,7 +84,7 @@ const GroupBanner = () => {
                         <p>{groupname}</p>
                     </div>
                     <div className="group_boss">
-                        <img src={crown} alt="medal"/>&nbsp;{createdBy}{leaderName}
+                        <img src={crown} alt="medal"/>&nbsp;{createdBy}
                     </div>
                     <div>
                         <button onClick={GroupInfoHandleClick} className="groupbtn">그룹정보</button>
