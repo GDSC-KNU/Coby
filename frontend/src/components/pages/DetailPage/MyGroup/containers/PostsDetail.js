@@ -44,7 +44,7 @@ const PostDetail = () => {
     }, []);
 
     //const myInfo = members.filter((member) => member.userId === createdBy);
-    const writerProfileImg = members.filter((member) => member.userId === createdBy)[0].profileUrl;
+    const writerProfileImg = members.filter((member) => member.userId === createdBy);
 
     const modify = () => {
         navigate(`/posts/${id}/modify`);
@@ -57,6 +57,7 @@ const PostDetail = () => {
     const remove = () => {
         try {
             DeleteWrite(id).then((data) => {
+                console.log(writerProfileImg);
                 alert("삭제 완료!");
                 navigate(`/groupboard`);
             });
@@ -72,7 +73,7 @@ const PostDetail = () => {
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
                 <div className={styles.writeInfo}>
-                    <img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>
+                    {/*<img src={writerProfileImg} alt="profileImg" className={styles.profileImg}></img>*/}
                     <p className={styles.post_writer}>{createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('MMMM Do YYYY')}</p>
                 </div>
