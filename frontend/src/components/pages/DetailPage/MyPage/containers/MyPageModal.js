@@ -21,16 +21,19 @@ function MyPageModal(props){
         setInfoEditModalOpen(false);
     }
     const onClickCheck = () => {
-        window.location.reload();
+        props.setModalOpen(false);
     }
 
     function checkGrade(exp) {
         if (exp < 1000) {
             setGrade('Bronze');
-        } else if (1000< exp <= 2000) {
+        } else if (exp<2000) {
             setGrade('Silver');
-        } else if (exp>2000) {
+        } else if (exp<3000) {
             setGrade('Gold');
+        }
+        else{
+            setGrade('Platinum');
         }
     }
     useEffect(() => {
@@ -41,11 +44,14 @@ function MyPageModal(props){
             data.profileUrl ?
                 setProfileImg(data.profileUrl) :
                 setProfileImg(person);
-            checkGrade(exp);
         }).catch((err) => {
             console.log('마이페이지 수정 모달 불러오기 실패');
         });
     }, []);
+
+    useEffect(() => {
+        checkGrade(exp);
+    }, [exp]);
 
     return (
         <div>
