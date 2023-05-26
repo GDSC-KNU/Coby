@@ -13,16 +13,22 @@ const GroupMember = () => {
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState("");
 
+    function checkGrade(exp) {
+        if (exp < 1000) {
+            return 'Bronze';
+        } else if (exp<2000) {
+            return 'Silver';
+        } else if (exp<3000) {
+            return 'Gold';
+        }
+        else{
+            return 'Platinum';
+        }
+    }
+
     useEffect(() => {
-        MyGroup()
-            .then((data) => {
-                setCreatedBy(data.createdBy);
-                setMembers(data.members);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }, []);
+        checkGrade(members.exp_point);
+    }, [members.exp_point]);
 
     const leaders = members.filter((member) => member.userId === createdBy);
     const others = members.filter((member) => member.userId !== createdBy);
@@ -42,7 +48,7 @@ const GroupMember = () => {
                                 <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
                             </div>
                             <div className={styles.member_third}>
-                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{checkGrade(leader.exp_point)}</p>
                             </div>
                             <div className={styles.member_fourth}>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
@@ -57,7 +63,7 @@ const GroupMember = () => {
                                 <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
                             </div>
                             <div className={styles.member_third}>
-                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{checkGrade(leader.exp_point)}</p>
                             </div>
                             <div className={styles.member_fourth}>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
@@ -74,7 +80,7 @@ const GroupMember = () => {
                                 <p className={styles.member_name}>{member.name}</p>
                             </div>
                             <div className={styles.member_third}>
-                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{checkGrade(member.exp_point)}</p>
                             </div>
                             <div className={styles.member_fourth}>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
@@ -89,7 +95,7 @@ const GroupMember = () => {
                                 <p className={styles.member_name}>{member.name}</p>
                             </div>
                             <div className={styles.member_third}>
-                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{checkGrade(member.exp_point)}</p>
                             </div>
                             <div className={styles.member_fourth}>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
