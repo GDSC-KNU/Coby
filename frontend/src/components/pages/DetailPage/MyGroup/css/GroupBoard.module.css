@@ -12,7 +12,7 @@
 
 .boardouter {
   position: absolute;
-  width: 720px;
+  width: 710px;
   height: 130vh;
   /* box-shadow: 0px 0px 6px #5579fe; */
   margin: 0;
@@ -97,7 +97,9 @@
 
 .post_item {
   display: flex;
-  margin: 1rem;
+  border-bottom: 1px solid #DFE5EC;
+  height: 2rem;
+  position: relative;
 }
 
 .post_item_title {
@@ -111,6 +113,9 @@
 
   text-align: center;
   color: black;
+  
+  position: relative;
+  top: 9px;
 }
 
 .profileImg{
@@ -136,6 +141,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  position: relative;
+  top: 9px;
 }
 
 .post_item_writer {
@@ -143,6 +150,9 @@
   width: 15%;
   height: 10px;
   text-align: left;
+
+  position: relative;
+  top: 9px;
 }
 .post_title{
   text-decoration-line: none;

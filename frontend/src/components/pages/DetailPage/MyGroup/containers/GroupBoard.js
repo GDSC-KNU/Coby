@@ -50,7 +50,41 @@ const GroupBoard = () => {
                       <div className={styles.post_item_date}>{moment(post.createdAt).format('YYYY.MM.DD')}</div>
                     </div>
                 ))}
-            </div>
+              {/*
+                <div className={styles.post_item}>
+                <div className={styles.post_item_title}>
+                  <a href={`/posts/${posts.id}`} className={styles.post_title}>
+                    테스트중입니다
+                  </a>
+                </div>
+                <div className={styles.post_item_writer}>
+                  <p className={styles.writer}><img src={person} alt="profileImg" className={styles.profileImg}></img>&nbsp;작성자</p>
+                </div>
+                <div className={styles.post_item_date}>2021.09.01</div>
+              </div>
+              <div className={styles.post_item}>
+                <div className={styles.post_item_title}>
+                  <a href={`/posts/${posts.id}`} className={styles.post_title}>
+                    테스트중입니다
+                  </a>
+                </div>
+                <div className={styles.post_item_writer}>
+                  <p className={styles.writer}><img src={person} alt="profileImg" className={styles.profileImg}></img>&nbsp;작성자</p>
+                </div>
+                <div className={styles.post_item_date}>2021.09.01</div>
+              </div>
+              <div className={styles.post_item}>
+                <div className={styles.post_item_title}>
+                  <a href={`/posts/${posts.id}`} className={styles.post_title}>
+                    테스트중입니다
+                  </a>
+                </div>
+                <div className={styles.post_item_writer}>
+                  <p className={styles.writer}><img src={person} alt="profileImg" className={styles.profileImg}></img>&nbsp;작성자</p>
+                </div>
+                <div className={styles.post_item_date}>2021.09.01</div>
+                </div>*/}
+              </div>
           </section>
           <button className={styles.writebtn} onClick={WriteHandleClick}>
             글쓰기
