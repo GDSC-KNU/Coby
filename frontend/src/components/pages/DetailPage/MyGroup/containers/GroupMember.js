@@ -3,6 +3,8 @@ import GroupBanner from "../../../../../components/pages/DetailPage/MyGroup/cont
 import styles from "../css/GroupMember.module.css";
 import person from '../../../../../assets/person.png';
 import logo from '../../../../../assets/minilogo.png'
+import medal from '../../../../../assets/medal.png'
+import crown from '../../../../../assets/crown2.png'
 
 import React, { useState, useEffect } from "react";
 import MyGroup from "../../../../../sevices/MyGroup";
@@ -38,7 +40,8 @@ const GroupMember = () => {
                                 alt="groupImage"
                                 className={styles.groupLeader_img}
                             />
-                            <p className={styles.member_name}>{leader.name}</p>
+                            <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
+                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
                             <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
                         </div>
                         :
@@ -49,6 +52,7 @@ const GroupMember = () => {
                                 className={styles.groupMember_img}
                             />
                             <p className={styles.member_name}>{leader.name}</p>
+                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
                             <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
                         </div>
                 ))}
@@ -61,6 +65,7 @@ const GroupMember = () => {
                                     className={styles.groupMember_img}
                                 />
                                 <p className={styles.member_name}>{member.name}</p>
+                                <p className={styles.member_point}><img src={medal} alt="medal"></img>{member.grade}</p>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
                         </div>
                         :
@@ -71,6 +76,7 @@ const GroupMember = () => {
                                 className={styles.groupMember_img}
                             />
                             <p className={styles.member_name}>{member.name}</p>
+                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
                             <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
                         </div>
                 ))}

@@ -4,6 +4,9 @@ import Layout from "../../../../../components/common/Layout/Layout";
 import GroupBanner from "./GroupBanner";
 import Writeget from "../../../../../sevices/Writeget";
 import { useNavigate } from "react-router-dom";
+import notice from "../../../../../assets/Vector.png";
+import person from "../../../../../assets/person.png";
+
 import moment from 'moment'
 
 const GroupBoard = () => {
@@ -30,15 +33,10 @@ const GroupBoard = () => {
       <GroupBanner />
         <div className={styles.boardouter}>
           <section className={styles.post_list}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th className={styles.first_th}>제목</th>
-                  <th className={styles.third_th}>작성자</th>
-                  <th className={styles.second_th}>작성일</th>
-                </tr>
-              </thead>
-            </table>
+            <h className={styles.boardTitle}>그룹 게시판</h>
+            <div className={styles.groupNotice}>
+              <p className={styles.noticeline}><img src={notice} alt="img" className={styles.noticeimg}></img><span className={styles.noticetitle}>&nbsp;&nbsp;공지사항&nbsp;&nbsp;&nbsp;</span>코린이를 위한 멘토멘티 프로그램 운영 중입니다. 많은 참여 부탁드립니다.</p>
+            </div>
             <div className={styles.post_list_body}>
               {
                 posts.map((post) => (
@@ -46,8 +44,10 @@ const GroupBoard = () => {
                       <div className={styles.post_item_title}>
                         <a href={`/posts/${post.id}`} className={styles.post_title}>{post.title}</a>
                       </div>
-                      <div className={styles.post_item_writer}>{post.createdBy}</div>
-                      <div className={styles.post_item_date}>{moment(post.createdAt).format('MMMM Do YYYY')}</div>
+                      <div className={styles.post_item_writer}>
+                        <p className={styles.writer}><img src={person} alt="profileImg" className={styles.profileImg}></img>&nbsp;{post.createdBy}</p>
+                      </div>
+                      <div className={styles.post_item_date}>{moment(post.createdAt).format('YYYY.MM.DD')}</div>
                     </div>
                 ))}
             </div>

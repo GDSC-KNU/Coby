@@ -14,58 +14,34 @@
   position: absolute;
   width: 720px;
   height: 130vh;
-  /* border: 1px solid #5579fe; */
   /* box-shadow: 0px 0px 6px #5579fe; */
   margin: 0;
-  left: 13.7rem;
+  left: 14.2rem;
+  margin-top: 3.5rem;
 }
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
+.boardTitle{
+  font-size: 2rem;
+  margin-left: 1rem;
+  font-weight: 900;
 }
 
-ul.pagination li {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #e2e2e2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
+.groupNotice {
+  margin-top: 0.8rem;
+  position: relative;
+  width: 710px;
+  height: 2.8rem;
+  background-color: #5579fe;
+  border-radius: 10px;
+  margin-top: 1.3rem;
 }
-
-ul.pagination li:first-child {
-  border-radius: 5px 0 0 5px;
-}
-
-ul.pagination li:last-child {
-  border-radius: 0 5px 5px 0;
-}
-
-ul.pagination li a {
-  text-decoration: none;
-  color: #337ab7;
-  font-size: 1rem;
-}
-
-ul.pagination li.active a {
+.noticeline {
+  position: relative;
+  top: 50%;
+  left: 1.2rem;
+  transform: translate(0, -50%);
   color: white;
-}
-
-ul.pagination li.active {
-  background-color: #337ab7;
-}
-
-ul.pagination li a:hover,
-ul.pagination li a.active {
-  color: blue;
+  font-size: 0.8rem;
+  font-weight: lighter;
 }
 
 .page-selection {
@@ -86,7 +62,7 @@ ul.pagination li a.active {
   line-height: 3rem;
   border-bottom: 1px solid #aaa;
   font-size: 1rem;
-  width: 50%;
+  width: 60%;
 }
 
 .second_th {
@@ -114,6 +90,9 @@ ul.pagination li a.active {
   margin: 0.1rem;
   /*border-spacing: 0;*/
   /*width: 700px;*/
+  margin-top: 1rem;
+  height: 58vh;
+  overflow: auto;
 }
 
 .post_item {
@@ -123,7 +102,7 @@ ul.pagination li a.active {
 
 .post_item_title {
   font-size: 0.93rem;
-  width: 53%;
+  width: 70%;
   display: inline-block;
 
   text-overflow: ellipsis;
@@ -133,13 +112,26 @@ ul.pagination li a.active {
   text-align: center;
   color: black;
 }
+
+.profileImg{
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
+}
+.writer{
+  position: relative;
+  bottom: 25px;
+}
+
 .post_item_title a {
   overflow: hidden;
 }
 
 .post_item_date {
   font-size: 0.93rem;
-  width: 20%;
+  width: 15%;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -148,8 +140,9 @@ ul.pagination li a.active {
 
 .post_item_writer {
   font-size: 0.93rem;
-  width: 25%;
-  text-align: center;
+  width: 15%;
+  height: 10px;
+  text-align: left;
 }
 .post_title{
   text-decoration-line: none;
@@ -163,7 +156,7 @@ ul.pagination li a.active {
   border-radius: 20px;
   background-color: #5579fe;
   border: 0px;
-  top: 600px;
+  top: 570px;
   left: 590px;
   color: white;
   cursor: pointer;

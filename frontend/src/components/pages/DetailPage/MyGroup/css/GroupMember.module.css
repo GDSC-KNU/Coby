@@ -45,7 +45,6 @@
   height: 50px;
   border-radius: 50px;
   margin-right: 1rem;
-  border: 3px solid yellow; 
 }
 .member_name{
   font-size: 1rem;
@@ -54,6 +53,11 @@
   font-size: 1rem;
   position: absolute;
   right: 140px;
+}
+.member_grade{
+  font-size: 1rem;
+  position: absolute;
+  left: 420px;
 }
 .crown{
   width: 20px;
