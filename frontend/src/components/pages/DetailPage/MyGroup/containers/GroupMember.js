@@ -26,10 +26,6 @@ const GroupMember = () => {
         }
     }
 
-    useEffect(() => {
-        checkGrade(members.exp_point);
-    }, [members.exp_point]);
-
     const leaders = members.filter((member) => member.userId === createdBy);
     const others = members.filter((member) => member.userId !== createdBy);
     
@@ -72,7 +68,7 @@ const GroupMember = () => {
                 ))}
                 {others.map((member) => (
                     member.profileUrl ?
-                        <div className={styles.group_Member_list_item}>
+                         <div className={styles.group_Member_list_item}>
                             <div className={styles.member_first}>
                                 <img src={member.profileUrl} alt="groupImage" className={styles.groupMember_img} />
                             </div>
@@ -102,6 +98,50 @@ const GroupMember = () => {
                             </div>
                         </div>
                 ))}
+                {/*
+                <div className={styles.group_Member_list_item}>
+                    <div className={styles.member_first}>
+                        <img src={person} alt="groupImage" className={styles.groupLeader_img} />
+                    </div>
+                    <div className={styles.member_second}>
+                        <p className={styles.member_name}>김민수 <img src={crown} alt="crown"></img></p>
+                    </div>
+                    <div className={styles.member_third}>
+                        <p className={styles.member_grade}><img src={medal} alt="medal"></img>Gold</p>
+                    </div>
+                    <div className={styles.member_fourth}>
+                        <p className={styles.member_point}><img src={logo} alt="logo"></img>2000</p>
+                    </div>
+                </div>
+                <div className={styles.group_Member_list_item}>
+                    <div className={styles.member_first}>
+                        <img src={person} alt="groupImage" className={styles.groupLeader_img} />
+                    </div>
+                    <div className={styles.member_second}>
+                        <p className={styles.member_name}>김민수 <img src={crown} alt="crown"></img></p>
+                    </div>
+                    <div className={styles.member_third}>
+                        <p className={styles.member_grade}><img src={medal} alt="medal"></img></p>
+                    </div>
+                    <div className={styles.member_fourth}>
+                        <p className={styles.member_point}><img src={logo} alt="logo"></img>0</p>
+                    </div>
+                </div>
+                <div className={styles.group_Member_list_item}>
+                    <div className={styles.member_first}>
+                        <img src={person} alt="groupImage" className={styles.groupLeader_img} />
+                    </div>
+                    <div className={styles.member_second}>
+                        <p className={styles.member_name}>김민수 <img src={crown} alt="crown"></img></p>
+                    </div>
+                    <div className={styles.member_third}>
+                        <p className={styles.member_grade}><img src={medal} alt="medal"></img>Platinum</p>
+                    </div>
+                    <div className={styles.member_fourth}>
+                        <p className={styles.member_point}><img src={logo} alt="logo"></img>4520</p>
+                    </div>  
+                </div>
+                */}
             </div>
         </div>
     );
