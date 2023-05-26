@@ -58,8 +58,8 @@ body {
 
 .userinfo1 {
     position: absolute;
-    left:33vh;
-    top:9vh;
+    left:270px;
+    top:70px;
     font-size: 23px;
     font-weight: 700;
     font-style: normal;
@@ -86,9 +86,9 @@ body {
 }
 
 .editbtn{
-    position: relative;
-    left: 20vh;
-    top: 5vh;
+    position: absolute;
+    left: 100px;
+    top: 200px;
     border-radius: 20px;
     width: 70px;
     height: 30px;
@@ -105,9 +105,9 @@ body {
     scale: 1.1;
 }
 .checkbtn{
-    position: relative;
-    left: 20vh;
-    top: 5vh;
+    position: absolute;
+    left: 180px;
+    top: 200px;
     margin-left: 5px;
     border-radius: 20px;
     width: 70px;

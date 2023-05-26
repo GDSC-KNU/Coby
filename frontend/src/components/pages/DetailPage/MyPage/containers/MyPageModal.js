@@ -27,9 +27,9 @@ function MyPageModal(props){
     function checkGrade(exp) {
         if (exp < 1000) {
             setGrade('Bronze');
-        } else if (exp < 2000) {
+        } else if (1000< exp <= 2000) {
             setGrade('Silver');
-        } else if (exp < 3000) {
+        } else if (exp>2000) {
             setGrade('Gold');
         }
     }

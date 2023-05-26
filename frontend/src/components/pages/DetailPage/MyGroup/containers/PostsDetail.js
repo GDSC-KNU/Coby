@@ -32,9 +32,9 @@ const PostDetail = () => {
         MyGroup().then((data) => {
             setMembers(data.members);
         })
-        .catch((err) => {
-            console.log(err.message);
-        });
+            .catch((err) => {
+                console.log(err.message);
+            });
         MyPage().then((data) => {
             setUserId(data.userId)
         }).catch((err) => {
@@ -68,26 +68,27 @@ const PostDetail = () => {
             <Layout/>
             <div className={styles.upper}>
                 <p className={styles.post_title}>{posts.title}</p>
-                    <div className={styles.writeInfo}>
+                <div className={styles.writeInfo}>
                     <img src={person} alt="profileImg" className={styles.profileImg}></img>
                     <p className={styles.post_writer}>{posts.createdBy}</p>
                     <p className={styles.post_time}>{moment(posts.createdAt).format('YYYY.MM.DD H:mm')}</p>
+                </div>
             </div>
             </div>
             <div className={styles.bottom}>
                 <p>{posts.content?ReactHtmlParser(posts.content):null}</p>
             </div>
             {userId === posts.createdBy ?
-            <div className={styles.btn}>
-                <button onClick={listClickHandler} className={styles.list_btn}>목록</button>
-                <button className={styles.btn1} onClick={modify}>수정</button>
-                <button className={styles.btn1} onClick={remove}>삭제</button>
-            </div>
-            :
-            <div className={styles.btn}>
-                <button onClick={listClickHandler} className={styles.list_btn}>목록</button>
-            </div>
-            }   
+                <div className={styles.btn}>
+                    <button onClick={listClickHandler} className={styles.list_btn}>목록</button>
+                    <button className={styles.btn1} onClick={modify}>수정</button>
+                    <button className={styles.btn1} onClick={remove}>삭제</button>
+                </div>
+                :
+                <div className={styles.btn}>
+                    <button onClick={listClickHandler} className={styles.list_btn}>목록</button>
+                </div>
+            }
         </div>
 
     );

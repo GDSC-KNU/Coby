@@ -5,6 +5,7 @@
 <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/2d3edc7c-52d7-4cae-8072-034ed987f7b8" width="270px" height = "250px" />
 
 ### &nbsp;"실시간 개발환경 공유 플랫폼"
+코드리뷰, 페어 프로그래밍의 활성화를 통해 긍정적인 개발 문화 정착에 앞장섭니다.
 
 ## 2. 관련 링크 🔗
 
@@ -59,32 +60,32 @@
 
 ## 4. 기술스택 🔧
  
- - Frontend
+ ### Frontend
  <p>
-   
     <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/>
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/>
     <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/>
     <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=Figma&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=Netlify&logoColor=white"/>
  </p> 
  
- - Backend
+ ### Backend
 
 <p>
-   
   <img src="https://img.shields.io/badge/Java-FF9E0F?style=flat&logo=Java&logoColor=white"/>
   <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Spring Data JPA-6DB33F?style=flat&logo=Spring Data JPA&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=flat&logo=Spring Security&logoColor=white"/>
+  <img src="https://img.shields.io/badge/QueryDSL-004088?style=flat&logo=QueryDSL&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Swagger UI-85EA2D?style=flat&logo=Swagger&logoColor=white"/>
+  <br/>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/>
-  </p>
-
-- DevOps
-
-<p>
-   
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=flat&logo=Amazon AWS&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=Redis&logoColor=white"/>
+  <br/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=Netlify&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AWS EC2-FF9900?style=flat&logo=Amazon EC2&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AWS S3-569A31?style=flat&logo=Amazon S3&logoColor=white"/>
 </p>
   
 ## 5. 서비스 설명 📌
@@ -172,7 +173,9 @@
   
   <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/113246980/80fad036-70cb-42bc-bdee-8195a46d5f1f" width="750px" height = "600px" />
 
-- 데이터베이스 (ERDs)
+- ERD
+
+  <img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/86460086/7a4426e5-4d53-42b0-97d2-c2f78a8fc392" width="750px" height = "600px" />
 
 
 ## 6. Project Structure
@@ -271,6 +274,10 @@
     "web-vitals": "^2.1.4"
 ```
 
--backend
+- backend
+
+Architecture
+
+<img style="border: 0px solid black !important; border-radius:50%;" src="https://github.com/GDSC-KNU/2nd-1st-Project-Team5/assets/86460086/d2b0a989-5247-449c-a622-d374b992c121" width="750px" height = "450px" />
 
 
