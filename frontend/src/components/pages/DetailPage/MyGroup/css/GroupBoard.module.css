@@ -1,6 +1,5 @@
 .groupBoardOuter {
   position: absolute;
-  right: 154px;
   display: column;
   align-items: center;
   justify-content: center;
@@ -164,7 +163,7 @@ ul.pagination li a.active {
   border-radius: 20px;
   background-color: #5579fe;
   border: 0px;
-  top: 400px;
+  top: 520px;
   left: 590px;
   color: white;
   cursor: pointer;
