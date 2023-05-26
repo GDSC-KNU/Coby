@@ -13,6 +13,15 @@ const GroupMember = () => {
     const [members, setMembers] = useState([]);
     const [createdBy, setCreatedBy] = useState("");
 
+    useEffect(() => {
+        MyGroup().then((data) => {
+            setMembers(data.members);
+            setCreatedBy(data.createdBy);
+        }).catch((err) => {
+            console.log(err.message);
+        });
+    }, []);
+
     function checkGrade(exp) {
         if (exp < 1000) {
             return 'Bronze';
