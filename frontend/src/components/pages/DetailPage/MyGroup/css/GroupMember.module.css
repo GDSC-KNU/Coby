@@ -22,6 +22,22 @@
   margin-top: 10px;
 }
 
+.member_first{
+  width: 10%;
+}
+.member_second{
+  width: 60%;
+  margin-left: 10px;
+  text-align: left;
+}
+.member_third{
+  width: 15%;
+  text-align: left;
+}
+.member_fourth{
+  width: 15%;
+  text-align: left;
+}
 .group_Member_list_item {
   display: flex;
   width: 600px;
@@ -51,13 +67,9 @@
 }
 .member_point{
   font-size: 1rem;
-  position: absolute;
-  right: 140px;
 }
 .member_grade{
   font-size: 1rem;
-  position: absolute;
-  left: 420px;
 }
 .crown{
   width: 20px;

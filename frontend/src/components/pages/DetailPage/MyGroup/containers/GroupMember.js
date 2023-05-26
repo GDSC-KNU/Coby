@@ -35,49 +35,65 @@ const GroupMember = () => {
                 {leaders.map((leader) => (
                     leader.profileUrl ?
                         <div className={styles.group_Member_list_item}>
-                            <img
-                                src={leader.profileUrl}
-                                alt="groupImage"
-                                className={styles.groupLeader_img}
-                            />
-                            <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
-                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
-                            <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
+                            <div className={styles.member_first}>
+                                <img src={leader.profileUrl} alt="groupImage" className={styles.groupLeader_img} />
+                            </div>
+                            <div className={styles.member_second}>
+                                <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
+                            </div>
+                            <div className={styles.member_third}>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
+                            </div>
+                            <div className={styles.member_fourth}>
+                                <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
+                            </div>
                         </div>
                         :
                         <div className={styles.group_Member_list_item}>
-                            <img
-                                src={person}
-                                alt="groupImage"
-                                className={styles.groupMember_img}
-                            />
-                            <p className={styles.member_name}>{leader.name}</p>
-                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
-                            <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
+                            <div className={styles.member_first}>
+                                <img src={person} alt="groupImage" className={styles.groupLeader_img} />
+                            </div>
+                            <div className={styles.member_second}>
+                                <p className={styles.member_name}>{leader.name} <img src={crown} alt="crown"></img></p>
+                            </div>
+                            <div className={styles.member_third}>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{leader.grade}</p>
+                            </div>
+                            <div className={styles.member_fourth}>
+                                <p className={styles.member_point}><img src={logo} alt="logo"></img>{leader.exp_point}</p>
+                            </div>
                         </div>
                 ))}
                 {others.map((member) => (
                     member.profileUrl ?
                         <div className={styles.group_Member_list_item}>
-                                <img
-                                    src={member.profileUrl}
-                                    alt="groupImage"
-                                    className={styles.groupMember_img}
-                                />
+                            <div className={styles.member_first}>
+                                <img src={member.profileUrl} alt="groupImage" className={styles.groupMember_img} />
+                            </div>
+                            <div className={styles.member_second}>
                                 <p className={styles.member_name}>{member.name}</p>
-                                <p className={styles.member_point}><img src={medal} alt="medal"></img>{member.grade}</p>
+                            </div>
+                            <div className={styles.member_third}>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
+                            </div>
+                            <div className={styles.member_fourth}>
                                 <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
+                            </div>
                         </div>
                         :
                         <div className={styles.group_Member_list_item}>
-                            <img
-                                src={person}
-                                alt="groupImage"
-                                className={styles.groupMember_img}
-                            />
-                            <p className={styles.member_name}>{member.name}</p>
-                            <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
-                            <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
+                            <div className={styles.member_first}>
+                                <img src={person} alt="groupImage" className={styles.groupMember_img} />
+                            </div>
+                            <div className={styles.member_second}>
+                                <p className={styles.member_name}>{member.name}</p>
+                            </div>
+                            <div className={styles.member_third}>
+                                <p className={styles.member_grade}><img src={medal} alt="medal"></img>{member.grade}</p>
+                            </div>
+                            <div className={styles.member_fourth}>
+                                <p className={styles.member_point}><img src={logo} alt="logo"></img>{member.exp_point}</p>
+                            </div>
                         </div>
                 ))}
             </div>
