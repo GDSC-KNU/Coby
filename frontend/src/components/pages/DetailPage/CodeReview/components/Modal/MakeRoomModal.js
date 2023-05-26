@@ -98,7 +98,6 @@ function MakeRoomModal(props) {
         enteredPassWord
       );
       console.log(Create);
-      localStorage.setItem(Create);
     } catch (error) {
       console.error(error);
       throw new Error(error.response.data.message);
