@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar"
 
 const CodeRoom = () => {
   return (
-    <div>
+    <div className="codeRoomOuter">
       <Sidebar />
       <div className="IframeBox">
         <p align="middle">
@@ -17,8 +17,8 @@ const CodeRoom = () => {
             scrolling="no"
             marginWidth="0"
             marginHeight="0"
-            width="1180"
-            height="691"
+            width="1400"
+            height="700"
           />
         </p>
       </div>

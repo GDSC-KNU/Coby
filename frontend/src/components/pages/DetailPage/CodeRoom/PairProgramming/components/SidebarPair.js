@@ -69,7 +69,7 @@ const SidebarPair = () => {
 
   return (
     <div className={styles.out}>
-      <div style={{ width: "320px" }} className={styles.sidebar1}>
+      <div style={{ width: "42px" }} className={styles.sidebar1}>
         <img
           src={logo}
           alt="로고"

@@ -1,14 +1,14 @@
-.IframeBox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    float: middle;
-    margin-left: 23rem;
-    width: 1180px;
-    max-width: 90%;
-    height: 100%;
-    
-    padding: 0.3rem;
-    background: #DFE5EC;
-    /*rgb(219,227,227)*/
+.IframeBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: middle;
+  margin-left: 5.5rem;
+  width: 100%;
+  max-width: 90%;
+  height: 100%;
+
+  //padding: 0.3rem;
+  background: #dfe5ec;
+  /*rgb(219,227,227)*/
 }
