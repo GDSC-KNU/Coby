@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../../../../assets/Coby.png";
+import logo from "../../../../../../assets/NarrowGroup.png";
 
 import styles from "./css/Sidebar.module.css";
 import exit from "../../../../../../assets/exit.png";
@@ -69,7 +69,7 @@ const Sidebar = () => {
 
   return (
     <div className={styles.out}>
-      <div style={{ width: "320px" }} className={styles.sidebar1}>
+      <div style={{ width: "42px" }} className={styles.sidebar1}>
         <img
           src={logo}
           alt="로고"

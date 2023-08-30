@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../css/CodeRoom.css";
-import Sidebar from "../components/NarrowSidebar"
+import Sidebar from "../components/Sidebar"
 
 const CodeRoom = () => {
   return (
