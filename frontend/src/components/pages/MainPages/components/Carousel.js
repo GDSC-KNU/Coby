@@ -57,16 +57,16 @@ export default class CenterMode extends Component {
       <div>
         <Slider {...settings}>
           <div>
-            <img src={img1} alt="banner1" onClick={()=>{window.open("https://sites.google.com/view/gdeveloperskorea/gdsc")}}/>
+            <img src={img1} alt="banner1" onClick={()=>{window.open("https://datainstitute.knu.ac.kr/contents/main.do")}}/>
           </div>
           <div>
-            <img src={img2} alt="banner2" onClick={()=>{window.open("https://sites.google.com/view/gdeveloperskorea/gdsc")}}/>
+            <img src={img2} alt="banner2" onClick={()=>{window.open("https://datainstitute.knu.ac.kr/contents/main.do")}}/>
           </div>
           <div>
-            <img src={img3} alt="banner3" onClick={()=>{window.open("https://sites.google.com/view/gdeveloperskorea/gdsc")}}/>
+            <img src={img3} alt="banner3" onClick={()=>{window.open("https://datainstitute.knu.ac.kr/contents/main.do")}}/>
           </div>
           <div>
-            <img src={img4} alt="banner4" onClick={()=>{window.open("https://sites.google.com/view/gdeveloperskorea/gdsc")}} />
+            <img src={img4} alt="banner4" onClick={()=>{window.open("https://datainstitute.knu.ac.kr/contents/main.do")}} />
           </div>
         </Slider>
       </div>
