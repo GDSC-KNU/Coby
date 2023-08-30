@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../css/CodeRoomPair.css";
-import SidebarPair from "../components/Sidebar";
+import SidebarPair from "../components/SidebarPair";
 
 const CodeRoomPair = () => {
   return (
