@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../../../../assets/NarrowGroup";
+import logo from "../../../../../../assets/NarrowGroup.png";
 
 import styles from "./css/Sidebar.module.css";
 import exit from "../../../../../../assets/exit.png";
