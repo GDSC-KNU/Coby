@@ -18,21 +18,16 @@ import PostsModify from "./components/pages/DetailPage/MyGroup/containers/PostsM
 import Help from "./components/pages/DetailPage/Help/containers/Help";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    setIsLogin(localStorage.getItem("token") ? true : false);
-  }, [localStorage.getItem("token")]);
 
   return (
       <div>
         <Routes>
-          <Route path="/" element={<Main isLogin = {isLogin} setIsLogin = {setIsLogin} />} />
+          <Route path="/" element={<Main />} />
           <Route path="/MakeRoom" element={<MakeRoom/>} />
           <Route path="/CodeRoom" element={<CodeRoom />} />
           <Route path="/CodeRoomPair" element={<CodeRoomPair />} />
-          <Route path="/CodeRoomList" element={<CodeRoomListPage isLogin={isLogin}/>} />
-          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage isLogin={isLogin}/>} />
+          <Route path="/CodeRoomList" element={<CodeRoomListPage/>} />
+          <Route path="/PairCodeRoomList" element={<PairCodeRoomListPage/>} />
           <Route path="/NoGroup" element={<Nogroup/>} />
           <Route path="/GroupInfo" element={<GroupInfo />}/>
           <Route path="/GroupBoard" element={<GroupBoard/>} />
